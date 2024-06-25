@@ -4,149 +4,185 @@ from .models import Question
 admin.site.register(Question)
 
 
-from .models import BIRD_KB_PR_BCKT				
-admin.site.register(BIRD_KB_PR_BCKT)
-from .models import BIRD_RSK_FAC_SA				
-admin.site.register(BIRD_RSK_FAC_SA)
-from .models import BIRD_RTNG_AGNCY				
-admin.site.register(BIRD_RTNG_AGNCY)
-from .models import BIRD_RTNG_SYSTM				
-admin.site.register(BIRD_RTNG_SYSTM)
-from .models import BIRD_SCRTY_PSTN				
-admin.site.register(BIRD_SCRTY_PSTN)
-from .models import BIRD_ASST_PL_LN_ASSGNMNT				
-admin.site.register(BIRD_ASST_PL_LN_ASSGNMNT)
-from .models import BIRD_SYNDCTD_CNTRCT				
-admin.site.register(BIRD_SYNDCTD_CNTRCT)
-from .models import BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM				
-admin.site.register(BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM)
-from .models import BIRD_RTNG_SYSTM_APPLD_LGL_PRSN				
-admin.site.register(BIRD_RTNG_SYSTM_APPLD_LGL_PRSN)
-from .models import BIRD_ASST_PL				
-admin.site.register(BIRD_ASST_PL)
-from .models import BIRD_CSH_HND				
-admin.site.register(BIRD_CSH_HND)
-from .models import BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL				
-admin.site.register(BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL)
-from .models import BIRD_SCRTY_EXCHNG_TRDBL_DRVTV				
-admin.site.register(BIRD_SCRTY_EXCHNG_TRDBL_DRVTV)
-from .models import BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT				
-admin.site.register(BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT)
-from .models import BIRD_CRDT_RSK_MTGTN_ASSGNMNT				
-admin.site.register(BIRD_CRDT_RSK_MTGTN_ASSGNMNT)
-from .models import BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT				
-admin.site.register(BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT)
-from .models import BIRD_RTNG_GRD_CNTRY_ASSGNMNT				
-admin.site.register(BIRD_RTNG_GRD_CNTRY_ASSGNMNT)
-from .models import BIRD_PRTY				
-admin.site.register(BIRD_PRTY)
-from .models import BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST				
-admin.site.register(BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST)
-from .models import BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT				
-admin.site.register(BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT)
-from .models import BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT				
-admin.site.register(BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT)
-from .models import BIRD_SCRTY_ENTTY_RL_ASSGNMNT				
-admin.site.register(BIRD_SCRTY_ENTTY_RL_ASSGNMNT)
-from .models import BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT				
-admin.site.register(BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT)
-from .models import BIRD_ENTTY_RL				
-admin.site.register(BIRD_ENTTY_RL)
-from .models import BIRD_PRTY_PRVS_PRD_DT				
-admin.site.register(BIRD_PRTY_PRVS_PRD_DT)
-from .models import BIRD_EXCHNG_TRDBL_DRVTV_PSTN				
-admin.site.register(BIRD_EXCHNG_TRDBL_DRVTV_PSTN)
-from .models import BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS				
-admin.site.register(BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS)
-from .models import BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS				
-admin.site.register(BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS)
-from .models import BIRD_NN_FNNCL_ASST				
-admin.site.register(BIRD_NN_FNNCL_ASST)
-from .models import BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT				
-admin.site.register(BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT)
-from .models import BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT				
-admin.site.register(BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT)
-from .models import BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT				
-admin.site.register(BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT)
-from .models import BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT				
-admin.site.register(BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT)
-from .models import BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS				
-admin.site.register(BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS)
-from .models import BIRD_CRDT_FCLTY				
-admin.site.register(BIRD_CRDT_FCLTY)
-from .models import BIRD_MSTR_AGRMNT				
-admin.site.register(BIRD_MSTR_AGRMNT)
-from .models import BIRD_CLLTRL				
-admin.site.register(BIRD_CLLTRL)
-from .models import BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT				
-admin.site.register(BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT)
-from .models import BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT				
-admin.site.register(BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT)
-from .models import BIRD_RPRCHS_AGRMNT_CMPNNT				
-admin.site.register(BIRD_RPRCHS_AGRMNT_CMPNNT)
-from .models import BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT				
-admin.site.register(BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT)
-from .models import BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT				
-admin.site.register(BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT)
-from .models import BIRD_SNTHTC_SCRTSTN				
-admin.site.register(BIRD_SNTHTC_SCRTSTN)
-from .models import BIRD_TRDTNL_SCRTSTN				
-admin.site.register(BIRD_TRDTNL_SCRTSTN)
-from .models import BIRD_CVRD_BND_PRGRM				
-admin.site.register(BIRD_CVRD_BND_PRGRM)
-from .models import BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT				
-admin.site.register(BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT)
-from .models import BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL				
-admin.site.register(BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL)
-from .models import BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT				
-admin.site.register(BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT)
-from .models import BIRD_NN_FNNCL_LBLTY				
-admin.site.register(BIRD_NN_FNNCL_LBLTY)
-from .models import BIRD_DBT_SCRTY_ISSD				
-admin.site.register(BIRD_DBT_SCRTY_ISSD)
-from .models import BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT				
-admin.site.register(BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT)
-from .models import BIRD_OTHR_PRTY_CD				
-admin.site.register(BIRD_OTHR_PRTY_CD)
-from .models import BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT				
-admin.site.register(BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT)
-from .models import BIRD_PRTCTN_ARRNGMNT				
-admin.site.register(BIRD_PRTCTN_ARRNGMNT)
-from .models import BIRD_ABSTRCT_INSTRMNT_RL				
-admin.site.register(BIRD_ABSTRCT_INSTRMNT_RL)
-from .models import BIRD_GRP				
-admin.site.register(BIRD_GRP)
-from .models import BIRD_FNNCL_CNTRCT				
-admin.site.register(BIRD_FNNCL_CNTRCT)
-from .models import BIRD_CVRD_BND_ISSNC				
-admin.site.register(BIRD_CVRD_BND_ISSNC)
-from .models import BIRD_TRNCH_TRDTNL_SCRTSTN				
-admin.site.register(BIRD_TRNCH_TRDTNL_SCRTSTN)
-from .models import BIRD_PRTNR_ENTRPRS_ASSGNMNT				
-admin.site.register(BIRD_PRTNR_ENTRPRS_ASSGNMNT)
-from .models import BIRD_LNKD_ENTRPRS_ASSGNMNT				
-admin.site.register(BIRD_LNKD_ENTRPRS_ASSGNMNT)
-from .models import BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV				
-admin.site.register(BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV)
-from .models import BIRD_INSTRMNT_HDGD_OTC_DRVTV				
-admin.site.register(BIRD_INSTRMNT_HDGD_OTC_DRVTV)
-from .models import BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT				
-admin.site.register(BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT)
-from .models import BIRD_INTRNL_GRP_RL				
-admin.site.register(BIRD_INTRNL_GRP_RL)
-from .models import BIRD_INSTRMNT_PRTCN_ARRNGMNT_ASSGNMNT				
-admin.site.register(BIRD_INSTRMNT_PRTCN_ARRNGMNT_ASSGNMNT)
-from .models import BIRD_RTNG_GRD				
-admin.site.register(BIRD_RTNG_GRD)
-from .models import BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT				
-admin.site.register(BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT)
-from .models import BIRD_BLNC_SHT_NTTNG				
-admin.site.register(BIRD_BLNC_SHT_NTTNG)
-from .models import BIRD_INSTRMNT				
-admin.site.register(BIRD_INSTRMNT)
-from .models import BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT				
-admin.site.register(BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT)
-from .models import BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT				
-admin.site.register(BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT)
-from .models import BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT				
-admin.site.register(BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT)
+from .models import BIRD_OTHR_PRTY_ID_EIL				
+admin.site.register(BIRD_OTHR_PRTY_ID_EIL)
+from .models import BIRD_PRTCTN_ARRNGMNT_EIL				
+admin.site.register(BIRD_PRTCTN_ARRNGMNT_EIL)
+from .models import BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT_EIL				
+admin.site.register(BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT_EIL)
+from .models import BIRD_PRTNR_ENTRPRS_ASSGNMNT_EIL				
+admin.site.register(BIRD_PRTNR_ENTRPRS_ASSGNMNT_EIL)
+from .models import BIRD_PRTY_CD_EIL				
+admin.site.register(BIRD_PRTY_CD_EIL)
+from .models import BIRD_PRTY_EIL				
+admin.site.register(BIRD_PRTY_EIL)
+from .models import BIRD_PRTY_PRVS_PRD_DT_EIL				
+admin.site.register(BIRD_PRTY_PRVS_PRD_DT_EIL)
+from .models import BIRD_RPRCHS_AGRMNT_CMPNNT_EIL				
+admin.site.register(BIRD_RPRCHS_AGRMNT_CMPNNT_EIL)
+from .models import BIRD_RSK_FAC_SA_EIL				
+admin.site.register(BIRD_RSK_FAC_SA_EIL)
+from .models import BIRD_RTNG_AGNCY_EIL				
+admin.site.register(BIRD_RTNG_AGNCY_EIL)
+from .models import BIRD_RTNG_GRD_CNTRY_ASSGNMNT_EIL				
+admin.site.register(BIRD_RTNG_GRD_CNTRY_ASSGNMNT_EIL)
+from .models import BIRD_RTNG_GRD_EIL				
+admin.site.register(BIRD_RTNG_GRD_EIL)
+from .models import BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT_EIL				
+admin.site.register(BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT_EIL)
+from .models import BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT_EIL				
+admin.site.register(BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT_EIL)
+from .models import BIRD_RTNG_SYSTM_APPLD_LGL_PRSN_EIL				
+admin.site.register(BIRD_RTNG_SYSTM_APPLD_LGL_PRSN_EIL)
+from .models import BIRD_RTNG_SYSTM_EIL				
+admin.site.register(BIRD_RTNG_SYSTM_EIL)
+from .models import BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_EIL				
+admin.site.register(BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_EIL)
+from .models import BIRD_SCRTY_ENTTY_RL_ASSGNMNT_EIL				
+admin.site.register(BIRD_SCRTY_ENTTY_RL_ASSGNMNT_EIL)
+from .models import BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL				
+admin.site.register(BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL)
+from .models import BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL				
+admin.site.register(BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL)
+from .models import BIRD_SCRTY_PSTN_EIL				
+admin.site.register(BIRD_SCRTY_PSTN_EIL)
+from .models import BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL				
+admin.site.register(BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL)
+from .models import BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_EIL				
+admin.site.register(BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_EIL)
+from .models import BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_EIL				
+admin.site.register(BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_EIL)
+from .models import BIRD_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL				
+admin.site.register(BIRD_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL)
+from .models import BIRD_SNTHTC_SCRTSTN_EIL				
+admin.site.register(BIRD_SNTHTC_SCRTSTN_EIL)
+from .models import BIRD_SYNDCTD_CNTRCT_EIL				
+admin.site.register(BIRD_SYNDCTD_CNTRCT_EIL)
+from .models import BIRD_TRDTNL_SCRTSTN_EIL				
+admin.site.register(BIRD_TRDTNL_SCRTSTN_EIL)
+from .models import BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST_EIL				
+admin.site.register(BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST_EIL)
+from .models import BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT_EIL				
+admin.site.register(BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT_EIL)
+from .models import BIRD_TRNCH_TRDTNL_SCRTSTN_EIL				
+admin.site.register(BIRD_TRNCH_TRDTNL_SCRTSTN_EIL)
+from .models import BIRD_INTRNL_GRP_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL				
+admin.site.register(BIRD_INTRNL_GRP_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL)
+from .models import BIRD_INTRNL_GRP_RL_EIL				
+admin.site.register(BIRD_INTRNL_GRP_RL_EIL)
+from .models import BIRD_INTRST_RT_RSK_HDG_PRTFL_EIL				
+admin.site.register(BIRD_INTRST_RT_RSK_HDG_PRTFL_EIL)
+from .models import BIRD_KB_PR_BCKT_EIL				
+admin.site.register(BIRD_KB_PR_BCKT_EIL)
+from .models import BIRD_LN_AND_ADVNC_LG_LN_AND_ADVNC_ASSGNMNT_EIL				
+admin.site.register(BIRD_LN_AND_ADVNC_LG_LN_AND_ADVNC_ASSGNMNT_EIL)
+from .models import BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT_EIL				
+admin.site.register(BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT_EIL)
+from .models import BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL				
+admin.site.register(BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL)
+from .models import BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL				
+admin.site.register(BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL)
+from .models import BIRD_LNG_NN_NGTBL_SCRTY_PSTN_CLLTRL_ASSGNMNT_EIL				
+admin.site.register(BIRD_LNG_NN_NGTBL_SCRTY_PSTN_CLLTRL_ASSGNMNT_EIL)
+from .models import BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_EIL				
+admin.site.register(BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_EIL)
+from .models import BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL				
+admin.site.register(BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL)
+from .models import BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT_EIL				
+admin.site.register(BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT_EIL)
+from .models import BIRD_LNKD_ENTRPRS_ASSGNMNT_EIL				
+admin.site.register(BIRD_LNKD_ENTRPRS_ASSGNMNT_EIL)
+from .models import BIRD_MSTR_AGRMNT_EIL				
+admin.site.register(BIRD_MSTR_AGRMNT_EIL)
+from .models import BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_EIL				
+admin.site.register(BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_EIL)
+from .models import BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT_EIL				
+admin.site.register(BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT_EIL)
+from .models import BIRD_NN_FNNCL_ASST_EIL				
+admin.site.register(BIRD_NN_FNNCL_ASST_EIL)
+from .models import BIRD_NN_FNNCL_LBLTY_EIL				
+admin.site.register(BIRD_NN_FNNCL_LBLTY_EIL)
+from .models import BIRD_NTRL_PRSN_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL				
+admin.site.register(BIRD_NTRL_PRSN_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL)
+from .models import BIRD_OFF_BLNC_INSTRMNT_CLLTRL_ASSGNMNT_EIL				
+admin.site.register(BIRD_OFF_BLNC_INSTRMNT_CLLTRL_ASSGNMNT_EIL)
+from .models import BIRD_OTC_DRVTV_INSTRMNT_SNTHTC_SCRTSTN_ASSGNMNT_EIL				
+admin.site.register(BIRD_OTC_DRVTV_INSTRMNT_SNTHTC_SCRTSTN_ASSGNMNT_EIL)
+from .models import BIRD_ABSTRCT_INSTRMNT_RL_EIL				
+admin.site.register(BIRD_ABSTRCT_INSTRMNT_RL_EIL)
+from .models import BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT_EIL				
+admin.site.register(BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT_EIL)
+from .models import BIRD_ASST_PL_EIL				
+admin.site.register(BIRD_ASST_PL_EIL)
+from .models import BIRD_ASST_PL_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL				
+admin.site.register(BIRD_ASST_PL_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL)
+from .models import BIRD_ASST_PL_LN_ASSGNMNT_EIL				
+admin.site.register(BIRD_ASST_PL_LN_ASSGNMNT_EIL)
+from .models import BIRD_BLNC_SHT_NTTNG_EIL				
+admin.site.register(BIRD_BLNC_SHT_NTTNG_EIL)
+from .models import BIRD_CLLTRL_EIL				
+admin.site.register(BIRD_CLLTRL_EIL)
+from .models import BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL				
+admin.site.register(BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL)
+from .models import BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT_EIL				
+admin.site.register(BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT_EIL)
+from .models import BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL				
+admin.site.register(BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL)
+from .models import BIRD_CRDT_FCLTY_EIL				
+admin.site.register(BIRD_CRDT_FCLTY_EIL)
+from .models import BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT_EIL				
+admin.site.register(BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT_EIL)
+from .models import BIRD_CRDT_RSK_MTGTN_ASSGNMNT_EIL				
+admin.site.register(BIRD_CRDT_RSK_MTGTN_ASSGNMNT_EIL)
+from .models import BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_EIL				
+admin.site.register(BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_EIL)
+from .models import BIRD_CSH_HND_EIL				
+admin.site.register(BIRD_CSH_HND_EIL)
+from .models import BIRD_CVRD_BND_ISSNC_EIL				
+admin.site.register(BIRD_CVRD_BND_ISSNC_EIL)
+from .models import BIRD_CVRD_BND_PRGRM_EIL				
+admin.site.register(BIRD_CVRD_BND_PRGRM_EIL)
+from .models import BIRD_DBT_SCRTY_ISSD_EIL				
+admin.site.register(BIRD_DBT_SCRTY_ISSD_EIL)
+from .models import BIRD_DBT_SCRTY_ISSD_TRDTNL_SCRTSTN_ASSGNMNT_EIL				
+admin.site.register(BIRD_DBT_SCRTY_ISSD_TRDTNL_SCRTSTN_ASSGNMNT_EIL)
+from .models import BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT_EIL				
+admin.site.register(BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT_EIL)
+from .models import BIRD_ENTTY_RL_EIL				
+admin.site.register(BIRD_ENTTY_RL_EIL)
+from .models import BIRD_EQT_INSTRMNT_LG_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL				
+admin.site.register(BIRD_EQT_INSTRMNT_LG_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL)
+from .models import BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL				
+admin.site.register(BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL)
+from .models import BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL				
+admin.site.register(BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL)
+from .models import BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL				
+admin.site.register(BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL)
+from .models import BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL				
+admin.site.register(BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL)
+from .models import BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL				
+admin.site.register(BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL)
+from .models import BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS_EIL				
+admin.site.register(BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS_EIL)
+from .models import BIRD_FNNCL_CNTRCT_EIL				
+admin.site.register(BIRD_FNNCL_CNTRCT_EIL)
+from .models import BIRD_FNNCL_GRNT_INSTRMNT_DBT_SCRT_DBT_SCRTY_ASSGNMNT_EIL				
+admin.site.register(BIRD_FNNCL_GRNT_INSTRMNT_DBT_SCRT_DBT_SCRTY_ASSGNMNT_EIL)
+from .models import BIRD_GRP_CLNTS_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL				
+admin.site.register(BIRD_GRP_CLNTS_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL)
+from .models import BIRD_GRP_EIL				
+admin.site.register(BIRD_GRP_EIL)
+from .models import BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT_EIL				
+admin.site.register(BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT_EIL)
+from .models import BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL				
+admin.site.register(BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL)
+from .models import BIRD_INSTRMNT_EIL				
+admin.site.register(BIRD_INSTRMNT_EIL)
+from .models import BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL				
+admin.site.register(BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL)
+from .models import BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL				
+admin.site.register(BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL)
+from .models import BIRD_INSTRMNT_HDGD_OTC_DRVTV_EIL				
+admin.site.register(BIRD_INSTRMNT_HDGD_OTC_DRVTV_EIL)
+from .models import BIRD_INSTRMNT_PRTCN_ARRNGMNT_ASSGNMNT_EIL				
+admin.site.register(BIRD_INSTRMNT_PRTCN_ARRNGMNT_ASSGNMNT_EIL)
