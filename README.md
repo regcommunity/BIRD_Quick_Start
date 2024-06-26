@@ -14,7 +14,7 @@ A short video showing the use of BIRD quick start is availabe at
 https://youtu.be/P2ApwYXn-_A
 
 useful links to get a new version of the BIRD artefacts, in a format to easily generate the implementation is available at
-com/eclipse/efbt
+
 
 https://github.com/eclipse/efbt/wiki/Running-the-scripts
 
