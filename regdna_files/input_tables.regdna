@@ -1,0 +1,2973 @@
+		 package input_tables
+		 import il_domains.*
+		 import types.*
+		 annotation "key" as key
+		 annotation "dep" as dep
+		 annotation "entity_hierarchy" as entity_hierarchy
+		 annotation "relationship_type" as relationship_type
+		 annotation "long_name" as long_name
+			@long_name(long_name="Other_party_identifier")
+			class BIRD_OTHR_PRTY_ID_EIL {
+				id String   BIRD_OTHR_PRTY_ID_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_Reference_date")
+				Date   PRTY_RFRNC_DT 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_Reporting_agent_identifier")
+				String   PRTY_RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_code_type")
+				PRTY_CD_TYP_domain  PRTY_CD_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_identifier_type")
+				PRTY_CD_TYP_domain  PRTY_ID_TYP 
+				@long_name(long_name="Other_party_code")
+				PRTY_CD_TYP_domain  OTHR_PRTY_CD 
+				@key(foreign_key_field_list="PRTY_ID:PRTY_CD_TYP:PRTY_RFRNC_DT:PRTY_RPRTNG_AGNT_ID",primary_key_field_list="PRTY_ID:PRTY_CD_TYP:PRTY_RFRNC_DT:PRTY_RPRTNG_AGNT_ID")
+				refers BIRD_PRTY_CD_EIL  the_BIRD_PRTY_CD_EIL_1 
+			}
+			@long_name(long_name="Protection_arrangement")
+			class BIRD_PRTCTN_ARRNGMNT_EIL {
+				id String   BIRD_PRTCTN_ARRNGMNT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Protection_identifier")
+				String   PRTCTN_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Protection_arrangement_Reference_date")
+				Date   PRTCTN_ARRNGMNT_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Protection_arrangement_Reporting_agent_identifier")
+				String   PRTCTN_ARRNGMNT_RPRTNG_AGNT_ID 
+				@long_name(long_name="Maturity_date_of_the_protection")
+				Date   DT_MTRTY_PRTCTN 
+				@long_name(long_name="Protection_arrangement_type")
+				ARRNGMNT_TYP_domain  PRTCTN_ARRNGMNT_TYP 
+			}
+			@long_name(long_name="Protection_Protection_provider_assignment")
+			class BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT_EIL {
+				id String   BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Protection_identifier")
+				String   PRTCTN_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_role_type")
+				ENTTY_RL_TYP_domain  PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@long_name(long_name="Primary_protection_provider_indicator")
+				PRMRY_PRTCTN_PRVDR_INDCTR_domain  PRMRY_PRTCTN_PRVDR_INDCTR 
+				@key(foreign_key_field_list="PRTCTN_ARRNGMNT_RPRTNG_AGNT_ID:PRTCTN_ARRNGMNT_RFRNC_DT:PRTCTN_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:PRTCTN_ID")
+				refers BIRD_PRTCTN_ARRNGMNT_EIL  the_BIRD_PRTCTN_ARRNGMNT_EIL_1 
+				@key(foreign_key_field_list="PRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID:PRTY_RL_TYP",primary_key_field_list="PRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID:PRTY_RL_TYP")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+			}
+			@long_name(long_name="Partner_enterprise_assignment")
+			class BIRD_PRTNR_ENTRPRS_ASSGNMNT_EIL {
+				id String   BIRD_PRTNR_ENTRPRS_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Central_bank_and_private_sector_company_Party_identifier")
+				String   CNTR_BNK_PRVT_SCTR_CMPNY_PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Partner_enterprise_role_type")
+				ENTTY_RL_TYP_domain  PRTNR_ENTRPRS_PRTY_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Partner_enterprise_Party_identifier")
+				String   PRTNR_ENTRPRS_PRTY_ID 
+				@long_name(long_name="Voting_rights_")
+				double  VTNG_RGHT 
+				@key(foreign_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:PRTY_ID:PRTY_RL_TYP",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:PRTNR_ENTRPRS_PRTY_ID:PRTNR_ENTRPRS_PRTY_RL_TYP")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="PRTY_RPRTNG_AGNT_ID:PRTY_RFRNC_DT:PRTY_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CNTR_BNK_PRVT_SCTR_CMPNY_PRTY_ID")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+			}
+			@long_name(long_name="Party_code")
+			class BIRD_PRTY_CD_EIL {
+				id String   BIRD_PRTY_CD_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_Reference_date")
+				Date   PRTY_RFRNC_DT 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_Reporting_agent_identifier")
+				String   PRTY_RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_code_type")
+				PRTY_CD_TYP_domain  PRTY_CD_TYP 
+				@long_name(long_name="Party_code")
+				String   PRTY_CD 
+				@key(foreign_key_field_list="PRTY_ID:PRTY_RPRTNG_AGNT_ID",primary_key_field_list="PRTY_ID:PRTY_RPRTNG_AGNT_ID")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+			}
+			@long_name(long_name="Party")
+			class BIRD_PRTY_EIL {
+				id String   BIRD_PRTY_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_Reporting_agent_identifier")
+				String   PRTY_RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_Reference_date")
+				Date   PRTY_RFRNC_DT 
+				@long_name(long_name="Institutional_unit_Group_identifier")
+				String   INSTTNL_UNT_GRP_ID 
+				@long_name(long_name="Area_where_the_issuer_is_located")
+				GGRPHCL_ARS_domain  AREA_ISSR_SHS 
+				@long_name(long_name="Country_code")
+				GGRPHCL_ARS_domain  CNTRY_CD 
+				@long_name(long_name="Default_status")
+				CRDT_QLTY_domain  DFLT_STTS 
+				@long_name(long_name="Date_of_default_status")
+				Date   DT_DFLT_STTS 
+				@long_name(long_name="Date_of_enterprise_size")
+				Date   DT_ENTRPRS_SZ 
+				@long_name(long_name="Economic_activity")
+				ECNMC_ACTVTY_domain  ECNMC_ACTVTY 
+				@long_name(long_name="Enterprise_indicator")
+				ENTRPRS_INDCTR_domain  ENTRPRS_INDCTR 
+				@long_name(long_name="Enterprise_size")
+				SZ_domain  ENTRPRS_SZ 
+				@long_name(long_name="Governed_Country_code")
+				GGRPHCL_ARS_domain  GVRND_CNTRY_CD 
+				@long_name(long_name="Institutional_sector")
+				INSTTTNL_SCTR_domain  INSTTTNL_SCTR 
+				@long_name(long_name="Institutional_sector_control")
+				INSTTTNL_SCTR_CNTRL_domain  INSTTTNL_SCTR_CNTRL 
+				@long_name(long_name="International_organisation_code")
+				GGRPHCL_ARS_domain  INTRNTNL_ORGNSTN_CD 
+				@long_name(long_name="Leading_branch_for_AnaCredit_reporting_indicator")
+				PRTY_TYP_domain  LDNG_BRNCH_ANCRDT_RPRTNG_INDCTR 
+				@long_name(long_name="Legal_form")
+				LGL_FRM_domain  LGL_FRM 
+				@long_name(long_name="Legal_proceeding_status")
+				LGL_PRCDNG_STTS_domain  LGL_PRCDNG_STTS 
+				@long_name(long_name="Listed_central_bank_and_private_sector_company_indicator")
+				BLN_domain  LSTD_CNTRL_BNK_PRVT_SCTR_CMPNY_INDCTR 
+				@long_name(long_name="Multilateral_development_bank_indicator")
+				MLTLTRL_DVLPMNT_BNK_INDCTR_domain  MLTLTRL_DVLPMNT_BNK_INDCTR 
+				@long_name(long_name="Market_capitalisation_indicator")
+				MRKT_CP_domain  MRKT_CPTLSTN_INDCTR 
+				@long_name(long_name="Organisation_type_by_legal_proceeding_status")
+				PRTY_TYP_domain  ORGNSTN_TYP_BY_PRCDNG_STTS 
+				@long_name(long_name="Pulling_effect_indicator")
+				PLLNG_EFFCT_INDCTR_domain  PLLNG_EFFCT_INDCTR 
+				@long_name(long_name="Performing_status")
+				CRDT_QLTY_domain  PRFRMNG_STTS 
+				@long_name(long_name="The_reason_for_the_choice_of_Performing_status")
+				PRFRMNG_STTS_RSN_domain  PRFRMNG_STTS_RSN 
+				@long_name(long_name="Party_type_by_address")
+				PRTY_TYP_ADDRSS_domain  PRTY_TYP_ADDRS 
+				@long_name(long_name="Territorial_unit")
+				GGRPHCL_ARS_domain  TRRTRL_UNT 
+				@long_name(long_name="Type_of_economy")
+				ECNMY_domain  TYP_ECNMY 
+				@long_name(long_name="Type_of_Party")
+				PRTY_TYP_domain  TYP_PRTY 
+				@long_name(long_name="Annual_turnover")
+				int  ANNL_TRNVR 
+				@long_name(long_name="Balance_sheet_total")
+				int  BLNC_SHT_TTL 
+				@long_name(long_name="City")
+				String   CTY 
+				@long_name(long_name="Date_of_initiation_of_legal_proceedings")
+				Date   DT_INTTN_LGL_PRCDNGS 
+				@long_name(long_name="First_name")
+				String   FRST_NM 
+				@long_name(long_name="LEI_code")
+				String   LEI 
+				@long_name(long_name="Last_name")
+				String   LST_NM 
+				@long_name(long_name="Name")
+				String   NM_ENTTY 
+				@long_name(long_name="Number_of_employees")
+				double  NMBR_EMPLYS 
+				@long_name(long_name="Probability_of_default")
+				double  PD 
+				@long_name(long_name="Postal_code")
+				String   PSTL_CD 
+				@long_name(long_name="Street")
+				String   STRT 
+				@key(foreign_key_field_list="GRP_RFRNC_DT:GRP_ID:GRP_RPRTNG_AGNT_ID",primary_key_field_list="PRTY_RFRNC_DT:INSTTNL_UNT_GRP_ID:PRTY_RPRTNG_AGNT_ID")
+				refers BIRD_GRP_EIL  the_BIRD_GRP_EIL_1 
+				@key(foreign_key_field_list="PRTY_RPRTNG_AGNT_ID:PRTY_ID",primary_key_field_list="PRTY_RFRNC_DT:PRTY_RPRTNG_AGNT_ID")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+			}
+			@long_name(long_name="Party_previous_period_data")
+			class BIRD_PRTY_PRVS_PRD_DT_EIL {
+				id String   BIRD_PRTY_PRVS_PRD_DT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Year")
+				Date   YR 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_Reference_date")
+				Date   PRTY_RFRNC_DT 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_Reporting_agent_identifier")
+				String   PRTY_RPRTNG_AGNT_ID 
+				@long_name(long_name="Enterprise_size_calculated_")
+				SZ_domain  ENTRPRS_SZ_CLCLTD 
+				@key(foreign_key_field_list="PRTY_RPRTNG_AGNT_ID:PRTY_ID",primary_key_field_list="PRTY_RPRTNG_AGNT_ID:PRTY_ID")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+			}
+			@long_name(long_name="Repurchase_agreement_component")
+			class BIRD_RPRCHS_AGRMNT_CMPNNT_EIL {
+				id String   BIRD_RPRCHS_AGRMNT_CMPNNT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Repurchase_agreement_Instrument_Reference_date")
+				Date   RPRCHS_AGRMNT_INSTRMNT_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Repurchase_agreement_Instrument_Reporting_agent_identifier")
+				String   RPRCHS_AGRMNT_INSTRMNT_RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Repurchase_agreement_Instrument_identifier")
+				String   RPRCHS_AGRMNT_INSTRMNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Repurchase_component_type")
+				RPRCHS_AGRMNT_TYP_domain  RPRCHS_AGRMNT_CMPNNT_TYP 
+				@long_name(long_name="Currency")
+				CRRNCY_domain  CRRNCY 
+				@long_name(long_name="TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT")
+				RCGNTN_STTS_domain  TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:INSTRMNT_ID:DT_RFRNC",primary_key_field_list="RPRCHS_AGRMNT_INSTRMNT_RPRTNG_AGNT_ID:RPRCHS_AGRMNT_INSTRMNT_ID:RPRCHS_AGRMNT_INSTRMNT_RFRNC_DT")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+			}
+			@long_name(long_name="Risk_factor_for_standardised_approach")
+			class BIRD_RSK_FAC_SA_EIL {
+				id String   BIRD_RSK_FAC_SA_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Risk_factor_identifier")
+				String   RSK_FCTR_ID 
+				@long_name(long_name="Asset_backed_Security_identifier")
+				String   ASST_BCKD_SCRTY_ID 
+				@long_name(long_name="Party_identifier")
+				@key(is_foreign_key="true")
+				String   PRTY_ID 
+				@long_name(long_name="Issuer_role_type")
+				ENTTY_RL_TYP_domain  ISSR_RL_TYP 
+				@long_name(long_name="Commodity_type")
+				CMMDTY_TYP_FRTB_domain  CMMDTY_TYP 
+				@long_name(long_name="Base_currency")
+				CRRNCY_domain  BS_CRRNCY 
+				@long_name(long_name="Credit_spread_risk_CSR_credit_quality")
+				RTNG_GRD_CRDT_QLTY_domain  CRDT_SPRD_RSK_CRDT_QLTY 
+				@long_name(long_name="Credit_spread_risk_CSR_curve_type")
+				CSR_CRV_TYP_domain  CRDT_SPRD_RSK_CRV_TYP 
+				@long_name(long_name="Equity_factor_type")
+				EQUTY_FCTR_TYP_domain  EQUTY_FCTR_TYP 
+				@long_name(long_name="General_interest_rate_risk_GIRR_factor_type")
+				GIRR_RSK_FCTR_domain  GIRR_FCTR_TYP 
+				@long_name(long_name="Risk_class")
+				RSK_CLSS_domain  RSK_CLSS 
+				@long_name(long_name="Delivery_location")
+				String   DLVRY_LCTN 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:PRTY_ID:PRTY_RL_TYP:DT_RFRNC",primary_key_field_list="RPRTNG_AGNT_ID:PRTY_ID:ISSR_RL_TYP:DT_RFRNC")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="SCRTY_ID:SCRTY_RPRTNG_AGNT_ID:SCRTY_RFRNC_DT",primary_key_field_list="ASST_BCKD_SCRTY_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Rating_agency")
+			class BIRD_RTNG_AGNCY_EIL {
+				id String   BIRD_RTNG_AGNCY_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Rating_agency_name")
+				String   RTNG_AGNCY_NM 
+				@long_name(long_name="Export_Credit_Agency_ECA_External_Credit_Assessment_Institution_ECAI_")
+				ECAI_ECA_domain  ECAI_ECA 
+			}
+			@long_name(long_name="Rating_grade_Country_assignment")
+			class BIRD_RTNG_GRD_CNTRY_ASSGNMNT_EIL {
+				id String   BIRD_RTNG_GRD_CNTRY_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_system_name")
+				String   RTNG_SYSTM_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_agency_name")
+				String   RTNG_AGNCY_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_grade")
+				String   RTNG_GRD 
+				@key(is_primary_key="true")
+				@long_name(long_name="Country_code")
+				GGRPHCL_ARS_domain  CNTRY_CD 
+				@key(foreign_key_field_list="RTNG_AGNCY_NM:RTNG_SYSTM_NM:RTNG_GRD",primary_key_field_list="RTNG_AGNCY_NM:RTNG_SYSTM_NM:RTNG_GRD")
+				refers BIRD_RTNG_GRD_EIL  the_BIRD_RTNG_GRD_EIL_1 
+			}
+			@long_name(long_name="Rating_grade")
+			class BIRD_RTNG_GRD_EIL {
+				id String   BIRD_RTNG_GRD_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_system_name")
+				String   RTNG_SYSTM_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_agency_name")
+				String   RTNG_AGNCY_NM 
+				@key(is_primary_key="true")
+				@long_name(long_name="Rating_grade")
+				String   RTNG_GRD 
+				@long_name(long_name="Rating_grade_credit_quality")
+				RTNG_GRD_CRDT_QLTY_domain  RTNG_GRD_CRDT_QLTY 
+				@long_name(long_name="Type_of_rating_grade")
+				RTNG_GRD_TYP_domain  TYP_RTNG_GRD 
+				@key(foreign_key_field_list="RTNG_SYSTM_NM:RTNG_AGNCY_NM",primary_key_field_list="RTNG_SYSTM_NM:RTNG_AGNCY_NM")
+				refers BIRD_RTNG_SYSTM_EIL  the_BIRD_RTNG_SYSTM_EIL_1 
+			}
+			@long_name(long_name="Rating_grade_for_issue_based_rating_system_Debt_security_assignment")
+			class BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT_EIL {
+				id String   BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_system_name")
+				String   RTNG_SYSTM_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_agency_name")
+				String   RTNG_AGNCY_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_grade")
+				String   RTNG_GRD 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_Reference_date")
+				Date   SCRTY_RFRNC_DT 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_Reporting_agent_identifier")
+				String   SCRTY_RPRTNG_AGNT_ID 
+				@key(foreign_key_field_list="RTNG_GRD:RTNG_SYSTM_NM:RTNG_AGNCY_NM",primary_key_field_list="RTNG_GRD:RTNG_SYSTM_NM:RTNG_AGNCY_NM")
+				refers BIRD_RTNG_GRD_EIL  the_BIRD_RTNG_GRD_EIL_1 
+				@key(foreign_key_field_list="SCRTY_RPRTNG_AGNT_ID:SCRTY_RFRNC_DT:SCRTY_ID",primary_key_field_list="SCRTY_RPRTNG_AGNT_ID:SCRTY_RFRNC_DT:SCRTY_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Rating_grade_Other_organisation_assignment")
+			class BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT_EIL {
+				id String   BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_system_name")
+				String   RTNG_SYSTM_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_agency_name")
+				String   RTNG_AGNCY_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_grade")
+				String   RTNG_GRD 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(foreign_key_field_list="PRTY_RFRNC_DT:PRTY_RPRTNG_AGNT_ID:PRTY_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:PRTY_ID")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+				@key(foreign_key_field_list="RTNG_AGNCY_NM:RTNG_SYSTM_NM:RTNG_GRD",primary_key_field_list="RTNG_AGNCY_NM:RTNG_SYSTM_NM:RTNG_GRD")
+				refers BIRD_RTNG_GRD_EIL  the_BIRD_RTNG_GRD_EIL_1 
+			}
+			@long_name(long_name="Rating_system_applied_to_a_Legal_person")
+			class BIRD_RTNG_SYSTM_APPLD_LGL_PRSN_EIL {
+				id String   BIRD_RTNG_SYSTM_APPLD_LGL_PRSN_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_system_name")
+				String   RTNG_SYSTM_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_agency_name")
+				String   RTNG_AGNCY_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@long_name(long_name="Probability_of_default")
+				double  PD 
+				@key(foreign_key_field_list="RTNG_SYSTM_NM:RTNG_AGNCY_NM",primary_key_field_list="RTNG_SYSTM_NM:RTNG_AGNCY_NM")
+				refers BIRD_RTNG_SYSTM_EIL  the_BIRD_RTNG_SYSTM_EIL_1 
+				@key(foreign_key_field_list="PRTY_RPRTNG_AGNT_ID:PRTY_RFRNC_DT:PRTY_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:PRTY_ID")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+			}
+			@long_name(long_name="Rating_system")
+			class BIRD_RTNG_SYSTM_EIL {
+				id String   BIRD_RTNG_SYSTM_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Rating_system_name")
+				String   RTNG_SYSTM_NM 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Rating_agency_name")
+				String   RTNG_AGNCY_NM 
+				@long_name(long_name="Rating_system_type_by_nature_Grade_vs_Numeric_")
+				RTNG_SYSTM_TYP_domain  RTNG_SYSTM_TYP_BY_NTR 
+				@long_name(long_name="Short_term_credit_assessment_indicator")
+				SHRT_TRM_CRDT_ASSMNT_INDCTR_domain  SHRT_TRM_CRDT_ASSSSMNT_INDCTR 
+				@long_name(long_name="Type_of_rating_system")
+				RTNG_SYSTM_TYP_domain  TYP_RTNG_SYSTM 
+				@key(foreign_key_field_list="RTNG_AGNCY_NM",primary_key_field_list="RTNG_AGNCY_NM")
+				refers BIRD_RTNG_AGNCY_EIL  the_BIRD_RTNG_AGNCY_EIL_1 
+			}
+			@long_name(long_name="Subsidiary_joint_venture_and_associate_Other_organisation_role_assignment")
+			class BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_EIL {
+				id String   BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Other_organisation_role_type")
+				ENTTY_RL_TYP_domain  OTHR_ORGNSTN_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Group_ID")
+				String   GRP_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@long_name(long_name="Accumulated_equity_interest")
+				double  ACCMLTD_EQT_INTRST 
+				@long_name(long_name="Accounting_treatment_CRR_Group_")
+				CNSLDTN_MTHD_domain  ACCNTNG_TRTMNT_CRR 
+				@long_name(long_name="Accounting_treatment_IFRS_Group_")
+				CNSLDTN_MTHD_domain  ACCNTNG_TRTMNT_IFRS 
+				@long_name(long_name="Acquisition_cost")
+				int  ACQSTN_CST 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+				@long_name(long_name="Entry_date")
+				Date   DT_ENTRY 
+				@long_name(long_name="Fair_value_of_investments_for_which_there_are_published_price_quotations")
+				int  FV_INVSTMNTS_PBLSHD_PRC_QTTNS 
+				@long_name(long_name="Goodwill_link_to_the_investee")
+				int  GDWLL_INVST 
+				@long_name(long_name="Subsidiary_joint_venture_and_associate_Other_organisation_assignment_type")
+				SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_TYP_domain  SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_TYP 
+				@long_name(long_name="Voting_rights_")
+				double  VTNG_RGHT 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:PRTY_ID:DT_RFRNC:PRTY_RL_TYP",primary_key_field_list="RPRTNG_AGNT_ID:PRTY_ID:DT_RFRNC:OTHR_ORGNSTN_RL_TYP")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="GRP_ID:GRP_RPRTNG_AGNT_ID:GRP_RFRNC_DT",primary_key_field_list="GRP_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_GRP_EIL  the_BIRD_GRP_EIL_1 
+			}
+			@long_name(long_name="Security_Entity_role_assignment")
+			class BIRD_SCRTY_ENTTY_RL_ASSGNMNT_EIL {
+				id String   BIRD_SCRTY_ENTTY_RL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_role_type")
+				ENTTY_RL_TYP_domain  PRTY_RL_TYP 
+				@long_name(long_name="Security_Entity_role_assignment_type")
+				SCRTY_ENTTY_RL_ASSGNMNT_TYP_domain  SCRTY_ENTTY_RL_ASSGNMNT_TYP 
+				@key(foreign_key_field_list="PRTY_RL_TYP:RPRTNG_AGNT_ID:PRTY_ID:DT_RFRNC",primary_key_field_list="PRTY_RL_TYP:RPRTNG_AGNT_ID:PRTY_ID:DT_RFRNC")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="SCRTY_ID:SCRTY_RFRNC_DT:SCRTY_RPRTNG_AGNT_ID",primary_key_field_list="SCRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Security_and_exchange_tradable_derivative")
+			class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL {
+				id String   BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Security_Reference_date")
+				Date   SCRTY_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Security_Reporting_agent_identifier")
+				String   SCRTY_RPRTNG_AGNT_ID 
+				@long_name(long_name="Accrued_interests_for_market_values_indicator")
+				ACCRD_INTRST_MRKT_VL_INDCTR_domain  ACCRD_INTRST_MRKT_VL_INDCTR 
+				@long_name(long_name="Currency")
+				CRRNCY_domain  CRRNCY 
+				@long_name(long_name="Currency_of_transaction_reported")
+				CRRNCY_domain  CRRNCY_TRNSCTN_RPRTD 
+				@long_name(long_name="Debt_security_by_accounting_standard")
+				SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain  DBT_SCRTY_ACCNTNG_STNDRD 
+				@long_name(long_name="Debt_security_by_Performing_status_type")
+				SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain  DBT_SCRTY_PRFRMNG_STTS_TYP 
+				@long_name(long_name="Eligible_for_central_bank_funding")
+				ELGBL_CNTRL_BNK_FNDNG_domain  ELGBL_CNTRL_BNK_FNDNG 
+				@long_name(long_name="Early_redempions_inclusion_indicator")
+				ERLY_RDMPTN_INCLSN_INDCTR_domain  ERLY_RDMPTN_INCLSN_INDCTR 
+				@long_name(long_name="Exposure_class")
+				EXPSR_CLSS_domain  EXPSR_CLSS 
+				@long_name(long_name="High_liquidity_and_credit_quality_HQLA_indicator")
+				HQLA_INDCTR_domain  HQLA_INDCTR 
+				@long_name(long_name="Identifier_type")
+				TYP_INSTRMNT_ID_domain  IDNTFR_TYP 
+				@long_name(long_name="Listed")
+				BLN_domain  IS_LSTD 
+				@long_name(long_name="Low_credit_risk_indicator_for_Finrep")
+				LW_CRDT_RSK_INDCTR_domain  LW_CRDT_RSK_INDCTR 
+				@long_name(long_name="Multiple_forbearance_measures_in_place_indicator")
+				MLTPL_FRBRNC_MSR_INDCTR_domain  MLTPL_FRBRNC_MSRS_INDCTR 
+				@long_name(long_name="Negotiable_security_indicator")
+				NGTBL_SCRTY_domain  NGTBL_SCRTY_INDCTR 
+				@long_name(long_name="Non_performing_exit_criteria_met_indicator")
+				FLD_NN_PRFRMNG_EXT_CRTR_INDCTR_domain  NN_PRFRMNG_EXT_CRTR_MT_INDCTR 
+				@long_name(long_name="Original_maturity")
+				TM_INTRVL_domain  ORGNL_MTRTY_INTRVL 
+				@long_name(long_name="Performing_forborne_exposure_under_probation_reclassified_from_non_performing_indicator")
+				PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain  PRFRMNG_FRBRN_EXPSR_UNDR_PRBTN_RCLSSFD_NN_PRFRMNG_INDCTR 
+				@long_name(long_name="Primary_asset_classification")
+				PRMRY_ASST_CLSSFCTN_domain  PRMRY_ASST_CLSSFCTN 
+				@long_name(long_name="Perpetual_debt_security_indicator")
+				SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain  PRPTL_DBT_SCRTY_INDCTR 
+				@long_name(long_name="Real_estate_collateral_location")
+				String   RL_ESTT_CLLTRL_LCTN 
+				@long_name(long_name="Subordinated_debt")
+				SBRDNTD_DBT_domain  SBRDNTD_DBT 
+				@long_name(long_name="Security_guarantee_level")
+				SCRTY_GRNT_LVL_domain  SCRTY_GRNT_LVL 
+				@long_name(long_name="Security_level")
+				SCRTY_LVL_domain  SCRTY_LVL 
+				@long_name(long_name="Security_rank_level")
+				SCRTY_RNK_LVL_domain  SCRTY_RNK_LVL 
+				@long_name(long_name="Security_status")
+				STTS_domain  SCRTY_STTS 
+				@long_name(long_name="Security_type_by_identifier")
+				SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain  SCRTY_TYP_BY_IDNTFR 
+				@long_name(long_name="Significant_asset_class")
+				SGNFCNT_ASST_CLSS_domain  SGNFCNT_ASST_CLSS 
+				@long_name(long_name="Structured_note_indicator")
+				STRCTRD_NT_INDCTR_domain  STRCTRD_NT_INDCTR 
+				@long_name(long_name="Time_past_due_band")
+				TM_INTRVL_domain  TM_PST_DU_BND 
+				@long_name(long_name="Type_of_asset_provided_as_security")
+				TYP_ASST_SCRTSTN_domain  TYP_ASST_PRVDD_SCRTY 
+				@long_name(long_name="Type_of_security_exchange_tradedable_derivative")
+				SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain  TYP_SCRTY_EXCHNG_TRDBL_DRVTV 
+				@long_name(long_name="Issue_date")
+				Date   DT_ISS 
+				@long_name(long_name="Legal_final_maturity_date")
+				Date   DT_LGL_FNL_MTRTY 
+				@long_name(long_name="Date_of_the_performing_status_of_the_instrument")
+				Date   DT_PRFRMNG_STTS 
+				@long_name(long_name="Date_of_past_due")
+				Date   DT_PST_D 
+				@long_name(long_name="Security_status_date")
+				Date   DT_SCRTY_STTS 
+				@long_name(long_name="Forbearance_measure_count")
+				int  FRBRNC_MSR_CNT 
+				@long_name(long_name="ISIN_code")
+				String   ISIN 
+				@long_name(long_name="Official_security_identifier")
+				String   OFFCL_SCRTY_ID 
+				@long_name(long_name="Original_nominal_amount")
+				int  ORGNL_NMNL_AMNT 
+				@long_name(long_name="Short_name_of_the_instrument")
+				String   SHRT_NM_INSTRMNT 
+				@long_name(long_name="Total_amount_of_capital_issued")
+				int  TTL_AMNT_CPTL_ISSD 
+				@long_name(long_name="Total_number_of_shares_issued")
+				int  TTL_NMBR_SHRS_ISSD 
+			}
+			@long_name(long_name="Security_position_hedged_by_Exchange_tradable_derivative_position")
+			class BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL {
+				id String   BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_identifier")
+				String   SLLR_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_role_type")
+				ENTTY_RL_TYP_domain  SLLR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_identifier")
+				String   BYR_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_role_type")
+				ENTTY_RL_TYP_domain  BYR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Long_security_position_Prudential_portfolio_type")
+				LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain  LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Exchange_tradable_derivative_position_role_type")
+				EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain  EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:INVSTR_PRTY_RL_TYP:SCRTY_ID:DT_RFRNC:INVSTR_PRTY_ID:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP",primary_key_field_list="RPRTNG_AGNT_ID:BYR_PRTY_RL_TYP:SCRTY_ID:DT_RFRNC:BYR_PRTY_ID:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP")
+				refers BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL  the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:BYR_PRTY_RL_TYP:SLLR_PRTY_RL_TYP:DT_RFRNC:EXCHNG_TRDBL_DRVT_SCRTY_ID:EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP:BYR_PRTY_ID:SLLR_PRTY_ID",primary_key_field_list="RPRTNG_AGNT_ID:BYR_PRTY_RL_TYP:SLLR_PRTY_RL_TYP:DT_RFRNC:SCRTY_ID:EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP:BYR_PRTY_ID:SLLR_PRTY_ID")
+				refers BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL  the_BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL_1 
+			}
+			@long_name(long_name="Security_position")
+			class BIRD_SCRTY_PSTN_EIL {
+				id String   BIRD_SCRTY_PSTN_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Investor_Party_identifier")
+				String   INVSTR_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@long_name(long_name="Date_period_of_application_of_forbearance_measure")
+				DT_OPNNG_BLNC_domain  APPLCTN_FRBRNC_STTS_DT 
+				@long_name(long_name="Default_status")
+				CRDT_QLTY_domain  DFLT_STTS 
+				@long_name(long_name="Derived_default_status")
+				CRDT_QLTY_domain  DFLT_STTS_DRVD 
+				@long_name(long_name="Forbearance_measure_granted_during_reference_period_indicator")
+				FRBRNC_MSR_GRNTD_DRNG_RFRNC_PRD_domain  FRBRNC_MSR_GRNTD_RFRNC_PRD_INDCTR 
+				@long_name(long_name="Forbearance_measure")
+				FRBRNC_MSR_TYP_domain  FRBRNC_MSR_TYP 
+				@long_name(long_name="Fair_value")
+				int  FV 
+				@long_name(long_name="Fair_value_change")
+				int  FV_CHNG 
+				@long_name(long_name="Fair_value_hierarchy")
+				FV_HRRCHY_domain  FV_HRRCHY 
+				@long_name(long_name="Litigation_status")
+				LTGTN_STTS_domain  LTGTN_STTS 
+				@long_name(long_name="Negotiable_security_position_indicator")
+				SCRTY_EXCHNG_TRDBL_DRVTV_PSTN_TYP_domain  NGTBL_SCRTY_PSTN_INDCTR 
+				@long_name(long_name="Own_company_investment_indicator")
+				OWN_CMPNY_INVSTMNT_INDCTR_domain  OWN_CMPNY_INVSTMNT_INDCTR 
+				@long_name(long_name="Type_of_security_position")
+				SCRTY_EXCHNG_TRDBL_DRVTV_PSTN_TYP_domain  TYP_SCRTY_PSTN 
+				@long_name(long_name="Accumulated_changes_in_fair_value")
+				int  ACCMLTD_CHNGS_FV 
+				@long_name(long_name="Current_loan_to_value_ratio")
+				double  CRRNT_LTV_RT 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+				@long_name(long_name="Date_of_forbearance_and_renegotiation_status")
+				Date   DT_FRBRNC_STTS 
+				@long_name(long_name="Number_of_shares")
+				int  NMBR_SHRS 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@key(foreign_key_field_list="PRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID:PRTY_RL_TYP",primary_key_field_list="INVSTR_PRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID:INVSTR_PRTY_RL_TYP")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="SCRTY_ID:SCRTY_RFRNC_DT:SCRTY_RPRTNG_AGNT_ID",primary_key_field_list="SCRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Security_position_hedged_by_Over_the_counter_OTC_derivative")
+			class BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL {
+				id String   BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Over_the_counter_OTC_Derivative_Instrument_identifier")
+				String   OTC_DRVTV_INSTRMNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Long_security_position_Prudential_portfolio_type")
+				LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain  LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Type_of_abstract_intrument_role")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  TYP_ABSTRCT_INSTRMNT_RL 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_identifier")
+				String   INVSTR_PRTY_ID 
+				@long_name(long_name="Security_position_hedged_by_Over_the_counter_OTC_derivative_type")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  SCRTY_PSTN_HDGD_OTC_DRVTV_TYP 
+				@long_name(long_name="Number_of_shares")
+				int  NMBR_SHRS 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@key(foreign_key_field_list="INSTRMNT_ID:DT_RFRNC:TYP_ABSTRCT_INSTRMNT_RL:RPRTNG_AGNT_ID",primary_key_field_list="OTC_DRVTV_INSTRMNT_ID:DT_RFRNC:TYP_ABSTRCT_INSTRMNT_RL:RPRTNG_AGNT_ID")
+				refers BIRD_ABSTRCT_INSTRMNT_RL_EIL  the_BIRD_ABSTRCT_INSTRMNT_RL_EIL_1 
+				@key(foreign_key_field_list="DT_RFRNC:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP:INVSTR_PRTY_RL_TYP:INVSTR_PRTY_ID",primary_key_field_list="SCRTY_ID:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP:INVSTR_PRTY_RL_TYP:INVSTR_PRTY_ID")
+				refers BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL  the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 
+			}
+			@long_name(long_name="Security_Security_leg_assignment")
+			class BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_EIL {
+				id String   BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Repurchase_agreement_Instrument_identifier")
+				String   RPRCHS_AGRMNT_INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Repurchase_component_type")
+				RPRCHS_AGRMNT_TYP_domain  RPRCHS_AGRMNT_CMPNNT_TYP 
+				@long_name(long_name="Security_Security_repurchase_agreement_component_assignment_type")
+				SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_TYP_domain  SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_TYP 
+				@long_name(long_name="Number_of_shares")
+				int  NMBR_SHRS 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@key(foreign_key_field_list="SCRTY_ID:SCRTY_RFRNC_DT:SCRTY_RPRTNG_AGNT_ID",primary_key_field_list="SCRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+				@key(foreign_key_field_list="RPRCHS_AGRMNT_INSTRMNT_RFRNC_DT:RPRCHS_AGRMNT_CMPNNT_TYP:RPRCHS_AGRMNT_INSTRMNT_ID:RPRCHS_AGRMNT_INSTRMNT_RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:RPRCHS_AGRMNT_CMPNNT_TYP:RPRCHS_AGRMNT_INSTRMNT_ID:RPRTNG_AGNT_ID")
+				refers BIRD_RPRCHS_AGRMNT_CMPNNT_EIL  the_BIRD_RPRCHS_AGRMNT_CMPNNT_EIL_1 
+			}
+			@long_name(long_name="Security_borrowing_and_lending_transaction_including_cash_as_collateral_component")
+			class BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_EIL {
+				id String   BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Security_borrowing_and_lending_transaction_Instrument_identifier")
+				String   SCRTY_BRRWNG_LNDNG_TRNSCTN_INSTRMNT_ID 
+				@long_name(long_name="Security_identifier")
+				@key(is_foreign_key="true")
+				String   SCRTY_ID 
+				@long_name(long_name="Security_borrowing_and_lending_transaction_component_type_by_direction")
+				SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_TYP_domain  SCRTY_BRRWNG_LNDNG_TRNSCTN_CMPNNT_TYP_BY_DRCTN 
+				@long_name(long_name="Type_of_security_borrowing_lending_transcription")
+				SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_TYP_domain  TYP_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL 
+				@long_name(long_name="Number_of_shares")
+				int  NMBR_SHRS 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@key(foreign_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:INSTRMNT_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:SCRTY_BRRWNG_LNDNG_TRNSCTN_INSTRMNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="SCRTY_RFRNC_DT:SCRTY_ID:SCRTY_RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:SCRTY_ID:RPRTNG_AGNT_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Short_security_position_prudential_portfolio_assignment")
+			class BIRD_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL {
+				id String   BIRD_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Prudential_portfolio_type")
+				PRDNTL_PRTFL_domain  PRDNTL_PRTFL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_identifier")
+				String   INVSTR_PRTY_ID 
+				@long_name(long_name="Short_position_accounting_classification")
+				ACCNTNG_CLSSFCTN_domain  SHRT_PSTN_ACCNTNG_CLSSFCTN 
+				@long_name(long_name="Type_of_short_position_prudential_portfolio_assignment")
+				SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain  TYP_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT 
+				@long_name(long_name="Haircuts_for_trading_positions_valued_at_fair_value")
+				int  HRCTS_TRDNG_PSTNS_FV 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:SCRTY_ID:DT_RFRNC",primary_key_field_list="RPRTNG_AGNT_ID:INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:SCRTY_ID:DT_RFRNC")
+				refers BIRD_SCRTY_PSTN_EIL  the_BIRD_SCRTY_PSTN_EIL_1 
+			}
+			@long_name(long_name="Synthetic_securitisation")
+			class BIRD_SNTHTC_SCRTSTN_EIL {
+				id String   BIRD_SNTHTC_SCRTSTN_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Securitisation_identifier")
+				String   SCRTSTN_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Securitisation_Reference_date")
+				Date   SCRTSTN_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Securitisation_Reporting_agent_identifier")
+				String   SCRTSTN_RPRTNG_AGNT_ID 
+				@long_name(long_name="Asset_pool_identifier")
+				@key(is_foreign_key="true")
+				String   ASST_PL_ID 
+				@long_name(long_name="AMNT_DRCGNSD_CPTL_PRPS")
+				int  AMNT_DRCGNSD_CPTL_PRPS 
+				@long_name(long_name="Percentage_retained")
+				double  PRCNTG_RTND 
+				@long_name(long_name="Re_securitisation_indicator")
+				RSCRTSTN_INDCTR_domain  RSCRTSTN_INDCTR 
+				@long_name(long_name="Simple_transparent_and_standardised_STS_securitisation_indicator")
+				STS_SCRTSTN_INDCTR_domain  STS_SCRTSTN_INDCTR 
+				@long_name(long_name="Type_of_synthetic_securitisation")
+				SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain  TYP_SNTHTC_SCRTSTN 
+				@long_name(long_name="Significant_risk_transfer_indicator")
+				SGNFCNT_RSK_TRNSFR_INDCTR_domain  SGNFCNT_RSK_TRNSFR_INDCTR 
+				@key(foreign_key_field_list="ASST_PL_ID:ASST_PL_RFRNC_DT:ASST_PL_RPRTNG_AGNT_ID",primary_key_field_list="ASST_PL_ID:SCRTSTN_RFRNC_DT:SCRTSTN_RPRTNG_AGNT_ID")
+				refers BIRD_ASST_PL_EIL  the_BIRD_ASST_PL_EIL_1 
+			}
+			@long_name(long_name="Syndicated_contract")
+			class BIRD_SYNDCTD_CNTRCT_EIL {
+				id String   BIRD_SYNDCTD_CNTRCT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Syndicated_contract_identifier")
+				String   SYNDCTD_CNTRCT_ID 
+			}
+			@long_name(long_name="Traditional_securitisation")
+			class BIRD_TRDTNL_SCRTSTN_EIL {
+				id String   BIRD_TRDTNL_SCRTSTN_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Securitisation_identifier")
+				String   SCRTSTN_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@long_name(long_name="Asset_pool_identifier")
+				@key(is_foreign_key="true")
+				String   ASST_PL_ID 
+				@long_name(long_name="Credit_facility_identifier")
+				@key(is_foreign_key="true")
+				String   CRDT_FCLTY_ID 
+				@long_name(long_name="Percentage_retained")
+				double  PRCNTG_RTND 
+				@long_name(long_name="Re_securitisation_indicator")
+				RSCRTSTN_INDCTR_domain  RSCRTSTN_INDCTR 
+				@long_name(long_name="Simple_transparent_and_standardised_STS_securitisation_indicator")
+				STS_SCRTSTN_INDCTR_domain  STS_SCRTSTN_INDCTR 
+				@long_name(long_name="Discount_or_excess_spread_amount")
+				double  DSCNT_EXCSS_SPRD_AMNT 
+				@long_name(long_name="Significant_risk_transfer_indicator")
+				SGNFCNT_RSK_TRNSFR_INDCTR_domain  SGNFCNT_RSK_TRNSFR_INDCTR 
+				@long_name(long_name="AMNT_DRCGNSD_CPTL_PRPS")
+				int  AMNT_DRCGNSD_CPTL_PRPS 
+				@key(foreign_key_field_list="ASST_PL_RPRTNG_AGNT_ID:ASST_PL_ID:ASST_PL_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:ASST_PL_ID:DT_RFRNC")
+				refers BIRD_ASST_PL_EIL  the_BIRD_ASST_PL_EIL_1 
+				@key(foreign_key_field_list="DT_RFRNC:CRDT_FCLTY_ID:RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:CRDT_FCLTY_ID:RPRTNG_AGNT_ID")
+				refers BIRD_CRDT_FCLTY_EIL  the_BIRD_CRDT_FCLTY_EIL_1 
+			}
+			@long_name(long_name="Tranche_in_a_synthetic_securitisation_without_securitisation_special_purpose_entity_SSPE_being_a_deposit")
+			class BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST_EIL {
+				id String   BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Securitisation_identifier")
+				String   SCRTSTN_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@long_name(long_name="Tranch_in_a_synthetic_securitisation_without_SSPE_type")
+				TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP_domain  TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP 
+				@long_name(long_name="Tranche_identifier")
+				String   TRNCH_ID 
+				@long_name(long_name="Tranche_name")
+				String   TRNCH_NM 
+				@key(foreign_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:INSTRMNT_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:INSTRMNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="SCRTSTN_RPRTNG_AGNT_ID:SCRTSTN_RFRNC_DT:SCRTSTN_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:SCRTSTN_ID")
+				refers BIRD_SNTHTC_SCRTSTN_EIL  the_BIRD_SNTHTC_SCRTSTN_EIL_1 
+			}
+			@long_name(long_name="Tranche_in_a_synthetic_securitisation_without_securitisation_special_purpose_entity_SSPE_being_a_financial_guarantee")
+			class BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT_EIL {
+				id String   BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Securitisation_identifier")
+				String   SCRTSTN_ID 
+				@long_name(long_name="Tranch_in_a_synthetic_securitisation_without_SSPE_type")
+				TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP_domain  TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP 
+				@long_name(long_name="Tranche_identifier")
+				String   TRNCH_ID 
+				@long_name(long_name="Tranche_name")
+				String   TRNCH_NM 
+				@key(foreign_key_field_list="SCRTSTN_RPRTNG_AGNT_ID:SCRTSTN_RFRNC_DT:SCRTSTN_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:SCRTSTN_ID")
+				refers BIRD_SNTHTC_SCRTSTN_EIL  the_BIRD_SNTHTC_SCRTSTN_EIL_1 
+				@key(foreign_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:INSTRMNT_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:INSTRMNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+			}
+			@long_name(long_name="Tranche_in_a_Traditional_securitisation")
+			class BIRD_TRNCH_TRDTNL_SCRTSTN_EIL {
+				id String   BIRD_TRNCH_TRDTNL_SCRTSTN_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Securitisation_identifier")
+				String   SCRTSTN_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@long_name(long_name="Tranche_identifier")
+				String   TRNCH_ID 
+				@long_name(long_name="Securitisation_tranche_type")
+				SCRTSTN_TRNCH_TYP_domain  SCRTSTN_TRNCH_TYP 
+				@long_name(long_name="Tranche_name")
+				String   TRNCH_NM 
+				@key(foreign_key_field_list="SCRTSTN_ID:DT_RFRNC:RPRTNG_AGNT_ID",primary_key_field_list="SCRTSTN_ID:DT_RFRNC:TRNCH_ID")
+				refers BIRD_TRDTNL_SCRTSTN_EIL  the_BIRD_TRDTNL_SCRTSTN_EIL_1 
+				@key(foreign_key_field_list="SCRTY_RFRNC_DT:SCRTY_RPRTNG_AGNT_ID:SCRTY_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:SCRTY_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Internal_group_Key_management_personnel_assignment")
+			class BIRD_INTRNL_GRP_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL {
+				id String   BIRD_INTRNL_GRP_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Group_ID")
+				String   GRP_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Natural_person_group_role_type")
+				ENTTY_RL_TYP_domain  NTRL_PRSN_GRP_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:PRTY_ID:DT_RFRNC:PRTY_RL_TYP",primary_key_field_list="RPRTNG_AGNT_ID:PRTY_ID:DT_RFRNC:NTRL_PRSN_GRP_RL_TYP")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="GRP_RPRTNG_AGNT_ID:GRP_ID:GRP_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:GRP_ID:DT_RFRNC")
+				refers BIRD_GRP_EIL  the_BIRD_GRP_EIL_1 
+			}
+			@long_name(long_name="Internal_group_role")
+			class BIRD_INTRNL_GRP_RL_EIL {
+				id String   BIRD_INTRNL_GRP_RL_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Group_role_type")
+				GRP_RL_TYP_domain  GRP_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Group_ID")
+				String   GRP_ID 
+				@long_name(long_name="Accounting_standard_for_consolidated_reporting")
+				ACCNTNG_FRMWRK_domain  ACCNTNG_STNDRD_CNLDTD_RPRTNG 
+				@long_name(long_name="Accounting_standard_for_solo_reporting")
+				ACCNTNG_FRMWRK_domain  ACCNTNG_STNDRD_SOLO_RPRTNG 
+				@long_name(long_name="Accounting_standard_for_statistical_reporting")
+				ACCNTNG_FRMWRK_domain  ACCNTNG_STNDRD_STTSTCL_RPRTNG 
+				@key(foreign_key_field_list="GRP_RFRNC_DT:GRP_RPRTNG_AGNT_ID:GRP_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:GRP_ID")
+				refers BIRD_GRP_EIL  the_BIRD_GRP_EIL_1 
+			}
+			@long_name(long_name="Interest_rate_risk_hedge_portfolio")
+			class BIRD_INTRST_RT_RSK_HDG_PRTFL_EIL {
+				id String   BIRD_INTRST_RT_RSK_HDG_PRTFL_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Hedged_portfolio_asset_or_liability_indicator")
+				HDGD_PRTFL_ASST_LBLTY_INDCTR_domain  HDGD_PRTFL_ASST_LBLTY_INDCTR 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Domestic_activities_indicator")
+				DMSTC_ACTVT_INDCTR_domain  DMSTC_ACTVT_INDCTR 
+				@long_name(long_name="Hedged_items_fair_value_changes")
+				int  HDGD_ITMS_FV_CHNGS 
+			}
+			@long_name(long_name="Risk_position_Kb_per_bucket_derived_data")
+			class BIRD_KB_PR_BCKT_EIL {
+				id String   BIRD_KB_PR_BCKT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Bucket_identifier")
+				String   BCKT_ID 
+				@long_name(long_name="General_interest_rate_risk_GIRR_delta_Risk_position_Kb_")
+				int  GIRR_DLTA_RSK_PSTN 
+			}
+			@long_name(long_name="Loan_and_advance_leg_Loan_and_advance_assignment")
+			class BIRD_LN_AND_ADVNC_LG_LN_AND_ADVNC_ASSGNMNT_EIL {
+				id String   BIRD_LN_AND_ADVNC_LG_LN_AND_ADVNC_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Repurchase_component_type")
+				RPRCHS_AGRMNT_TYP_domain  RPRCHS_AGRMNT_CMPNNT_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Repurchase_agreement_Instrument_identifier")
+				String   RPRCHS_AGRMNT_INSTRMNT_ID 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:INSTRMNT_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:INSTRMNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="RPRCHS_AGRMNT_INSTRMNT_RPRTNG_AGNT_ID:RPRCHS_AGRMNT_CMPNNT_TYP:RPRCHS_AGRMNT_INSTRMNT_ID:RPRCHS_AGRMNT_INSTRMNT_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:RPRCHS_AGRMNT_CMPNNT_TYP:RPRCHS_AGRMNT_INSTRMNT_ID:DT_RFRNC")
+				refers BIRD_RPRCHS_AGRMNT_CMPNNT_EIL  the_BIRD_RPRCHS_AGRMNT_CMPNNT_EIL_1 
+			}
+			@long_name(long_name="Loan_excluding_repurchase_agreement_and_advance_Collateral_assignment")
+			class BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT_EIL {
+				id String   BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Loan_Instrument_identifier")
+				String   LN_INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Collateral_identifier")
+				String   CLLTRL_ID 
+				@long_name(long_name="Allocated_unused_collateral_value")
+				double  ALLCTD_UNSD_CLLTRL_VL 
+				@long_name(long_name="Protection_allocated_value")
+				int  PRTCTN_ALLCTD_VL 
+				@long_name(long_name="Third_party_priority_claims_against_the_protection_")
+				int  THRD_PRTY_PRRTY_CLMS 
+				@long_name(long_name="Allocated_collateral_value_uncapped_pre_haircuts")
+				double  CLLTRL_VL_UNCPPD 
+				@key(foreign_key_field_list="CLLTRL_ID:DT_RFRNC:RPRTNG_AGNT_ID",primary_key_field_list="CLLTRL_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_CLLTRL_EIL  the_BIRD_CLLTRL_EIL_1 
+				@key(foreign_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:INSTRMNT_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:LN_INSTRMNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+			}
+			@long_name(long_name="Long_debt_security_position_Prudential_portfolio_assignment_encumbrance_data")
+			class BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL {
+				id String   BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Long_security_position_Prudential_portfolio_type")
+				LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain  LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Source_of_encumbrance")
+				SRC_ENCMBRNC_domain  SRC_ENCMBRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_identifier")
+				String   INVSTR_PRTY_ID 
+				@long_name(long_name="Encumbered_nominal_amount")
+				int  ENCMBRD_NMNL_AMNT 
+				@key(foreign_key_field_list="INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:RPRTNG_AGNT_ID:DT_RFRNC:SCRTY_ID:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP",primary_key_field_list="INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:RPRTNG_AGNT_ID:DT_RFRNC:SCRTY_ID:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP")
+				refers BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL  the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 
+			}
+			@long_name(long_name="Long_equity_or_fund_security_position_Prudential_portfolio_assignment_encumbrance_data")
+			class BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL {
+				id String   BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Long_security_position_Prudential_portfolio_type")
+				LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain  LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Source_of_encumbrance")
+				SRC_ENCMBRNC_domain  SRC_ENCMBRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_identifier")
+				String   INVSTR_PRTY_ID 
+				@long_name(long_name="Encumbered_number_of_shares")
+				int  ENCMBRD_NMBR_SHRS 
+				@key(foreign_key_field_list="SCRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID:INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP",primary_key_field_list="SCRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID:INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP")
+				refers BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL  the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 
+			}
+			@long_name(long_name="Long_non_negotiable_security_position_Collateral_assignment")
+			class BIRD_LNG_NN_NGTBL_SCRTY_PSTN_CLLTRL_ASSGNMNT_EIL {
+				id String   BIRD_LNG_NN_NGTBL_SCRTY_PSTN_CLLTRL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Collateral_identifier")
+				String   CLLTRL_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_role_type")
+				ENTTY_RL_TYP_domain  PRTY_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@long_name(long_name="Allocated_unused_collateral_value")
+				double  ALLCTD_UNSD_CLLTRL_VL 
+				@long_name(long_name="Protection_allocated_value")
+				int  PRTCTN_ALLCTD_VL 
+				@long_name(long_name="Allocated_collateral_value_uncapped_pre_haircuts")
+				double  CLLTRL_VL_UNCPPD 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CLLTRL_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CLLTRL_ID")
+				refers BIRD_CLLTRL_EIL  the_BIRD_CLLTRL_EIL_1 
+				@key(foreign_key_field_list="INVSTR_PRTY_RL_TYP:RPRTNG_AGNT_ID:INVSTR_PRTY_ID:SCRTY_ID:DT_RFRNC",primary_key_field_list="PRTY_RL_TYP:RPRTNG_AGNT_ID:PRTY_ID:SCRTY_ID:DT_RFRNC")
+				refers BIRD_SCRTY_PSTN_EIL  the_BIRD_SCRTY_PSTN_EIL_1 
+			}
+			@long_name(long_name="Long_security_position_Prudential_Portfolio_assignment_Accounting_classification_for_financial_assets_assignment")
+			class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_EIL {
+				id String   BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Long_security_position_Prudential_portfolio_type")
+				LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain  LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Accounting_classification")
+				ACCNTNG_CLSSFCTN_domain  ACCNTNG_CLSSFCTN 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_identifier")
+				String   INVSTR_PRTY_ID 
+				@long_name(long_name="Accumulated_impairment")
+				int  ACCMLTD_IMPRMNT 
+				@long_name(long_name="Accumulated_negative_value_adjustments_Market_risk_induced")
+				int  ACCMLTD_NGTV_VL_ADJSTMNT_MR 
+				@long_name(long_name="Accumulated_partial_write_offs")
+				int  ACCMLTD_PRTL_WRTFFS 
+				@long_name(long_name="Accumulated_total_write_offs")
+				int  ACCMLTD_TTL_WRTFFS 
+				@long_name(long_name="Accumulated_write_offs")
+				int  ACCMLTD_WRTFFS 
+				@long_name(long_name="Arrears_for_the_instrument")
+				int  ARRRS 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+				@long_name(long_name="Fair_value_changes_due_to_hedge_accounting")
+				int  FV_CHNGS_HDG_ACCNTNG 
+				@long_name(long_name="Fair_value_option_designation")
+				FVO_DSGNTN_domain  FVO_DSGNTN 
+				@long_name(long_name="Gross_carrying_amount")
+				int  GRSS_CRRYNG_AMNT 
+				@long_name(long_name="Gross_carrying_amount_excluding_accrued_interest")
+				int  GRSS_CRRYNG_AMNT_E_INTRST 
+				@long_name(long_name="Held_for_sale_indicator")
+				HLD_SL_INDCTR_domain  HLD_SL_INDCTR 
+				@long_name(long_name="Impairment_assessment_method")
+				IMPRMNT_ASSSSMNT_MTHD_domain  IMPRMNT_ASSSSMNT_MTHD 
+				@long_name(long_name="Impairment_status")
+				CRDT_QLTY_domain  IMPRMNT_STTS 
+				@long_name(long_name="Initial_impairment_status")
+				CRDT_QLTY_domain  INTL_IMPRMNT_STTS 
+				@long_name(long_name="Lower_of_cost_or_market_LOCOM_indicator")
+				LOCOM_INDCTR_domain  LOCOM_INDCTR 
+				@long_name(long_name="Subject_to_impairment_indicator")
+				SBJCT_IMPRMNT_INDCTR_domain  SBJCT_IMPRMNT_INDCTR 
+				@long_name(long_name="Transfer_between_impairment_stages")
+				TRNSFR_IMPRMNT_STGS_domain  TRNSFR_IMPRMNT_STGS 
+				@long_name(long_name="Type_of_long_security_position")
+				LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_TYP_domain  TYP_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT 
+				@long_name(long_name="Accumulated_changes_in_fair_value")
+				int  ACCMLTD_CHNGS_FV 
+				@long_name(long_name="Accumulated_changes_in_fair_value_due_to_credit_risk")
+				int  ACCMLTD_CHNGS_FV_CR 
+				@long_name(long_name="Accumulated_coverage_ratio")
+				double  ACCMLTD_CVRG_RT 
+				@long_name(long_name="Accrued_interest_accounting_")
+				int  ACCRD_INTRST 
+				@long_name(long_name="Fair_value_change")
+				int  FV_CHNG 
+				@long_name(long_name="General_allowances_for_bank_risk_affecting_carrying_amount_nGAAP_")
+				int  GNRL_ALLWNCS_BNK_RSK 
+				@long_name(long_name="General_allowances_for_credit_risk_affecting_carrying_amount_nGAAP_")
+				int  GNRL_ALLWNCS_CRDT_RSK 
+				@long_name(long_name="Number_of_shares")
+				int  NMBR_SHRS 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:DT_RFRNC:SCRTY_ID:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP",primary_key_field_list="RPRTNG_AGNT_ID:INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:DT_RFRNC:SCRTY_ID:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP")
+				refers BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL  the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 
+			}
+			@long_name(long_name="Long_security_position_Prudential_portfolio_assignment")
+			class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL {
+				id String   BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Long_security_position_Prudential_portfolio_type")
+				LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain  LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_identifier")
+				String   INVSTR_PRTY_ID 
+				@long_name(long_name="Impairment_assessment_method")
+				IMPRMNT_ASSSSMNT_MTHD_domain  IMPRMNT_ASSSSMNT_MTHD 
+				@long_name(long_name="Impairment_status")
+				CRDT_QLTY_domain  IMPRMNT_STTS 
+				@long_name(long_name="Non_performing_prior_to_forbearance_indicator")
+				NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain  NN_PRFRMNG_PRR_FRBRNC_INDCTR 
+				@long_name(long_name="Long_security_position_Prudential_portfolio_assignment_type")
+				LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain  LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP 
+				@long_name(long_name="Arrears_for_the_instrument")
+				int  ARRRS 
+				@long_name(long_name="Haircuts_for_trading_positions_valued_at_fair_value")
+				int  HRCTS_TRDNG_PSTNS_FV 
+				@long_name(long_name="Number_of_shares")
+				int  NMBR_SHRS 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@key(foreign_key_field_list="INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:DT_RFRNC:RPRTNG_AGNT_ID:SCRTY_ID",primary_key_field_list="INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP:DT_RFRNC:RPRTNG_AGNT_ID:SCRTY_ID")
+				refers BIRD_SCRTY_PSTN_EIL  the_BIRD_SCRTY_PSTN_EIL_1 
+			}
+			@long_name(long_name="Long_security_position_Prudential_portfolio_assignment_risk_data")
+			class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT_EIL {
+				id String   BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Exposure_class")
+				EXPSR_CLSS_domain  EXPSR_CLSS 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Long_security_position_Prudential_portfolio_type")
+				LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain  LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP 
+				@long_name(long_name="Investor_Party_identifier")
+				@key(is_foreign_key="true")
+				String   INVSTR_PRTY_ID 
+				@long_name(long_name="Approach_for_prudential_purposes")
+				APPRCH_PRDNTL_PRPSS_domain  APPRCH_PRDNTL_PRPSS 
+				@long_name(long_name="Exposure_Value")
+				int  EXPSR_VL 
+				@long_name(long_name="Loss_given_default_LGD_in_downturns")
+				double  LGD_DWNTRNS 
+				@long_name(long_name="Loss_given_default_LGD_in_normal_economic_times")
+				double  LGD_NRML 
+				@long_name(long_name="Risk_weight")
+				double  RSK_WGHT 
+				@long_name(long_name="Specific_risk_weight")
+				double  SPCFC_RSK_WGHT 
+				@key(foreign_key_field_list="INVSTR_PRTY_ID:DT_RFRNC:INVSTR_PRTY_RL_TYP:SCRTY_ID:RPRTNG_AGNT_ID:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP",primary_key_field_list="INVSTR_PRTY_ID:DT_RFRNC:INVSTR_PRTY_RL_TYP:SCRTY_ID:RPRTNG_AGNT_ID:LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP")
+				refers BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL  the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 
+			}
+			@long_name(long_name="Linked_enterprise_assignment")
+			class BIRD_LNKD_ENTRPRS_ASSGNMNT_EIL {
+				id String   BIRD_LNKD_ENTRPRS_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Central_bank_and_private_sector_company_Party_identifier")
+				String   CNTR_BNK_PRVT_SCTR_CMPNY_PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Linked_enterprise_Party_role_type")
+				ENTTY_RL_TYP_domain  LNKD_ENTRPRS_PRTY_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Linked_enterprise_Party_identifier")
+				String   LNKD_ENTRPRS_PRTY_ID 
+				@key(foreign_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:PRTY_ID:PRTY_RL_TYP",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:LNKD_ENTRPRS_PRTY_ID:LNKD_ENTRPRS_PRTY_RL_TYP")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="PRTY_RPRTNG_AGNT_ID:PRTY_RFRNC_DT:PRTY_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CNTR_BNK_PRVT_SCTR_CMPNY_PRTY_ID")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+			}
+			@long_name(long_name="Master_agreement")
+			class BIRD_MSTR_AGRMNT_EIL {
+				id String   BIRD_MSTR_AGRMNT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Master_agreement_identifier")
+				String   MSTR_AGRMNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Master_agreement_Reference_date")
+				Date   MSTR_AGRMNT_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Master_agreement_Reporting_agent_identifier")
+				String   MSTR_AGRMNT_RPRTNG_AGNT_ID 
+				@long_name(long_name="Type_of_master_agreement")
+				MSTR_AGRMNT_TYP_domain  TYP_MSTR_AGRMNT 
+			}
+			@long_name(long_name="Master_agreement_Entity_role_assignment")
+			class BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_EIL {
+				id String   BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Organisation_role_type")
+				ENTTY_RL_TYP_domain  ORGNSTN_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Master_agreement_identifier")
+				String   MSTR_AGRMNT_ID 
+				@long_name(long_name="Type_of_master_agreement_entity_role_assigned")
+				MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_TYP_domain  TYP_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT 
+				@key(foreign_key_field_list="PRTY_ID:DT_RFRNC:PRTY_RL_TYP:RPRTNG_AGNT_ID",primary_key_field_list="PRTY_ID:DT_RFRNC:ORGNSTN_RL_TYP:RPRTNG_AGNT_ID")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="MSTR_AGRMNT_RPRTNG_AGNT_ID:MSTR_AGRMNT_ID:MSTR_AGRMNT_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:MSTR_AGRMNT_ID:DT_RFRNC")
+				refers BIRD_MSTR_AGRMNT_EIL  the_BIRD_MSTR_AGRMNT_EIL_1 
+			}
+			@long_name(long_name="Master_agreement_Financial_contract_assignment")
+			class BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT_EIL {
+				id String   BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Master_agreement_identifier")
+				String   MSTR_AGRMNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Financial_contract_identifier")
+				String   FNNCL_CNTRCT_ID 
+				@key(foreign_key_field_list="MSTR_AGRMNT_RPRTNG_AGNT_ID:MSTR_AGRMNT_ID:MSTR_AGRMNT_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:MSTR_AGRMNT_ID:DT_RFRNC")
+				refers BIRD_MSTR_AGRMNT_EIL  the_BIRD_MSTR_AGRMNT_EIL_1 
+				@key(foreign_key_field_list="FNNCL_CNTRCT_RPRTNG_AGNT_ID:FNNCL_CNTRCT_ID:FNNCL_CNTRCT_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:FNNCL_CNTRCT_ID:DT_RFRNC")
+				refers BIRD_FNNCL_CNTRCT_EIL  the_BIRD_FNNCL_CNTRCT_EIL_1 
+			}
+			@long_name(long_name="Non_financial_asset")
+			class BIRD_NN_FNNCL_ASST_EIL {
+				id String   BIRD_NN_FNNCL_ASST_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Non_financial_asset_ID")
+				String   NN_FNNCL_ASST_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+				@long_name(long_name="Held_for_sale_indicator")
+				HLD_SL_INDCTR_domain  HLD_SL_INDCTR 
+				@long_name(long_name="Measurement_method")
+				MSRMNT_MTHD_domain  MSRMNT_MTHD 
+				@long_name(long_name="Other_intangible_asset_taken_into_possession_type")
+				TYP_ACCNTNG_ITM_domain  OTHR_INTNGBL_ASST_TKN_INT_PSSSSN_TYP 
+				@long_name(long_name="Property_plant_and_equipment_taken_into_possession_type")
+				TYP_ACCNTNG_ITM_domain  PRPRTY_PLNT_EQPMNT_TKN_INT_PSSSSN_TYP 
+				@long_name(long_name="Subject_to_operating_lease_indicator")
+				SBJCT_OPRTNG_LS_INDCTR_domain  SBJCT_OPRTNG_LS_INDCTR 
+				@long_name(long_name="TM_SNC_INTL_RCGNTN")
+				TM_INTRVL_domain  TM_SNC_INTL_RCGNTN 
+				@long_name(long_name="Type_of_non_financial_asset")
+				TYP_ACCNTNG_ITM_domain  TYP_NN_FNNCL_ASST 
+				@long_name(long_name="Accumulated_negative_changes")
+				int  ACCMLTD_CHNG_NGTV 
+				@long_name(long_name="Accumulated_changes_in_fair_value_due_to_credit_risk")
+				int  ACCMLTD_CHNGS_FV_CR 
+				@long_name(long_name="Accumulated_impairment")
+				int  ACCMLTD_IMPRMNT 
+				@long_name(long_name="GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL")
+				int  GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL 
+				@long_name(long_name="Gross_carrying_amount")
+				int  GRSS_CRRYNG_AMNT 
+			}
+			@long_name(long_name="Non_financial_liability")
+			class BIRD_NN_FNNCL_LBLTY_EIL {
+				id String   BIRD_NN_FNNCL_LBLTY_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Non_financial_liability_ID")
+				String   NN_FNNCL_LBLTY_ID 
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+				@long_name(long_name="Held_for_sale_indicator")
+				HLD_SL_INDCTR_domain  HLD_SL_INDCTR 
+				@long_name(long_name="Type_of_non_financial_liabilty")
+				TYP_ACCNTNG_ITM_domain  TYP_NN_FNNCL_LBLTY 
+			}
+			@long_name(long_name="Natural_person_Key_management_personnel_assignment")
+			class BIRD_NTRL_PRSN_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL {
+				id String   BIRD_NTRL_PRSN_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Natural_person_group_role_type")
+				ENTTY_RL_TYP_domain  NTRL_PRSN_GRP_RL_TYP 
+				@key(foreign_key_field_list="PRTY_ID:DT_RFRNC:PRTY_RL_TYP:RPRTNG_AGNT_ID",primary_key_field_list="PRTY_ID:DT_RFRNC:NTRL_PRSN_GRP_RL_TYP:RPRTNG_AGNT_ID")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="PRTY_RPRTNG_AGNT_ID:PRTY_ID:PRTY_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:PRTY_ID:DT_RFRNC")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+			}
+			@long_name(long_name="Off_balance_instrument_Collateral_assignment")
+			class BIRD_OFF_BLNC_INSTRMNT_CLLTRL_ASSGNMNT_EIL {
+				id String   BIRD_OFF_BLNC_INSTRMNT_CLLTRL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Collateral_identifier")
+				String   CLLTRL_ID 
+				@long_name(long_name="Protection_allocated_value")
+				int  PRTCTN_ALLCTD_VL 
+				@key(foreign_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CLLTRL_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CLLTRL_ID")
+				refers BIRD_CLLTRL_EIL  the_BIRD_CLLTRL_EIL_1 
+			}
+			@long_name(long_name="Over_the_counter_OTC_Derivative_instrument_Synthetic_securitisation_assignment")
+			class BIRD_OTC_DRVTV_INSTRMNT_SNTHTC_SCRTSTN_ASSGNMNT_EIL {
+				id String   BIRD_OTC_DRVTV_INSTRMNT_SNTHTC_SCRTSTN_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Securitisation_identifier")
+				String   SCRTSTN_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Over_the_counter_OTC_Derivative_Instrument_identifier")
+				String   OTC_DRVTV_INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(foreign_key_field_list="SCRTSTN_RPRTNG_AGNT_ID:SCRTSTN_RFRNC_DT:SCRTSTN_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:SCRTSTN_ID")
+				refers BIRD_SNTHTC_SCRTSTN_EIL  the_BIRD_SNTHTC_SCRTSTN_EIL_1 
+				@key(foreign_key_field_list="INSTRMNT_ID:RPRTNG_AGNT_ID:DT_RFRNC",primary_key_field_list="OTC_DRVTV_INSTRMNT_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+			}
+			@long_name(long_name="Abstract_instrument_role")
+			class BIRD_ABSTRCT_INSTRMNT_RL_EIL {
+				id String   BIRD_ABSTRCT_INSTRMNT_RL_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Type_of_abstract_intrument_role")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  TYP_ABSTRCT_INSTRMNT_RL 
+				@long_name(long_name="Abstract_instrument_role_type")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  ABSTRCT_INSTRMNT_RL_TYP 
+				@long_name(long_name="Accumulated_negative_changes")
+				int  ACCMLTD_CHNG_NGTV 
+				@long_name(long_name="Accumulated_partial_write_offs")
+				int  ACCMLTD_PRTL_WRTFFS 
+				@long_name(long_name="Accumulated_total_write_offs")
+				int  ACCMLTD_TTL_WRTFFS 
+				@long_name(long_name="Accounting_classification")
+				ACCNTNG_CLSSFCTN_domain  ACCNTNG_CLSSFCTN 
+				@long_name(long_name="Accounting_hedge_indicator")
+				ACCNTNG_HDG_INDCTR_domain  ACCNTNG_HDG_INDCTR 
+				@long_name(long_name="Date_period_of_application_of_forbearance_measure")
+				DT_OPNNG_BLNC_domain  APPLCTN_FRBRNC_STTS_DT 
+				@long_name(long_name="Balance_sheet_recognised_financial_asset_instrument_by_fair_value_type")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  BLNC_SHT_RCGNSD_FFNCL_ASST_INSTRMNT_FR_VL_TYP 
+				@long_name(long_name="Current_loan_to_value_ratio")
+				double  CRRNT_LTV_RT 
+				@long_name(long_name="Debt_financing_according_to_AnaCredit_indicator")
+				DBT_FNNCNG_ANCRDT_INDCTR_domain  DBT_FNNCNG_RGLTN867_2016_INDCTR 
+				@long_name(long_name="Default_status")
+				CRDT_QLTY_domain  DFLT_STTS 
+				@long_name(long_name="Derived_default_status")
+				CRDT_QLTY_domain  DFLT_STTS_DRVD 
+				@long_name(long_name="Eligible_as_guarantee_indicator")
+				ELGBL_GRNT_INDCTR_domain  ELGBL_GRNT_INDCTR 
+				@long_name(long_name="EXPSR_RCRS_INDCTR")
+				RCRS_domain  EXPSR_RCRS_INDCTR 
+				@long_name(long_name="Financial_asset_instrument_type_by_CRR_Article_123_Retail_exposure_")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  FNNCL_ASST_INSTRMNT_TYP_CRR_123 
+				@long_name(long_name="Financial_asset_instrument_type_by_fixed_interest_rate")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  FNNCL_ASST_INSTRMNT_TYP_FXD_INTRST_RT 
+				@long_name(long_name="Financial_asset_instrument_type_by_interest_rate_only")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  FNNCL_ASST_INSTRMNT_TYP_INTRST_RT_ONL 
+				@long_name(long_name="Financial_asset_instrument_type_by_renegotiation_status")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  FNNCL_ASST_INSTRMNT_TYP_RNGTTN_STTS 
+				@long_name(long_name="Forbearance_measure")
+				FRBRNC_MSR_TYP_domain  FRBRNC_MSR_TYP 
+				@long_name(long_name="Fair_value_hierarchy")
+				FV_HRRCHY_domain  FV_HRRCHY 
+				@long_name(long_name="Fair_value_option_designation")
+				FVO_DSGNTN_domain  FVO_DSGNTN 
+				@long_name(long_name="Gross_carrying_amount")
+				int  GRSS_CRRYNG_AMNT 
+				@long_name(long_name="Held_for_sale_indicator")
+				HLD_SL_INDCTR_domain  HLD_SL_INDCTR 
+				@long_name(long_name="Impairment_status")
+				CRDT_QLTY_domain  IMPRMNT_STTS 
+				@long_name(long_name="Initial_impairment_status")
+				CRDT_QLTY_domain  INTL_IMPRMNT_STTS 
+				@long_name(long_name="Interest_rate_reset_frequency")
+				FRQNCY_domain  INTRST_RT_RST_FRQNCY 
+				@long_name(long_name="Lower_of_cost_or_market_LOCOM_indicator")
+				LOCOM_INDCTR_domain  LOCOM_INDCTR 
+				@long_name(long_name="Low_credit_risk_indicator_for_Finrep")
+				LW_CRDT_RSK_INDCTR_domain  LW_CRDT_RSK_INDCTR 
+				@long_name(long_name="Multiple_forbearance_measures_in_place_indicator")
+				MLTPL_FRBRNC_MSR_INDCTR_domain  MLTPL_FRBRNC_MSRS_INDCTR 
+				@long_name(long_name="Non_performing_exit_criteria_met_indicator")
+				FLD_NN_PRFRMNG_EXT_CRTR_INDCTR_domain  NN_PRFRMNG_EXT_CRTR_MT_INDCTR 
+				@long_name(long_name="Non_performing_prior_to_forbearance_indicator")
+				NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain  NN_PRFRMNG_PRR_FRBRNC_INDCTR 
+				@long_name(long_name="Prudential_portfolio_type")
+				PRDNTL_PRTFL_domain  PRDNTL_PRTFL_TYP 
+				@long_name(long_name="Performing_forborne_exposure_under_probation_reclassified_from_non_performing_indicator")
+				PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain  PRFRMNG_FRBRN_EXPSR_UNDR_PRBTN_RCLSSFD_NN_PRFRMNG_INDCTR 
+				@long_name(long_name="Performing_status")
+				CRDT_QLTY_domain  PRFRMNG_STTS 
+				@long_name(long_name="The_reason_for_the_choice_of_Performing_status")
+				PRFRMNG_STTS_RSN_domain  PRFRMNG_STTS_RSN 
+				@long_name(long_name="Project_finance_loan")
+				PRJCT_FNNC_LN_domain  PRJCT_FNNC_LN 
+				@long_name(long_name="Purpose")
+				PRPS_domain  PRPS 
+				@long_name(long_name="Past_due_financial_asset_instrument_indicator")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  PST_DU_FNNCL_ASST_INSTRMNT_INDCTR 
+				@long_name(long_name="Payment_frequency")
+				FRQNCY_domain  PYMNT_FRQNCY 
+				@long_name(long_name="Recognition")
+				RCGNTN_STTS_domain  RCGNTN_STTS 
+				@long_name(long_name="Reference_rate")
+				RFRNC_RT_domain  RFRNC_RT 
+				@long_name(long_name="Subject_to_impairment_indicator")
+				SBJCT_IMPRMNT_INDCTR_domain  SBJCT_IMPRMNT_INDCTR 
+				@long_name(long_name="Subordinated_debt")
+				SBRDNTD_DBT_domain  SBRDNTD_DBT 
+				@long_name(long_name="Time_past_due_band")
+				TM_INTRVL_domain  TM_PST_DU_BND 
+				@long_name(long_name="TM_SNC_INTL_RCGNTN")
+				TM_INTRVL_domain  TM_SNC_INTL_RCGNTN 
+				@long_name(long_name="Transfer_between_impairment_stages")
+				TRNSFR_IMPRMNT_STGS_domain  TRNSFR_IMPRMNT_STGS 
+				@long_name(long_name="Type_of_amortisation")
+				TYP_AMRTSTN_domain  TYP_AMRTSTN 
+				@long_name(long_name="Type_of_hedge")
+				TYP_HDG_domain  TYP_HDG 
+				@long_name(long_name="Type_of_interest_rate")
+				TYP_INTRST_RT_domain  TYP_INTRST_RT 
+				@long_name(long_name="Accumulated_changes_in_fair_value")
+				int  ACCMLTD_CHNGS_FV 
+				@long_name(long_name="Accumulated_changes_in_fair_value_due_to_credit_risk")
+				int  ACCMLTD_CHNGS_FV_CR 
+				@long_name(long_name="Accumulated_impairment")
+				int  ACCMLTD_IMPRMNT 
+				@long_name(long_name="Accumulated_negative_value_adjustments_Market_risk_induced")
+				int  ACCMLTD_NGTV_VL_ADJSTMNT_MR 
+				@long_name(long_name="Accumulated_write_offs")
+				int  ACCMLTD_WRTFFS 
+				@long_name(long_name="Accrued_interest_accounting_")
+				int  ACCRD_INTRST 
+				@long_name(long_name="Interest_rate")
+				double  ANNLSD_AGRD_RT 
+				@long_name(long_name="Arrears_for_the_instrument")
+				int  ARRRS 
+				@long_name(long_name="Cumulative_recoveries_since_default")
+				int  CMLTV_RCVRS_SNC_DFLT 
+				@long_name(long_name="Commitment_amount_at_inception")
+				int  CMMTMNT_INCPTN 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+				@long_name(long_name="Date_of_default_status")
+				Date   DT_DFLT_STTS 
+				@long_name(long_name="End_date_of_the_interest_only_period")
+				Date   DT_END_INTRST_ONLY 
+				@long_name(long_name="Date_of_forbearance_measure")
+				Date   DT_FRBRNC_MSRS 
+				@long_name(long_name="Date_of_forbearance_and_renegotiation_status")
+				Date   DT_FRBRNC_STTS 
+				@long_name(long_name="Inception_date")
+				Date   DT_INCPTN 
+				@long_name(long_name="Date_of_non_performing_status")
+				Date   DT_NN_PRFRMNG_STTS_INSTRMNT 
+				@long_name(long_name="Next_interest_rate_reset_date")
+				Date   DT_NXT_INTRST_RT_RST 
+				@long_name(long_name="Date_of_past_due")
+				Date   DT_PST_D 
+				@long_name(long_name="Settlement_date")
+				Date   DT_STTLMNT 
+				@long_name(long_name="Forbearance_measure_count")
+				int  FRBRNC_MSR_CNT 
+				@long_name(long_name="Freezing_period_in_days")
+				int  FRZNG_PRD_DYS 
+				@long_name(long_name="Fair_value")
+				int  FV 
+				@long_name(long_name="Fair_value_change")
+				int  FV_CHNG 
+				@long_name(long_name="Fair_value_changes_due_to_changes_in_credit_risk_before_purchase")
+				int  FV_CHNG_CR_BFR_PRCHS 
+				@long_name(long_name="Fair_value_changes_due_to_hedge_accounting")
+				int  FV_CHNGS_HDG_ACCNTNG 
+				@long_name(long_name="GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL")
+				int  GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL 
+				@long_name(long_name="General_allowances_for_bank_risk_affecting_carrying_amount_nGAAP_")
+				int  GNRL_ALLWNCS_BNK_RSK 
+				@long_name(long_name="General_allowances_for_credit_risk_affecting_carrying_amount_nGAAP_")
+				int  GNRL_ALLWNCS_CRDT_RSK 
+				@long_name(long_name="Gross_carrying_amount_excluding_accrued_interest")
+				int  GRSS_CRRYNG_AMNT_E_INTRST 
+				@long_name(long_name="Haircuts_for_trading_positions_valued_at_fair_value")
+				int  HRCTS_TRDNG_PSTNS_FV 
+				@long_name(long_name="Interest_rate_cap")
+				double  INTRST_RT_CP 
+				@long_name(long_name="Interest_rate_floor")
+				double  INTRST_RT_FLR 
+				@long_name(long_name="Interest_rate_spread_margin")
+				double  INTRST_RT_SPRD 
+				@long_name(long_name="Provisions_associated_with_off_balance_sheet_exposures")
+				int  PRVSNS_OFF_BLNC_SHT 
+				@long_name(long_name="Start_date_of_the_period")
+				Date   STRT_DT_PRD 
+				@long_name(long_name="Taken_into_possession_date")
+				Date   TKN_PSSSSN_DT 
+				@key(foreign_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+			}
+			@long_name(long_name="Asset_pool_Security_position_assignment")
+			class BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT_EIL {
+				id String   BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Asset_pool_identifier")
+				String   ASST_PL_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_identifier")
+				String   INVSTR_PRTY_ID 
+				@long_name(long_name="Transferred_amount")
+				int  TRNSFRRD_AMNT 
+				@key(foreign_key_field_list="INVSTR_PRTY_RL_TYP:DT_RFRNC:RPRTNG_AGNT_ID:INVSTR_PRTY_ID:SCRTY_ID",primary_key_field_list="INVSTR_PRTY_RL_TYP:DT_RFRNC:RPRTNG_AGNT_ID:INVSTR_PRTY_ID:SCRTY_ID")
+				refers BIRD_SCRTY_PSTN_EIL  the_BIRD_SCRTY_PSTN_EIL_1 
+				@key(foreign_key_field_list="ASST_PL_ID:ASST_PL_RPRTNG_AGNT_ID:ASST_PL_RFRNC_DT",primary_key_field_list="ASST_PL_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_ASST_PL_EIL  the_BIRD_ASST_PL_EIL_1 
+			}
+			@long_name(long_name="Asset_pool_subject_to_a_Securitisation_and_other_credit_transfer_")
+			class BIRD_ASST_PL_EIL {
+				id String   BIRD_ASST_PL_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Asset_pool_identifier")
+				String   ASST_PL_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Asset_pool_Reference_date")
+				Date   ASST_PL_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Asset_pool_Reporting_agent_identifier")
+				String   ASST_PL_RPRTNG_AGNT_ID 
+				@long_name(long_name="Asset_pool_subject_to_securitisation_and_other_credit_transfer_type")
+				ASST_PL_TYP_domain  ASST_PL_TYP 
+				@long_name(long_name="Primary_asset_class_of_cover_pool")
+				PRMRY_ASST_CLSS_CVR_PL_domain  PRMRY_ASST_CLSS_CVR_PL 
+				@long_name(long_name="TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT")
+				RCGNTN_STTS_domain  TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+			}
+			@long_name(long_name="Asset_pool_Equity_instrument_that_is_not_a_security_assignment")
+			class BIRD_ASST_PL_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL {
+				id String   BIRD_ASST_PL_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Asset_pool_identifier")
+				String   ASST_PL_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Equity_instrument_identifier")
+				String   EQTY_INSTRMNT_ID 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:INSTRMNT_ID:DT_RFRNC",primary_key_field_list="RPRTNG_AGNT_ID:EQTY_INSTRMNT_ID:DT_RFRNC")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="ASST_PL_RFRNC_DT:ASST_PL_ID:ASST_PL_RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:ASST_PL_ID:RPRTNG_AGNT_ID")
+				refers BIRD_ASST_PL_EIL  the_BIRD_ASST_PL_EIL_1 
+			}
+			@long_name(long_name="Asset_pool_Loan_excluding_repurchase_agreement_assignment")
+			class BIRD_ASST_PL_LN_ASSGNMNT_EIL {
+				id String   BIRD_ASST_PL_LN_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Asset_pool_identifier")
+				String   ASST_PL_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Loan_Instrument_identifier")
+				String   LN_INSTRMNT_ID 
+				@long_name(long_name="Percentage_retained")
+				double  PRCNTG_RTND 
+				@long_name(long_name="Percentage_transfered")
+				double  PRCNTG_TRNSFRD 
+				@key(foreign_key_field_list="INSTRMNT_ID:DT_RFRNC:RPRTNG_AGNT_ID",primary_key_field_list="LN_INSTRMNT_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="ASST_PL_ID:ASST_PL_RPRTNG_AGNT_ID:ASST_PL_RFRNC_DT",primary_key_field_list="ASST_PL_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_ASST_PL_EIL  the_BIRD_ASST_PL_EIL_1 
+			}
+			@long_name(long_name="Balance_sheet_netting")
+			class BIRD_BLNC_SHT_NTTNG_EIL {
+				id String   BIRD_BLNC_SHT_NTTNG_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Balance_sheet_netting_identifier")
+				String   BLNC_SHT_NTTNG_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Balance_sheet_netting_Reference_date")
+				Date   BLNC_SHT_NTTNG_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Balance_sheet_netting_Reporting_agent_identifier")
+				String   BLNC_SHT_NTTNG_RPRTNG_AGNT_ID 
+			}
+			@long_name(long_name="Collateral")
+			class BIRD_CLLTRL_EIL {
+				id String   BIRD_CLLTRL_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Collateral_identifier")
+				String   CLLTRL_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@long_name(long_name="Collateral_annex_Protection_arrangement_identifier")
+				String   CLLTRL_ANNX_PRTCTN_ID 
+				@long_name(long_name="Security_identifier")
+				@key(is_foreign_key="true")
+				String   SCRTY_ID 
+				@long_name(long_name="Obtained_collateral_type")
+				TYP_PRTCTN_domain  CLLTRL_OBTND_TYP 
+				@long_name(long_name="Accumulated_negative_changes")
+				int  ACCMLTD_CHNG_NGTV 
+				@long_name(long_name="Currency")
+				CRRNCY_domain  CRRNCY 
+				@long_name(long_name="Date_of_original_protection_value")
+				Date   DT_ORGNL_PRTCTN_VL 
+				@long_name(long_name="Date_of_protection_value")
+				Date   DT_PRTCTN_VL 
+				@long_name(long_name="Non_reporting_member_state_Country_code")
+				GGRPHCL_ARS_domain  NN_MMBR_STT_CNTRY_CD 
+				@long_name(long_name="Original_protection_value")
+				int  ORGNL_PRTCTN_VL 
+				@long_name(long_name="Planning_permission_for_development_indicator")
+				PLNNNG_PRMSSN_DVLPMNT_INDCTR_domain  PLNNNG_PRMSSN_INDCTR 
+				@long_name(long_name="Real_estate_collateral_location_type")
+				TYP_PRTCTN_domain  RL_ESTT_CLLTRL_LCTN_TYP 
+				@long_name(long_name="TM_SNC_INTL_RCGNTN")
+				TM_INTRVL_domain  TM_SNC_INTL_RCGNTN 
+				@long_name(long_name="Territorial_unit")
+				GGRPHCL_ARS_domain  TRRTRL_UNT 
+				@long_name(long_name="Type_of_collateral")
+				TYP_PRTCTN_domain  TYP_CLLTRL 
+				@long_name(long_name="Type_of_protection_valuation_approach_for_notional_amount")
+				PRTCTN_VLTN_APPRCH_domain  TYP_PRTCTN_VL_APPRCH 
+				@long_name(long_name="Under_construction_or_development_indicator")
+				UNDR_CNSTRCTN_INDCTR_domain  UNDR_CNSTRCTN_INDCTR 
+				@long_name(long_name="Accumulated_changes_in_fair_value_due_to_credit_risk")
+				int  ACCMLTD_CHNGS_FV_CR 
+				@long_name(long_name="Accumulated_impairment")
+				int  ACCMLTD_IMPRMNT 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+				@long_name(long_name="Fair_value")
+				int  FV 
+				@long_name(long_name="GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL")
+				int  GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL 
+				@long_name(long_name="Initial_recognition_value")
+				int  INTL_RCGNTN_VL 
+				@long_name(long_name="Long_term_sustainable_value_amount_of_the_collateral")
+				int  LT_SSTNBL_VL 
+				@long_name(long_name="Market_value_amount_of_the_collateral")
+				int  MRKT_VL 
+				@long_name(long_name="Notional_amount")
+				int  NTNL_AMNT 
+				@long_name(long_name="Postal_code")
+				String   PSTL_CD 
+				@long_name(long_name="Taken_into_possession_date")
+				Date   TKN_PSSSSN_DT 
+				@key(foreign_key_field_list="PRTCTN_ID:PRTCTN_ARRNGMNT_RPRTNG_AGNT_ID:PRTCTN_ARRNGMNT_RFRNC_DT",primary_key_field_list="CLLTRL_ANNX_PRTCTN_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_PRTCTN_ARRNGMNT_EIL  the_BIRD_PRTCTN_ARRNGMNT_EIL_1 
+				@key(foreign_key_field_list="SCRTY_RPRTNG_AGNT_ID:SCRTY_ID:SCRTY_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:SCRTY_ID:DT_RFRNC")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Collateral_Non_financial_asset_assignment")
+			class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL {
+				id String   BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Measurement_method")
+				MSRMNT_MTHD_domain  MSRMNT_MTHD 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Software_assets_indicator")
+				SFTWR_ASST_INDCTR_domain  SFTWR_ASSTS_INDCTR 
+				@key(is_primary_key="true")
+				@long_name(long_name="Held_for_sale_indicator")
+				HLD_SL_INDCTR_domain  HLD_SL_INDCTR 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Collateral_identifier")
+				String   CLLTRL_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Property_plant_and_equipment_not_taken_into_possession_software_assets_indicator")
+				TYP_ACCNTNG_ITM_domain  PPRTY_PLNT_EQPMNT_NT_TKN_INT_PSSSSN_SFTWR_ASSTS_INDCTR 
+				@key(is_primary_key="true")
+				@long_name(long_name="Subject_to_operating_lease_indicator")
+				SBJCT_OPRTNG_LS_INDCTR_domain  SBJCT_OPRTNG_LS_INDCTR 
+				@key(is_primary_key="true")
+				@long_name(long_name="Property_plant_and_equipment_taken_into_possession_type")
+				TYP_ACCNTNG_ITM_domain  PRPRTY_PLNT_EQPMNT_TKN_INT_PSSSSN_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Property_plant_and_equipment_taken_into_possession_software_assets_indicator")
+				TYP_ACCNTNG_ITM_domain  PPRTY_PLNT_EQPMNT_TKN_INT_PSSSSN_SFTWR_ASSTS_INDCTR 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Other_intangible_asset_taken_into_possession_type")
+				TYP_ACCNTNG_ITM_domain  OTHR_INTNGBL_ASST_TKN_INT_PSSSSN_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="TM_SNC_INTL_RCGNTN")
+				TM_INTRVL_domain  TM_SNC_INTL_RCGNTN 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Non_financial_asset_ID")
+				String   NN_FNNCL_ASST_ID 
+				@long_name(long_name="Collateral_non_financial_asset_assignment_type")
+				CLLTRL_NN_FNNCL_ASST_ASSGNMNT_TYP_domain  CLLTRL_NN_FNNCL_ASST_ASSGNMNT_TYP 
+				@key(foreign_key_field_list="NN_FNNCL_ASST_ID:DT_RFRNC:RPRTNG_AGNT_ID",primary_key_field_list="NN_FNNCL_ASST_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_NN_FNNCL_ASST_EIL  the_BIRD_NN_FNNCL_ASST_EIL_1 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CLLTRL_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CLLTRL_ID")
+				refers BIRD_CLLTRL_EIL  the_BIRD_CLLTRL_EIL_1 
+			}
+			@long_name(long_name="Credit_facility_Collateral_assignment")
+			class BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT_EIL {
+				id String   BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Credit_facility_identifier")
+				String   CRDT_FCLTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Collateral_identifier")
+				String   CLLTRL_ID 
+				@key(foreign_key_field_list="CRDT_FCLTY_ID:DT_RFRNC:RPRTNG_AGNT_ID",primary_key_field_list="CRDT_FCLTY_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_CRDT_FCLTY_EIL  the_BIRD_CRDT_FCLTY_EIL_1 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CLLTRL_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CLLTRL_ID")
+				refers BIRD_CLLTRL_EIL  the_BIRD_CLLTRL_EIL_1 
+			}
+			@long_name(long_name="Credit_facility_Collateral_received_instrument_assignment")
+			class BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL {
+				id String   BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Credit_facility_identifier")
+				String   CRDT_FCLTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Collateral_received_Instrument_identifier")
+				String   CLLTRL_RCVD_INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Type_of_abstract_intrument_role")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  TYP_ABSTRCT_INSTRMNT_RL 
+				@long_name(long_name="Protection_allocated_value")
+				int  PRTCTN_ALLCTD_VL 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CRDT_FCLTY_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CRDT_FCLTY_ID")
+				refers BIRD_CRDT_FCLTY_EIL  the_BIRD_CRDT_FCLTY_EIL_1 
+				@key(foreign_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:INSTRMNT_ID:TYP_ABSTRCT_INSTRMNT_RL",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:CLLTRL_RCVD_INSTRMNT_ID:TYP_ABSTRCT_INSTRMNT_RL")
+				refers BIRD_ABSTRCT_INSTRMNT_RL_EIL  the_BIRD_ABSTRCT_INSTRMNT_RL_EIL_1 
+			}
+			@long_name(long_name="Credit_facility")
+			class BIRD_CRDT_FCLTY_EIL {
+				id String   BIRD_CRDT_FCLTY_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Credit_facility_identifier")
+				String   CRDT_FCLTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@long_name(long_name="Financial_contract_identifier")
+				@key(is_foreign_key="true")
+				String   FNNCL_CNTRCT_ID 
+				@long_name(long_name="Accumulated_changes_in_fair_value")
+				int  ACCMLTD_CHNGS_FV 
+				@long_name(long_name="Accumulated_changes_in_fair_value_due_to_credit_risk")
+				int  ACCMLTD_CHNGS_FV_CR 
+				@long_name(long_name="Accumulated_negative_value_adjustments_Market_risk_induced")
+				int  ACCMLTD_NGTV_VL_ADJSTMNT_MR 
+				@long_name(long_name="Accounting_classification")
+				ACCNTNG_CLSSFCTN_domain  ACCNTNG_CLSSFCTN 
+				@long_name(long_name="Assessment_approach_for_credit_quality_status")
+				APPRCH_CRDT_QLTY_STTS_domain  APPRCH_CRDT_QLTY_STTS 
+				@long_name(long_name="Currency")
+				CRRNCY_domain  CRRNCY 
+				@long_name(long_name="Default_status")
+				CRDT_QLTY_domain  DFLT_STTS 
+				@long_name(long_name="Derived_default_status")
+				CRDT_QLTY_domain  DFLT_STTS_DRVD 
+				@long_name(long_name="Inception_date")
+				Date   DT_INCPTN 
+				@long_name(long_name="Legal_final_maturity_date")
+				Date   DT_LGL_FNL_MTRTY 
+				@long_name(long_name="Date_of_the_performing_status_of_the_instrument")
+				Date   DT_PRFRMNG_STTS 
+				@long_name(long_name="Date_of_past_due")
+				Date   DT_PST_D 
+				@long_name(long_name="Settlement_date")
+				Date   DT_STTLMNT 
+				@long_name(long_name="Forbearance_measure")
+				FRBRNC_MSR_TYP_domain  FRBRNC_MSR_TYP 
+				@long_name(long_name="Freezing_period_in_days")
+				int  FRZNG_PRD_DYS 
+				@long_name(long_name="Fair_value")
+				int  FV 
+				@long_name(long_name="General_allowances_for_bank_risk_affecting_carrying_amount_nGAAP_")
+				int  GNRL_ALLWNCS_BNK_RSK 
+				@long_name(long_name="General_allowances_for_credit_risk_affecting_carrying_amount_nGAAP_")
+				int  GNRL_ALLWNCS_CRDT_RSK 
+				@long_name(long_name="Impairment_status")
+				CRDT_QLTY_domain  IMPRMNT_STTS 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@long_name(long_name="Non_performing_prior_to_forbearance_indicator")
+				NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain  NN_PRFRMNG_PRR_FRBRNC_INDCTR 
+				@long_name(long_name="Performing_forborne_exposure_under_probation_reclassified_from_non_performing_indicator")
+				PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain  PRFRMNG_FRBRN_EXPSR_UNDR_PRBTN_RCLSSFD_NN_PRFRMNG_INDCTR 
+				@long_name(long_name="Performing_status")
+				CRDT_QLTY_domain  PRFRMNG_STTS 
+				@long_name(long_name="The_reason_for_the_choice_of_Performing_status")
+				PRFRMNG_STTS_RSN_domain  PRFRMNG_STTS_RSN 
+				@long_name(long_name="Provisions_associated_with_off_balance_sheet_exposures")
+				int  PRVSNS_OFF_BLNC_SHT 
+				@long_name(long_name="Renegotiation_status")
+				FRBRNC_STTS_domain  RNGTTN_STTS 
+				@long_name(long_name="Retail_exposure_according_to_CRR_Article_123_b_indicator")
+				RTL_EXPSR_ACCRDNG_CRR_INDCTR_domain  RTL_EXPSR_ACCRDNG_CRR_INDCTR 
+				@long_name(long_name="Revocable_indicator")
+				RVCBL_INDCTR_domain  RVCBL_INDCTR 
+				@long_name(long_name="Time_past_due_band")
+				TM_INTRVL_domain  TM_PST_DU_BND 
+				@long_name(long_name="Type_of_credit_facility")
+				TYP_CMMTMNT_domain  TYP_CRDT_FCLTY 
+				@long_name(long_name="Interest_rate")
+				double  ANNLSD_AGRD_RT 
+				@long_name(long_name="Date_of_default_status")
+				Date   DT_DFLT_STTS 
+				@long_name(long_name="Date_of_forbearance_measure")
+				Date   DT_FRBRNC_MSRS 
+				@long_name(long_name="Date_of_forbearance_and_renegotiation_status")
+				Date   DT_FRBRNC_STTS 
+				@key(foreign_key_field_list="FNNCL_CNTRCT_ID:FNNCL_CNTRCT_RPRTNG_AGNT_ID:FNNCL_CNTRCT_RFRNC_DT",primary_key_field_list="FNNCL_CNTRCT_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_FNNCL_CNTRCT_EIL  the_BIRD_FNNCL_CNTRCT_EIL_1 
+			}
+			@long_name(long_name="Credit_facility_Entity_role_assignment")
+			class BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT_EIL {
+				id String   BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Credit_facility_identifier")
+				String   CRDT_FCLTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_role_type")
+				ENTTY_RL_TYP_domain  PRTY_RL_TYP 
+				@long_name(long_name="Credit_facility_Entity_role_assignment_type")
+				CRDT_FCLTY_ENTTY_RL_ASSGNMNT_TYP_domain  CRDT_FCLTY_ENTTY_RL_ASSGNMNT_TYP 
+				@key(foreign_key_field_list="PRTY_ID:PRTY_RL_TYP:RPRTNG_AGNT_ID:DT_RFRNC",primary_key_field_list="PRTY_ID:PRTY_RL_TYP:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="CRDT_FCLTY_ID:RPRTNG_AGNT_ID:DT_RFRNC",primary_key_field_list="CRDT_FCLTY_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_CRDT_FCLTY_EIL  the_BIRD_CRDT_FCLTY_EIL_1 
+			}
+			@long_name(long_name="Credit_risk_mitigation_assignment")
+			class BIRD_CRDT_RSK_MTGTN_ASSGNMNT_EIL {
+				id String   BIRD_CRDT_RSK_MTGTN_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Protection_identifier")
+				String   PRTCTN_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Collateral_identifier")
+				String   CLLTRL_ID 
+				@key(foreign_key_field_list="PRTCTN_ID:PRTCTN_ARRNGMNT_RFRNC_DT:PRTCTN_ARRNGMNT_RPRTNG_AGNT_ID",primary_key_field_list="PRTCTN_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_PRTCTN_ARRNGMNT_EIL  the_BIRD_PRTCTN_ARRNGMNT_EIL_1 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:CLLTRL_ID:DT_RFRNC",primary_key_field_list="RPRTNG_AGNT_ID:CLLTRL_ID:DT_RFRNC")
+				refers BIRD_CLLTRL_EIL  the_BIRD_CLLTRL_EIL_1 
+			}
+			@long_name(long_name="Credit_transfer_other_than_securitisation_and_covered_bond_program")
+			class BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_EIL {
+				id String   BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Credit_transfer_other_than_securitisation_and_covered_bond_program_identifier")
+				String   CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@long_name(long_name="Asset_pool_identifier")
+				@key(is_foreign_key="true")
+				String   ASST_PL_ID 
+				@long_name(long_name="Securitisation_and_other_credit_transfer_type")
+				SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain  SCRTSN_OTHR_CRDT_TRNSFR_TYP 
+				@key(foreign_key_field_list="ASST_PL_ID:ASST_PL_RPRTNG_AGNT_ID:ASST_PL_RFRNC_DT",primary_key_field_list="ASST_PL_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_ASST_PL_EIL  the_BIRD_ASST_PL_EIL_1 
+			}
+			@long_name(long_name="Cash_on_hand")
+			class BIRD_CSH_HND_EIL {
+				id String   BIRD_CSH_HND_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Cash_on_hand_Reference_date")
+				Date   CSH_HND_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Cash_on_hand_Reporting_agent_identifier")
+				String   CSH_HND_RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Currency")
+				CRRNCY_domain  CRRNCY 
+				@key(is_primary_key="true")
+				@long_name(long_name="Held_for_sale_indicator")
+				HLD_SL_INDCTR_domain  HLD_SL_INDCTR 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+			}
+			@long_name(long_name="Covered_bond_issuance")
+			class BIRD_CVRD_BND_ISSNC_EIL {
+				id String   BIRD_CVRD_BND_ISSNC_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Covered_bond_program_identifier")
+				String   CVRD_BND_PRGRM_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(foreign_key_field_list="SCRTY_RFRNC_DT:SCRTY_RPRTNG_AGNT_ID:SCRTY_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:SCRTY_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CVRD_BND_PRGRM_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CVRD_BND_PRGRM_ID")
+				refers BIRD_CVRD_BND_PRGRM_EIL  the_BIRD_CVRD_BND_PRGRM_EIL_1 
+			}
+			@long_name(long_name="Covered_bond_programme")
+			class BIRD_CVRD_BND_PRGRM_EIL {
+				id String   BIRD_CVRD_BND_PRGRM_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Covered_bond_program_identifier")
+				String   CVRD_BND_PRGRM_ID 
+				@long_name(long_name="Asset_pool_identifier")
+				@key(is_foreign_key="true")
+				String   ASST_PL_ID 
+				@long_name(long_name="Securitisation_and_other_credit_transfer_type")
+				SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain  SCRTSN_OTHR_CRDT_TRNSFR_TYP 
+				@key(foreign_key_field_list="ASST_PL_RPRTNG_AGNT_ID:ASST_PL_ID:ASST_PL_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:ASST_PL_ID:DT_RFRNC")
+				refers BIRD_ASST_PL_EIL  the_BIRD_ASST_PL_EIL_1 
+			}
+			@long_name(long_name="Debt_security_issued_by_the_reporting_agent_")
+			class BIRD_DBT_SCRTY_ISSD_EIL {
+				id String   BIRD_DBT_SCRTY_ISSD_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Debt_Security_Reference_date")
+				Date   DBT_SCRTY_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Debt_Security_Reporting_agent_identifier")
+				String   DBT_SCRTY_RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Debt_Security_identifier")
+				String   DBT_SCRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Accounting_classification")
+				ACCNTNG_CLSSFCTN_domain  ACCNTNG_CLSSFCTN 
+				@long_name(long_name="Accounting_hedge_indicator")
+				ACCNTNG_HDG_INDCTR_domain  ACCNTNG_HDG_INDCTR 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+				@long_name(long_name="Debt_security_issued_prudential_portfolio_type")
+				SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain  DBT_SCRTY_ISSD_PRDNTL_PRTFL_TYP 
+				@long_name(long_name="Fair_value_hierarchy")
+				FV_HRRCHY_domain  FV_HRRCHY 
+				@long_name(long_name="Fair_value_option_designation")
+				FVO_DSGNTN_domain  FVO_DSGNTN 
+				@long_name(long_name="Held_for_sale_indicator")
+				HLD_SL_INDCTR_domain  HLD_SL_INDCTR 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@long_name(long_name="Non_performing_prior_to_forbearance_indicator")
+				NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain  NN_PRFRMNG_PRR_FRBRNC_INDCTR 
+				@long_name(long_name="Debt_security_issued_type")
+				SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain  DBT_SCRTY_ISSD_TYP 
+				@long_name(long_name="Type_of_product")
+				TYP_PRDCT_domain  TYP_PRDCT 
+				@long_name(long_name="Accumulated_changes_in_fair_value")
+				int  ACCMLTD_CHNGS_FV 
+				@long_name(long_name="Accumulated_changes_in_fair_value_due_to_credit_risk")
+				int  ACCMLTD_CHNGS_FV_CR 
+				@long_name(long_name="Fair_value")
+				int  FV 
+				@long_name(long_name="Fair_value_change")
+				int  FV_CHNG 
+				@long_name(long_name="Haircuts_for_trading_positions_valued_at_fair_value")
+				int  HRCTS_TRDNG_PSTNS_FV 
+				@long_name(long_name="Start_date_of_the_period")
+				Date   STRT_DT_PRD 
+				@key(foreign_key_field_list="SCRTY_ID:SCRTY_RFRNC_DT:SCRTY_RPRTNG_AGNT_ID",primary_key_field_list="DBT_SCRTY_ID:DBT_SCRTY_RFRNC_DT:DBT_SCRTY_RPRTNG_AGNT_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Debt_security_issued_by_the_reporting_agent_Traditional_securitisation_assignment")
+			class BIRD_DBT_SCRTY_ISSD_TRDTNL_SCRTSTN_ASSGNMNT_EIL {
+				id String   BIRD_DBT_SCRTY_ISSD_TRDTNL_SCRTSTN_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Securitisation_identifier")
+				String   SCRTSTN_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Accounting_classification")
+				ACCNTNG_CLSSFCTN_domain  ACCNTNG_CLSSFCTN 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:SCRTSTN_ID",primary_key_field_list="SCRTY_ID:DT_RFRNC:SCRTSTN_ID")
+				refers BIRD_TRDTNL_SCRTSTN_EIL  the_BIRD_TRDTNL_SCRTSTN_EIL_1 
+				@key(foreign_key_field_list="DBT_SCRTY_ID:DBT_SCRTY_RFRNC_DT:DBT_SCRTY_RPRTNG_AGNT_ID:ACCNTNG_CLSSFCTN",primary_key_field_list="SCRTY_ID:DT_RFRNC:RPRTNG_AGNT_ID:ACCNTNG_CLSSFCTN")
+				refers BIRD_DBT_SCRTY_ISSD_EIL  the_BIRD_DBT_SCRTY_ISSD_EIL_1 
+			}
+			@long_name(long_name="Long_security_position_Protection_arrangement_assignment")
+			class BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT_EIL {
+				id String   BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Protection_identifier")
+				String   PRTCTN_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_role_type")
+				ENTTY_RL_TYP_domain  PRTY_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@long_name(long_name="Allocated_unused_collateral_value")
+				double  ALLCTD_UNSD_CLLTRL_VL 
+				@long_name(long_name="Protection_allocated_value")
+				int  PRTCTN_ALLCTD_VL 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:INVSTR_PRTY_ID:SCRTY_ID:DT_RFRNC:INVSTR_PRTY_RL_TYP",primary_key_field_list="RPRTNG_AGNT_ID:PRTY_ID:SCRTY_ID:DT_RFRNC:PRTY_RL_TYP")
+				refers BIRD_SCRTY_PSTN_EIL  the_BIRD_SCRTY_PSTN_EIL_1 
+				@key(foreign_key_field_list="PRTCTN_ID:PRTCTN_ARRNGMNT_RPRTNG_AGNT_ID:PRTCTN_ARRNGMNT_RFRNC_DT",primary_key_field_list="PRTCTN_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_PRTCTN_ARRNGMNT_EIL  the_BIRD_PRTCTN_ARRNGMNT_EIL_1 
+			}
+			@long_name(long_name="Entity_role")
+			class BIRD_ENTTY_RL_EIL {
+				id String   BIRD_ENTTY_RL_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true")
+				@long_name(long_name="Party_role_type")
+				ENTTY_RL_TYP_domain  PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@long_name(long_name="Entity_group_role_type")
+				ENTTY_RL_TYP_domain  ENTTY_GRP_RL_TYP 
+				@long_name(long_name="Entity_role_type")
+				ENTTY_RL_TYP_domain  ENTTY_RL_TYP 
+				@long_name(long_name="Entity_transaction_role_type")
+				ENTTY_RL_TYP_domain  ENTTY_TRNSCTN_RL_TYP 
+				@long_name(long_name="Equity")
+				int  EQTY 
+				@long_name(long_name="Profit_loss_")
+				int  PRFT_LSS 
+				@long_name(long_name="Share_capital")
+				int  SHR_CPTL 
+				@long_name(long_name="Total_assets")
+				int  TTL_ASSTS 
+				@key(foreign_key_field_list="PRTY_RFRNC_DT:PRTY_ID:PRTY_RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:PRTY_ID:RPRTNG_AGNT_ID")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+			}
+			@long_name(long_name="Equity_instrument_leg_Equity_instrument_that_is_not_a_security_assignment")
+			class BIRD_EQT_INSTRMNT_LG_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL {
+				id String   BIRD_EQT_INSTRMNT_LG_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Repurchase_agreement_Instrument_identifier")
+				String   RPRCHS_AGRMNT_INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Repurchase_component_type")
+				RPRCHS_AGRMNT_TYP_domain  RPRCHS_AGRMNT_CMPNNT_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(foreign_key_field_list="RPRCHS_AGRMNT_INSTRMNT_RPRTNG_AGNT_ID:RPRCHS_AGRMNT_INSTRMNT_RFRNC_DT:RPRCHS_AGRMNT_CMPNNT_TYP:RPRCHS_AGRMNT_INSTRMNT_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:RPRCHS_AGRMNT_CMPNNT_TYP:RPRCHS_AGRMNT_INSTRMNT_ID")
+				refers BIRD_RPRCHS_AGRMNT_CMPNNT_EIL  the_BIRD_RPRCHS_AGRMNT_CMPNNT_EIL_1 
+				@key(foreign_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+			}
+			@long_name(long_name="Exchange_tradable_derivative_liability_position_Synthetic_securitisation_assignment")
+			class BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL {
+				id String   BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Securitisation_identifier")
+				String   SCRTSTN_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_identifier")
+				String   SLLR_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_role_type")
+				ENTTY_RL_TYP_domain  SLLR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_identifier")
+				String   BYR_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_role_type")
+				ENTTY_RL_TYP_domain  BYR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Exchange_tradable_derivative_Security_identifier")
+				String   EXCHNG_TRDBL_DRVT_SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Exchange_tradable_derivative_position_role_type")
+				EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain  EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP 
+				@key(foreign_key_field_list="EXCHNG_TRDBL_DRVT_SCRTY_ID:RPRTNG_AGNT_ID:BYR_PRTY_RL_TYP:EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP:SLLR_PRTY_RL_TYP:DT_RFRNC:BYR_PRTY_ID:SLLR_PRTY_ID",primary_key_field_list="EXCHNG_TRDBL_DRVT_SCRTY_ID:RPRTNG_AGNT_ID:BYR_PRTY_RL_TYP:EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP:SLLR_PRTY_RL_TYP:DT_RFRNC:BYR_PRTY_ID:SLLR_PRTY_ID")
+				refers BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL  the_BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL_1 
+				@key(foreign_key_field_list="SCRTSTN_RFRNC_DT:SCRTSTN_ID:SCRTSTN_RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:SCRTSTN_ID:RPRTNG_AGNT_ID")
+				refers BIRD_SNTHTC_SCRTSTN_EIL  the_BIRD_SNTHTC_SCRTSTN_EIL_1 
+			}
+			@long_name(long_name="Exchange_tradable_derivative_position_role")
+			class BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL {
+				id String   BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_identifier")
+				String   SLLR_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_identifier")
+				String   BYR_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_role_type")
+				ENTTY_RL_TYP_domain  BYR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Exchange_tradable_derivative_Security_identifier")
+				String   EXCHNG_TRDBL_DRVT_SCRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Exchange_tradable_derivative_position_role_type")
+				EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain  EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_role_type")
+				ENTTY_RL_TYP_domain  SLLR_PRTY_RL_TYP 
+				@long_name(long_name="Accounting_classification")
+				ACCNTNG_CLSSFCTN_domain  ACCNTNG_CLSSFCTN 
+				@long_name(long_name="Fair_value_hierarchy")
+				FV_HRRCHY_domain  FV_HRRCHY 
+				@long_name(long_name="Prudential_portfolio_type")
+				PRDNTL_PRTFL_domain  PRDNTL_PRTFL_TYP 
+				@long_name(long_name="Type_of_hedge")
+				TYP_HDG_domain  TYP_HDG 
+				@long_name(long_name="Accumulated_changes_in_fair_value")
+				int  ACCMLTD_CHNGS_FV 
+				@long_name(long_name="Carrying_amount")
+				int  CRRYNG_AMNT 
+				@long_name(long_name="Fair_value")
+				int  FV 
+				@long_name(long_name="Fair_value_change")
+				int  FV_CHNG 
+				@long_name(long_name="Gross_carrying_amount")
+				int  GRSS_CRRYNG_AMNT 
+				@key(foreign_key_field_list="BYR_PRTY_RL_TYP:RPRTNG_AGNT_ID:DT_RFRNC:SLLR_PRTY_RL_TYP:BYR_PRTY_ID:SLLR_PRTY_ID:EXCHNG_TRDBL_DRVT_SCRTY_ID",primary_key_field_list="BYR_PRTY_RL_TYP:RPRTNG_AGNT_ID:DT_RFRNC:SLLR_PRTY_RL_TYP:BYR_PRTY_ID:SLLR_PRTY_ID:EXCHNG_TRDBL_DRVT_SCRTY_ID")
+				refers BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL  the_BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL_1 
+			}
+			@long_name(long_name="Exchange_tradable_derivative_position")
+			class BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL {
+				id String   BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Seller_Party_identifier")
+				String   SLLR_PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Seller_Party_role_type")
+				ENTTY_RL_TYP_domain  SLLR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Buyer_Party_identifier")
+				String   BYR_PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Buyer_Party_role_type")
+				ENTTY_RL_TYP_domain  BYR_PRTY_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Exchange_tradable_derivative_Security_identifier")
+				String   EXCHNG_TRDBL_DRVT_SCRTY_ID 
+				@long_name(long_name="Held_for_sale_indicator")
+				HLD_SL_INDCTR_domain  HLD_SL_INDCTR 
+				@long_name(long_name="Notional_amount")
+				int  NTNL_AMNT 
+				@long_name(long_name="Type_of_risk")
+				TYP_RSK_domain  TYP_RSK 
+				@key(foreign_key_field_list="PRTY_RL_TYP:PRTY_ID:PRTY_ID:PRTY_RL_TYP:RPRTNG_AGNT_ID:DT_RFRNC",primary_key_field_list="SLLR_PRTY_RL_TYP:SLLR_PRTY_ID:BYR_PRTY_ID:BYR_PRTY_RL_TYP:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="SCRTY_RFRNC_DT:SCRTY_RPRTNG_AGNT_ID:SCRTY_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:EXCHNG_TRDBL_DRVT_SCRTY_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_ETD_positions")
+			class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL {
+				id String   BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_identifier")
+				String   SLLR_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_role_type")
+				ENTTY_RL_TYP_domain  SLLR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_role_type")
+				ENTTY_RL_TYP_domain  BYR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_identifier")
+				String   BYR_PRTY_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Exchange_tradable_derivative_Security_identifier")
+				String   EXCHNG_TRDBL_DRVTV_SCRTY_ID 
+				@long_name(long_name="Risk_factor_identifier")
+				@key(is_foreign_key="true")
+				String   RSK_FCTR_ID 
+				@long_name(long_name="Risk_measure_type")
+				FRTB_RSK_MSR_TYP_domain  RSK_MSR_TYP 
+				@long_name(long_name="Risk_measure_type_by_position")
+				FRTB_RSK_MSR_TYP_domain  RSK_MSR_TYP_PSTN 
+				@long_name(long_name="Currency_of_record")
+				CRRNCY_domain  CRRNCY_RCRD 
+				@long_name(long_name="Shock_direction")
+				SHCK_DRCTN_domain  SHCK_DRCTN 
+				@long_name(long_name="Curvature_risk_weight")
+				double  CRVTR_RSK_WGHT 
+				@long_name(long_name="Curvature_valuation_difference")
+				double  CRVTR_VLTN_DFFRNC 
+				@long_name(long_name="Delta_sensitivity")
+				double  DLT_SNSTVTY 
+				@long_name(long_name="Option_maturity")
+				double  OPTN_MTRTY 
+				@long_name(long_name="Tenor")
+				double  TNR 
+				@long_name(long_name="Underlying_residual_maturity")
+				double  UNDRLYNG_RSDL_MTRTY 
+				@long_name(long_name="Vega_sensitivity")
+				double  VG_SNSTVTY 
+				@long_name(long_name="Risk_factor_for_standardised_approach_Reference_date")
+				Date   RSK_FCTR_STNDRDSD_APPRCH_RFRNC_DT 
+				@long_name(long_name="Risk_factor_for_standardised_approach_Reporting_agent_identifier")
+				String   RSK_FCTR_STNDRDSD_APPRCH_RPRTNG_AGNT_ID 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:BYR_PRTY_RL_TYP:EXCHNG_TRDBL_DRVT_SCRTY_ID:SLLR_PRTY_ID:DT_RFRNC:SLLR_PRTY_RL_TYP:BYR_PRTY_ID",primary_key_field_list="RPRTNG_AGNT_ID:BYR_PRTY_RL_TYP:EXCHNG_TRDBL_DRVTV_SCRTY_ID:SLLR_PRTY_ID:DT_RFRNC:SLLR_PRTY_RL_TYP:BYR_PRTY_ID")
+				refers BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL  the_BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL_1 
+				@key(foreign_key_field_list="RSK_FCTR_ID:DT_RFRNC:RPRTNG_AGNT_ID",primary_key_field_list="RSK_FCTR_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_RSK_FAC_SA_EIL  the_BIRD_RSK_FAC_SA_EIL_1 
+			}
+			@long_name(long_name="Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_security_positions")
+			class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL {
+				id String   BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_role_type")
+				ENTTY_RL_TYP_domain  INVSTR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Investor_Party_identifier")
+				String   INVSTR_PRTY_ID 
+				@long_name(long_name="Risk_factor_identifier")
+				@key(is_foreign_key="true")
+				String   RSK_FCTR_ID 
+				@long_name(long_name="Risk_measure_type")
+				FRTB_RSK_MSR_TYP_domain  RSK_MSR_TYP 
+				@long_name(long_name="Risk_measure_type_by_position")
+				FRTB_RSK_MSR_TYP_domain  RSK_MSR_TYP_PSTN 
+				@long_name(long_name="Currency_of_record")
+				CRRNCY_domain  CRRNCY_RCRD 
+				@long_name(long_name="Risk_factor_for_standardised_approach_Reference_date")
+				Date   RSK_FCTR_STNDRDSD_APPRCH_RFRNC_DT 
+				@long_name(long_name="Risk_factor_for_standardised_approach_Reporting_agent_identifier")
+				String   RSK_FCTR_STNDRDSD_APPRCH_RPRTNG_AGNT_ID 
+				@long_name(long_name="Shock_direction")
+				SHCK_DRCTN_domain  SHCK_DRCTN 
+				@long_name(long_name="Curvature_risk_weight")
+				double  CRVTR_RSK_WGHT 
+				@long_name(long_name="Curvature_valuation_difference")
+				double  CRVTR_VLTN_DFFRNC 
+				@long_name(long_name="Delta_sensitivity")
+				double  DLT_SNSTVTY 
+				@long_name(long_name="Option_maturity")
+				double  OPTN_MTRTY 
+				@long_name(long_name="Tenor")
+				double  TNR 
+				@long_name(long_name="Underlying_residual_maturity")
+				double  UNDRLYNG_RSDL_MTRTY 
+				@long_name(long_name="Vega_sensitivity")
+				double  VG_SNSTVTY 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:SCRTY_ID:INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:SCRTY_ID:INVSTR_PRTY_ID:INVSTR_PRTY_RL_TYP")
+				refers BIRD_SCRTY_PSTN_EIL  the_BIRD_SCRTY_PSTN_EIL_1 
+				@key(foreign_key_field_list="RSK_FCTR_ID:DT_RFRNC:RPRTNG_AGNT_ID",primary_key_field_list="RSK_FCTR_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_RSK_FAC_SA_EIL  the_BIRD_RSK_FAC_SA_EIL_1 
+			}
+			@long_name(long_name="Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_OTC_positions")
+			class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS_EIL {
+				id String   BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@long_name(long_name="Risk_factor_identifier")
+				@key(is_foreign_key="true")
+				String   RSK_FCTR_ID 
+				@long_name(long_name="Currency_of_record")
+				CRRNCY_domain  CRRNCY_RCRD 
+				@long_name(long_name="Shock_direction")
+				SHCK_DRCTN_domain  SHCK_DRCTN 
+				@long_name(long_name="Curvature_risk_weight")
+				double  CRVTR_RSK_WGHT 
+				@long_name(long_name="Curvature_valuation_difference")
+				double  CRVTR_VLTN_DFFRNC 
+				@long_name(long_name="Delta_sensitivity")
+				double  DLT_SNSTVTY 
+				@long_name(long_name="Option_maturity")
+				double  OPTN_MTRTY 
+				@long_name(long_name="Tenor")
+				double  TNR 
+				@long_name(long_name="Underlying_residual_maturity")
+				double  UNDRLYNG_RSDL_MTRTY 
+				@long_name(long_name="Vega_sensitivity")
+				double  VG_SNSTVTY 
+				@long_name(long_name="Risk_factor_for_standardised_approach_Reference_date")
+				Date   RSK_FCTR_STNDRDSD_APPRCH_RFRNC_DT 
+				@long_name(long_name="Risk_factor_for_standardised_approach_Reporting_agent_identifier")
+				String   RSK_FCTR_STNDRDSD_APPRCH_RPRTNG_AGNT_ID 
+				@key(foreign_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="DT_RFRNC:RSK_FCTR_ID:RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:RSK_FCTR_ID:RPRTNG_AGNT_ID")
+				refers BIRD_RSK_FAC_SA_EIL  the_BIRD_RSK_FAC_SA_EIL_1 
+			}
+			@long_name(long_name="Financial_contract")
+			class BIRD_FNNCL_CNTRCT_EIL {
+				id String   BIRD_FNNCL_CNTRCT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Financial_contract_identifier")
+				String   FNNCL_CNTRCT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Financial_contract_Reference_date")
+				Date   FNNCL_CNTRCT_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Financial_contract_Reporting_agent_identifier")
+				String   FNNCL_CNTRCT_RPRTNG_AGNT_ID 
+				@long_name(long_name="Syndicated_contract_identifier")
+				@key(is_foreign_key="true")
+				String   SYNDCTD_CNTRCT_ID 
+				@long_name(long_name="Inception_date")
+				Date   DT_INCPTN 
+				@long_name(long_name="Financial_contract_type")
+				FNNCL_CNTRCT_TYP_domain  FNNCL_CNTRCT_TYP 
+				@long_name(long_name="Legal_final_maturity_date")
+				Date   DT_LGL_FNL_MTRTY 
+				@key(foreign_key_field_list="SYNDCTD_CNTRCT_ID",primary_key_field_list="SYNDCTD_CNTRCT_ID")
+				refers BIRD_SYNDCTD_CNTRCT_EIL  the_BIRD_SYNDCTD_CNTRCT_EIL_1 
+			}
+			@long_name(long_name="Financial_guarantee_instrument_covering_a_Debt_security_Debt_security_assignment")
+			class BIRD_FNNCL_GRNT_INSTRMNT_DBT_SCRT_DBT_SCRTY_ASSGNMNT_EIL {
+				id String   BIRD_FNNCL_GRNT_INSTRMNT_DBT_SCRT_DBT_SCRTY_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@long_name(long_name="Protection_allocated_value")
+				int  PRTCTN_ALLCTD_VL 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:INSTRMNT_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:INSTRMNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="SCRTY_RFRNC_DT:SCRTY_ID:SCRTY_RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:SCRTY_ID:RPRTNG_AGNT_ID")
+				refers BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL  the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 
+			}
+			@long_name(long_name="Group_of_clients_Key_management_personnel_assignment")
+			class BIRD_GRP_CLNTS_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL {
+				id String   BIRD_GRP_CLNTS_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Natural_person_group_role_type")
+				ENTTY_RL_TYP_domain  NTRL_PRSN_GRP_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Group_ID")
+				String   GRP_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(foreign_key_field_list="PRTY_ID:DT_RFRNC:PRTY_RL_TYP:RPRTNG_AGNT_ID",primary_key_field_list="PRTY_ID:DT_RFRNC:NTRL_PRSN_GRP_RL_TYP:RPRTNG_AGNT_ID")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="GRP_RPRTNG_AGNT_ID:GRP_RFRNC_DT:GRP_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:GRP_ID")
+				refers BIRD_GRP_EIL  the_BIRD_GRP_EIL_1 
+			}
+			@long_name(long_name="Group")
+			class BIRD_GRP_EIL {
+				id String   BIRD_GRP_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Group_ID")
+				String   GRP_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Group_Reference_date")
+				Date   GRP_RFRNC_DT 
+				@key(is_primary_key="true")
+				@long_name(long_name="Group_Reporting_agent_identifier")
+				String   GRP_RPRTNG_AGNT_ID 
+				@long_name(long_name="Type_of_group")
+				GRP_TYP_domain  TYP_GRP 
+			}
+			@long_name(long_name="Immediate_parent_enterprise_assignment")
+			class BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT_EIL {
+				id String   BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Immediate_parent_Central_bank_and_private_sector_company_Party_identifier")
+				String   IMMDT_PRNT_CNTRL_BNK_PRVT_SCTR_CMPNY_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Immediate_parent_enterprise_Party_role_type")
+				ENTTY_RL_TYP_domain  IMMDT_PRNT_ENTRPRS_PRTY_RL_TYP 
+				@key(is_primary_key="true")
+				@long_name(long_name="Immediate_parent_enterprise_Party_identifier")
+				String   IMMDT_PRNT_ENTRPRS_PRTY_ID 
+				@long_name(long_name="Immediate_parent_according_to_AnaCredit_indicator")
+				IMMDT_PRNT_ANCRDT_INDCTR_domain  IMMDT_PRNT_RGLTN_867_2016_INDCTR 
+				@long_name(long_name="Accumulated_equity_interest")
+				double  ACCMLTD_EQT_INTRST 
+				@key(foreign_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:PRTY_RL_TYP:PRTY_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:IMMDT_PRNT_ENTRPRS_PRTY_RL_TYP:IMMDT_PRNT_ENTRPRS_PRTY_ID")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="PRTY_RFRNC_DT:PRTY_RPRTNG_AGNT_ID:PRTY_ID",primary_key_field_list="DT_RFRNC:RPRTNG_AGNT_ID:IMMDT_PRNT_CNTRL_BNK_PRVT_SCTR_CMPNY_PRTY_ID")
+				refers BIRD_PRTY_EIL  the_BIRD_PRTY_EIL_1 
+			}
+			@long_name(long_name="Instrument_Collateral_received_instrument_assignment")
+			class BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL {
+				id String   BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Type_of_abstract_intrument_role")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  TYP_ABSTRCT_INSTRMNT_RL 
+				@long_name(long_name="Instrument_Collateral_received_instrument_assignment_type")
+				INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_TYP_domain  INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_TYP 
+				@long_name(long_name="Protection_allocated_value")
+				int  PRTCTN_ALLCTD_VL 
+				@key(foreign_key_field_list="DT_RFRNC:TYP_ABSTRCT_INSTRMNT_RL:INSTRMNT_ID:RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:TYP_ABSTRCT_INSTRMNT_RL:INSTRMNT_ID:RPRTNG_AGNT_ID")
+				refers BIRD_ABSTRCT_INSTRMNT_RL_EIL  the_BIRD_ABSTRCT_INSTRMNT_RL_EIL_1 
+				@key(foreign_key_field_list="INSTRMNT_ID:DT_RFRNC:RPRTNG_AGNT_ID",primary_key_field_list="INSTRMNT_ID:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+			}
+			@long_name(long_name="Instrument")
+			class BIRD_INSTRMNT_EIL {
+				id String   BIRD_INSTRMNT_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@long_name(long_name="Balance_sheet_netting_identifier")
+				@key(is_foreign_key="true")
+				String   BLNC_SHT_NTTNG_ID 
+				@long_name(long_name="Credit_facility_identifier")
+				@key(is_foreign_key="true")
+				String   CRDT_FCLTY_ID 
+				@long_name(long_name="Financial_contract_identifier")
+				@key(is_foreign_key="true")
+				String   FNNCL_CNTRCT_ID 
+				@long_name(long_name="Accounting_hedge_indicator")
+				ACCNTNG_HDG_INDCTR_domain  ACCNTNG_HDG_INDCTR 
+				@long_name(long_name="Commercial_real_estate_loan_indicator")
+				CMMRCL_RL_ESTT_LN_INDCTR_domain  CMMRCL_RL_ESTT_LN_INDCTR 
+				@long_name(long_name="Currency")
+				CRRNCY_domain  CRRNCY 
+				@long_name(long_name="Fiduciary_instrument")
+				FDCRY_domain  FDCRY 
+				@long_name(long_name="Instrument_type_by_origin")
+				TYP_INSTRMNT_domain  INSTRMNT_TYP_ORGN 
+				@long_name(long_name="Litigation_status")
+				LTGTN_STTS_domain  LTGTN_STTS 
+				@long_name(long_name="Repayment_rights")
+				RPYMNT_RGHTS_domain  RPYMNT_RGHTS 
+				@long_name(long_name="Revocable_indicator")
+				RVCBL_INDCTR_domain  RVCBL_INDCTR 
+				@long_name(long_name="Revolving_loan_indicator")
+				RVLVNG_LN_INDCTR_domain  RVLVNG_LN_INDCTR 
+				@long_name(long_name="Significant_asset_class")
+				SGNFCNT_ASST_CLSS_domain  SGNFCNT_ASST_CLSS 
+				@long_name(long_name="Type_of_commitment")
+				TYP_CMMTMNT_domain  TYP_CMMTMNT 
+				@long_name(long_name="Type_of_instrument")
+				TYP_INSTRMNT_domain  TYP_INSTRMNT 
+				@long_name(long_name="Type_of_risk")
+				TYP_RSK_domain  TYP_RSK 
+				@long_name(long_name="Accumulated_coverage_ratio")
+				double  ACCMLTD_CVRG_RT 
+				@long_name(long_name="Current_loan_to_value_ratio")
+				double  CRRNT_LTV_RT 
+				@long_name(long_name="Cash_reserve_amount")
+				int  CSH_RSRV_AMNT 
+				@long_name(long_name="Cash_reserve_maturity_date")
+				Date   DT_CSH_RSRV_MTRTY 
+				@long_name(long_name="Inception_date")
+				Date   DT_INCPTN 
+				@long_name(long_name="Legal_final_maturity_date")
+				Date   DT_LGL_FNL_MTRTY 
+				@long_name(long_name="Date_of_original_cash_reserve_amount")
+				Date   DT_ORGNL_CSH_RSRV_AMNT 
+				@long_name(long_name="Settlement_date")
+				Date   DT_STTLMNT 
+				@long_name(long_name="Nominal_amount")
+				int  NMNL_AMNT 
+				@long_name(long_name="Notional_amount")
+				int  NTNL_AMNT 
+				@long_name(long_name="Off_balance_sheet_amount")
+				int  OFF_BLNC_SHT_AMNT 
+				@long_name(long_name="Original_cash_reserve_amount")
+				int  ORGNL_CSH_RSRV_AMNT 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CRDT_FCLTY_ID",primary_key_field_list="RPRTNG_AGNT_ID:DT_RFRNC:CRDT_FCLTY_ID")
+				refers BIRD_CRDT_FCLTY_EIL  the_BIRD_CRDT_FCLTY_EIL_1 
+				@key(foreign_key_field_list="FNNCL_CNTRCT_RPRTNG_AGNT_ID:FNNCL_CNTRCT_ID:FNNCL_CNTRCT_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:FNNCL_CNTRCT_ID:DT_RFRNC")
+				refers BIRD_FNNCL_CNTRCT_EIL  the_BIRD_FNNCL_CNTRCT_EIL_1 
+				@key(foreign_key_field_list="BLNC_SHT_NTTNG_RPRTNG_AGNT_ID:BLNC_SHT_NTTNG_ID:BLNC_SHT_NTTNG_RFRNC_DT",primary_key_field_list="RPRTNG_AGNT_ID:BLNC_SHT_NTTNG_ID:DT_RFRNC")
+				refers BIRD_BLNC_SHT_NTTNG_EIL  the_BIRD_BLNC_SHT_NTTNG_EIL_1 
+			}
+			@long_name(long_name="Instrument_Entity_role_assignment")
+			class BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL {
+				id String   BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_identifier")
+				String   PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Party_role_type")
+				ENTTY_RL_TYP_domain  PRTY_RL_TYP 
+				@long_name(long_name="Instrument_Entity_role_assignment_type")
+				INSTRMNT_ENTTY_RL_ASSGNMNT_TYP_domain  INSTRMNT_ENTTY_RL_ASSGNMNT_TYP 
+				@long_name(long_name="Litigation_status")
+				LTGTN_STTS_domain  LTGTN_STTS 
+				@long_name(long_name="Main_debtor_indicator")
+				MN_DBTR_INDCTR_domain  MN_DBTR_INDCTR 
+				@long_name(long_name="Joint_liability_amount")
+				int  JNT_LBLTY_AMNT 
+				@key(foreign_key_field_list="DT_RFRNC:PRTY_RL_TYP:RPRTNG_AGNT_ID:PRTY_ID",primary_key_field_list="DT_RFRNC:PRTY_RL_TYP:RPRTNG_AGNT_ID:PRTY_ID")
+				refers BIRD_ENTTY_RL_EIL  the_BIRD_ENTTY_RL_EIL_1 
+				@key(foreign_key_field_list="RPRTNG_AGNT_ID:INSTRMNT_ID:DT_RFRNC",primary_key_field_list="RPRTNG_AGNT_ID:INSTRMNT_ID:DT_RFRNC")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+			}
+			@long_name(long_name="Instrument_hedged_by_Exchange_tradable_derivative_position")
+			class BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL {
+				id String   BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_role_type")
+				ENTTY_RL_TYP_domain  BYR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Security_identifier")
+				String   SCRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Exchange_tradable_derivative_position_role_type")
+				EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain  EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_role_type")
+				ENTTY_RL_TYP_domain  SLLR_PRTY_RL_TYP 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Seller_Party_identifier")
+				String   SLLR_PRTY_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Buyer_Party_identifier")
+				String   BYR_PRTY_ID 
+				@key(foreign_key_field_list="BYR_PRTY_ID:SLLR_PRTY_ID:RPRTNG_AGNT_ID:BYR_PRTY_RL_TYP:SLLR_PRTY_RL_TYP:EXCHNG_TRDBL_DRVT_SCRTY_ID:EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP:DT_RFRNC",primary_key_field_list="BYR_PRTY_ID:SLLR_PRTY_ID:RPRTNG_AGNT_ID:BYR_PRTY_RL_TYP:SLLR_PRTY_RL_TYP:SCRTY_ID:EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP:DT_RFRNC")
+				refers BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL  the_BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL_1 
+				@key(foreign_key_field_list="INSTRMNT_ID:RPRTNG_AGNT_ID:DT_RFRNC",primary_key_field_list="INSTRMNT_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+			}
+			@long_name(long_name="Instrument_hedged_by_Over_the_counter_OTC_Derivative")
+			class BIRD_INSTRMNT_HDGD_OTC_DRVTV_EIL {
+				id String   BIRD_INSTRMNT_HDGD_OTC_DRVTV_EIL_uniqueID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Over_the_counter_OTC_Derivative_Instrument_identifier")
+				String   OTC_DRVTV_INSTRMNT_ID 
+				@key(is_primary_key="true")
+				@long_name(long_name="Hedged_Instrument_identifier")
+				String   HDGD_INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Type_of_abstract_intrument_role")
+				ABSTRCT_INSTRMNT_RL_TYP_domain  TYP_ABSTRCT_INSTRMNT_RL 
+				@key(foreign_key_field_list="INSTRMNT_ID:RPRTNG_AGNT_ID:DT_RFRNC",primary_key_field_list="HDGD_INSTRMNT_ID:RPRTNG_AGNT_ID:DT_RFRNC")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="INSTRMNT_ID:TYP_ABSTRCT_INSTRMNT_RL:DT_RFRNC:RPRTNG_AGNT_ID",primary_key_field_list="OTC_DRVTV_INSTRMNT_ID:TYP_ABSTRCT_INSTRMNT_RL:DT_RFRNC:RPRTNG_AGNT_ID")
+				refers BIRD_ABSTRCT_INSTRMNT_RL_EIL  the_BIRD_ABSTRCT_INSTRMNT_RL_EIL_1 
+			}
+			@long_name(long_name="Instrument_Protection_arrangement_assignment")
+			class BIRD_INSTRMNT_PRTCN_ARRNGMNT_ASSGNMNT_EIL {
+				id String   BIRD_INSTRMNT_PRTCN_ARRNGMNT_ASSGNMNT_EIL_uniqueID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Protection_identifier")
+				String   PRTCTN_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Instrument_identifier")
+				String   INSTRMNT_ID 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reference_date")
+				Date   DT_RFRNC 
+				@key(is_primary_key="true",is_foreign_key="true")
+				@long_name(long_name="Reporting_agent_identifier")
+				String   RPRTNG_AGNT_ID 
+				@key(foreign_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:INSTRMNT_ID:RPRTNG_AGNT_ID")
+				refers BIRD_INSTRMNT_EIL  the_BIRD_INSTRMNT_EIL_1 
+				@key(foreign_key_field_list="PRTCTN_ARRNGMNT_RFRNC_DT:PRTCTN_ID:PRTCTN_ARRNGMNT_RPRTNG_AGNT_ID",primary_key_field_list="DT_RFRNC:PRTCTN_ID:INSTRMNT_ID")
+				refers BIRD_PRTCTN_ARRNGMNT_EIL  the_BIRD_PRTCTN_ARRNGMNT_EIL_1 
+			}
