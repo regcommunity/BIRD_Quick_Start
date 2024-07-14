@@ -2179,7 +2179,7 @@
 				@long_name(long_name="Held_for_sale_indicator")
 				HLD_SL_INDCTR_domain  HLD_SL_INDCTR 
 				@long_name(long_name="Carrying_amount")
-				int  CRRYNG_AMNT 
+				int  CRRYNG_AMNT
 			}
 			@long_name(long_name="Covered_bond_issuance")
 			class BIRD_CVRD_BND_ISSNC_EIL {
