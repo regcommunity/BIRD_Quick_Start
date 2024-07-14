@@ -21,35 +21,18 @@ class Choice(models.Model):
         return self.choice_text
 
 
-
-
+	
+		
 class BIRD_OTHR_PRTY_ID_EIL(models.Model):
 
 
     BIRD_OTHR_PRTY_ID_EIL_uniqueID = models.CharField("BIRD_OTHR_PRTY_ID_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_RFRNC_DT = models.DateTimeField("Party_Reference_date")   
+    PRTY_RFRNC_DT = models.DateTimeField("Party_Reference_date",default=None, blank=True, null=True)   
 
-    PRTY_RPRTNG_AGNT_ID = models.CharField("Party_Reporting_agent_identifier",max_length=255)   
-
-    PRTY_CD_TYP_domain = {"1":"LEI",
-"2":"RIAD",
-"3":"Other_party_code",
-"10":"Other_Non_LEI_code",
-"11":"Public_sector_entity_identifier",
-"12":"TAX_Code",
-"13":"Trade_register_identifier",
-"14":"Value_added_tax_identifier",
-"4":"Other",
-"5":"Identifier_assigned_by_the_National_Central_Bank",
-"6":"Investment_Pension_fund_identifier",
-"7":"National_Business_register_identifier",
-"8":"National_Statistical_Institute_number",
-"9":"National_Supervisory_Authority_code",
-} 
-    PRTY_CD_TYP = models.CharField("Party_code_type",max_length=255, choices=PRTY_CD_TYP_domain)   
+    PRTY_RPRTNG_AGNT_ID = models.CharField("Party_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     PRTY_CD_TYP_domain = {"1":"LEI",
 "2":"RIAD",
@@ -66,7 +49,7 @@ class BIRD_OTHR_PRTY_ID_EIL(models.Model):
 "8":"National_Statistical_Institute_number",
 "9":"National_Supervisory_Authority_code",
 } 
-    PRTY_ID_TYP = models.CharField("Party_identifier_type",max_length=255, choices=PRTY_CD_TYP_domain)   
+    PRTY_CD_TYP = models.CharField("Party_code_type",max_length=255, choices=PRTY_CD_TYP_domain,default=None, blank=True, null=True)   
 
     PRTY_CD_TYP_domain = {"1":"LEI",
 "2":"RIAD",
@@ -83,46 +66,63 @@ class BIRD_OTHR_PRTY_ID_EIL(models.Model):
 "8":"National_Statistical_Institute_number",
 "9":"National_Supervisory_Authority_code",
 } 
-    OTHR_PRTY_CD = models.CharField("Other_party_code",max_length=255, choices=PRTY_CD_TYP_domain)   
+    PRTY_ID_TYP = models.CharField("Party_identifier_type",max_length=255, choices=PRTY_CD_TYP_domain,default=None, blank=True, null=True)   
+
+    PRTY_CD_TYP_domain = {"1":"LEI",
+"2":"RIAD",
+"3":"Other_party_code",
+"10":"Other_Non_LEI_code",
+"11":"Public_sector_entity_identifier",
+"12":"TAX_Code",
+"13":"Trade_register_identifier",
+"14":"Value_added_tax_identifier",
+"4":"Other",
+"5":"Identifier_assigned_by_the_National_Central_Bank",
+"6":"Investment_Pension_fund_identifier",
+"7":"National_Business_register_identifier",
+"8":"National_Statistical_Institute_number",
+"9":"National_Supervisory_Authority_code",
+} 
+    OTHR_PRTY_CD = models.CharField("Other_party_code",max_length=255, choices=PRTY_CD_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_PRTY_CD_EIL_1 = models.ForeignKey("BIRD_PRTY_CD_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Other_party_identifier'
         verbose_name_plural = 'Other_party_identifiers'
-
+		
 class BIRD_PRTCTN_ARRNGMNT_EIL(models.Model):
 
 
     BIRD_PRTCTN_ARRNGMNT_EIL_uniqueID = models.CharField("BIRD_PRTCTN_ARRNGMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255)   
+    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTCTN_ARRNGMNT_RFRNC_DT = models.DateTimeField("Protection_arrangement_Reference_date")   
+    PRTCTN_ARRNGMNT_RFRNC_DT = models.DateTimeField("Protection_arrangement_Reference_date",default=None, blank=True, null=True)   
 
-    PRTCTN_ARRNGMNT_RPRTNG_AGNT_ID = models.CharField("Protection_arrangement_Reporting_agent_identifier",max_length=255)   
+    PRTCTN_ARRNGMNT_RPRTNG_AGNT_ID = models.CharField("Protection_arrangement_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_MTRTY_PRTCTN = models.DateTimeField("Maturity_date_of_the_protection")   
+    DT_MTRTY_PRTCTN = models.DateTimeField("Maturity_date_of_the_protection",default=None, blank=True, null=True)   
 
     ARRNGMNT_TYP_domain = {"6":"Credit_risk_mitigation_arrangement",
 "7":"Collateral_annex",
 } 
-    PRTCTN_ARRNGMNT_TYP = models.CharField("Protection_arrangement_type",max_length=255, choices=ARRNGMNT_TYP_domain)   
+    PRTCTN_ARRNGMNT_TYP = models.CharField("Protection_arrangement_type",max_length=255, choices=ARRNGMNT_TYP_domain,default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Protection_arrangement'
         verbose_name_plural = 'Protection_arrangements'
-
+		
 class BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255)   
+    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -168,14 +168,14 @@ class BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     PRMRY_PRTCTN_PRVDR_INDCTR_domain = {"1":"Primary_protection_provider",
 "2":"Not_primary_protection_provider",
 } 
-    PRMRY_PRTCTN_PRVDR_INDCTR = models.CharField("Primary_protection_provider_indicator",max_length=255, choices=PRMRY_PRTCTN_PRVDR_INDCTR_domain)   
+    PRMRY_PRTCTN_PRVDR_INDCTR = models.CharField("Primary_protection_provider_indicator",max_length=255, choices=PRMRY_PRTCTN_PRVDR_INDCTR_domain,default=None, blank=True, null=True)   
 
     the_BIRD_PRTCTN_ARRNGMNT_EIL_1 = models.ForeignKey("BIRD_PRTCTN_ARRNGMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -184,17 +184,17 @@ class BIRD_PRTCTN_PRTCTN_PRVD_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Protection_Protection_provider_assignment'
         verbose_name_plural = 'Protection_Protection_provider_assignments'
-
+		
 class BIRD_PRTNR_ENTRPRS_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_PRTNR_ENTRPRS_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_PRTNR_ENTRPRS_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CNTR_BNK_PRVT_SCTR_CMPNY_PRTY_ID = models.CharField("Central_bank_and_private_sector_company_Party_identifier",max_length=255)   
+    CNTR_BNK_PRVT_SCTR_CMPNY_PRTY_ID = models.CharField("Central_bank_and_private_sector_company_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -240,11 +240,11 @@ class BIRD_PRTNR_ENTRPRS_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    PRTNR_ENTRPRS_PRTY_RL_TYP = models.CharField("Partner_enterprise_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    PRTNR_ENTRPRS_PRTY_RL_TYP = models.CharField("Partner_enterprise_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    PRTNR_ENTRPRS_PRTY_ID = models.CharField("Partner_enterprise_Party_identifier",max_length=255)   
+    PRTNR_ENTRPRS_PRTY_ID = models.CharField("Partner_enterprise_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    VTNG_RGHT = models.FloatField("Voting_rights_")   
+    VTNG_RGHT = models.FloatField("Voting_rights_",default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -253,17 +253,17 @@ class BIRD_PRTNR_ENTRPRS_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Partner_enterprise_assignment'
         verbose_name_plural = 'Partner_enterprise_assignments'
-
+		
 class BIRD_PRTY_CD_EIL(models.Model):
 
 
     BIRD_PRTY_CD_EIL_uniqueID = models.CharField("BIRD_PRTY_CD_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_RFRNC_DT = models.DateTimeField("Party_Reference_date")   
+    PRTY_RFRNC_DT = models.DateTimeField("Party_Reference_date",default=None, blank=True, null=True)   
 
-    PRTY_RPRTNG_AGNT_ID = models.CharField("Party_Reporting_agent_identifier",max_length=255)   
+    PRTY_RPRTNG_AGNT_ID = models.CharField("Party_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     PRTY_CD_TYP_domain = {"1":"LEI",
 "2":"RIAD",
@@ -280,1530 +280,28 @@ class BIRD_PRTY_CD_EIL(models.Model):
 "8":"National_Statistical_Institute_number",
 "9":"National_Supervisory_Authority_code",
 } 
-    PRTY_CD_TYP = models.CharField("Party_code_type",max_length=255, choices=PRTY_CD_TYP_domain)   
+    PRTY_CD_TYP = models.CharField("Party_code_type",max_length=255, choices=PRTY_CD_TYP_domain,default=None, blank=True, null=True)   
 
-    PRTY_CD = models.CharField("Party_code",max_length=255)   
+    PRTY_CD = models.CharField("Party_code",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_PRTY_EIL_1 = models.ForeignKey("BIRD_PRTY_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Party_code'
         verbose_name_plural = 'Party_codes'
-
+		
 class BIRD_PRTY_EIL(models.Model):
 
 
     BIRD_PRTY_EIL_uniqueID = models.CharField("BIRD_PRTY_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    PRTY_RPRTNG_AGNT_ID = models.CharField("Party_Reporting_agent_identifier",max_length=255)   
+    PRTY_RPRTNG_AGNT_ID = models.CharField("Party_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_RFRNC_DT = models.DateTimeField("Party_Reference_date")   
+    PRTY_RFRNC_DT = models.DateTimeField("Party_Reference_date",default=None, blank=True, null=True)   
 
-    INSTTNL_UNT_GRP_ID = models.CharField("Institutional_unit_Group_identifier",max_length=255)   
-
-    GGRPHCL_ARS_domain = {"BJ":"Benin",
-"MY":"Malaysia",
-"CU":"Cuba",
-"QA":"Qatar",
-"MN":"Mongolia",
-"NA":"Namibia",
-"AE":"United_Arab_Emirates_the_",
-"AR":"Argentina",
-"GL":"Greenland",
-"TG":"Togo",
-"KP":"Korea_the_Democratic_People_s_Republic_of_",
-"KG":"Kyrgyzstan",
-"JO":"Jordan",
-"GU":"Guam",
-"IN":"India",
-"UA":"Ukraine",
-"GB":"United_Kingdom_of_Great_Britain_and_Northern_Ireland_the_",
-"FJ":"Fiji",
-"EE":"Estonia",
-"KI":"Kiribati",
-"WF":"Wallis_and_Futuna",
-"ER":"Eritrea",
-"DM":"Dominica",
-"VN":"Viet_Nam",
-"DZ":"Algeria",
-"PG":"Papua_New_Guinea",
-"BD":"Bangladesh",
-"BS":"Bahamas_the_",
-"CL":"Chile",
-"MW":"Malawi",
-"RW":"Rwanda",
-"NO":"Norway",
-"SH":"Saint_Helena_Ascension_and_Tristan_da_Cunha",
-"HM":"Heard_Island_and_McDonald_Islands",
-"IR":"Iran_Islamic_Republic_of_",
-"IE":"Ireland",
-"GI":"Gibraltar",
-"VE":"Venezuela_Bolivarian_Republic_of_",
-"MK":"Macedonia_the_former_Yugoslav_Republic_of_",
-"CG":"Congo_the_",
-"PL":"Poland",
-"LC":"Saint_Lucia",
-"BO":"Bolivia_Plurinational_State_of_",
-"LT":"Lithuania",
-"ST":"Sao_Tome_and_Principe",
-"AW":"Aruba",
-"SC":"Seychelles",
-"MR":"Mauritania",
-"CI":"Cote_d_Ivoire",
-"ME":"Montenegro",
-"BV":"Bouvet_Island",
-"BA":"Bosnia_and_Herzegovina",
-"SM":"San_Marino",
-"SZ":"Swaziland",
-"RE":"Reunion",
-"FO":"Faroe_Islands_the_",
-"TL":"Timor_Leste",
-"HT":"Haiti",
-"ZW":"Zimbabwe",
-"GG":"Guernsey",
-"US":"United_States_of_America_the_",
-"GP":"Guadeloupe",
-"TC":"Turks_and_Caicos_Islands_the_",
-"TT":"Trinidad_and_Tobago",
-"ID":"Indonesia",
-"GH":"Ghana",
-"IS":"Iceland",
-"OM":"Oman",
-"SB":"Solomon_Islands",
-"NE":"Niger_the_",
-"NR":"Nauru",
-"CF":"Central_African_Republic_the_",
-"BY":"Belarus",
-"LU":"Luxembourg",
-"LB":"Lebanon",
-"PM":"Saint_Pierre_and_Miquelon",
-"BN":"Brunei_Darussalam",
-"AX":"Aland_Islands",
-"SL":"Sierra_Leone",
-"AO":"Angola",
-"RS":"Serbia",
-"CH":"Switzerland",
-"MD":"Moldova_the_Republic_of_",
-"MS":"Montserrat",
-"PT":"Portugal",
-"BW":"Botswana",
-"JE":"Jersey",
-"KM":"Comoros_the_",
-"KZ":"Kazakhstan",
-"TZ":"Tanzania_United_Republic_of",
-"HU":"Hungary",
-"ZA":"South_Africa",
-"TM":"Turkmenistan",
-"GQ":"Equatorial_Guinea",
-"GF":"French_Guiana",
-"RO":"Romania",
-"AS":"American_Samoa",
-"SG":"Singapore",
-"AD":"Andorra",
-"PH":"Philippines_the_",
-"CC":"Cocos_Keeling_Islands_the_",
-"MO":"Macao",
-"MX":"Mexico",
-"YE":"Yemen",
-"VA":"Holy_See_the_",
-"UY":"Uruguay",
-"GM":"Gambia_the_",
-"FR":"France",
-"PM_x2":"Saint_Pierre_and_Miquelon_x2",
-"FX":"France_metropolitan",
-"MC":"Monaco",
-"GF_x2":"French_Guiana_x2",
-"MF":"Saint_Martin_French_part_",
-"BL":"Saint_Barthelemy",
-"GP_x2":"Guadeloupe_x2",
-"RE_x2":"Reunion_x2",
-"MQ":"Martinique",
-"YT":"Mayotte",
-"PM_x3":"Saint_Pierre_and_Miquelon_x3",
-"FX_x2":"France_metropolitan_x2",
-"MC_x2":"Monaco_x2",
-"GF_x3":"French_Guiana_x3",
-"MF_x2":"Saint_Martin_French_part__x2",
-"BL_x2":"Saint_Barthelemy_x2",
-"GP_x3":"Guadeloupe_x3",
-"RE_x3":"Reunion_x3",
-"MQ_x2":"Martinique_x2",
-"YT_x2":"Mayotte_x2",
-"PM_x4":"Saint_Pierre_and_Miquelon_x4",
-"FX_x3":"France_metropolitan_x3",
-"MC_x3":"Monaco_x3",
-"GF_x4":"French_Guiana_x4",
-"MF_x3":"Saint_Martin_French_part__x3",
-"BL_x3":"Saint_Barthelemy_x3",
-"GP_x4":"Guadeloupe_x4",
-"RE_x4":"Reunion_x4",
-"MQ_x3":"Martinique_x3",
-"YT_x3":"Mayotte_x3",
-"TF":"French_Southern_Territories_the_",
-"ES":"Spain",
-"KH":"Cambodia",
-"IO":"British_Indian_Ocean_Territory_the_",
-"GT":"Guatemala",
-"TH":"Thailand",
-"FK":"Falkland_Islands_the_Malvinas_",
-"SI":"Slovenia",
-"BR":"Brazil",
-"PF":"French_Polynesia",
-"LI":"Liechtenstein",
-"BE":"Belgium",
-"CZ":"Czechia",
-"MV":"Maldives",
-"MA":"Morocco",
-"CM":"Cameroon",
-"NG":"Nigeria",
-"NP":"Nepal",
-"AT":"Austria",
-"BL_x4":"Saint_Barthelemy_x4",
-"CD":"Congo_the_Democratic_Republic_of_the_",
-"MH":"Marshall_Islands_the_",
-"DE":"Germany",
-"IQ":"Iraq",
-"ZM":"Zambia",
-"HN":"Honduras",
-"TV":"Tuvalu",
-"EC":"Ecuador",
-"ET":"Ethiopia",
-"DK":"Denmark",
-"JP":"Japan",
-"GS":"South_Georgia_and_the_South_Sandwich_Islands",
-"UG":"Uganda",
-"GD":"Grenada",
-"TO":"Tonga",
-"NI":"Nicaragua",
-"SY":"Syrian_Arab_Republic",
-"AZ":"Azerbaijan",
-"AM":"Armenia",
-"SN":"Senegal",
-"PA":"Panama",
-"BB":"Barbados",
-"LY":"Libya",
-"MF_x4":"Saint_Martin_French_part__x4",
-"MQ_x4":"Martinique_x4",
-"VC":"Saint_Vincent_and_the_Grenadines",
-"EH":"Western_Sahara",
-"TD":"Chad",
-"HK":"Hong_Kong",
-"IT":"Italy",
-"SR":"Suriname",
-"AQ":"Antarctica",
-"AF":"Afghanistan",
-"SE":"Sweden",
-"NU":"Niue",
-"MM":"Myanmar",
-"CA":"Canada",
-"CV":"Cabo_Verde",
-"MZ":"Mozambique",
-"BI":"Burundi",
-"LR":"Liberia",
-"SK":"Slovakia",
-"NL":"Netherlands_the_",
-"MT":"Malta",
-"CX":"Christmas_Island",
-"CO":"Colombia",
-"MC_x4":"Monaco_x4",
-"PS":"Palestine_State_of",
-"BG":"Bulgaria",
-"LK":"Sri_Lanka",
-"FI":"Finland",
-"TJ":"Tajikistan",
-"HR":"Croatia",
-"GA":"Gabon",
-"IM":"Isle_of_Man",
-"TR":"Turkey",
-"UM":"United_States_Minor_Outlying_Islands_the_",
-"GN":"Guinea",
-"GY":"Guyana",
-"UZ":"Uzbekistan",
-"VU":"Vanuatu",
-"JM":"Jamaica",
-"KR":"Korea_the_Republic_of_",
-"KE":"Kenya",
-"CW":"Curacao",
-"ML":"Mali",
-"LS":"Lesotho",
-"PK":"Pakistan",
-"BH":"Bahrain",
-"AG":"Antigua_and_Barbuda",
-"SD":"Sudan_the_",
-"SS":"South_Sudan",
-"NC":"New_Caledonia",
-"CN":"China",
-"MU":"Mauritius",
-"CY":"Cyprus",
-"BF":"Burkina_Faso",
-"PE":"Peru",
-"PR":"Puerto_Rico",
-"BQ":"Bonaire_Saint_Eustatius_and_Saba",
-"SJ":"Svalbard_and_Jan_Mayen",
-"AI":"Anguilla",
-"RU":"Russian_Federation_the_",
-"NZ":"New_Zealand",
-"TK":"Tokelau",
-"GW":"Guinea_Bissau",
-"IL":"Israel",
-"DO":"Dominican_Republic_the_",
-"EG":"Egypt",
-"WS":"Samoa",
-"BM":"Bermuda",
-"LA":"Lao_People_s_Democratic_Republic_the_",
-"PN":"Pitcairn",
-"LV":"Latvia",
-"PY":"Paraguay",
-"BZ":"Belize",
-"CR":"Costa_Rica",
-"NF":"Norfolk_Island",
-"AU":"Australia",
-"SV":"El_Salvador",
-"SA":"Saudi_Arabia",
-"TW":"Taiwan_Province_of_China_",
-"YT_x4":"Mayotte_x4",
-"KW":"Kuwait",
-"VG":"Virgin_Islands_British_",
-"GE":"Georgia",
-"GR":"Greece",
-"TN":"Tunisia",
-"FM":"Micronesia_Federated_States_of_",
-"KY":"Cayman_Islands_the_",
-"KN":"Saint_Kitts_and_Nevis",
-"DJ":"Djibouti",
-"VI":"Virgin_Islands_U_S_",
-"BT":"Bhutan",
-"PW":"Palau",
-"MP":"Northern_Mariana_Islands_the_",
-"MG":"Madagascar",
-"CK":"Cook_Islands_the_",
-"AL":"Albania",
-"SO":"Somalia",
-"SX":"Sint_Maarten_Dutch_part_",
-"0":"Not_applicable",
-"AT111":"Mittelburgenland",
-"AT112":"Nordburgenland",
-"AT113":"Sudburgenland",
-"AT121":"Mostviertel_Eisenwurzen",
-"AT122":"Niederosterreich_Sud",
-"AT123":"Sankt_Polten",
-"AT124":"Waldviertel",
-"AT125":"Weinviertel",
-"AT126":"Wiener_Umland_Nordteil",
-"AT127":"Wiener_Umland_Sudteil",
-"AT130":"Wien",
-"AT211":"Klagenfurt_Villach",
-"AT212":"Oberkarnten",
-"AT213":"Unterkarnten",
-"AT221":"Graz",
-"AT222":"Liezen",
-"AT223":"Ostliche_Obersteiermark",
-"AT224":"Oststeiermark",
-"AT225":"West_und_Sudsteiermark",
-"AT226":"Westliche_Obersteiermark",
-"AT311":"Innviertel",
-"AT312":"Linz_Wels",
-"AT313":"Muhlviertel",
-"AT314":"Steyr_Kirchdorf",
-"AT315":"Traunviertel",
-"AT321":"Lungau",
-"AT322":"Pinzgau_Pongau",
-"AT323":"Salzburg_und_Umgebung",
-"AT331":"Ausserfern",
-"AT332":"Innsbruck",
-"AT333":"Osttirol",
-"AT334":"Tiroler_Oberland",
-"AT335":"Tiroler_Unterland",
-"AT341":"Bludenz_Bregenzer_Wald",
-"AT342":"Rheintal_Bodenseegebiet",
-"ATZZZ":"Extra_Regio_NUTS_3",
-"BE100":"Arr_de_Bruxelles_Capitale_Arr_van_Brussel_Hoofdstad",
-"BE211":"Arr_Antwerpen",
-"BE212":"Arr_Mechelen",
-"BE213":"Arr_Turnhout",
-"BE221":"Arr_Hasselt",
-"BE222":"Arr_Maaseik",
-"BE223":"Arr_Tongeren",
-"BE231":"Arr_Aalst",
-"BE232":"Arr_Dendermonde",
-"BE233":"Arr_Eeklo",
-"BE234":"Arr_Gent",
-"BE235":"Arr_Oudenaarde",
-"BE236":"Arr_Sint_Niklaas",
-"BE241":"Arr_Halle_Vilvoorde",
-"BE242":"Arr_Leuven",
-"BE251":"Arr_Brugge",
-"BE252":"Arr_Diksmuide",
-"BE253":"Arr_Ieper",
-"BE254":"Arr_Kortrijk",
-"BE255":"Arr_Oostende",
-"BE256":"Arr_Roeselare",
-"BE257":"Arr_Tielt",
-"BE258":"Arr_Veurne",
-"BE310":"Arr_Nivelles",
-"BE321":"Arr_Ath",
-"BE322":"Arr_Charleroi",
-"BE323":"Arr_Mons",
-"BE324":"Arr_Mouscron",
-"BE325":"Arr_Soignies",
-"BE326":"Arr_Thuin",
-"BE327":"Arr_Tournai",
-"BE331":"Arr_Huy",
-"BE332":"Arr_Liege",
-"BE334":"Arr_Waremme",
-"BE335":"Arr_Verviers_communes_francophones",
-"BE336":"Bezirk_Verviers_Deutschsprachige_Gemeinschaft",
-"BE341":"Arr_Arlon",
-"BE342":"Arr_Bastogne",
-"BE343":"Arr_Marche_en_Famenne",
-"BE344":"Arr_Neufchateau",
-"BE345":"Arr_Virton",
-"BE351":"Arr_Dinant",
-"BE352":"Arr_Namur",
-"BE353":"Arr_Philippeville",
-"BG311":"Vidin",
-"BG312":"Montana",
-"BG313":"Vratsa",
-"BG314":"Pleven",
-"BG315":"Lovech",
-"BG321":"Veliko_Tarnovo",
-"BG322":"Gabrovo",
-"BG323":"Ruse",
-"BG324":"Razgrad",
-"BG325":"Silistra",
-"BG331":"Varna",
-"BG332":"Dobrich",
-"BG333":"Shumen",
-"BG334":"Targovishte",
-"BG341":"Burgas",
-"BG342":"Sliven",
-"BG343":"Yambol",
-"BG344":"Stara_Zagora",
-"BG411":"Sofia_stolitsa_",
-"BG412":"Sofia",
-"BG413":"Blagoevgrad",
-"BG414":"Pernik",
-"BG415":"Kyustendil",
-"BG421":"Plovdiv",
-"BG422":"Haskovo",
-"BG423":"Pazardzhik",
-"BG424":"Smolyan",
-"BG425":"Kardzhali",
-"CY000":"Kypros",
-"CZ010":"Hlavni_Mesto_Praha",
-"CZ020":"Stredocesky_Kraj",
-"CZ031":"Jihocesky_Kraj",
-"CZ032":"Plzensky_Kraj",
-"CZ041":"Karlovarsky_kraj",
-"CZ042":"Ustecky_kraj",
-"CZ051":"Liberecky_kraj",
-"CZ052":"Kralovehradecky_kraj",
-"CZ053":"Pardubicky_kraj",
-"CZ063":"Kraj_Vysocina",
-"CZ064":"Jihomoravsky_kraj",
-"CZ071":"Olomoucky_kraj",
-"CZ072":"Zlinsky_kraj",
-"CZ080":"Moravskoslezsky_kraj",
-"DE111":"Stuttgart_Stadtkreis",
-"DE112":"Boblingen",
-"DE113":"Esslingen",
-"DE114":"Goppingen",
-"DE115":"Ludwigsburg",
-"DE116":"Rems_Murr_Kreis",
-"DE117":"Heilbronn_Stadtkreis",
-"DE118":"Heilbronn_Landkreis",
-"DE119":"Hohenlohekreis",
-"DE11A":"Schwabisch_Hall",
-"DE11B":"Main_Tauber_Kreis",
-"DE11C":"Heidenheim",
-"DE11D":"Ostalbkreis",
-"DE121":"Baden_Baden_Stadtkreis",
-"DE122":"Karlsruhe_Stadtkreis",
-"DE123":"Karlsruhe_Landkreis",
-"DE124":"Rastatt",
-"DE125":"Heidelberg_Stadtkreis",
-"DE126":"Mannheim_Stadtkreis",
-"DE127":"Neckar_Odenwald_Kreis",
-"DE128":"Rhein_Neckar_Kreis",
-"DE129":"Pforzheim_Stadtkreis",
-"DE12A":"Calw",
-"DE12B":"Enzkreis",
-"DE12C":"Freudenstadt",
-"DE131":"Freiburg_im_Breisgau_Stadtkreis",
-"DE132":"Breisgau_Hochschwarzwald",
-"DE133":"Emmendingen",
-"DE134":"Ortenaukreis",
-"DE135":"Rottweil",
-"DE136":"Schwarzwald_Baar_Kreis",
-"DE137":"Tuttlingen",
-"DE138":"Konstanz",
-"DE139":"Lorrach",
-"DE13A":"Waldshut",
-"DE141":"Reutlingen",
-"DE142":"Tubingen_Landkreis",
-"DE143":"Zollernalbkreis",
-"DE144":"Ulm_Stadtkreis",
-"DE145":"Alb_Donau_Kreis",
-"DE149":"Sigmaringen",
-"DE146":"Biberach",
-"DE147":"Bodenseekreis",
-"DE148":"Ravensburg",
-"DE211":"Ingolstadt_Kreisfreie_Stadt",
-"DE212":"Munchen_Kreisfreie_Stadt",
-"DE213":"Rosenheim_Kreisfreie_Stadt",
-"DE214":"Altotting",
-"DE215":"Berchtesgadener_Land",
-"DE216":"Bad_Tolz_Wolfratshausen",
-"DE217":"Dachau",
-"DE218":"Ebersberg",
-"DE219":"Eichstatt",
-"DE21A":"Erding",
-"DE21B":"Freising",
-"DE21C":"Furstenfeldbruck",
-"DE21D":"Garmisch_Partenkirchen",
-"DE21E":"Landsberg_am_Lech",
-"DE21F":"Miesbach",
-"DE21G":"Muhldorf_a_Inn",
-"DE21H":"Munchen_Landkreis",
-"DE21I":"Neuburg_Schrobenhausen",
-"DE21J":"Pfaffenhofen_a_d_Ilm",
-"DE21K":"Rosenheim_Landkreis",
-"DE21L":"Starnberg",
-"DE21M":"Traunstein",
-"DE21N":"Weilheim_Schongau",
-"DE221":"Landshut_Kreisfreie_Stadt",
-"DE222":"Passau_Kreisfreie_Stadt",
-"DE223":"Straubing_Kreisfreie_Stadt",
-"DE224":"Deggendorf",
-"DE225":"Freyung_Grafenau",
-"DE226":"Kelheim",
-"DE227":"Landshut_Landkreis",
-"DE228":"Passau_Landkreis",
-"DE229":"Regen",
-"DE22A":"Rottal_Inn",
-"DE22B":"Straubing_Bogen",
-"DE22C":"Dingolfing_Landau",
-"DE231":"Amberg_Kreisfreie_Stadt",
-"DE232":"Regensburg_Kreisfreie_Stadt",
-"DE233":"Weiden_i_d_Opf_Kreisfreie_Stadt",
-"DE234":"Amberg_Sulzbach",
-"DE235":"Cham",
-"DE236":"Neumarkt_i_d_OPf_",
-"DE237":"Neustadt_a_d_Waldnaab",
-"DE238":"Regensburg_Landkreis",
-"DE239":"Schwandorf",
-"DE23A":"Tirschenreuth",
-"DE241":"Bamberg_Kreisfreie_Stadt",
-"DE242":"Bayreuth_Kreisfreie_Stadt",
-"DE243":"Coburg_Kreisfreie_Stadt",
-"DE244":"Hof_Kreisfreie_Stadt",
-"DE245":"Bamberg_Landkreis",
-"DE246":"Bayreuth_Landkreis",
-"DE247":"Coburg_Landkreis",
-"DE248":"Forchheim",
-"DE249":"Hof_Landkreis",
-"DE24A":"Kronach",
-"DE24B":"Kulmbach",
-"DE24C":"Lichtenfels",
-"DE24D":"Wunsiedel_i_Fichtelgebirge",
-"DE251":"Ansbach_Kreisfreie_Stadt",
-"DE252":"Erlangen_Kreisfreie_Stadt",
-"DE253":"Furth_Kreisfreie_Stadt",
-"DE254":"Nurnberg_Kreisfreie_Stadt",
-"DE255":"Schwabach_Kreisfreie_Stadt",
-"DE256":"Ansbach_Landkreis",
-"DE257":"Erlangen_Hochstadt",
-"DE258":"Furth_Landkreis",
-"DE259":"Nurnberger_Land",
-"DE25A":"Neustadt_a_d_Aisch_Bad_Windsheim",
-"DE25B":"Roth",
-"DE25C":"Weissenburg_Gunzenhausen",
-"DE261":"Aschaffenburg_Kreisfreie_Stadt",
-"DE262":"Schweinfurt_Kreisfreie_Stadt",
-"DE263":"Wurzburg_Kreisfreie_Stadt",
-"DE264":"Aschaffenburg_Landkreis",
-"DE265":"Bad_Kissingen",
-"DE266":"Rhon_Grabfeld",
-"DE267":"Hassberge",
-"DE268":"Kitzingen",
-"DE269":"Miltenberg",
-"DE26A":"Main_Spessart",
-"DE26B":"Schweinfurt_Landkreis",
-"DE26C":"Wurzburg_Landkreis",
-"DE271":"Augsburg_Kreisfreie_Stadt",
-"DE272":"Kaufbeuren_Kreisfreie_Stadt",
-"DE273":"Kempten_Allgau_Kreisfreie_Stadt",
-"DE274":"Memmingen_Kreisfreie_Stadt",
-"DE275":"Aichach_Friedberg",
-"DE276":"Augsburg_Landkreis",
-"DE277":"Dillingen_a_d_Donau",
-"DE278":"Gunzburg",
-"DE279":"Neu_Ulm",
-"DE27A":"Lindau_Bodensee_",
-"DE27B":"Ostallgau",
-"DE27C":"Unterallgau",
-"DE27D":"Donau_Ries",
-"DE27E":"Oberallgau",
-"DE300":"Berlin",
-"DE401":"Brandenburg_an_der_Havel_Kreisfreie_Stadt",
-"DE402":"Cottbus_Kreisfreie_Stadt",
-"DE403":"Frankfurt_Oder_Kreisfreie_Stadt",
-"DE404":"Potsdam_Kreisfreie_Stadt",
-"DE405":"Barnim",
-"DE406":"Dahme_Spreewald",
-"DE407":"Elbe_Elster",
-"DE408":"Havelland",
-"DE409":"Markisch_Oderland",
-"DE40A":"Oberhavel",
-"DE40B":"Oberspreewald_Lausitz",
-"DE40C":"Oder_Spree",
-"DE40D":"Ostprignitz_Ruppin",
-"DE40E":"Potsdam_Mittelmark",
-"DE40F":"Prignitz",
-"DE40G":"Spree_Neisse",
-"DE40H":"Teltow_Flaming",
-"DE40I":"Uckermark",
-"DE501":"Bremen_Kreisfreie_Stadt",
-"DE502":"Bremerhaven_Kreisfreie_Stadt",
-"DE600":"Hamburg",
-"DE711":"Darmstadt_Kreisfreie_Stadt",
-"DE712":"Frankfurt_am_Main_Kreisfreie_Stadt",
-"DE713":"Offenbach_am_Main_Kreisfreie_Stadt",
-"DE714":"Wiesbaden_Kreisfreie_Stadt",
-"DE715":"Bergstrasse",
-"DE716":"Darmstadt_Dieburg",
-"DE717":"Gross_Gerau",
-"DE718":"Hochtaunuskreis",
-"DE719":"Main_Kinzig_Kreis",
-"DE71A":"Main_Taunus_Kreis",
-"DE71B":"Odenwaldkreis",
-"DE71C":"Offenbach_Landkreis",
-"DE71D":"Rheingau_Taunus_Kreis",
-"DE71E":"Wetteraukreis",
-"DE721":"Giessen_Landkreis",
-"DE722":"Lahn_Dill_Kreis",
-"DE723":"Limburg_Weilburg",
-"DE724":"Marburg_Biedenkopf",
-"DE725":"Vogelsbergkreis",
-"DE731":"Kassel_Kreisfreie_Stadt",
-"DE732":"Fulda",
-"DE733":"Hersfeld_Rotenburg",
-"DE734":"Kassel_Landkreis",
-"DE735":"Schwalm_Eder_Kreis",
-"DE736":"Waldeck_Frankenberg",
-"DE737":"Werra_Meissner_Kreis",
-"DE803":"Rostock_Kreisfreie_Stadt",
-"DE804":"Schwerin_Kreisfreie_Stadt",
-"DE80J":"Mecklenburgische_Seenplatte",
-"DE80K":"Landkreis_Rostock",
-"DE80L":"Vorpommern_Rugen",
-"DE80M":"Nordwestmecklenburg",
-"DE80N":"Vorpommern_Greifswald",
-"DE80O":"Ludwigslust_Parchim",
-"DE911":"Braunschweig_Kreisfreie_Stadt",
-"DE912":"Salzgitter_Kreisfreie_Stadt",
-"DE913":"Wolfsburg_Kreisfreie_Stadt",
-"DE914":"Gifhorn",
-"DE916":"Goslar",
-"DE917":"Helmstedt",
-"DE918":"Northeim",
-"DE91A":"Peine",
-"DE91B":"Wolfenbuttel",
-"DE91C":"Gottingen",
-"DE922":"Diepholz",
-"DE923":"Hameln_Pyrmont",
-"DE925":"Hildesheim",
-"DE926":"Holzminden",
-"DE927":"Nienburg_Weser_",
-"DE928":"Schaumburg",
-"DE929":"Region_Hannover",
-"DE931":"Celle",
-"DE932":"Cuxhaven",
-"DE933":"Harburg",
-"DE934":"Luchow_Dannenberg",
-"DE935":"Luneburg_Landkreis",
-"DE936":"Osterholz",
-"DE937":"Rotenburg_Wumme_",
-"DE938":"Soltau_Fallingbostel",
-"DE939":"Stade",
-"DE93A":"Uelzen",
-"DE93B":"Verden",
-"DE941":"Delmenhorst_Kreisfreie_Stadt",
-"DE942":"Emden_Kreisfreie_Stadt",
-"DE943":"Oldenburg_Oldenburg_Kreisfreie_Stadt",
-"DE944":"Osnabruck_Kreisfreie_Stadt",
-"DE945":"Wilhelmshaven_Kreisfreie_Stadt",
-"DE946":"Ammerland",
-"DE947":"Aurich",
-"DE948":"Cloppenburg",
-"DE949":"Emsland",
-"DE94A":"Friesland_DE_",
-"DE94B":"Grafschaft_Bentheim",
-"DE94C":"Leer",
-"DE94D":"Oldenburg_Landkreis",
-"DE94E":"Osnabruck_Landkreis",
-"DE94F":"Vechta",
-"DE94G":"Wesermarsch",
-"DE94H":"Wittmund",
-"DEA11":"Dusseldorf_Kreisfreie_Stadt",
-"DEA12":"Duisburg_Kreisfreie_Stadt",
-"DEA13":"Essen_Kreisfreie_Stadt",
-"DEA14":"Krefeld_Kreisfreie_Stadt",
-"DEA15":"Monchengladbach_Kreisfreie_Stadt",
-"DEA16":"Mulheim_an_der_Ruhr_Kreisfreie_Stadt",
-"DEA17":"Oberhausen_Kreisfreie_Stadt",
-"DEA18":"Remscheid_Kreisfreie_Stadt",
-"DEA19":"Solingen_Kreisfreie_Stadt",
-"DEA1A":"Wuppertal_Kreisfreie_Stadt",
-"DEA1B":"Kleve",
-"DEA1C":"Mettmann",
-"DEA1D":"Rhein_Kreis_Neuss",
-"DEA1E":"Viersen",
-"DEA1F":"Wesel",
-"DEA22":"Bonn_Kreisfreie_Stadt",
-"DEA23":"Koln_Kreisfreie_Stadt",
-"DEA24":"Leverkusen_Kreisfreie_Stadt",
-"DEA26":"Duren",
-"DEA27":"Rhein_Erft_Kreis",
-"DEA28":"Euskirchen",
-"DEA29":"Heinsberg",
-"DEA2A":"Oberbergischer_Kreis",
-"DEA2B":"Rheinisch_Bergischer_Kreis",
-"DEA2C":"Rhein_Sieg_Kreis",
-"DEA2D":"Stadteregion_Aachen",
-"DEA31":"Bottrop_Kreisfreie_Stadt",
-"DEA32":"Gelsenkirchen_Kreisfreie_Stadt",
-"DEA33":"Munster_Kreisfreie_Stadt",
-"DEA34":"Borken",
-"DEA35":"Coesfeld",
-"DEA36":"Recklinghausen",
-"DEA37":"Steinfurt",
-"DEA38":"Warendorf",
-"DEA41":"Bielefeld_Kreisfreie_Stadt",
-"DEA42":"Gutersloh",
-"DEA43":"Herford",
-"DEA44":"Hoxter",
-"DEA45":"Lippe",
-"DEA46":"Minden_Lubbecke",
-"DEA47":"Paderborn",
-"DEA51":"Bochum_Kreisfreie_Stadt",
-"DEA52":"Dortmund_Kreisfreie_Stadt",
-"DEA53":"Hagen_Kreisfreie_Stadt",
-"DEA54":"Hamm_Kreisfreie_Stadt",
-"DEA55":"Herne_Kreisfreie_Stadt",
-"DEA56":"Ennepe_Ruhr_Kreis",
-"DEA57":"Hochsauerlandkreis",
-"DEA58":"Markischer_Kreis",
-"DEA59":"Olpe",
-"DEA5A":"Siegen_Wittgenstein",
-"DEA5B":"Soest",
-"DEA5C":"Unna",
-"DEB11":"Koblenz_Kreisfreie_Stadt",
-"DEB12":"Ahrweiler",
-"DEB13":"Altenkirchen_Westerwald_",
-"DEB14":"Bad_Kreuznach",
-"DEB15":"Birkenfeld",
-"DEB17":"Mayen_Koblenz",
-"DEB18":"Neuwied",
-"DEB1A":"Rhein_Lahn_Kreis",
-"DEB1B":"Westerwaldkreis",
-"DEB1C":"Cochem_Zell",
-"DEB1D":"Rhein_Hunsruck_Kreis",
-"DEB21":"Trier_Kreisfreie_Stadt",
-"DEB22":"Bernkastel_Wittlich",
-"DEB23":"Eifelkreis_Bitburg_Prum",
-"DEB24":"Vulkaneifel",
-"DEB25":"Trier_Saarburg",
-"DEB31":"Frankenthal_Pfalz_Kreisfreie_Stadt",
-"DEB32":"Kaiserslautern_Kreisfreie_Stadt",
-"DEB33":"Landau_in_der_Pfalz_Kreisfreie_Stadt",
-"DEB34":"Ludwigshafen_am_Rhein_Kreisfreie_Stadt",
-"DEB35":"Mainz_Kreisfreie_Stadt",
-"DEB36":"Neustadt_an_der_Weinstrasse_Kreisfreie_Stadt",
-"DEB37":"Pirmasens_Kreisfreie_Stadt",
-"DEB38":"Speyer_Kreisfreie_Stadt",
-"DEB39":"Worms_Kreisfreie_Stadt",
-"DEB3A":"Zweibrucken_Kreisfreie_Stadt",
-"DEB3B":"Alzey_Worms",
-"DEB3C":"Bad_Durkheim",
-"DEB3D":"Donnersbergkreis",
-"DEB3E":"Germersheim",
-"DEB3F":"Kaiserslautern_Landkreis",
-"DEB3G":"Kusel",
-"DEB3H":"Sudliche_Weinstrasse",
-"DEB3I":"Rhein_Pfalz_Kreis",
-"DEB3J":"Mainz_Bingen",
-"DEB3K":"Sudwestpfalz",
-"DEC01":"Regionalverband_Saarbrucken",
-"DEC02":"Merzig_Wadern",
-"DEC03":"Neunkirchen",
-"DEC04":"Saarlouis",
-"DEC05":"Saarpfalz_Kreis",
-"DEC06":"St_Wendel",
-"DED21":"Dresden_Kreisfreie_Stadt",
-"DED2C":"Bautzen",
-"DED2D":"Gorlitz",
-"DED2E":"Meissen",
-"DED2F":"Sachsische_Schweiz_Osterzgebirge",
-"DED41":"Chemnitz_Kreisfreie_Stadt",
-"DED42":"Erzgebirgskreis",
-"DED43":"Mittelsachsen",
-"DED44":"Vogtlandkreis",
-"DED45":"Zwichau",
-"DED51":"Leipzig_Kreisfreie_Stadt",
-"DED52":"Leipzig",
-"DED53":"Nordsachsen",
-"DEE01":"Dessau_Rosslau_Kreisfreie_Stadt",
-"DEE02":"Halle_Saale_Kreisfreie_Stadt",
-"DEE03":"Magdeburg_Kreisfreie_Stadt",
-"DEE04":"Altmarkkreis_Salzwedel",
-"DEE05":"Anhalt_Bitterfeld",
-"DEE06":"Jerichower_Land",
-"DEE07":"Borde",
-"DEE08":"Burgenland_DE_",
-"DEE09":"Harz",
-"DEE0A":"Mansfeld_Sudharz",
-"DEE0B":"Saalekreis",
-"DEE0C":"Salzlandkreis",
-"DEE0D":"Stendal",
-"DEE0E":"Wittenberg",
-"DEF01":"Flensburg_Kreisfreie_Stadt",
-"DEF02":"Kiel_Kreisfreie_Stadt",
-"DEF03":"Lubeck_Kreisfreie_Stadt",
-"DEF04":"Neumunster_Kreisfreie_Stadt",
-"DEF05":"Dithmarschen",
-"DEF06":"Herzogtum_Lauenburg",
-"DEF07":"Nordfriesland",
-"DEF08":"Ostholstein",
-"DEF09":"Pinneberg",
-"DEF0A":"Plon",
-"DEF0B":"Rendsburg_Eckernforde",
-"DEF0C":"Schleswig_Flensburg",
-"DEF0D":"Segeberg",
-"DEF0E":"Steinburg",
-"DEF0F":"Stormarn",
-"DEG01":"Erfurt_Kreisfreie_Stadt",
-"DEG02":"Gera_Kreisfreie_Stadt",
-"DEG03":"Jena_Kreisfreie_Stadt",
-"DEG04":"Suhl_Kreisfreie_Stadt",
-"DEG05":"Weimar_Kreisfreie_Stadt",
-"DEG06":"Eichsfeld",
-"DEG07":"Nordhausen",
-"DEG09":"Unstrut_Hainich_Kreis",
-"DEG0A":"Kyffhauserkreis",
-"DEG0B":"Schmalkalden_Meiningen",
-"DEG0C":"Gotha",
-"DEG0D":"Sommerda",
-"DEG0E":"Hildburghausen",
-"DEG0F":"Ilm_Kreis",
-"DEG0G":"Weimarer_Land",
-"DEG0H":"Sonneberg",
-"DEG0I":"Saalfeld_Rudolstadt",
-"DEG0J":"Saale_Holzland_Kreis",
-"DEG0K":"Saale_Orla_Kreis",
-"DEG0L":"Greiz",
-"DEG0M":"Altenburger_Land",
-"DEG0N":"Eisenach_Kreisfreie_Stadt",
-"DEG0P":"Wartburgkreis",
-"DK011":"Byen_Kobenhavn",
-"DK012":"Kobenhavns_omegn",
-"DK013":"Nordsjaelland",
-"DK014":"Bornholm",
-"DK021":"Ostsjaelland",
-"DK022":"Vest_og_Sydsjaelland",
-"DK031":"Fyn",
-"DK032":"Sydjylland",
-"DK041":"Vestjylland",
-"DK042":"Ostjylland",
-"DK050":"Nordjylland",
-"EE001":"Pohja_Eesti",
-"EE004":"Laane_Eesti",
-"EE006":"Kesk_Eesti",
-"EE007":"Kirde_Eesti",
-"EE008":"Louna_Eesti",
-"EL301":"Voreios_Tomeas_Athinon",
-"EL302":"Dytikos_Tomeas_Athinon",
-"EL303":"Kentrikos_Tomeas_Athinon",
-"EL304":"Notios_Tomeas_Athinon",
-"EL305":"Anatoliki_Attiki",
-"EL306":"Dytiki_Attiki",
-"EL307":"Peiraias_Nisoi",
-"EL411":"Lesvos",
-"EL412":"Samos",
-"EL413":"Chios",
-"EL421":"Dodekanisos",
-"EL422":"Kyklades",
-"EL431":"Irakleio",
-"EL432":"Lasithi",
-"EL433":"Rethymni",
-"EL434":"Chania",
-"EL511":"Evros",
-"EL512":"Xanthi",
-"EL513":"Rodopi",
-"EL514":"Drama",
-"EL515":"Thasos_Kavala",
-"EL521":"Imathia",
-"EL522":"Thessaloniki",
-"EL523":"Kilkis",
-"EL524":"Pella",
-"EL525":"Pieria",
-"EL526":"Serres",
-"EL527":"Chalkidiki",
-"EL531":"Grevena_Kozani",
-"EL542":"Thesprotia",
-"EL532":"Kastoria",
-"EL533":"Florina",
-"EL541":"Arta_Preveza",
-"EL543":"Ioannina",
-"EL611":"Karditsa_Trikala",
-"EL612":"Larisa",
-"EL613":"Magnisia_Sporades",
-"EL621":"Zakynthos",
-"EL622":"Kerkyra",
-"EL623":"Ithaki_Kefallinia",
-"EL624":"Lefkada",
-"EL631":"Aitoloakarnania",
-"EL632":"Achaia",
-"EL633":"Ileia",
-"EL641":"Voiotia",
-"EL642":"Evvoia",
-"EL643":"Evrytania",
-"EL644":"Fthiotida",
-"EL645":"Fokida",
-"EL651":"Argolida_Arkadia",
-"EL652":"Korinthia",
-"EL653":"lakonia_Messinia",
-"ES111":"A_Coruna",
-"ES112":"Lugo",
-"ES113":"Ourense",
-"ES114":"Pontevedra",
-"ES120":"Asturias",
-"ES130":"Cantabria",
-"ES211":"Alava",
-"ES212":"Guipuzcoa",
-"ES213":"Vizcaya",
-"ES220":"Navarra",
-"ES230":"La_Rioja",
-"ES241":"Huesca",
-"ES242":"Teruel",
-"ES243":"Zaragoza",
-"ES300":"Madrid",
-"ES411":"Avila",
-"ES412":"Burgos",
-"ES413":"Leon",
-"ES414":"Palencia",
-"ES415":"Salamanca",
-"ES416":"Segovia",
-"ES417":"Soria",
-"ES418":"Valladolid",
-"ES419":"Zamora",
-"ES421":"Albacete",
-"ES422":"Ciudad_Real",
-"ES423":"Cuenca",
-"ES424":"Guadalajara",
-"ES425":"Toledo",
-"ES431":"Badajoz",
-"ES432":"Caceres",
-"ES511":"Barcelona",
-"ES512":"Girona",
-"ES513":"Lleida",
-"ES514":"Tarragona",
-"ES521":"Alicante_Alacant",
-"ES522":"Castellon_Castello",
-"ES523":"Valencia_Valencia",
-"ES531":"Eivissa_y_Formentera",
-"ES532":"Mallorca",
-"ES533":"Menorca",
-"ES611":"Almeria",
-"ES612":"Cadiz",
-"ES613":"Cordoba",
-"ES614":"Granada",
-"ES615":"Huelva",
-"ES616":"Jaen",
-"ES617":"Malaga",
-"ES618":"Sevilla",
-"ES620":"Murcia",
-"ES630":"Ceuta",
-"ES640":"Melilla",
-"ES703":"El_Hierro",
-"ES704":"Fuerteventura",
-"ES705":"Gran_Canaria",
-"ES706":"La_Gomera",
-"ES707":"La_Palma",
-"ES708":"Lanzarote",
-"ES709":"Tenerife",
-"FI193":"Keski_Suomi",
-"FI194":"Etela_Pohjanmaa",
-"FI195":"Pohjanmaa",
-"FI196":"Satakunta",
-"FI197":"Pirkanmaa",
-"FI1B1":"Helsinki_Uusimaa",
-"FI1C1":"Varsinais_Suomi",
-"FI1C2":"Kanta_Hame",
-"FI1C3":"Paijat_Hame",
-"FI1C4":"Kymenlaakso",
-"FI1C5":"Etela_Karjala",
-"FI1D1":"Etela_Savo",
-"FI1D2":"Pohjois_Savo",
-"FI1D3":"Pohjois_Karjala",
-"FI1D5":"Keski_Pohjanmaa",
-"FI1D7":"Lappi",
-"FI1D8":"Kainuu",
-"FI1D9":"Pohjois_Pohjanmaa",
-"FI200":"Aland",
-"FR101":"Paris",
-"FR102":"Seine_et_Marne",
-"FR103":"Yvelines",
-"FR104":"Essonne",
-"FR105":"Hauts_de_Seine",
-"FR106":"Seine_Saint_Denis",
-"FR107":"Val_de_Marne",
-"FR108":"Val_d_Oise",
-"FRB01":"Cher",
-"FRB02":"Eure_et_Loir",
-"FRB03":"Indre",
-"FRB04":"Indre_et_Loire",
-"FRB05":"Loir_et_Cher",
-"FRB06":"Loiret",
-"FRC11":"Cote_d_Or",
-"FRC12":"Nievre",
-"FRC13":"Saone_et_Loire",
-"FRC14":"Yonne",
-"FRC21":"Doubs",
-"FRC22":"Jura",
-"FRC23":"Haute_Saone",
-"FRC24":"Territoire_de_Belfort",
-"FRD11":"Calvados",
-"FRD12":"Manche",
-"FRD13":"Orne",
-"FRD21":"Eure",
-"FRD22":"Seine_Maritime",
-"FRE11":"Nord",
-"FRE12":"Pas_de_Calais",
-"FRE21":"Aisne",
-"FRE22":"Oise",
-"FRE23":"Somme",
-"FRF11":"Bas_Rhin",
-"FRF12":"Haut_Rhin",
-"FRF21":"Ardennes",
-"FRF22":"Aube",
-"FRF23":"Marne",
-"FRF24":"Haute_Marne",
-"FRF31":"Meurthe_et_Moselle",
-"FRF32":"Meuse",
-"FRF33":"Moselle",
-"FRF34":"Vosges",
-"FRG01":"Loire_Atlantique",
-"FRG02":"Maine_et_Loire",
-"FRG03":"Mayenne",
-"FRG04":"Sarthe",
-"FRG05":"Vendee",
-"FRH01":"Cotes_d_Armor",
-"FRH02":"Finistere",
-"FRH03":"Ille_et_Vilaine",
-"FRH04":"Morbihan",
-"FRI11":"Dordogne",
-"FRI12":"Gironde",
-"FRI13":"Landes",
-"FRI14":"Lot_et_Garonne",
-"FRI15":"Pyrenees_Atlantiques",
-"FRI21":"Correze",
-"FRI22":"Creuse",
-"FRI23":"Haute_Vienne",
-"FRI31":"Charente",
-"FRI32":"Charente_Maritime",
-"FRI33":"Deux_Sevres",
-"FRI34":"Vienne",
-"FRJ11":"Aude",
-"FRJ12":"Gard",
-"FRJ13":"Herault",
-"FRJ14":"Lozere",
-"FRJ15":"Pyrenees_Orientales",
-"FRJ21":"Ariege",
-"FRJ22":"Aveyron",
-"FRJ23":"Haute_Garonne",
-"FRJ24":"Gers",
-"FRJ25":"Lot",
-"FRJ26":"Hautes_Pyrenees",
-"FRJ27":"Tarn",
-"FRJ28":"Tarn_et_Garonne",
-"FRK11":"Allier",
-"FRK12":"Cantal",
-"FRK13":"Haute_Loire",
-"FRK14":"Puy_de_Dome",
-"FRK21":"Ain",
-"FRK22":"Ardeche",
-"FRK23":"Drome",
-"FRK24":"Isere",
-"FRK25":"Loire",
-"FRK26":"Rhone",
-"FRK27":"Savoie",
-"FRK28":"Haute_Savoie",
-"FRL01":"Alpes_de_Haute_Provence",
-"FRL02":"Hautes_Alpes",
-"FRL03":"Alpes_Maritimes",
-"FRL04":"Bouches_du_Rhone",
-"FRL05":"Var",
-"FRL06":"Vaucluse",
-"FRM01":"Corse_du_Sud",
-"FRM02":"Haute_Corse",
-"FRY30":"Guyane",
-"FRY40":"La_Reunion",
-"HR031":"Primorsko_goranska_zupanija",
-"HR032":"Licko_senjska_Zupanija",
-"HR033":"Zadarska_zupanija",
-"HR034":"Sibensko_kninska_zupanija",
-"HR035":"Splitsko_dalmatinska_zupanija",
-"HR036":"Istarska_zupanija",
-"HR037":"Dubrovacko_neretvanska_Zupanija",
-"HR041":"Grad_Zagreb",
-"HR042":"Zagrebacka_Zupanija",
-"HR043":"Krapinsko_zagorska_zupanija",
-"HR044":"Varazdinska_zupanija",
-"HR045":"Koprivnicko_krizevacka_Zupanija",
-"HR046":"Medimurska_Zupanija",
-"HR047":"Bjelovarsko_bilogorska_zupanija",
-"HR048":"Viroviticko_podravska_Zupanija",
-"HR049":"Pozesko_slavonska_zupanija",
-"HR04A":"Brodsko_posavska_zupanija",
-"HR04B":"Osjecko_baranjska_Zupanija",
-"HR04C":"Vukovarsko_srijemska_zupanija",
-"HR04D":"Karlovacka_Zupanija",
-"HR04E":"Sisacko_moslavacka_Zupanija",
-"HU110":"Budapest",
-"HU120":"Pest",
-"HU211":"Fejer",
-"HU212":"Komarom_Esztergom",
-"HU213":"Veszprem",
-"HU221":"Gyor_moson_sopron",
-"HU222":"Vas",
-"HU223":"Zala",
-"HU231":"Baranya",
-"HU232":"Somogy",
-"HU233":"Tolna",
-"HU311":"Borsod_Abauj_Zemplen",
-"HU312":"Heves",
-"HU313":"Nograd",
-"HU321":"Hajdu_Bihar",
-"HU322":"Jasz_Nagykun_Szolnok",
-"HU323":"Szabolcs_Szatmar_Bereg",
-"HU331":"Bacs_Kiskun",
-"HU332":"Bekes",
-"HU333":"Csongrad",
-"IE041":"Border",
-"IE042":"West",
-"IE051":"Mid_West",
-"IE052":"South_East",
-"IE053":"South_West",
-"IE061":"Dublin",
-"IE062":"Mid_East",
-"IE063":"Midland",
-"ITC11":"Torino",
-"ITC12":"Vercelli",
-"ITC13":"Biella",
-"ITC14":"Verbano_Cusio_Ossola",
-"ITC15":"Novara",
-"ITC16":"Cuneo",
-"ITC17":"Asti",
-"ITC18":"Alessandria",
-"ITC20":"Valle_d_Aosta_Vallee_d_Aoste",
-"ITC31":"Imperia",
-"ITC32":"Savona",
-"ITC33":"Genova",
-"ITC34":"La_Spezia",
-"ITC41":"Varese",
-"ITC42":"Como",
-"ITC43":"Lecco",
-"ITC44":"Sondrio",
-"ITC46":"Bergamo",
-"ITC47":"Brescia",
-"ITC48":"Pavia",
-"ITC49":"Lodi",
-"ITC4A":"Cremona",
-"ITC4B":"Mantova",
-"ITC4C":"Milano",
-"ITC4D":"Monza_e_della_Brianza",
-"ITF11":"L_Aquila",
-"ITF12":"Teramo",
-"ITF13":"Pescara",
-"ITF14":"Chieti",
-"ITF21":"Isernia",
-"ITF22":"Campobasso",
-"ITF31":"Caserta",
-"ITF32":"Benevento",
-"ITF33":"Napoli",
-"ITF34":"Avellino",
-"ITF35":"Salerno",
-"ITF43":"Taranto",
-"ITF44":"Brindisi",
-"ITF45":"Lecce",
-"ITF46":"Foggia",
-"ITF47":"Bari",
-"ITF48":"Barletta_Andria_Trani",
-"ITF51":"Potenza",
-"ITF52":"Matera",
-"ITF61":"Cosenza",
-"ITF62":"Crotone",
-"ITF63":"Catanzaro",
-"ITF64":"Vibo_Valentia",
-"ITF65":"Reggio_di_Calabria",
-"ITG11":"Trapani",
-"ITG12":"Palermo",
-"ITG13":"Messina",
-"ITG14":"Agrigento",
-"ITG15":"Caltanissetta",
-"ITG16":"Enna",
-"ITG17":"Catania",
-"ITG18":"Ragusa",
-"ITG19":"Siracusa",
-"ITG25":"Sassari",
-"ITG26":"Nuoro",
-"ITG27":"Cagliari",
-"ITG28":"Oristano",
-"ITG29":"Olbia_Tempio",
-"ITG2A":"Ogliastra",
-"ITG2B":"Medio_Campidano",
-"ITG2C":"Carbonia_Iglesias",
-"ITH10":"Bolzano_Bozen",
-"ITH20":"Trento",
-"ITH31":"Verona",
-"ITH32":"Vicenza",
-"ITH33":"Belluno",
-"ITH34":"Treviso",
-"ITH35":"Venezia",
-"ITH36":"Padova",
-"ITH37":"Rovigo",
-"ITH41":"Pordenone",
-"ITH42":"Udine",
-"ITH43":"Gorizia",
-"ITH44":"Trieste",
-"ITH51":"Piacenza",
-"ITH52":"Parma",
-"ITH53":"Reggio_nell_Emilia",
-"ITH54":"Modena",
-"ITH55":"Bologna",
-"ITH56":"Ferrara",
-"ITH57":"Ravenna",
-"ITH58":"Forli_Cesena",
-"ITH59":"Rimini",
-"ITI11":"Massa_Carrara",
-"ITI12":"Lucca",
-"ITI13":"Pistoia",
-"ITI14":"Firenze",
-"ITI15":"Prato",
-"ITI16":"Livorno",
-"ITI17":"Pisa",
-"ITI18":"Arezzo",
-"ITI19":"Siena",
-"ITI1A":"Grosseto",
-"ITI21":"Perugia",
-"ITI22":"Terni",
-"ITI31":"Pesaro_e_Urbino",
-"ITI32":"Ancona",
-"ITI33":"Macerata",
-"ITI34":"Ascoli_Piceno",
-"ITI35":"Fermo",
-"ITI41":"Viterbo",
-"ITI42":"Rieti",
-"ITI43":"Roma",
-"ITI44":"Latina",
-"ITI45":"Frosinone",
-"LT011":"Vilniaus_apskritis",
-"LT021":"Alytaus_apskritis",
-"LT022":"Kauno_apskritis",
-"LT023":"Klaipedos_apskritis",
-"LT024":"Marijampoles_apskritis",
-"LT025":"Panevezio_apskritis",
-"LT026":"Siauliu_apskritis",
-"LT027":"Taurages_apskritis",
-"LT028":"Telsiu_apskritis",
-"LT029":"Utenos_apskritis",
-"LV003":"Kurzeme",
-"LV005":"Latgale",
-"LV006":"Riga",
-"LV007":"Pieriga",
-"LV008":"Vidzeme",
-"LV009":"Zemgale",
-"MT002":"Gozo_And_CominoGhawdex_U_Kemmuna",
-"NL111":"Oost_Groningen",
-"NL112":"Delfzijl_en_omgeving",
-"NL113":"Overig_Groningen",
-"NL124":"Noord_Friesland",
-"NL125":"Zuidwest_Friesland",
-"NL126":"Zuidoost_Friesland",
-"NL131":"Noord_Drenthe",
-"NL132":"Zuidoost_Drenthe",
-"NL133":"Zuidwest_Drenthe",
-"NL211":"Noord_Overijssel",
-"NL212":"Zuidwest_Overijssel",
-"NL213":"Twente",
-"NL221":"Veluwe",
-"NL224":"Zuidwest_Gelderland",
-"NL225":"Achterhoek",
-"NL226":"Arnhem_Nijmegen",
-"NL230":"Flevoland",
-"NL310":"Utrecht",
-"NL321":"Kop_van_Noord_Holland",
-"NL323":"IJmond",
-"NL324":"Agglomeratie_Haarlem",
-"NL325":"Zaanstreek",
-"NL327":"Het_Gooi_en_Vechtstreek",
-"NL328":"Alkmaar_en_omgeving",
-"NL329":"Groot_Amsterdam",
-"NL332":"Agglomeratie_s_Gravenhage",
-"NL333":"Delft_en_Westland",
-"NL337":"Agglomeratie_Leiden_en_Bollenstreek",
-"NL33A":"Zuidoost_Zuid_Holland",
-"NL33B":"Oost_Zuid_Holland",
-"NL33C":"Groot_Rijnmond",
-"NL341":"Zeeuwsch_Vlaanderen",
-"NL342":"Overig_Zeeland",
-"NL411":"West_Noord_Brabant",
-"NL412":"Midden_Noord_Brabant",
-"NL413":"Noordoost_Noord_Brabant",
-"NL414":"Zuidoost_Noord_Brabant",
-"NL421":"Noord_Limburg",
-"NL422":"Midden_Limburg",
-"NL423":"Zuid_Limburg",
-"PL213":"Miasto_Krakow",
-"PL214":"Krakowski",
-"PL217":"Tarnowski",
-"PL218":"Nowosadecki",
-"PL219":"Nowotarski",
-"PL21A":"Oswiecimski",
-"PL224":"Czestochowski",
-"PL225":"Bielski",
-"PL227":"Rybnicki",
-"PL228":"Bytomski",
-"PL229":"Gliwicki",
-"PL22A":"Katowicki",
-"PL22B":"Sosnowiecki",
-"PL22C":"Tyski",
-"PL411":"Pilski",
-"PL414":"Koninski",
-"PL415":"Miasto_Poznan",
-"PL416":"Kaliski",
-"PL417":"Leszczynski",
-"PL418":"Poznanski",
-"PL424":"Miasto_Szczecin",
-"PL426":"Koszalinski",
-"PL427":"Szczecinecko_pyrzycki",
-"PL428":"Szczecinski",
-"PL431":"Gorzowski",
-"PL432":"Zielonogorski",
-"PL514":"Miasto_Wroclaw",
-"PL515":"Jeleniogorski",
-"PL516":"Legnicko_glogowski",
-"PL517":"Walbrzyski",
-"PL518":"Wroclawski",
-"PL523":"Nyski",
-"PL524":"Opolski",
-"PL613":"Bydgosko_torunski",
-"PL616":"Grudziadzki",
-"PL617":"Inowroclawski",
-"PL618":"Swiecki",
-"PL619":"Wloclawski",
-"PL621":"Elblaski",
-"PL622":"Olsztynski",
-"PL623":"Elcki",
-"PL633":"Trojmiejski",
-"PL634":"Gdanski",
-"PL636":"Slupski",
-"PL637":"Chojnicki",
-"PL638":"Starogardzki",
-"PL711":"Miasto_Lodz",
-"PL712":"Lodzki",
-"PL713":"Piotrkowski",
-"PL714":"Sieradzki",
-"PL715":"Skierniewicki",
-"PL721":"Kielecki",
-"PL722":"Sandomiersko_jedrzejowski",
-"PL811":"Bialski",
-"PL812":"Chelmsko_zamojski",
-"PL814":"Lubelski",
-"PL815":"Pulawski",
-"PL821":"Krosnienski",
-"PL822":"Przemyski",
-"PL823":"Rzeszowski",
-"PL824":"Tarnobrzeski",
-"PL841":"Bialostocki",
-"PL842":"Lomzynski",
-"PL843":"Suwalski",
-"PL911":"Miasto_Warszawa",
-"PL912":"Warszawski_wschodni",
-"PL913":"Warszawski_zachodni",
-"PL921":"Radomski",
-"PL922":"Ciechanowski",
-"PL923":"Plocki",
-"PL924":"Ostrolecki",
-"PL925":"Siedlecki",
-"PL926":"Zyrardowski",
-"PT111":"Minho_Lima",
-"PT112":"Cavado",
-"PT119":"Ave",
-"PT11A":"Area_Metropolitana_do_Porto",
-"PT11B":"Alto_Tamega",
-"PT11C":"Tamega_e_Sousa",
-"PT11D":"Douro",
-"PT11E":"Terras_de_Tras_os_Montes",
-"PT150":"Algarve",
-"PT16B":"Oeste",
-"PT16D":"Regiao_de_Aveiro",
-"PT16E":"Regiao_de_Coimbra",
-"PT16F":"Regiao_de_Leiria",
-"PT16G":"Viseu_Dao_Lafoes",
-"PT16H":"Beira_Baixa",
-"PT16I":"Medio_Tejo",
-"PT16J":"Beiras_e_Serra_da_Estrela",
-"PT170":"Area_Metropolitana_de_Lisboa",
-"PT181":"Alentejo_Litoral",
-"PT184":"Baixo_Alentejo",
-"PT185":"Leziria_do_Tejo",
-"PT186":"Alto_Alentejo",
-"PT187":"Alentejo_Central",
-"PT200":"Regiao_Autonoma_dos_Acores",
-"PT300":"Regiao_Autonoma_da_Madeira",
-"RO111":"Bihor",
-"RO112":"Bistrita_nasaud",
-"RO113":"Cluj",
-"RO114":"Maramures",
-"RO115":"Satu_Mare",
-"RO116":"Salaj",
-"RO121":"Alba",
-"RO122":"Brasov",
-"RO123":"Covasna",
-"RO124":"Harghita",
-"RO125":"Mures",
-"RO126":"Sibiu",
-"RO211":"Bacau",
-"RO212":"Botosani",
-"RO213":"Iasi",
-"RO214":"Neamt",
-"RO215":"Suceava",
-"RO216":"Vaslui",
-"RO221":"Braila",
-"RO222":"Buzau",
-"RO223":"Constanta",
-"RO224":"Galati",
-"RO225":"Tulcea",
-"RO226":"Vrancea",
-"RO311":"Arges",
-"RO312":"Calarasi",
-"RO313":"Dambovita",
-"RO314":"Giurgiu",
-"RO315":"Ialomita",
-"RO316":"Prahova",
-"RO317":"Teleorman",
-"RO321":"Bucuresti",
-"RO322":"Ilfov",
-"RO411":"Dolj",
-"RO412":"Gorj",
-"RO413":"Mehedinti",
-"RO414":"Olt",
-"RO415":"Valcea",
-"RO421":"Arad",
-"RO422":"Caras_severin",
-"RO423":"Hunedoara",
-"RO424":"Timis",
-"SE110":"Stockholms_lan",
-"SE121":"Uppsala_lan",
-"SE122":"Sodermanlands_lan",
-"SE123":"Ostergotlands_lan",
-"SE124":"Orebro_lan",
-"SE125":"Vastmanlands_lan",
-"SE211":"Jonkopings_lan",
-"SE212":"Kronobergs_lan",
-"SE213":"Kalmar_lan",
-"SE214":"Gotlands_lan",
-"SE221":"Blekinge_lan",
-"SE224":"Skane_lan",
-"SE231":"Hallands_lan",
-"SE232":"Vastra_Gotalands_lan",
-"SE311":"Varmlands_lan",
-"SE312":"Dalarnas_lan",
-"SE313":"Gavleborgs_lan",
-"SE321":"Vasternorrlands_lan",
-"SE322":"Jamtlands_lan",
-"SE331":"Vasterbottens_lan",
-"SE332":"Norrbottens_lan",
-"SI031":"Pomurska",
-"SI032":"Podravska",
-"SI033":"Koroska",
-"SI034":"Savinjska",
-"SI035":"Zasavska",
-"SI036":"Posavska",
-"SI037":"Jugovzhodna_Slovenija",
-"SI038":"Primorsko_notranjska",
-"SI041":"Osrednjeslovenska",
-"SI042":"Gorenjska",
-"SI043":"Goriska",
-"SI044":"Obalno_kraska",
-"SK010":"Bratislavsky_kraj",
-"SK021":"Trnavsky_kraj",
-"SK022":"Trenciansky_Kraj",
-"SK023":"Nitriansky_kraj",
-"SK031":"Zilinsky_kraj",
-"SK032":"Banskobystricky_kraj",
-"SK041":"Presovsky_kraj",
-"SK042":"Kosicky_kraj",
-"UKC11":"Hartlepool_and_Stockton_on_Tees",
-"UKC12":"South_Teesside",
-"UKC13":"Darlington",
-"UKC14":"Durham_CC",
-"UKC21":"Northumberland",
-"UKC22":"Tyneside",
-"UKC23":"Sunderland",
-"UKD11":"West_Cumbria",
-"UKD12":"East_Cumbria",
-"UKD33":"Manchester",
-"UKD34":"Greater_Manchester_South_West",
-"UKD35":"Greater_Manchester_South_East",
-"UKD36":"Greater_Manchester_North_West",
-"UKD37":"Greater_Manchester_North_East",
-"UKD41":"Blackburn_with_Darwen",
-"UKD42":"Blackpool",
-"UKD44":"Lancaster_and_Wyre",
-"UKD45":"Mid_Lancashire",
-"UKD46":"East_Lancashire",
-"UKD47":"Chorley_and_West_Lancashire",
-"UKD61":"Warrington",
-"UKD62":"Cheshire_East",
-"UKD63":"Cheshire_West_and_Chester",
-"UKD71":"East_Merseyside",
-"UKD72":"Liverpool",
-"UKD73":"Sefton",
-"UKD74":"Wirral",
-"UKE11":"Kingston_upon_Hull_City_of",
-"UKE12":"East_Riding_of_Yorkshire",
-"UKE13":"North_and_North_East_Lincolnshire",
-"UKE21":"York",
-"UKE22":"North_Yorkshire_CC",
-"UKE31":"Barnsley_Doncaster_and_Rotherham",
-"UKE32":"Sheffield",
-"UKE41":"Bradford",
-"UKE42":"Leeds",
-"UKE44":"Calderdale_and_Kirklees",
-"UKE45":"Wakefield",
-"UKF11":"Derby",
-"UKF12":"East_Derbyshire",
-"UKF13":"South_and_West_Derbyshire",
-"UKF14":"Nottingham",
-"UKF15":"North_Nottinghamshire",
-"UKF16":"South_Nottinghamshire",
-"UKF21":"Leicester",
-"UKF22":"Leicestershire_CC_and_Rutland",
-"UKF24":"West_Northamptonshire",
-"UKF25":"North_Northamptonshire",
-"UKF30":"Lincolnshire",
-"UKG11":"Herefordshire_County_of",
-"UKG12":"Worcestershire",
-"UKG13":"Warwickshire",
-"UKG21":"Telford_and_Wrekin",
-"UKG31":"Birmingham",
-} 
-    AREA_ISSR_SHS = models.CharField("Area_where_the_issuer_is_located",max_length=255, choices=GGRPHCL_ARS_domain)   
+    INSTTNL_UNT_GRP_ID = models.CharField("Institutional_unit_Group_identifier",max_length=255,default=None, blank=True, null=True)   
 
     GGRPHCL_ARS_domain = {"BJ":"Benin",
 "MY":"Malaysia",
@@ -3305,7 +1803,1509 @@ class BIRD_PRTY_EIL(models.Model):
 "UKG21":"Telford_and_Wrekin",
 "UKG31":"Birmingham",
 } 
-    CNTRY_CD = models.CharField("Country_code",max_length=255, choices=GGRPHCL_ARS_domain)   
+    AREA_ISSR_SHS = models.CharField("Area_where_the_issuer_is_located",max_length=255, choices=GGRPHCL_ARS_domain,default=None, blank=True, null=True)   
+
+    GGRPHCL_ARS_domain = {"BJ":"Benin",
+"MY":"Malaysia",
+"CU":"Cuba",
+"QA":"Qatar",
+"MN":"Mongolia",
+"NA":"Namibia",
+"AE":"United_Arab_Emirates_the_",
+"AR":"Argentina",
+"GL":"Greenland",
+"TG":"Togo",
+"KP":"Korea_the_Democratic_People_s_Republic_of_",
+"KG":"Kyrgyzstan",
+"JO":"Jordan",
+"GU":"Guam",
+"IN":"India",
+"UA":"Ukraine",
+"GB":"United_Kingdom_of_Great_Britain_and_Northern_Ireland_the_",
+"FJ":"Fiji",
+"EE":"Estonia",
+"KI":"Kiribati",
+"WF":"Wallis_and_Futuna",
+"ER":"Eritrea",
+"DM":"Dominica",
+"VN":"Viet_Nam",
+"DZ":"Algeria",
+"PG":"Papua_New_Guinea",
+"BD":"Bangladesh",
+"BS":"Bahamas_the_",
+"CL":"Chile",
+"MW":"Malawi",
+"RW":"Rwanda",
+"NO":"Norway",
+"SH":"Saint_Helena_Ascension_and_Tristan_da_Cunha",
+"HM":"Heard_Island_and_McDonald_Islands",
+"IR":"Iran_Islamic_Republic_of_",
+"IE":"Ireland",
+"GI":"Gibraltar",
+"VE":"Venezuela_Bolivarian_Republic_of_",
+"MK":"Macedonia_the_former_Yugoslav_Republic_of_",
+"CG":"Congo_the_",
+"PL":"Poland",
+"LC":"Saint_Lucia",
+"BO":"Bolivia_Plurinational_State_of_",
+"LT":"Lithuania",
+"ST":"Sao_Tome_and_Principe",
+"AW":"Aruba",
+"SC":"Seychelles",
+"MR":"Mauritania",
+"CI":"Cote_d_Ivoire",
+"ME":"Montenegro",
+"BV":"Bouvet_Island",
+"BA":"Bosnia_and_Herzegovina",
+"SM":"San_Marino",
+"SZ":"Swaziland",
+"RE":"Reunion",
+"FO":"Faroe_Islands_the_",
+"TL":"Timor_Leste",
+"HT":"Haiti",
+"ZW":"Zimbabwe",
+"GG":"Guernsey",
+"US":"United_States_of_America_the_",
+"GP":"Guadeloupe",
+"TC":"Turks_and_Caicos_Islands_the_",
+"TT":"Trinidad_and_Tobago",
+"ID":"Indonesia",
+"GH":"Ghana",
+"IS":"Iceland",
+"OM":"Oman",
+"SB":"Solomon_Islands",
+"NE":"Niger_the_",
+"NR":"Nauru",
+"CF":"Central_African_Republic_the_",
+"BY":"Belarus",
+"LU":"Luxembourg",
+"LB":"Lebanon",
+"PM":"Saint_Pierre_and_Miquelon",
+"BN":"Brunei_Darussalam",
+"AX":"Aland_Islands",
+"SL":"Sierra_Leone",
+"AO":"Angola",
+"RS":"Serbia",
+"CH":"Switzerland",
+"MD":"Moldova_the_Republic_of_",
+"MS":"Montserrat",
+"PT":"Portugal",
+"BW":"Botswana",
+"JE":"Jersey",
+"KM":"Comoros_the_",
+"KZ":"Kazakhstan",
+"TZ":"Tanzania_United_Republic_of",
+"HU":"Hungary",
+"ZA":"South_Africa",
+"TM":"Turkmenistan",
+"GQ":"Equatorial_Guinea",
+"GF":"French_Guiana",
+"RO":"Romania",
+"AS":"American_Samoa",
+"SG":"Singapore",
+"AD":"Andorra",
+"PH":"Philippines_the_",
+"CC":"Cocos_Keeling_Islands_the_",
+"MO":"Macao",
+"MX":"Mexico",
+"YE":"Yemen",
+"VA":"Holy_See_the_",
+"UY":"Uruguay",
+"GM":"Gambia_the_",
+"FR":"France",
+"PM_x2":"Saint_Pierre_and_Miquelon_x2",
+"FX":"France_metropolitan",
+"MC":"Monaco",
+"GF_x2":"French_Guiana_x2",
+"MF":"Saint_Martin_French_part_",
+"BL":"Saint_Barthelemy",
+"GP_x2":"Guadeloupe_x2",
+"RE_x2":"Reunion_x2",
+"MQ":"Martinique",
+"YT":"Mayotte",
+"PM_x3":"Saint_Pierre_and_Miquelon_x3",
+"FX_x2":"France_metropolitan_x2",
+"MC_x2":"Monaco_x2",
+"GF_x3":"French_Guiana_x3",
+"MF_x2":"Saint_Martin_French_part__x2",
+"BL_x2":"Saint_Barthelemy_x2",
+"GP_x3":"Guadeloupe_x3",
+"RE_x3":"Reunion_x3",
+"MQ_x2":"Martinique_x2",
+"YT_x2":"Mayotte_x2",
+"PM_x4":"Saint_Pierre_and_Miquelon_x4",
+"FX_x3":"France_metropolitan_x3",
+"MC_x3":"Monaco_x3",
+"GF_x4":"French_Guiana_x4",
+"MF_x3":"Saint_Martin_French_part__x3",
+"BL_x3":"Saint_Barthelemy_x3",
+"GP_x4":"Guadeloupe_x4",
+"RE_x4":"Reunion_x4",
+"MQ_x3":"Martinique_x3",
+"YT_x3":"Mayotte_x3",
+"TF":"French_Southern_Territories_the_",
+"ES":"Spain",
+"KH":"Cambodia",
+"IO":"British_Indian_Ocean_Territory_the_",
+"GT":"Guatemala",
+"TH":"Thailand",
+"FK":"Falkland_Islands_the_Malvinas_",
+"SI":"Slovenia",
+"BR":"Brazil",
+"PF":"French_Polynesia",
+"LI":"Liechtenstein",
+"BE":"Belgium",
+"CZ":"Czechia",
+"MV":"Maldives",
+"MA":"Morocco",
+"CM":"Cameroon",
+"NG":"Nigeria",
+"NP":"Nepal",
+"AT":"Austria",
+"BL_x4":"Saint_Barthelemy_x4",
+"CD":"Congo_the_Democratic_Republic_of_the_",
+"MH":"Marshall_Islands_the_",
+"DE":"Germany",
+"IQ":"Iraq",
+"ZM":"Zambia",
+"HN":"Honduras",
+"TV":"Tuvalu",
+"EC":"Ecuador",
+"ET":"Ethiopia",
+"DK":"Denmark",
+"JP":"Japan",
+"GS":"South_Georgia_and_the_South_Sandwich_Islands",
+"UG":"Uganda",
+"GD":"Grenada",
+"TO":"Tonga",
+"NI":"Nicaragua",
+"SY":"Syrian_Arab_Republic",
+"AZ":"Azerbaijan",
+"AM":"Armenia",
+"SN":"Senegal",
+"PA":"Panama",
+"BB":"Barbados",
+"LY":"Libya",
+"MF_x4":"Saint_Martin_French_part__x4",
+"MQ_x4":"Martinique_x4",
+"VC":"Saint_Vincent_and_the_Grenadines",
+"EH":"Western_Sahara",
+"TD":"Chad",
+"HK":"Hong_Kong",
+"IT":"Italy",
+"SR":"Suriname",
+"AQ":"Antarctica",
+"AF":"Afghanistan",
+"SE":"Sweden",
+"NU":"Niue",
+"MM":"Myanmar",
+"CA":"Canada",
+"CV":"Cabo_Verde",
+"MZ":"Mozambique",
+"BI":"Burundi",
+"LR":"Liberia",
+"SK":"Slovakia",
+"NL":"Netherlands_the_",
+"MT":"Malta",
+"CX":"Christmas_Island",
+"CO":"Colombia",
+"MC_x4":"Monaco_x4",
+"PS":"Palestine_State_of",
+"BG":"Bulgaria",
+"LK":"Sri_Lanka",
+"FI":"Finland",
+"TJ":"Tajikistan",
+"HR":"Croatia",
+"GA":"Gabon",
+"IM":"Isle_of_Man",
+"TR":"Turkey",
+"UM":"United_States_Minor_Outlying_Islands_the_",
+"GN":"Guinea",
+"GY":"Guyana",
+"UZ":"Uzbekistan",
+"VU":"Vanuatu",
+"JM":"Jamaica",
+"KR":"Korea_the_Republic_of_",
+"KE":"Kenya",
+"CW":"Curacao",
+"ML":"Mali",
+"LS":"Lesotho",
+"PK":"Pakistan",
+"BH":"Bahrain",
+"AG":"Antigua_and_Barbuda",
+"SD":"Sudan_the_",
+"SS":"South_Sudan",
+"NC":"New_Caledonia",
+"CN":"China",
+"MU":"Mauritius",
+"CY":"Cyprus",
+"BF":"Burkina_Faso",
+"PE":"Peru",
+"PR":"Puerto_Rico",
+"BQ":"Bonaire_Saint_Eustatius_and_Saba",
+"SJ":"Svalbard_and_Jan_Mayen",
+"AI":"Anguilla",
+"RU":"Russian_Federation_the_",
+"NZ":"New_Zealand",
+"TK":"Tokelau",
+"GW":"Guinea_Bissau",
+"IL":"Israel",
+"DO":"Dominican_Republic_the_",
+"EG":"Egypt",
+"WS":"Samoa",
+"BM":"Bermuda",
+"LA":"Lao_People_s_Democratic_Republic_the_",
+"PN":"Pitcairn",
+"LV":"Latvia",
+"PY":"Paraguay",
+"BZ":"Belize",
+"CR":"Costa_Rica",
+"NF":"Norfolk_Island",
+"AU":"Australia",
+"SV":"El_Salvador",
+"SA":"Saudi_Arabia",
+"TW":"Taiwan_Province_of_China_",
+"YT_x4":"Mayotte_x4",
+"KW":"Kuwait",
+"VG":"Virgin_Islands_British_",
+"GE":"Georgia",
+"GR":"Greece",
+"TN":"Tunisia",
+"FM":"Micronesia_Federated_States_of_",
+"KY":"Cayman_Islands_the_",
+"KN":"Saint_Kitts_and_Nevis",
+"DJ":"Djibouti",
+"VI":"Virgin_Islands_U_S_",
+"BT":"Bhutan",
+"PW":"Palau",
+"MP":"Northern_Mariana_Islands_the_",
+"MG":"Madagascar",
+"CK":"Cook_Islands_the_",
+"AL":"Albania",
+"SO":"Somalia",
+"SX":"Sint_Maarten_Dutch_part_",
+"0":"Not_applicable",
+"AT111":"Mittelburgenland",
+"AT112":"Nordburgenland",
+"AT113":"Sudburgenland",
+"AT121":"Mostviertel_Eisenwurzen",
+"AT122":"Niederosterreich_Sud",
+"AT123":"Sankt_Polten",
+"AT124":"Waldviertel",
+"AT125":"Weinviertel",
+"AT126":"Wiener_Umland_Nordteil",
+"AT127":"Wiener_Umland_Sudteil",
+"AT130":"Wien",
+"AT211":"Klagenfurt_Villach",
+"AT212":"Oberkarnten",
+"AT213":"Unterkarnten",
+"AT221":"Graz",
+"AT222":"Liezen",
+"AT223":"Ostliche_Obersteiermark",
+"AT224":"Oststeiermark",
+"AT225":"West_und_Sudsteiermark",
+"AT226":"Westliche_Obersteiermark",
+"AT311":"Innviertel",
+"AT312":"Linz_Wels",
+"AT313":"Muhlviertel",
+"AT314":"Steyr_Kirchdorf",
+"AT315":"Traunviertel",
+"AT321":"Lungau",
+"AT322":"Pinzgau_Pongau",
+"AT323":"Salzburg_und_Umgebung",
+"AT331":"Ausserfern",
+"AT332":"Innsbruck",
+"AT333":"Osttirol",
+"AT334":"Tiroler_Oberland",
+"AT335":"Tiroler_Unterland",
+"AT341":"Bludenz_Bregenzer_Wald",
+"AT342":"Rheintal_Bodenseegebiet",
+"ATZZZ":"Extra_Regio_NUTS_3",
+"BE100":"Arr_de_Bruxelles_Capitale_Arr_van_Brussel_Hoofdstad",
+"BE211":"Arr_Antwerpen",
+"BE212":"Arr_Mechelen",
+"BE213":"Arr_Turnhout",
+"BE221":"Arr_Hasselt",
+"BE222":"Arr_Maaseik",
+"BE223":"Arr_Tongeren",
+"BE231":"Arr_Aalst",
+"BE232":"Arr_Dendermonde",
+"BE233":"Arr_Eeklo",
+"BE234":"Arr_Gent",
+"BE235":"Arr_Oudenaarde",
+"BE236":"Arr_Sint_Niklaas",
+"BE241":"Arr_Halle_Vilvoorde",
+"BE242":"Arr_Leuven",
+"BE251":"Arr_Brugge",
+"BE252":"Arr_Diksmuide",
+"BE253":"Arr_Ieper",
+"BE254":"Arr_Kortrijk",
+"BE255":"Arr_Oostende",
+"BE256":"Arr_Roeselare",
+"BE257":"Arr_Tielt",
+"BE258":"Arr_Veurne",
+"BE310":"Arr_Nivelles",
+"BE321":"Arr_Ath",
+"BE322":"Arr_Charleroi",
+"BE323":"Arr_Mons",
+"BE324":"Arr_Mouscron",
+"BE325":"Arr_Soignies",
+"BE326":"Arr_Thuin",
+"BE327":"Arr_Tournai",
+"BE331":"Arr_Huy",
+"BE332":"Arr_Liege",
+"BE334":"Arr_Waremme",
+"BE335":"Arr_Verviers_communes_francophones",
+"BE336":"Bezirk_Verviers_Deutschsprachige_Gemeinschaft",
+"BE341":"Arr_Arlon",
+"BE342":"Arr_Bastogne",
+"BE343":"Arr_Marche_en_Famenne",
+"BE344":"Arr_Neufchateau",
+"BE345":"Arr_Virton",
+"BE351":"Arr_Dinant",
+"BE352":"Arr_Namur",
+"BE353":"Arr_Philippeville",
+"BG311":"Vidin",
+"BG312":"Montana",
+"BG313":"Vratsa",
+"BG314":"Pleven",
+"BG315":"Lovech",
+"BG321":"Veliko_Tarnovo",
+"BG322":"Gabrovo",
+"BG323":"Ruse",
+"BG324":"Razgrad",
+"BG325":"Silistra",
+"BG331":"Varna",
+"BG332":"Dobrich",
+"BG333":"Shumen",
+"BG334":"Targovishte",
+"BG341":"Burgas",
+"BG342":"Sliven",
+"BG343":"Yambol",
+"BG344":"Stara_Zagora",
+"BG411":"Sofia_stolitsa_",
+"BG412":"Sofia",
+"BG413":"Blagoevgrad",
+"BG414":"Pernik",
+"BG415":"Kyustendil",
+"BG421":"Plovdiv",
+"BG422":"Haskovo",
+"BG423":"Pazardzhik",
+"BG424":"Smolyan",
+"BG425":"Kardzhali",
+"CY000":"Kypros",
+"CZ010":"Hlavni_Mesto_Praha",
+"CZ020":"Stredocesky_Kraj",
+"CZ031":"Jihocesky_Kraj",
+"CZ032":"Plzensky_Kraj",
+"CZ041":"Karlovarsky_kraj",
+"CZ042":"Ustecky_kraj",
+"CZ051":"Liberecky_kraj",
+"CZ052":"Kralovehradecky_kraj",
+"CZ053":"Pardubicky_kraj",
+"CZ063":"Kraj_Vysocina",
+"CZ064":"Jihomoravsky_kraj",
+"CZ071":"Olomoucky_kraj",
+"CZ072":"Zlinsky_kraj",
+"CZ080":"Moravskoslezsky_kraj",
+"DE111":"Stuttgart_Stadtkreis",
+"DE112":"Boblingen",
+"DE113":"Esslingen",
+"DE114":"Goppingen",
+"DE115":"Ludwigsburg",
+"DE116":"Rems_Murr_Kreis",
+"DE117":"Heilbronn_Stadtkreis",
+"DE118":"Heilbronn_Landkreis",
+"DE119":"Hohenlohekreis",
+"DE11A":"Schwabisch_Hall",
+"DE11B":"Main_Tauber_Kreis",
+"DE11C":"Heidenheim",
+"DE11D":"Ostalbkreis",
+"DE121":"Baden_Baden_Stadtkreis",
+"DE122":"Karlsruhe_Stadtkreis",
+"DE123":"Karlsruhe_Landkreis",
+"DE124":"Rastatt",
+"DE125":"Heidelberg_Stadtkreis",
+"DE126":"Mannheim_Stadtkreis",
+"DE127":"Neckar_Odenwald_Kreis",
+"DE128":"Rhein_Neckar_Kreis",
+"DE129":"Pforzheim_Stadtkreis",
+"DE12A":"Calw",
+"DE12B":"Enzkreis",
+"DE12C":"Freudenstadt",
+"DE131":"Freiburg_im_Breisgau_Stadtkreis",
+"DE132":"Breisgau_Hochschwarzwald",
+"DE133":"Emmendingen",
+"DE134":"Ortenaukreis",
+"DE135":"Rottweil",
+"DE136":"Schwarzwald_Baar_Kreis",
+"DE137":"Tuttlingen",
+"DE138":"Konstanz",
+"DE139":"Lorrach",
+"DE13A":"Waldshut",
+"DE141":"Reutlingen",
+"DE142":"Tubingen_Landkreis",
+"DE143":"Zollernalbkreis",
+"DE144":"Ulm_Stadtkreis",
+"DE145":"Alb_Donau_Kreis",
+"DE149":"Sigmaringen",
+"DE146":"Biberach",
+"DE147":"Bodenseekreis",
+"DE148":"Ravensburg",
+"DE211":"Ingolstadt_Kreisfreie_Stadt",
+"DE212":"Munchen_Kreisfreie_Stadt",
+"DE213":"Rosenheim_Kreisfreie_Stadt",
+"DE214":"Altotting",
+"DE215":"Berchtesgadener_Land",
+"DE216":"Bad_Tolz_Wolfratshausen",
+"DE217":"Dachau",
+"DE218":"Ebersberg",
+"DE219":"Eichstatt",
+"DE21A":"Erding",
+"DE21B":"Freising",
+"DE21C":"Furstenfeldbruck",
+"DE21D":"Garmisch_Partenkirchen",
+"DE21E":"Landsberg_am_Lech",
+"DE21F":"Miesbach",
+"DE21G":"Muhldorf_a_Inn",
+"DE21H":"Munchen_Landkreis",
+"DE21I":"Neuburg_Schrobenhausen",
+"DE21J":"Pfaffenhofen_a_d_Ilm",
+"DE21K":"Rosenheim_Landkreis",
+"DE21L":"Starnberg",
+"DE21M":"Traunstein",
+"DE21N":"Weilheim_Schongau",
+"DE221":"Landshut_Kreisfreie_Stadt",
+"DE222":"Passau_Kreisfreie_Stadt",
+"DE223":"Straubing_Kreisfreie_Stadt",
+"DE224":"Deggendorf",
+"DE225":"Freyung_Grafenau",
+"DE226":"Kelheim",
+"DE227":"Landshut_Landkreis",
+"DE228":"Passau_Landkreis",
+"DE229":"Regen",
+"DE22A":"Rottal_Inn",
+"DE22B":"Straubing_Bogen",
+"DE22C":"Dingolfing_Landau",
+"DE231":"Amberg_Kreisfreie_Stadt",
+"DE232":"Regensburg_Kreisfreie_Stadt",
+"DE233":"Weiden_i_d_Opf_Kreisfreie_Stadt",
+"DE234":"Amberg_Sulzbach",
+"DE235":"Cham",
+"DE236":"Neumarkt_i_d_OPf_",
+"DE237":"Neustadt_a_d_Waldnaab",
+"DE238":"Regensburg_Landkreis",
+"DE239":"Schwandorf",
+"DE23A":"Tirschenreuth",
+"DE241":"Bamberg_Kreisfreie_Stadt",
+"DE242":"Bayreuth_Kreisfreie_Stadt",
+"DE243":"Coburg_Kreisfreie_Stadt",
+"DE244":"Hof_Kreisfreie_Stadt",
+"DE245":"Bamberg_Landkreis",
+"DE246":"Bayreuth_Landkreis",
+"DE247":"Coburg_Landkreis",
+"DE248":"Forchheim",
+"DE249":"Hof_Landkreis",
+"DE24A":"Kronach",
+"DE24B":"Kulmbach",
+"DE24C":"Lichtenfels",
+"DE24D":"Wunsiedel_i_Fichtelgebirge",
+"DE251":"Ansbach_Kreisfreie_Stadt",
+"DE252":"Erlangen_Kreisfreie_Stadt",
+"DE253":"Furth_Kreisfreie_Stadt",
+"DE254":"Nurnberg_Kreisfreie_Stadt",
+"DE255":"Schwabach_Kreisfreie_Stadt",
+"DE256":"Ansbach_Landkreis",
+"DE257":"Erlangen_Hochstadt",
+"DE258":"Furth_Landkreis",
+"DE259":"Nurnberger_Land",
+"DE25A":"Neustadt_a_d_Aisch_Bad_Windsheim",
+"DE25B":"Roth",
+"DE25C":"Weissenburg_Gunzenhausen",
+"DE261":"Aschaffenburg_Kreisfreie_Stadt",
+"DE262":"Schweinfurt_Kreisfreie_Stadt",
+"DE263":"Wurzburg_Kreisfreie_Stadt",
+"DE264":"Aschaffenburg_Landkreis",
+"DE265":"Bad_Kissingen",
+"DE266":"Rhon_Grabfeld",
+"DE267":"Hassberge",
+"DE268":"Kitzingen",
+"DE269":"Miltenberg",
+"DE26A":"Main_Spessart",
+"DE26B":"Schweinfurt_Landkreis",
+"DE26C":"Wurzburg_Landkreis",
+"DE271":"Augsburg_Kreisfreie_Stadt",
+"DE272":"Kaufbeuren_Kreisfreie_Stadt",
+"DE273":"Kempten_Allgau_Kreisfreie_Stadt",
+"DE274":"Memmingen_Kreisfreie_Stadt",
+"DE275":"Aichach_Friedberg",
+"DE276":"Augsburg_Landkreis",
+"DE277":"Dillingen_a_d_Donau",
+"DE278":"Gunzburg",
+"DE279":"Neu_Ulm",
+"DE27A":"Lindau_Bodensee_",
+"DE27B":"Ostallgau",
+"DE27C":"Unterallgau",
+"DE27D":"Donau_Ries",
+"DE27E":"Oberallgau",
+"DE300":"Berlin",
+"DE401":"Brandenburg_an_der_Havel_Kreisfreie_Stadt",
+"DE402":"Cottbus_Kreisfreie_Stadt",
+"DE403":"Frankfurt_Oder_Kreisfreie_Stadt",
+"DE404":"Potsdam_Kreisfreie_Stadt",
+"DE405":"Barnim",
+"DE406":"Dahme_Spreewald",
+"DE407":"Elbe_Elster",
+"DE408":"Havelland",
+"DE409":"Markisch_Oderland",
+"DE40A":"Oberhavel",
+"DE40B":"Oberspreewald_Lausitz",
+"DE40C":"Oder_Spree",
+"DE40D":"Ostprignitz_Ruppin",
+"DE40E":"Potsdam_Mittelmark",
+"DE40F":"Prignitz",
+"DE40G":"Spree_Neisse",
+"DE40H":"Teltow_Flaming",
+"DE40I":"Uckermark",
+"DE501":"Bremen_Kreisfreie_Stadt",
+"DE502":"Bremerhaven_Kreisfreie_Stadt",
+"DE600":"Hamburg",
+"DE711":"Darmstadt_Kreisfreie_Stadt",
+"DE712":"Frankfurt_am_Main_Kreisfreie_Stadt",
+"DE713":"Offenbach_am_Main_Kreisfreie_Stadt",
+"DE714":"Wiesbaden_Kreisfreie_Stadt",
+"DE715":"Bergstrasse",
+"DE716":"Darmstadt_Dieburg",
+"DE717":"Gross_Gerau",
+"DE718":"Hochtaunuskreis",
+"DE719":"Main_Kinzig_Kreis",
+"DE71A":"Main_Taunus_Kreis",
+"DE71B":"Odenwaldkreis",
+"DE71C":"Offenbach_Landkreis",
+"DE71D":"Rheingau_Taunus_Kreis",
+"DE71E":"Wetteraukreis",
+"DE721":"Giessen_Landkreis",
+"DE722":"Lahn_Dill_Kreis",
+"DE723":"Limburg_Weilburg",
+"DE724":"Marburg_Biedenkopf",
+"DE725":"Vogelsbergkreis",
+"DE731":"Kassel_Kreisfreie_Stadt",
+"DE732":"Fulda",
+"DE733":"Hersfeld_Rotenburg",
+"DE734":"Kassel_Landkreis",
+"DE735":"Schwalm_Eder_Kreis",
+"DE736":"Waldeck_Frankenberg",
+"DE737":"Werra_Meissner_Kreis",
+"DE803":"Rostock_Kreisfreie_Stadt",
+"DE804":"Schwerin_Kreisfreie_Stadt",
+"DE80J":"Mecklenburgische_Seenplatte",
+"DE80K":"Landkreis_Rostock",
+"DE80L":"Vorpommern_Rugen",
+"DE80M":"Nordwestmecklenburg",
+"DE80N":"Vorpommern_Greifswald",
+"DE80O":"Ludwigslust_Parchim",
+"DE911":"Braunschweig_Kreisfreie_Stadt",
+"DE912":"Salzgitter_Kreisfreie_Stadt",
+"DE913":"Wolfsburg_Kreisfreie_Stadt",
+"DE914":"Gifhorn",
+"DE916":"Goslar",
+"DE917":"Helmstedt",
+"DE918":"Northeim",
+"DE91A":"Peine",
+"DE91B":"Wolfenbuttel",
+"DE91C":"Gottingen",
+"DE922":"Diepholz",
+"DE923":"Hameln_Pyrmont",
+"DE925":"Hildesheim",
+"DE926":"Holzminden",
+"DE927":"Nienburg_Weser_",
+"DE928":"Schaumburg",
+"DE929":"Region_Hannover",
+"DE931":"Celle",
+"DE932":"Cuxhaven",
+"DE933":"Harburg",
+"DE934":"Luchow_Dannenberg",
+"DE935":"Luneburg_Landkreis",
+"DE936":"Osterholz",
+"DE937":"Rotenburg_Wumme_",
+"DE938":"Soltau_Fallingbostel",
+"DE939":"Stade",
+"DE93A":"Uelzen",
+"DE93B":"Verden",
+"DE941":"Delmenhorst_Kreisfreie_Stadt",
+"DE942":"Emden_Kreisfreie_Stadt",
+"DE943":"Oldenburg_Oldenburg_Kreisfreie_Stadt",
+"DE944":"Osnabruck_Kreisfreie_Stadt",
+"DE945":"Wilhelmshaven_Kreisfreie_Stadt",
+"DE946":"Ammerland",
+"DE947":"Aurich",
+"DE948":"Cloppenburg",
+"DE949":"Emsland",
+"DE94A":"Friesland_DE_",
+"DE94B":"Grafschaft_Bentheim",
+"DE94C":"Leer",
+"DE94D":"Oldenburg_Landkreis",
+"DE94E":"Osnabruck_Landkreis",
+"DE94F":"Vechta",
+"DE94G":"Wesermarsch",
+"DE94H":"Wittmund",
+"DEA11":"Dusseldorf_Kreisfreie_Stadt",
+"DEA12":"Duisburg_Kreisfreie_Stadt",
+"DEA13":"Essen_Kreisfreie_Stadt",
+"DEA14":"Krefeld_Kreisfreie_Stadt",
+"DEA15":"Monchengladbach_Kreisfreie_Stadt",
+"DEA16":"Mulheim_an_der_Ruhr_Kreisfreie_Stadt",
+"DEA17":"Oberhausen_Kreisfreie_Stadt",
+"DEA18":"Remscheid_Kreisfreie_Stadt",
+"DEA19":"Solingen_Kreisfreie_Stadt",
+"DEA1A":"Wuppertal_Kreisfreie_Stadt",
+"DEA1B":"Kleve",
+"DEA1C":"Mettmann",
+"DEA1D":"Rhein_Kreis_Neuss",
+"DEA1E":"Viersen",
+"DEA1F":"Wesel",
+"DEA22":"Bonn_Kreisfreie_Stadt",
+"DEA23":"Koln_Kreisfreie_Stadt",
+"DEA24":"Leverkusen_Kreisfreie_Stadt",
+"DEA26":"Duren",
+"DEA27":"Rhein_Erft_Kreis",
+"DEA28":"Euskirchen",
+"DEA29":"Heinsberg",
+"DEA2A":"Oberbergischer_Kreis",
+"DEA2B":"Rheinisch_Bergischer_Kreis",
+"DEA2C":"Rhein_Sieg_Kreis",
+"DEA2D":"Stadteregion_Aachen",
+"DEA31":"Bottrop_Kreisfreie_Stadt",
+"DEA32":"Gelsenkirchen_Kreisfreie_Stadt",
+"DEA33":"Munster_Kreisfreie_Stadt",
+"DEA34":"Borken",
+"DEA35":"Coesfeld",
+"DEA36":"Recklinghausen",
+"DEA37":"Steinfurt",
+"DEA38":"Warendorf",
+"DEA41":"Bielefeld_Kreisfreie_Stadt",
+"DEA42":"Gutersloh",
+"DEA43":"Herford",
+"DEA44":"Hoxter",
+"DEA45":"Lippe",
+"DEA46":"Minden_Lubbecke",
+"DEA47":"Paderborn",
+"DEA51":"Bochum_Kreisfreie_Stadt",
+"DEA52":"Dortmund_Kreisfreie_Stadt",
+"DEA53":"Hagen_Kreisfreie_Stadt",
+"DEA54":"Hamm_Kreisfreie_Stadt",
+"DEA55":"Herne_Kreisfreie_Stadt",
+"DEA56":"Ennepe_Ruhr_Kreis",
+"DEA57":"Hochsauerlandkreis",
+"DEA58":"Markischer_Kreis",
+"DEA59":"Olpe",
+"DEA5A":"Siegen_Wittgenstein",
+"DEA5B":"Soest",
+"DEA5C":"Unna",
+"DEB11":"Koblenz_Kreisfreie_Stadt",
+"DEB12":"Ahrweiler",
+"DEB13":"Altenkirchen_Westerwald_",
+"DEB14":"Bad_Kreuznach",
+"DEB15":"Birkenfeld",
+"DEB17":"Mayen_Koblenz",
+"DEB18":"Neuwied",
+"DEB1A":"Rhein_Lahn_Kreis",
+"DEB1B":"Westerwaldkreis",
+"DEB1C":"Cochem_Zell",
+"DEB1D":"Rhein_Hunsruck_Kreis",
+"DEB21":"Trier_Kreisfreie_Stadt",
+"DEB22":"Bernkastel_Wittlich",
+"DEB23":"Eifelkreis_Bitburg_Prum",
+"DEB24":"Vulkaneifel",
+"DEB25":"Trier_Saarburg",
+"DEB31":"Frankenthal_Pfalz_Kreisfreie_Stadt",
+"DEB32":"Kaiserslautern_Kreisfreie_Stadt",
+"DEB33":"Landau_in_der_Pfalz_Kreisfreie_Stadt",
+"DEB34":"Ludwigshafen_am_Rhein_Kreisfreie_Stadt",
+"DEB35":"Mainz_Kreisfreie_Stadt",
+"DEB36":"Neustadt_an_der_Weinstrasse_Kreisfreie_Stadt",
+"DEB37":"Pirmasens_Kreisfreie_Stadt",
+"DEB38":"Speyer_Kreisfreie_Stadt",
+"DEB39":"Worms_Kreisfreie_Stadt",
+"DEB3A":"Zweibrucken_Kreisfreie_Stadt",
+"DEB3B":"Alzey_Worms",
+"DEB3C":"Bad_Durkheim",
+"DEB3D":"Donnersbergkreis",
+"DEB3E":"Germersheim",
+"DEB3F":"Kaiserslautern_Landkreis",
+"DEB3G":"Kusel",
+"DEB3H":"Sudliche_Weinstrasse",
+"DEB3I":"Rhein_Pfalz_Kreis",
+"DEB3J":"Mainz_Bingen",
+"DEB3K":"Sudwestpfalz",
+"DEC01":"Regionalverband_Saarbrucken",
+"DEC02":"Merzig_Wadern",
+"DEC03":"Neunkirchen",
+"DEC04":"Saarlouis",
+"DEC05":"Saarpfalz_Kreis",
+"DEC06":"St_Wendel",
+"DED21":"Dresden_Kreisfreie_Stadt",
+"DED2C":"Bautzen",
+"DED2D":"Gorlitz",
+"DED2E":"Meissen",
+"DED2F":"Sachsische_Schweiz_Osterzgebirge",
+"DED41":"Chemnitz_Kreisfreie_Stadt",
+"DED42":"Erzgebirgskreis",
+"DED43":"Mittelsachsen",
+"DED44":"Vogtlandkreis",
+"DED45":"Zwichau",
+"DED51":"Leipzig_Kreisfreie_Stadt",
+"DED52":"Leipzig",
+"DED53":"Nordsachsen",
+"DEE01":"Dessau_Rosslau_Kreisfreie_Stadt",
+"DEE02":"Halle_Saale_Kreisfreie_Stadt",
+"DEE03":"Magdeburg_Kreisfreie_Stadt",
+"DEE04":"Altmarkkreis_Salzwedel",
+"DEE05":"Anhalt_Bitterfeld",
+"DEE06":"Jerichower_Land",
+"DEE07":"Borde",
+"DEE08":"Burgenland_DE_",
+"DEE09":"Harz",
+"DEE0A":"Mansfeld_Sudharz",
+"DEE0B":"Saalekreis",
+"DEE0C":"Salzlandkreis",
+"DEE0D":"Stendal",
+"DEE0E":"Wittenberg",
+"DEF01":"Flensburg_Kreisfreie_Stadt",
+"DEF02":"Kiel_Kreisfreie_Stadt",
+"DEF03":"Lubeck_Kreisfreie_Stadt",
+"DEF04":"Neumunster_Kreisfreie_Stadt",
+"DEF05":"Dithmarschen",
+"DEF06":"Herzogtum_Lauenburg",
+"DEF07":"Nordfriesland",
+"DEF08":"Ostholstein",
+"DEF09":"Pinneberg",
+"DEF0A":"Plon",
+"DEF0B":"Rendsburg_Eckernforde",
+"DEF0C":"Schleswig_Flensburg",
+"DEF0D":"Segeberg",
+"DEF0E":"Steinburg",
+"DEF0F":"Stormarn",
+"DEG01":"Erfurt_Kreisfreie_Stadt",
+"DEG02":"Gera_Kreisfreie_Stadt",
+"DEG03":"Jena_Kreisfreie_Stadt",
+"DEG04":"Suhl_Kreisfreie_Stadt",
+"DEG05":"Weimar_Kreisfreie_Stadt",
+"DEG06":"Eichsfeld",
+"DEG07":"Nordhausen",
+"DEG09":"Unstrut_Hainich_Kreis",
+"DEG0A":"Kyffhauserkreis",
+"DEG0B":"Schmalkalden_Meiningen",
+"DEG0C":"Gotha",
+"DEG0D":"Sommerda",
+"DEG0E":"Hildburghausen",
+"DEG0F":"Ilm_Kreis",
+"DEG0G":"Weimarer_Land",
+"DEG0H":"Sonneberg",
+"DEG0I":"Saalfeld_Rudolstadt",
+"DEG0J":"Saale_Holzland_Kreis",
+"DEG0K":"Saale_Orla_Kreis",
+"DEG0L":"Greiz",
+"DEG0M":"Altenburger_Land",
+"DEG0N":"Eisenach_Kreisfreie_Stadt",
+"DEG0P":"Wartburgkreis",
+"DK011":"Byen_Kobenhavn",
+"DK012":"Kobenhavns_omegn",
+"DK013":"Nordsjaelland",
+"DK014":"Bornholm",
+"DK021":"Ostsjaelland",
+"DK022":"Vest_og_Sydsjaelland",
+"DK031":"Fyn",
+"DK032":"Sydjylland",
+"DK041":"Vestjylland",
+"DK042":"Ostjylland",
+"DK050":"Nordjylland",
+"EE001":"Pohja_Eesti",
+"EE004":"Laane_Eesti",
+"EE006":"Kesk_Eesti",
+"EE007":"Kirde_Eesti",
+"EE008":"Louna_Eesti",
+"EL301":"Voreios_Tomeas_Athinon",
+"EL302":"Dytikos_Tomeas_Athinon",
+"EL303":"Kentrikos_Tomeas_Athinon",
+"EL304":"Notios_Tomeas_Athinon",
+"EL305":"Anatoliki_Attiki",
+"EL306":"Dytiki_Attiki",
+"EL307":"Peiraias_Nisoi",
+"EL411":"Lesvos",
+"EL412":"Samos",
+"EL413":"Chios",
+"EL421":"Dodekanisos",
+"EL422":"Kyklades",
+"EL431":"Irakleio",
+"EL432":"Lasithi",
+"EL433":"Rethymni",
+"EL434":"Chania",
+"EL511":"Evros",
+"EL512":"Xanthi",
+"EL513":"Rodopi",
+"EL514":"Drama",
+"EL515":"Thasos_Kavala",
+"EL521":"Imathia",
+"EL522":"Thessaloniki",
+"EL523":"Kilkis",
+"EL524":"Pella",
+"EL525":"Pieria",
+"EL526":"Serres",
+"EL527":"Chalkidiki",
+"EL531":"Grevena_Kozani",
+"EL542":"Thesprotia",
+"EL532":"Kastoria",
+"EL533":"Florina",
+"EL541":"Arta_Preveza",
+"EL543":"Ioannina",
+"EL611":"Karditsa_Trikala",
+"EL612":"Larisa",
+"EL613":"Magnisia_Sporades",
+"EL621":"Zakynthos",
+"EL622":"Kerkyra",
+"EL623":"Ithaki_Kefallinia",
+"EL624":"Lefkada",
+"EL631":"Aitoloakarnania",
+"EL632":"Achaia",
+"EL633":"Ileia",
+"EL641":"Voiotia",
+"EL642":"Evvoia",
+"EL643":"Evrytania",
+"EL644":"Fthiotida",
+"EL645":"Fokida",
+"EL651":"Argolida_Arkadia",
+"EL652":"Korinthia",
+"EL653":"lakonia_Messinia",
+"ES111":"A_Coruna",
+"ES112":"Lugo",
+"ES113":"Ourense",
+"ES114":"Pontevedra",
+"ES120":"Asturias",
+"ES130":"Cantabria",
+"ES211":"Alava",
+"ES212":"Guipuzcoa",
+"ES213":"Vizcaya",
+"ES220":"Navarra",
+"ES230":"La_Rioja",
+"ES241":"Huesca",
+"ES242":"Teruel",
+"ES243":"Zaragoza",
+"ES300":"Madrid",
+"ES411":"Avila",
+"ES412":"Burgos",
+"ES413":"Leon",
+"ES414":"Palencia",
+"ES415":"Salamanca",
+"ES416":"Segovia",
+"ES417":"Soria",
+"ES418":"Valladolid",
+"ES419":"Zamora",
+"ES421":"Albacete",
+"ES422":"Ciudad_Real",
+"ES423":"Cuenca",
+"ES424":"Guadalajara",
+"ES425":"Toledo",
+"ES431":"Badajoz",
+"ES432":"Caceres",
+"ES511":"Barcelona",
+"ES512":"Girona",
+"ES513":"Lleida",
+"ES514":"Tarragona",
+"ES521":"Alicante_Alacant",
+"ES522":"Castellon_Castello",
+"ES523":"Valencia_Valencia",
+"ES531":"Eivissa_y_Formentera",
+"ES532":"Mallorca",
+"ES533":"Menorca",
+"ES611":"Almeria",
+"ES612":"Cadiz",
+"ES613":"Cordoba",
+"ES614":"Granada",
+"ES615":"Huelva",
+"ES616":"Jaen",
+"ES617":"Malaga",
+"ES618":"Sevilla",
+"ES620":"Murcia",
+"ES630":"Ceuta",
+"ES640":"Melilla",
+"ES703":"El_Hierro",
+"ES704":"Fuerteventura",
+"ES705":"Gran_Canaria",
+"ES706":"La_Gomera",
+"ES707":"La_Palma",
+"ES708":"Lanzarote",
+"ES709":"Tenerife",
+"FI193":"Keski_Suomi",
+"FI194":"Etela_Pohjanmaa",
+"FI195":"Pohjanmaa",
+"FI196":"Satakunta",
+"FI197":"Pirkanmaa",
+"FI1B1":"Helsinki_Uusimaa",
+"FI1C1":"Varsinais_Suomi",
+"FI1C2":"Kanta_Hame",
+"FI1C3":"Paijat_Hame",
+"FI1C4":"Kymenlaakso",
+"FI1C5":"Etela_Karjala",
+"FI1D1":"Etela_Savo",
+"FI1D2":"Pohjois_Savo",
+"FI1D3":"Pohjois_Karjala",
+"FI1D5":"Keski_Pohjanmaa",
+"FI1D7":"Lappi",
+"FI1D8":"Kainuu",
+"FI1D9":"Pohjois_Pohjanmaa",
+"FI200":"Aland",
+"FR101":"Paris",
+"FR102":"Seine_et_Marne",
+"FR103":"Yvelines",
+"FR104":"Essonne",
+"FR105":"Hauts_de_Seine",
+"FR106":"Seine_Saint_Denis",
+"FR107":"Val_de_Marne",
+"FR108":"Val_d_Oise",
+"FRB01":"Cher",
+"FRB02":"Eure_et_Loir",
+"FRB03":"Indre",
+"FRB04":"Indre_et_Loire",
+"FRB05":"Loir_et_Cher",
+"FRB06":"Loiret",
+"FRC11":"Cote_d_Or",
+"FRC12":"Nievre",
+"FRC13":"Saone_et_Loire",
+"FRC14":"Yonne",
+"FRC21":"Doubs",
+"FRC22":"Jura",
+"FRC23":"Haute_Saone",
+"FRC24":"Territoire_de_Belfort",
+"FRD11":"Calvados",
+"FRD12":"Manche",
+"FRD13":"Orne",
+"FRD21":"Eure",
+"FRD22":"Seine_Maritime",
+"FRE11":"Nord",
+"FRE12":"Pas_de_Calais",
+"FRE21":"Aisne",
+"FRE22":"Oise",
+"FRE23":"Somme",
+"FRF11":"Bas_Rhin",
+"FRF12":"Haut_Rhin",
+"FRF21":"Ardennes",
+"FRF22":"Aube",
+"FRF23":"Marne",
+"FRF24":"Haute_Marne",
+"FRF31":"Meurthe_et_Moselle",
+"FRF32":"Meuse",
+"FRF33":"Moselle",
+"FRF34":"Vosges",
+"FRG01":"Loire_Atlantique",
+"FRG02":"Maine_et_Loire",
+"FRG03":"Mayenne",
+"FRG04":"Sarthe",
+"FRG05":"Vendee",
+"FRH01":"Cotes_d_Armor",
+"FRH02":"Finistere",
+"FRH03":"Ille_et_Vilaine",
+"FRH04":"Morbihan",
+"FRI11":"Dordogne",
+"FRI12":"Gironde",
+"FRI13":"Landes",
+"FRI14":"Lot_et_Garonne",
+"FRI15":"Pyrenees_Atlantiques",
+"FRI21":"Correze",
+"FRI22":"Creuse",
+"FRI23":"Haute_Vienne",
+"FRI31":"Charente",
+"FRI32":"Charente_Maritime",
+"FRI33":"Deux_Sevres",
+"FRI34":"Vienne",
+"FRJ11":"Aude",
+"FRJ12":"Gard",
+"FRJ13":"Herault",
+"FRJ14":"Lozere",
+"FRJ15":"Pyrenees_Orientales",
+"FRJ21":"Ariege",
+"FRJ22":"Aveyron",
+"FRJ23":"Haute_Garonne",
+"FRJ24":"Gers",
+"FRJ25":"Lot",
+"FRJ26":"Hautes_Pyrenees",
+"FRJ27":"Tarn",
+"FRJ28":"Tarn_et_Garonne",
+"FRK11":"Allier",
+"FRK12":"Cantal",
+"FRK13":"Haute_Loire",
+"FRK14":"Puy_de_Dome",
+"FRK21":"Ain",
+"FRK22":"Ardeche",
+"FRK23":"Drome",
+"FRK24":"Isere",
+"FRK25":"Loire",
+"FRK26":"Rhone",
+"FRK27":"Savoie",
+"FRK28":"Haute_Savoie",
+"FRL01":"Alpes_de_Haute_Provence",
+"FRL02":"Hautes_Alpes",
+"FRL03":"Alpes_Maritimes",
+"FRL04":"Bouches_du_Rhone",
+"FRL05":"Var",
+"FRL06":"Vaucluse",
+"FRM01":"Corse_du_Sud",
+"FRM02":"Haute_Corse",
+"FRY30":"Guyane",
+"FRY40":"La_Reunion",
+"HR031":"Primorsko_goranska_zupanija",
+"HR032":"Licko_senjska_Zupanija",
+"HR033":"Zadarska_zupanija",
+"HR034":"Sibensko_kninska_zupanija",
+"HR035":"Splitsko_dalmatinska_zupanija",
+"HR036":"Istarska_zupanija",
+"HR037":"Dubrovacko_neretvanska_Zupanija",
+"HR041":"Grad_Zagreb",
+"HR042":"Zagrebacka_Zupanija",
+"HR043":"Krapinsko_zagorska_zupanija",
+"HR044":"Varazdinska_zupanija",
+"HR045":"Koprivnicko_krizevacka_Zupanija",
+"HR046":"Medimurska_Zupanija",
+"HR047":"Bjelovarsko_bilogorska_zupanija",
+"HR048":"Viroviticko_podravska_Zupanija",
+"HR049":"Pozesko_slavonska_zupanija",
+"HR04A":"Brodsko_posavska_zupanija",
+"HR04B":"Osjecko_baranjska_Zupanija",
+"HR04C":"Vukovarsko_srijemska_zupanija",
+"HR04D":"Karlovacka_Zupanija",
+"HR04E":"Sisacko_moslavacka_Zupanija",
+"HU110":"Budapest",
+"HU120":"Pest",
+"HU211":"Fejer",
+"HU212":"Komarom_Esztergom",
+"HU213":"Veszprem",
+"HU221":"Gyor_moson_sopron",
+"HU222":"Vas",
+"HU223":"Zala",
+"HU231":"Baranya",
+"HU232":"Somogy",
+"HU233":"Tolna",
+"HU311":"Borsod_Abauj_Zemplen",
+"HU312":"Heves",
+"HU313":"Nograd",
+"HU321":"Hajdu_Bihar",
+"HU322":"Jasz_Nagykun_Szolnok",
+"HU323":"Szabolcs_Szatmar_Bereg",
+"HU331":"Bacs_Kiskun",
+"HU332":"Bekes",
+"HU333":"Csongrad",
+"IE041":"Border",
+"IE042":"West",
+"IE051":"Mid_West",
+"IE052":"South_East",
+"IE053":"South_West",
+"IE061":"Dublin",
+"IE062":"Mid_East",
+"IE063":"Midland",
+"ITC11":"Torino",
+"ITC12":"Vercelli",
+"ITC13":"Biella",
+"ITC14":"Verbano_Cusio_Ossola",
+"ITC15":"Novara",
+"ITC16":"Cuneo",
+"ITC17":"Asti",
+"ITC18":"Alessandria",
+"ITC20":"Valle_d_Aosta_Vallee_d_Aoste",
+"ITC31":"Imperia",
+"ITC32":"Savona",
+"ITC33":"Genova",
+"ITC34":"La_Spezia",
+"ITC41":"Varese",
+"ITC42":"Como",
+"ITC43":"Lecco",
+"ITC44":"Sondrio",
+"ITC46":"Bergamo",
+"ITC47":"Brescia",
+"ITC48":"Pavia",
+"ITC49":"Lodi",
+"ITC4A":"Cremona",
+"ITC4B":"Mantova",
+"ITC4C":"Milano",
+"ITC4D":"Monza_e_della_Brianza",
+"ITF11":"L_Aquila",
+"ITF12":"Teramo",
+"ITF13":"Pescara",
+"ITF14":"Chieti",
+"ITF21":"Isernia",
+"ITF22":"Campobasso",
+"ITF31":"Caserta",
+"ITF32":"Benevento",
+"ITF33":"Napoli",
+"ITF34":"Avellino",
+"ITF35":"Salerno",
+"ITF43":"Taranto",
+"ITF44":"Brindisi",
+"ITF45":"Lecce",
+"ITF46":"Foggia",
+"ITF47":"Bari",
+"ITF48":"Barletta_Andria_Trani",
+"ITF51":"Potenza",
+"ITF52":"Matera",
+"ITF61":"Cosenza",
+"ITF62":"Crotone",
+"ITF63":"Catanzaro",
+"ITF64":"Vibo_Valentia",
+"ITF65":"Reggio_di_Calabria",
+"ITG11":"Trapani",
+"ITG12":"Palermo",
+"ITG13":"Messina",
+"ITG14":"Agrigento",
+"ITG15":"Caltanissetta",
+"ITG16":"Enna",
+"ITG17":"Catania",
+"ITG18":"Ragusa",
+"ITG19":"Siracusa",
+"ITG25":"Sassari",
+"ITG26":"Nuoro",
+"ITG27":"Cagliari",
+"ITG28":"Oristano",
+"ITG29":"Olbia_Tempio",
+"ITG2A":"Ogliastra",
+"ITG2B":"Medio_Campidano",
+"ITG2C":"Carbonia_Iglesias",
+"ITH10":"Bolzano_Bozen",
+"ITH20":"Trento",
+"ITH31":"Verona",
+"ITH32":"Vicenza",
+"ITH33":"Belluno",
+"ITH34":"Treviso",
+"ITH35":"Venezia",
+"ITH36":"Padova",
+"ITH37":"Rovigo",
+"ITH41":"Pordenone",
+"ITH42":"Udine",
+"ITH43":"Gorizia",
+"ITH44":"Trieste",
+"ITH51":"Piacenza",
+"ITH52":"Parma",
+"ITH53":"Reggio_nell_Emilia",
+"ITH54":"Modena",
+"ITH55":"Bologna",
+"ITH56":"Ferrara",
+"ITH57":"Ravenna",
+"ITH58":"Forli_Cesena",
+"ITH59":"Rimini",
+"ITI11":"Massa_Carrara",
+"ITI12":"Lucca",
+"ITI13":"Pistoia",
+"ITI14":"Firenze",
+"ITI15":"Prato",
+"ITI16":"Livorno",
+"ITI17":"Pisa",
+"ITI18":"Arezzo",
+"ITI19":"Siena",
+"ITI1A":"Grosseto",
+"ITI21":"Perugia",
+"ITI22":"Terni",
+"ITI31":"Pesaro_e_Urbino",
+"ITI32":"Ancona",
+"ITI33":"Macerata",
+"ITI34":"Ascoli_Piceno",
+"ITI35":"Fermo",
+"ITI41":"Viterbo",
+"ITI42":"Rieti",
+"ITI43":"Roma",
+"ITI44":"Latina",
+"ITI45":"Frosinone",
+"LT011":"Vilniaus_apskritis",
+"LT021":"Alytaus_apskritis",
+"LT022":"Kauno_apskritis",
+"LT023":"Klaipedos_apskritis",
+"LT024":"Marijampoles_apskritis",
+"LT025":"Panevezio_apskritis",
+"LT026":"Siauliu_apskritis",
+"LT027":"Taurages_apskritis",
+"LT028":"Telsiu_apskritis",
+"LT029":"Utenos_apskritis",
+"LV003":"Kurzeme",
+"LV005":"Latgale",
+"LV006":"Riga",
+"LV007":"Pieriga",
+"LV008":"Vidzeme",
+"LV009":"Zemgale",
+"MT002":"Gozo_And_CominoGhawdex_U_Kemmuna",
+"NL111":"Oost_Groningen",
+"NL112":"Delfzijl_en_omgeving",
+"NL113":"Overig_Groningen",
+"NL124":"Noord_Friesland",
+"NL125":"Zuidwest_Friesland",
+"NL126":"Zuidoost_Friesland",
+"NL131":"Noord_Drenthe",
+"NL132":"Zuidoost_Drenthe",
+"NL133":"Zuidwest_Drenthe",
+"NL211":"Noord_Overijssel",
+"NL212":"Zuidwest_Overijssel",
+"NL213":"Twente",
+"NL221":"Veluwe",
+"NL224":"Zuidwest_Gelderland",
+"NL225":"Achterhoek",
+"NL226":"Arnhem_Nijmegen",
+"NL230":"Flevoland",
+"NL310":"Utrecht",
+"NL321":"Kop_van_Noord_Holland",
+"NL323":"IJmond",
+"NL324":"Agglomeratie_Haarlem",
+"NL325":"Zaanstreek",
+"NL327":"Het_Gooi_en_Vechtstreek",
+"NL328":"Alkmaar_en_omgeving",
+"NL329":"Groot_Amsterdam",
+"NL332":"Agglomeratie_s_Gravenhage",
+"NL333":"Delft_en_Westland",
+"NL337":"Agglomeratie_Leiden_en_Bollenstreek",
+"NL33A":"Zuidoost_Zuid_Holland",
+"NL33B":"Oost_Zuid_Holland",
+"NL33C":"Groot_Rijnmond",
+"NL341":"Zeeuwsch_Vlaanderen",
+"NL342":"Overig_Zeeland",
+"NL411":"West_Noord_Brabant",
+"NL412":"Midden_Noord_Brabant",
+"NL413":"Noordoost_Noord_Brabant",
+"NL414":"Zuidoost_Noord_Brabant",
+"NL421":"Noord_Limburg",
+"NL422":"Midden_Limburg",
+"NL423":"Zuid_Limburg",
+"PL213":"Miasto_Krakow",
+"PL214":"Krakowski",
+"PL217":"Tarnowski",
+"PL218":"Nowosadecki",
+"PL219":"Nowotarski",
+"PL21A":"Oswiecimski",
+"PL224":"Czestochowski",
+"PL225":"Bielski",
+"PL227":"Rybnicki",
+"PL228":"Bytomski",
+"PL229":"Gliwicki",
+"PL22A":"Katowicki",
+"PL22B":"Sosnowiecki",
+"PL22C":"Tyski",
+"PL411":"Pilski",
+"PL414":"Koninski",
+"PL415":"Miasto_Poznan",
+"PL416":"Kaliski",
+"PL417":"Leszczynski",
+"PL418":"Poznanski",
+"PL424":"Miasto_Szczecin",
+"PL426":"Koszalinski",
+"PL427":"Szczecinecko_pyrzycki",
+"PL428":"Szczecinski",
+"PL431":"Gorzowski",
+"PL432":"Zielonogorski",
+"PL514":"Miasto_Wroclaw",
+"PL515":"Jeleniogorski",
+"PL516":"Legnicko_glogowski",
+"PL517":"Walbrzyski",
+"PL518":"Wroclawski",
+"PL523":"Nyski",
+"PL524":"Opolski",
+"PL613":"Bydgosko_torunski",
+"PL616":"Grudziadzki",
+"PL617":"Inowroclawski",
+"PL618":"Swiecki",
+"PL619":"Wloclawski",
+"PL621":"Elblaski",
+"PL622":"Olsztynski",
+"PL623":"Elcki",
+"PL633":"Trojmiejski",
+"PL634":"Gdanski",
+"PL636":"Slupski",
+"PL637":"Chojnicki",
+"PL638":"Starogardzki",
+"PL711":"Miasto_Lodz",
+"PL712":"Lodzki",
+"PL713":"Piotrkowski",
+"PL714":"Sieradzki",
+"PL715":"Skierniewicki",
+"PL721":"Kielecki",
+"PL722":"Sandomiersko_jedrzejowski",
+"PL811":"Bialski",
+"PL812":"Chelmsko_zamojski",
+"PL814":"Lubelski",
+"PL815":"Pulawski",
+"PL821":"Krosnienski",
+"PL822":"Przemyski",
+"PL823":"Rzeszowski",
+"PL824":"Tarnobrzeski",
+"PL841":"Bialostocki",
+"PL842":"Lomzynski",
+"PL843":"Suwalski",
+"PL911":"Miasto_Warszawa",
+"PL912":"Warszawski_wschodni",
+"PL913":"Warszawski_zachodni",
+"PL921":"Radomski",
+"PL922":"Ciechanowski",
+"PL923":"Plocki",
+"PL924":"Ostrolecki",
+"PL925":"Siedlecki",
+"PL926":"Zyrardowski",
+"PT111":"Minho_Lima",
+"PT112":"Cavado",
+"PT119":"Ave",
+"PT11A":"Area_Metropolitana_do_Porto",
+"PT11B":"Alto_Tamega",
+"PT11C":"Tamega_e_Sousa",
+"PT11D":"Douro",
+"PT11E":"Terras_de_Tras_os_Montes",
+"PT150":"Algarve",
+"PT16B":"Oeste",
+"PT16D":"Regiao_de_Aveiro",
+"PT16E":"Regiao_de_Coimbra",
+"PT16F":"Regiao_de_Leiria",
+"PT16G":"Viseu_Dao_Lafoes",
+"PT16H":"Beira_Baixa",
+"PT16I":"Medio_Tejo",
+"PT16J":"Beiras_e_Serra_da_Estrela",
+"PT170":"Area_Metropolitana_de_Lisboa",
+"PT181":"Alentejo_Litoral",
+"PT184":"Baixo_Alentejo",
+"PT185":"Leziria_do_Tejo",
+"PT186":"Alto_Alentejo",
+"PT187":"Alentejo_Central",
+"PT200":"Regiao_Autonoma_dos_Acores",
+"PT300":"Regiao_Autonoma_da_Madeira",
+"RO111":"Bihor",
+"RO112":"Bistrita_nasaud",
+"RO113":"Cluj",
+"RO114":"Maramures",
+"RO115":"Satu_Mare",
+"RO116":"Salaj",
+"RO121":"Alba",
+"RO122":"Brasov",
+"RO123":"Covasna",
+"RO124":"Harghita",
+"RO125":"Mures",
+"RO126":"Sibiu",
+"RO211":"Bacau",
+"RO212":"Botosani",
+"RO213":"Iasi",
+"RO214":"Neamt",
+"RO215":"Suceava",
+"RO216":"Vaslui",
+"RO221":"Braila",
+"RO222":"Buzau",
+"RO223":"Constanta",
+"RO224":"Galati",
+"RO225":"Tulcea",
+"RO226":"Vrancea",
+"RO311":"Arges",
+"RO312":"Calarasi",
+"RO313":"Dambovita",
+"RO314":"Giurgiu",
+"RO315":"Ialomita",
+"RO316":"Prahova",
+"RO317":"Teleorman",
+"RO321":"Bucuresti",
+"RO322":"Ilfov",
+"RO411":"Dolj",
+"RO412":"Gorj",
+"RO413":"Mehedinti",
+"RO414":"Olt",
+"RO415":"Valcea",
+"RO421":"Arad",
+"RO422":"Caras_severin",
+"RO423":"Hunedoara",
+"RO424":"Timis",
+"SE110":"Stockholms_lan",
+"SE121":"Uppsala_lan",
+"SE122":"Sodermanlands_lan",
+"SE123":"Ostergotlands_lan",
+"SE124":"Orebro_lan",
+"SE125":"Vastmanlands_lan",
+"SE211":"Jonkopings_lan",
+"SE212":"Kronobergs_lan",
+"SE213":"Kalmar_lan",
+"SE214":"Gotlands_lan",
+"SE221":"Blekinge_lan",
+"SE224":"Skane_lan",
+"SE231":"Hallands_lan",
+"SE232":"Vastra_Gotalands_lan",
+"SE311":"Varmlands_lan",
+"SE312":"Dalarnas_lan",
+"SE313":"Gavleborgs_lan",
+"SE321":"Vasternorrlands_lan",
+"SE322":"Jamtlands_lan",
+"SE331":"Vasterbottens_lan",
+"SE332":"Norrbottens_lan",
+"SI031":"Pomurska",
+"SI032":"Podravska",
+"SI033":"Koroska",
+"SI034":"Savinjska",
+"SI035":"Zasavska",
+"SI036":"Posavska",
+"SI037":"Jugovzhodna_Slovenija",
+"SI038":"Primorsko_notranjska",
+"SI041":"Osrednjeslovenska",
+"SI042":"Gorenjska",
+"SI043":"Goriska",
+"SI044":"Obalno_kraska",
+"SK010":"Bratislavsky_kraj",
+"SK021":"Trnavsky_kraj",
+"SK022":"Trenciansky_Kraj",
+"SK023":"Nitriansky_kraj",
+"SK031":"Zilinsky_kraj",
+"SK032":"Banskobystricky_kraj",
+"SK041":"Presovsky_kraj",
+"SK042":"Kosicky_kraj",
+"UKC11":"Hartlepool_and_Stockton_on_Tees",
+"UKC12":"South_Teesside",
+"UKC13":"Darlington",
+"UKC14":"Durham_CC",
+"UKC21":"Northumberland",
+"UKC22":"Tyneside",
+"UKC23":"Sunderland",
+"UKD11":"West_Cumbria",
+"UKD12":"East_Cumbria",
+"UKD33":"Manchester",
+"UKD34":"Greater_Manchester_South_West",
+"UKD35":"Greater_Manchester_South_East",
+"UKD36":"Greater_Manchester_North_West",
+"UKD37":"Greater_Manchester_North_East",
+"UKD41":"Blackburn_with_Darwen",
+"UKD42":"Blackpool",
+"UKD44":"Lancaster_and_Wyre",
+"UKD45":"Mid_Lancashire",
+"UKD46":"East_Lancashire",
+"UKD47":"Chorley_and_West_Lancashire",
+"UKD61":"Warrington",
+"UKD62":"Cheshire_East",
+"UKD63":"Cheshire_West_and_Chester",
+"UKD71":"East_Merseyside",
+"UKD72":"Liverpool",
+"UKD73":"Sefton",
+"UKD74":"Wirral",
+"UKE11":"Kingston_upon_Hull_City_of",
+"UKE12":"East_Riding_of_Yorkshire",
+"UKE13":"North_and_North_East_Lincolnshire",
+"UKE21":"York",
+"UKE22":"North_Yorkshire_CC",
+"UKE31":"Barnsley_Doncaster_and_Rotherham",
+"UKE32":"Sheffield",
+"UKE41":"Bradford",
+"UKE42":"Leeds",
+"UKE44":"Calderdale_and_Kirklees",
+"UKE45":"Wakefield",
+"UKF11":"Derby",
+"UKF12":"East_Derbyshire",
+"UKF13":"South_and_West_Derbyshire",
+"UKF14":"Nottingham",
+"UKF15":"North_Nottinghamshire",
+"UKF16":"South_Nottinghamshire",
+"UKF21":"Leicester",
+"UKF22":"Leicestershire_CC_and_Rutland",
+"UKF24":"West_Northamptonshire",
+"UKF25":"North_Northamptonshire",
+"UKF30":"Lincolnshire",
+"UKG11":"Herefordshire_County_of",
+"UKG12":"Worcestershire",
+"UKG13":"Warwickshire",
+"UKG21":"Telford_and_Wrekin",
+"UKG31":"Birmingham",
+} 
+    CNTRY_CD = models.CharField("Country_code",max_length=255, choices=GGRPHCL_ARS_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -3328,11 +3328,11 @@ class BIRD_PRTY_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    DFLT_STTS = models.CharField("Default_status",max_length=255, choices=CRDT_QLTY_domain)   
+    DFLT_STTS = models.CharField("Default_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
-    DT_DFLT_STTS = models.DateTimeField("Date_of_default_status")   
+    DT_DFLT_STTS = models.DateTimeField("Date_of_default_status",default=None, blank=True, null=True)   
 
-    DT_ENTRPRS_SZ = models.DateTimeField("Date_of_enterprise_size")   
+    DT_ENTRPRS_SZ = models.DateTimeField("Date_of_enterprise_size",default=None, blank=True, null=True)   
 
     ECNMC_ACTVTY_domain = {"94":"Activities_of_membership_organisations",
 "94_9":"Activities_of_other_membership_organisations",
@@ -4834,13 +4834,13 @@ class BIRD_PRTY_EIL(models.Model):
 "72_1_x2":"Research_and_experimental_development_on_natural_sciences_and_engineering_x2",
 "72_2_x2":"Research_and_experimental_development_on_social_sciences_and_humanities_x3",
 } 
-    ECNMC_ACTVTY = models.CharField("Economic_activity",max_length=255, choices=ECNMC_ACTVTY_domain)   
+    ECNMC_ACTVTY = models.CharField("Economic_activity",max_length=255, choices=ECNMC_ACTVTY_domain,default=None, blank=True, null=True)   
 
     ENTRPRS_INDCTR_domain = {"0":"Not_applicable",
 "1":"Enterprise",
 "2":"Not_enterprise",
 } 
-    ENTRPRS_INDCTR = models.CharField("Enterprise_indicator",max_length=255, choices=ENTRPRS_INDCTR_domain)   
+    ENTRPRS_INDCTR = models.CharField("Enterprise_indicator",max_length=255, choices=ENTRPRS_INDCTR_domain,default=None, blank=True, null=True)   
 
     SZ_domain = {"2":"Medium_enterprise",
 "3":"Small_enterprise",
@@ -4849,7 +4849,7 @@ class BIRD_PRTY_EIL(models.Model):
 "7":"Large_enterprise_because_of_absence_of_input_data",
 "1":"Large_enterprise",
 } 
-    ENTRPRS_SZ = models.CharField("Enterprise_size",max_length=255, choices=SZ_domain)   
+    ENTRPRS_SZ = models.CharField("Enterprise_size",max_length=255, choices=SZ_domain,default=None, blank=True, null=True)   
 
     GGRPHCL_ARS_domain = {"BJ":"Benin",
 "MY":"Malaysia",
@@ -6351,7 +6351,7 @@ class BIRD_PRTY_EIL(models.Model):
 "UKG21":"Telford_and_Wrekin",
 "UKG31":"Birmingham",
 } 
-    GVRND_CNTRY_CD = models.CharField("Governed_Country_code",max_length=255, choices=GGRPHCL_ARS_domain)   
+    GVRND_CNTRY_CD = models.CharField("Governed_Country_code",max_length=255, choices=GGRPHCL_ARS_domain,default=None, blank=True, null=True)   
 
     INSTTTNL_SCTR_domain = {"S125_W":"Other_financial_corporations_excluding_financial_vehicle_corporations",
 "S125_I":"Other_financial_intermediaries_except_insurance_corporations_and_pension_funds_other_than_CCPs_FVCs_security_and_derivative_dealers_financial_corporations_engaged_in_lending_and_specialised_financial_corporations",
@@ -6487,13 +6487,13 @@ class BIRD_PRTY_EIL(models.Model):
 "S14_B_x4":"Households_other_than_sole_proprietorships_partnerships_without_legal_status_x4",
 "S15":"Non_profit_institutions_serving_households",
 } 
-    INSTTTNL_SCTR = models.CharField("Institutional_sector",max_length=255, choices=INSTTTNL_SCTR_domain)   
+    INSTTTNL_SCTR = models.CharField("Institutional_sector",max_length=255, choices=INSTTTNL_SCTR_domain,default=None, blank=True, null=True)   
 
     INSTTTNL_SCTR_CNTRL_domain = {"0":"not_applicable",
 "2":"National_private",
 "3":"Foreign_controlled",
 } 
-    INSTTTNL_SCTR_CNTRL = models.CharField("Institutional_sector_control",max_length=255, choices=INSTTTNL_SCTR_CNTRL_domain)   
+    INSTTTNL_SCTR_CNTRL = models.CharField("Institutional_sector_control",max_length=255, choices=INSTTTNL_SCTR_CNTRL_domain,default=None, blank=True, null=True)   
 
     GGRPHCL_ARS_domain = {"BJ":"Benin",
 "MY":"Malaysia",
@@ -7995,7 +7995,7 @@ class BIRD_PRTY_EIL(models.Model):
 "UKG21":"Telford_and_Wrekin",
 "UKG31":"Birmingham",
 } 
-    INTRNTNL_ORGNSTN_CD = models.CharField("International_organisation_code",max_length=255, choices=GGRPHCL_ARS_domain)   
+    INTRNTNL_ORGNSTN_CD = models.CharField("International_organisation_code",max_length=255, choices=GGRPHCL_ARS_domain,default=None, blank=True, null=True)   
 
     PRTY_TYP_domain = {"0":"Not_applicable",
 "46":"Leading_branch",
@@ -8019,7 +8019,7 @@ class BIRD_PRTY_EIL(models.Model):
 "25":"Domestic_Branch",
 "26":"Foreign_Branch",
 } 
-    LDNG_BRNCH_ANCRDT_RPRTNG_INDCTR = models.CharField("Leading_branch_for_AnaCredit_reporting_indicator",max_length=255, choices=PRTY_TYP_domain)   
+    LDNG_BRNCH_ANCRDT_RPRTNG_INDCTR = models.CharField("Leading_branch_for_AnaCredit_reporting_indicator",max_length=255, choices=PRTY_TYP_domain,default=None, blank=True, null=True)   
 
     LGL_FRM_domain = {"AT102":"Offene_Gesellschaft",
 "AT103":"Kommanditgesellschaft",
@@ -9108,7 +9108,7 @@ class BIRD_PRTY_EIL(models.Model):
 "SK931":"Zastupenie_zahranicnej_pravnickej_osoby",
 "SPFUND":"Conventional_legal_form_for_Special_funds",
 } 
-    LGL_FRM = models.CharField("Legal_form",max_length=255, choices=LGL_FRM_domain)   
+    LGL_FRM = models.CharField("Legal_form",max_length=255, choices=LGL_FRM_domain,default=None, blank=True, null=True)   
 
     LGL_PRCDNG_STTS_domain = {"0":"Not_applicable",
 "1":"No_legal_actions_taken",
@@ -9116,25 +9116,25 @@ class BIRD_PRTY_EIL(models.Model):
 "3":"Bankruptcy_insolvency",
 "4":"Other_legal_measures",
 } 
-    LGL_PRCDNG_STTS = models.CharField("Legal_proceeding_status",max_length=255, choices=LGL_PRCDNG_STTS_domain)   
+    LGL_PRCDNG_STTS = models.CharField("Legal_proceeding_status",max_length=255, choices=LGL_PRCDNG_STTS_domain,default=None, blank=True, null=True)   
 
     BLN_domain = {"0":"Not_applicable",
 "F":"FALSE",
 "T":"TRUE",
 } 
-    LSTD_CNTRL_BNK_PRVT_SCTR_CMPNY_INDCTR = models.CharField("Listed_central_bank_and_private_sector_company_indicator",max_length=255, choices=BLN_domain)   
+    LSTD_CNTRL_BNK_PRVT_SCTR_CMPNY_INDCTR = models.CharField("Listed_central_bank_and_private_sector_company_indicator",max_length=255, choices=BLN_domain,default=None, blank=True, null=True)   
 
     MLTLTRL_DVLPMNT_BNK_INDCTR_domain = {"0":"Not_applicable",
 "1":"Multilateral_development_bank",
 "2":"Not_a_Multilateral_development_bank",
 } 
-    MLTLTRL_DVLPMNT_BNK_INDCTR = models.CharField("Multilateral_development_bank_indicator",max_length=255, choices=MLTLTRL_DVLPMNT_BNK_INDCTR_domain)   
+    MLTLTRL_DVLPMNT_BNK_INDCTR = models.CharField("Multilateral_development_bank_indicator",max_length=255, choices=MLTLTRL_DVLPMNT_BNK_INDCTR_domain,default=None, blank=True, null=True)   
 
     MRKT_CP_domain = {"0":"Not_Applicable",
 "1":"Large_Market_Capitalisation",
 "2":"Small_Market_Capitalisation",
 } 
-    MRKT_CPTLSTN_INDCTR = models.CharField("Market_capitalisation_indicator",max_length=255, choices=MRKT_CP_domain)   
+    MRKT_CPTLSTN_INDCTR = models.CharField("Market_capitalisation_indicator",max_length=255, choices=MRKT_CP_domain,default=None, blank=True, null=True)   
 
     PRTY_TYP_domain = {"0":"Not_applicable",
 "46":"Leading_branch",
@@ -9158,13 +9158,13 @@ class BIRD_PRTY_EIL(models.Model):
 "25":"Domestic_Branch",
 "26":"Foreign_Branch",
 } 
-    ORGNSTN_TYP_BY_PRCDNG_STTS = models.CharField("Organisation_type_by_legal_proceeding_status",max_length=255, choices=PRTY_TYP_domain)   
+    ORGNSTN_TYP_BY_PRCDNG_STTS = models.CharField("Organisation_type_by_legal_proceeding_status",max_length=255, choices=PRTY_TYP_domain,default=None, blank=True, null=True)   
 
     PLLNG_EFFCT_INDCTR_domain = {"0":"Not_applicable",
 "1":"Pulling_effect",
 "2":"Not_pulling_effect",
 } 
-    PLLNG_EFFCT_INDCTR = models.CharField("Pulling_effect_indicator",max_length=255, choices=PLLNG_EFFCT_INDCTR_domain)   
+    PLLNG_EFFCT_INDCTR = models.CharField("Pulling_effect_indicator",max_length=255, choices=PLLNG_EFFCT_INDCTR_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -9187,19 +9187,19 @@ class BIRD_PRTY_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    PRFRMNG_STTS = models.CharField("Performing_status",max_length=255, choices=CRDT_QLTY_domain)   
+    PRFRMNG_STTS = models.CharField("Performing_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     PRFRMNG_STTS_RSN_domain = {"1":"Failed_reclassification_to_performing_at_end_of_probation_period",
 "2":"Exited_from_NPE_in_the_last_12_months",
 "0":"Not_applicable",
 } 
-    PRFRMNG_STTS_RSN = models.CharField("The_reason_for_the_choice_of_Performing_status",max_length=255, choices=PRFRMNG_STTS_RSN_domain)   
+    PRFRMNG_STTS_RSN = models.CharField("The_reason_for_the_choice_of_Performing_status",max_length=255, choices=PRFRMNG_STTS_RSN_domain,default=None, blank=True, null=True)   
 
     PRTY_TYP_ADDRSS_domain = {"100":"European_Union_member_party",
 "101":"Non_European_Union_member_party",
 "6":"No_registered_Postal_Code_system_party",
 } 
-    PRTY_TYP_ADDRS = models.CharField("Party_type_by_address",max_length=255, choices=PRTY_TYP_ADDRSS_domain)   
+    PRTY_TYP_ADDRS = models.CharField("Party_type_by_address",max_length=255, choices=PRTY_TYP_ADDRSS_domain,default=None, blank=True, null=True)   
 
     GGRPHCL_ARS_domain = {"BJ":"Benin",
 "MY":"Malaysia",
@@ -10701,13 +10701,13 @@ class BIRD_PRTY_EIL(models.Model):
 "UKG21":"Telford_and_Wrekin",
 "UKG31":"Birmingham",
 } 
-    TRRTRL_UNT = models.CharField("Territorial_unit",max_length=255, choices=GGRPHCL_ARS_domain)   
+    TRRTRL_UNT = models.CharField("Territorial_unit",max_length=255, choices=GGRPHCL_ARS_domain,default=None, blank=True, null=True)   
 
     ECNMY_domain = {"0":"Not_Applicable",
 "1":"Emerging_market_economy",
 "2":"Advanced_economy",
 } 
-    TYP_ECNMY = models.CharField("Type_of_economy",max_length=255, choices=ECNMY_domain)   
+    TYP_ECNMY = models.CharField("Type_of_economy",max_length=255, choices=ECNMY_domain,default=None, blank=True, null=True)   
 
     PRTY_TYP_domain = {"0":"Not_applicable",
 "46":"Leading_branch",
@@ -10731,31 +10731,31 @@ class BIRD_PRTY_EIL(models.Model):
 "25":"Domestic_Branch",
 "26":"Foreign_Branch",
 } 
-    TYP_PRTY = models.CharField("Type_of_Party",max_length=255, choices=PRTY_TYP_domain)   
+    TYP_PRTY = models.CharField("Type_of_Party",max_length=255, choices=PRTY_TYP_domain,default=None, blank=True, null=True)   
 
-    ANNL_TRNVR = models.BigIntegerField("Annual_turnover")   
+    ANNL_TRNVR = models.BigIntegerField("Annual_turnover",default=None, blank=True, null=True)   
 
-    BLNC_SHT_TTL = models.BigIntegerField("Balance_sheet_total")   
+    BLNC_SHT_TTL = models.BigIntegerField("Balance_sheet_total",default=None, blank=True, null=True)   
 
-    CTY = models.CharField("City",max_length=255)   
+    CTY = models.CharField("City",max_length=255,default=None, blank=True, null=True)   
 
-    DT_INTTN_LGL_PRCDNGS = models.DateTimeField("Date_of_initiation_of_legal_proceedings")   
+    DT_INTTN_LGL_PRCDNGS = models.DateTimeField("Date_of_initiation_of_legal_proceedings",default=None, blank=True, null=True)   
 
-    FRST_NM = models.CharField("First_name",max_length=255)   
+    FRST_NM = models.CharField("First_name",max_length=255,default=None, blank=True, null=True)   
 
-    LEI = models.CharField("LEI_code",max_length=255)   
+    LEI = models.CharField("LEI_code",max_length=255,default=None, blank=True, null=True)   
 
-    LST_NM = models.CharField("Last_name",max_length=255)   
+    LST_NM = models.CharField("Last_name",max_length=255,default=None, blank=True, null=True)   
 
-    NM_ENTTY = models.CharField("Name",max_length=255)   
+    NM_ENTTY = models.CharField("Name",max_length=255,default=None, blank=True, null=True)   
 
-    NMBR_EMPLYS = models.FloatField("Number_of_employees")   
+    NMBR_EMPLYS = models.FloatField("Number_of_employees",default=None, blank=True, null=True)   
 
-    PD = models.FloatField("Probability_of_default")   
+    PD = models.FloatField("Probability_of_default",default=None, blank=True, null=True)   
 
-    PSTL_CD = models.CharField("Postal_code",max_length=255)   
+    PSTL_CD = models.CharField("Postal_code",max_length=255,default=None, blank=True, null=True)   
 
-    STRT = models.CharField("Street",max_length=255)   
+    STRT = models.CharField("Street",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_GRP_EIL_1 = models.ForeignKey("BIRD_GRP_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -10764,19 +10764,19 @@ class BIRD_PRTY_EIL(models.Model):
     class Meta:
         verbose_name = 'Party'
         verbose_name_plural = 'Partys'
-
+		
 class BIRD_PRTY_PRVS_PRD_DT_EIL(models.Model):
 
 
     BIRD_PRTY_PRVS_PRD_DT_EIL_uniqueID = models.CharField("BIRD_PRTY_PRVS_PRD_DT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    YR = models.DateTimeField("Year")   
+    YR = models.DateTimeField("Year",default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_RFRNC_DT = models.DateTimeField("Party_Reference_date")   
+    PRTY_RFRNC_DT = models.DateTimeField("Party_Reference_date",default=None, blank=True, null=True)   
 
-    PRTY_RPRTNG_AGNT_ID = models.CharField("Party_Reporting_agent_identifier",max_length=255)   
+    PRTY_RPRTNG_AGNT_ID = models.CharField("Party_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     SZ_domain = {"2":"Medium_enterprise",
 "3":"Small_enterprise",
@@ -10785,31 +10785,31 @@ class BIRD_PRTY_PRVS_PRD_DT_EIL(models.Model):
 "7":"Large_enterprise_because_of_absence_of_input_data",
 "1":"Large_enterprise",
 } 
-    ENTRPRS_SZ_CLCLTD = models.CharField("Enterprise_size_calculated_",max_length=255, choices=SZ_domain)   
+    ENTRPRS_SZ_CLCLTD = models.CharField("Enterprise_size_calculated_",max_length=255, choices=SZ_domain,default=None, blank=True, null=True)   
 
     the_BIRD_PRTY_EIL_1 = models.ForeignKey("BIRD_PRTY_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Party_previous_period_data'
         verbose_name_plural = 'Party_previous_period_datas'
-
+		
 class BIRD_RPRCHS_AGRMNT_CMPNNT_EIL(models.Model):
 
 
     BIRD_RPRCHS_AGRMNT_CMPNNT_EIL_uniqueID = models.CharField("BIRD_RPRCHS_AGRMNT_CMPNNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RPRCHS_AGRMNT_INSTRMNT_RFRNC_DT = models.DateTimeField("Repurchase_agreement_Instrument_Reference_date")   
+    RPRCHS_AGRMNT_INSTRMNT_RFRNC_DT = models.DateTimeField("Repurchase_agreement_Instrument_Reference_date",default=None, blank=True, null=True)   
 
-    RPRCHS_AGRMNT_INSTRMNT_RPRTNG_AGNT_ID = models.CharField("Repurchase_agreement_Instrument_Reporting_agent_identifier",max_length=255)   
+    RPRCHS_AGRMNT_INSTRMNT_RPRTNG_AGNT_ID = models.CharField("Repurchase_agreement_Instrument_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RPRCHS_AGRMNT_INSTRMNT_ID = models.CharField("Repurchase_agreement_Instrument_identifier",max_length=255)   
+    RPRCHS_AGRMNT_INSTRMNT_ID = models.CharField("Repurchase_agreement_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
     RPRCHS_AGRMNT_TYP_domain = {"1":"Cash_leg",
 "3":"Security_leg",
 "4":"Loans_and_advances_leg",
 "5":"Equity_instrument_leg",
 } 
-    RPRCHS_AGRMNT_CMPNNT_TYP = models.CharField("Repurchase_component_type",max_length=255, choices=RPRCHS_AGRMNT_TYP_domain)   
+    RPRCHS_AGRMNT_CMPNNT_TYP = models.CharField("Repurchase_component_type",max_length=255, choices=RPRCHS_AGRMNT_TYP_domain,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -10995,7 +10995,7 @@ class BIRD_RPRCHS_AGRMNT_CMPNNT_EIL(models.Model):
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
     RCGNTN_STTS_domain = {"1":"Entirely_recognised",
 "2":"Recognised_to_the_extent_of_the_institution_s_continuing_involvement",
@@ -11003,30 +11003,30 @@ class BIRD_RPRCHS_AGRMNT_CMPNNT_EIL(models.Model):
 "0":"Not_applicable",
 "4":"Partially_derecognised",
 } 
-    TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT = models.CharField("TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT",max_length=255, choices=RCGNTN_STTS_domain)   
+    TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT = models.CharField("TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT",max_length=255, choices=RCGNTN_STTS_domain,default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Repurchase_agreement_component'
         verbose_name_plural = 'Repurchase_agreement_components'
-
+		
 class BIRD_RSK_FAC_SA_EIL(models.Model):
 
 
     BIRD_RSK_FAC_SA_EIL_uniqueID = models.CharField("BIRD_RSK_FAC_SA_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RSK_FCTR_ID = models.CharField("Risk_factor_identifier",max_length=255)   
+    RSK_FCTR_ID = models.CharField("Risk_factor_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ASST_BCKD_SCRTY_ID = models.CharField("Asset_backed_Security_identifier",max_length=255)   
+    ASST_BCKD_SCRTY_ID = models.CharField("Asset_backed_Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -11072,7 +11072,7 @@ class BIRD_RSK_FAC_SA_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    ISSR_RL_TYP = models.CharField("Issuer_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    ISSR_RL_TYP = models.CharField("Issuer_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     CMMDTY_TYP_FRTB_domain = {"0":"Not_applicable",
 "10":"Gaseous_combustables",
@@ -11087,7 +11087,7 @@ class BIRD_RSK_FAC_SA_EIL(models.Model):
 "8":"Freight",
 "9":"Non_precious_metals",
 } 
-    CMMDTY_TYP = models.CharField("Commodity_type",max_length=255, choices=CMMDTY_TYP_FRTB_domain)   
+    CMMDTY_TYP = models.CharField("Commodity_type",max_length=255, choices=CMMDTY_TYP_FRTB_domain,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -11273,7 +11273,7 @@ class BIRD_RSK_FAC_SA_EIL(models.Model):
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    BS_CRRNCY = models.CharField("Base_currency",max_length=255, choices=CRRNCY_domain)   
+    BS_CRRNCY = models.CharField("Base_currency",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
     RTNG_GRD_CRDT_QLTY_domain = {"0":"Not_applicable",
 "1":"Senior_investment_grade",
@@ -11282,26 +11282,26 @@ class BIRD_RSK_FAC_SA_EIL(models.Model):
 "4":"Non_rated",
 "5":"Investment_grade",
 } 
-    CRDT_SPRD_RSK_CRDT_QLTY = models.CharField("Credit_spread_risk_CSR_credit_quality",max_length=255, choices=RTNG_GRD_CRDT_QLTY_domain)   
+    CRDT_SPRD_RSK_CRDT_QLTY = models.CharField("Credit_spread_risk_CSR_credit_quality",max_length=255, choices=RTNG_GRD_CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     CSR_CRV_TYP_domain = {"0":"Not_applicable",
 "1":"Bond",
 "2":"Credit_spread_risk_CSR_",
 } 
-    CRDT_SPRD_RSK_CRV_TYP = models.CharField("Credit_spread_risk_CSR_curve_type",max_length=255, choices=CSR_CRV_TYP_domain)   
+    CRDT_SPRD_RSK_CRV_TYP = models.CharField("Credit_spread_risk_CSR_curve_type",max_length=255, choices=CSR_CRV_TYP_domain,default=None, blank=True, null=True)   
 
     EQUTY_FCTR_TYP_domain = {"0":"Not_applicable",
 "1":"Spot",
 "2":"Repo",
 } 
-    EQUTY_FCTR_TYP = models.CharField("Equity_factor_type",max_length=255, choices=EQUTY_FCTR_TYP_domain)   
+    EQUTY_FCTR_TYP = models.CharField("Equity_factor_type",max_length=255, choices=EQUTY_FCTR_TYP_domain,default=None, blank=True, null=True)   
 
     GIRR_RSK_FCTR_domain = {"0":"Not_applicable",
 "1":"Inflation",
 "2":"Basis",
 "3":"Yield",
 } 
-    GIRR_FCTR_TYP = models.CharField("General_interest_rate_risk_GIRR_factor_type",max_length=255, choices=GIRR_RSK_FCTR_domain)   
+    GIRR_FCTR_TYP = models.CharField("General_interest_rate_risk_GIRR_factor_type",max_length=255, choices=GIRR_RSK_FCTR_domain,default=None, blank=True, null=True)   
 
     RSK_CLSS_domain = {"1":"General_interest_rate_risk_GIRR_",
 "2":"Credit_spread_risk_CSR_non_securitisations",
@@ -11311,9 +11311,9 @@ class BIRD_RSK_FAC_SA_EIL(models.Model):
 "6":"Commodity_risk",
 "7":"Foreign_exchange_FX_risk",
 } 
-    RSK_CLSS = models.CharField("Risk_class",max_length=255, choices=RSK_CLSS_domain)   
+    RSK_CLSS = models.CharField("Risk_class",max_length=255, choices=RSK_CLSS_domain,default=None, blank=True, null=True)   
 
-    DLVRY_LCTN = models.CharField("Delivery_location",max_length=255)   
+    DLVRY_LCTN = models.CharField("Delivery_location",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -11322,33 +11322,33 @@ class BIRD_RSK_FAC_SA_EIL(models.Model):
     class Meta:
         verbose_name = 'Risk_factor_for_standardised_approach'
         verbose_name_plural = 'Risk_factor_for_standardised_approachs'
-
+		
 class BIRD_RTNG_AGNCY_EIL(models.Model):
 
 
     BIRD_RTNG_AGNCY_EIL_uniqueID = models.CharField("BIRD_RTNG_AGNCY_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255)   
+    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255,default=None, blank=True, null=True)   
 
     ECAI_ECA_domain = {"1":"ECAI",
 "2":"ECA",
 } 
-    ECAI_ECA = models.CharField("Export_Credit_Agency_ECA_External_Credit_Assessment_Institution_ECAI_",max_length=255, choices=ECAI_ECA_domain)   
+    ECAI_ECA = models.CharField("Export_Credit_Agency_ECA_External_Credit_Assessment_Institution_ECAI_",max_length=255, choices=ECAI_ECA_domain,default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Rating_agency'
         verbose_name_plural = 'Rating_agencys'
-
+		
 class BIRD_RTNG_GRD_CNTRY_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_RTNG_GRD_CNTRY_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_RTNG_GRD_CNTRY_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255)   
+    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255)   
+    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_GRD = models.CharField("Rating_grade",max_length=255)   
+    RTNG_GRD = models.CharField("Rating_grade",max_length=255,default=None, blank=True, null=True)   
 
     GGRPHCL_ARS_domain = {"BJ":"Benin",
 "MY":"Malaysia",
@@ -12850,24 +12850,24 @@ class BIRD_RTNG_GRD_CNTRY_ASSGNMNT_EIL(models.Model):
 "UKG21":"Telford_and_Wrekin",
 "UKG31":"Birmingham",
 } 
-    CNTRY_CD = models.CharField("Country_code",max_length=255, choices=GGRPHCL_ARS_domain)   
+    CNTRY_CD = models.CharField("Country_code",max_length=255, choices=GGRPHCL_ARS_domain,default=None, blank=True, null=True)   
 
     the_BIRD_RTNG_GRD_EIL_1 = models.ForeignKey("BIRD_RTNG_GRD_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Rating_grade_Country_assignment'
         verbose_name_plural = 'Rating_grade_Country_assignments'
-
+		
 class BIRD_RTNG_GRD_EIL(models.Model):
 
 
     BIRD_RTNG_GRD_EIL_uniqueID = models.CharField("BIRD_RTNG_GRD_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255)   
+    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255)   
+    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_GRD = models.CharField("Rating_grade",max_length=255)   
+    RTNG_GRD = models.CharField("Rating_grade",max_length=255,default=None, blank=True, null=True)   
 
     RTNG_GRD_CRDT_QLTY_domain = {"0":"Not_applicable",
 "1":"Senior_investment_grade",
@@ -12876,36 +12876,36 @@ class BIRD_RTNG_GRD_EIL(models.Model):
 "4":"Non_rated",
 "5":"Investment_grade",
 } 
-    RTNG_GRD_CRDT_QLTY = models.CharField("Rating_grade_credit_quality",max_length=255, choices=RTNG_GRD_CRDT_QLTY_domain)   
+    RTNG_GRD_CRDT_QLTY = models.CharField("Rating_grade_credit_quality",max_length=255, choices=RTNG_GRD_CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     RTNG_GRD_TYP_domain = {"1":"Rating_grade_for_issue_based_rating_system",
 "3":"Rating_grade_for_issuer_based_rating_systems_for_non_central_government",
 "4":"Rating_grade_for_issuer_based_rating_systems_for_central_government",
 } 
-    TYP_RTNG_GRD = models.CharField("Type_of_rating_grade",max_length=255, choices=RTNG_GRD_TYP_domain)   
+    TYP_RTNG_GRD = models.CharField("Type_of_rating_grade",max_length=255, choices=RTNG_GRD_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_RTNG_SYSTM_EIL_1 = models.ForeignKey("BIRD_RTNG_SYSTM_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Rating_grade'
         verbose_name_plural = 'Rating_grades'
-
+		
 class BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255)   
+    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255)   
+    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_GRD = models.CharField("Rating_grade",max_length=255)   
+    RTNG_GRD = models.CharField("Rating_grade",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_RFRNC_DT = models.DateTimeField("Security_Reference_date")   
+    SCRTY_RFRNC_DT = models.DateTimeField("Security_Reference_date",default=None, blank=True, null=True)   
 
-    SCRTY_RPRTNG_AGNT_ID = models.CharField("Security_Reporting_agent_identifier",max_length=255)   
+    SCRTY_RPRTNG_AGNT_ID = models.CharField("Security_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_RTNG_GRD_EIL_1 = models.ForeignKey("BIRD_RTNG_GRD_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -12914,23 +12914,23 @@ class BIRD_RTNG_GRD_ISS_BSD_RTNG_SSTM_DBT_SCRTY_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Rating_grade_for_issue_based_rating_system_Debt_security_assignment'
         verbose_name_plural = 'Rating_grade_for_issue_based_rating_system_Debt_security_assignments'
-
+		
 class BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255)   
+    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255)   
+    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_GRD = models.CharField("Rating_grade",max_length=255)   
+    RTNG_GRD = models.CharField("Rating_grade",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_PRTY_EIL_1 = models.ForeignKey("BIRD_PRTY_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -12939,23 +12939,23 @@ class BIRD_RTNG_GRD_OTHR_ORGNSTN_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Rating_grade_Other_organisation_assignment'
         verbose_name_plural = 'Rating_grade_Other_organisation_assignments'
-
+		
 class BIRD_RTNG_SYSTM_APPLD_LGL_PRSN_EIL(models.Model):
 
 
     BIRD_RTNG_SYSTM_APPLD_LGL_PRSN_EIL_uniqueID = models.CharField("BIRD_RTNG_SYSTM_APPLD_LGL_PRSN_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255)   
+    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255)   
+    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PD = models.FloatField("Probability_of_default")   
+    PD = models.FloatField("Probability_of_default",default=None, blank=True, null=True)   
 
     the_BIRD_RTNG_SYSTM_EIL_1 = models.ForeignKey("BIRD_RTNG_SYSTM_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -12964,15 +12964,15 @@ class BIRD_RTNG_SYSTM_APPLD_LGL_PRSN_EIL(models.Model):
     class Meta:
         verbose_name = 'Rating_system_applied_to_a_Legal_person'
         verbose_name_plural = 'Rating_system_applied_to_a_Legal_persons'
-
+		
 class BIRD_RTNG_SYSTM_EIL(models.Model):
 
 
     BIRD_RTNG_SYSTM_EIL_uniqueID = models.CharField("BIRD_RTNG_SYSTM_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255)   
+    RTNG_SYSTM_NM = models.CharField("Rating_system_name",max_length=255,default=None, blank=True, null=True)   
 
-    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255)   
+    RTNG_AGNCY_NM = models.CharField("Rating_agency_name",max_length=255,default=None, blank=True, null=True)   
 
     RTNG_SYSTM_TYP_domain = {"5":"Graded_Rating_System",
 "6":"Numeric_rating_system",
@@ -12980,12 +12980,12 @@ class BIRD_RTNG_SYSTM_EIL(models.Model):
 "1":"Issue_based_rating_system",
 "4":"Non_Central_government_rating_system",
 } 
-    RTNG_SYSTM_TYP_BY_NTR = models.CharField("Rating_system_type_by_nature_Grade_vs_Numeric_",max_length=255, choices=RTNG_SYSTM_TYP_domain)   
+    RTNG_SYSTM_TYP_BY_NTR = models.CharField("Rating_system_type_by_nature_Grade_vs_Numeric_",max_length=255, choices=RTNG_SYSTM_TYP_domain,default=None, blank=True, null=True)   
 
     SHRT_TRM_CRDT_ASSMNT_INDCTR_domain = {"1":"Short_term_credit_assessment",
 "2":"Not_short_term_credit_assessment",
 } 
-    SHRT_TRM_CRDT_ASSSSMNT_INDCTR = models.CharField("Short_term_credit_assessment_indicator",max_length=255, choices=SHRT_TRM_CRDT_ASSMNT_INDCTR_domain)   
+    SHRT_TRM_CRDT_ASSSSMNT_INDCTR = models.CharField("Short_term_credit_assessment_indicator",max_length=255, choices=SHRT_TRM_CRDT_ASSMNT_INDCTR_domain,default=None, blank=True, null=True)   
 
     RTNG_SYSTM_TYP_domain = {"5":"Graded_Rating_System",
 "6":"Numeric_rating_system",
@@ -12993,20 +12993,20 @@ class BIRD_RTNG_SYSTM_EIL(models.Model):
 "1":"Issue_based_rating_system",
 "4":"Non_Central_government_rating_system",
 } 
-    TYP_RTNG_SYSTM = models.CharField("Type_of_rating_system",max_length=255, choices=RTNG_SYSTM_TYP_domain)   
+    TYP_RTNG_SYSTM = models.CharField("Type_of_rating_system",max_length=255, choices=RTNG_SYSTM_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_RTNG_AGNCY_EIL_1 = models.ForeignKey("BIRD_RTNG_AGNCY_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Rating_system'
         verbose_name_plural = 'Rating_systems'
-
+		
 class BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -13052,47 +13052,47 @@ class BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    OTHR_ORGNSTN_RL_TYP = models.CharField("Other_organisation_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    OTHR_ORGNSTN_RL_TYP = models.CharField("Other_organisation_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    GRP_ID = models.CharField("Group_ID",max_length=255)   
+    GRP_ID = models.CharField("Group_ID",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ACCMLTD_EQT_INTRST = models.FloatField("Accumulated_equity_interest")   
-
-    CNSLDTN_MTHD_domain = {"1":"Full_consolidation",
-"2":"Proportional_consolidation",
-"3":"Equity_method",
-"4":"Other_than_Full_consolidation_Proportional_consolidation_Equity_method",
-} 
-    ACCNTNG_TRTMNT_CRR = models.CharField("Accounting_treatment_CRR_Group_",max_length=255, choices=CNSLDTN_MTHD_domain)   
+    ACCMLTD_EQT_INTRST = models.FloatField("Accumulated_equity_interest",default=None, blank=True, null=True)   
 
     CNSLDTN_MTHD_domain = {"1":"Full_consolidation",
 "2":"Proportional_consolidation",
 "3":"Equity_method",
 "4":"Other_than_Full_consolidation_Proportional_consolidation_Equity_method",
 } 
-    ACCNTNG_TRTMNT_IFRS = models.CharField("Accounting_treatment_IFRS_Group_",max_length=255, choices=CNSLDTN_MTHD_domain)   
+    ACCNTNG_TRTMNT_CRR = models.CharField("Accounting_treatment_CRR_Group_",max_length=255, choices=CNSLDTN_MTHD_domain,default=None, blank=True, null=True)   
 
-    ACQSTN_CST = models.BigIntegerField("Acquisition_cost")   
+    CNSLDTN_MTHD_domain = {"1":"Full_consolidation",
+"2":"Proportional_consolidation",
+"3":"Equity_method",
+"4":"Other_than_Full_consolidation_Proportional_consolidation_Equity_method",
+} 
+    ACCNTNG_TRTMNT_IFRS = models.CharField("Accounting_treatment_IFRS_Group_",max_length=255, choices=CNSLDTN_MTHD_domain,default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    ACQSTN_CST = models.BigIntegerField("Acquisition_cost",default=None, blank=True, null=True)   
 
-    DT_ENTRY = models.DateTimeField("Entry_date")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
-    FV_INVSTMNTS_PBLSHD_PRC_QTTNS = models.BigIntegerField("Fair_value_of_investments_for_which_there_are_published_price_quotations")   
+    DT_ENTRY = models.DateTimeField("Entry_date",default=None, blank=True, null=True)   
 
-    GDWLL_INVST = models.BigIntegerField("Goodwill_link_to_the_investee")   
+    FV_INVSTMNTS_PBLSHD_PRC_QTTNS = models.BigIntegerField("Fair_value_of_investments_for_which_there_are_published_price_quotations",default=None, blank=True, null=True)   
+
+    GDWLL_INVST = models.BigIntegerField("Goodwill_link_to_the_investee",default=None, blank=True, null=True)   
 
     SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_TYP_domain = {"1":"Subsidiary_joint_venture_and_associate_Subsidiary_assignment",
 "2":"Subsidiary_joint_venture_and_associate_Joint_venture_assignment",
 "3":"Subsidiary_joint_venture_and_associate_Associate_assignment",
 } 
-    SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_TYP = models.CharField("Subsidiary_joint_venture_and_associate_Other_organisation_assignment_type",max_length=255, choices=SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_TYP_domain)   
+    SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_TYP = models.CharField("Subsidiary_joint_venture_and_associate_Other_organisation_assignment_type",max_length=255, choices=SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    VTNG_RGHT = models.FloatField("Voting_rights_")   
+    VTNG_RGHT = models.FloatField("Voting_rights_",default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -13101,19 +13101,19 @@ class BIRD_SBSDRY_JNT_VNTR_ASSCT_OTHR_ORGNSTN_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Subsidiary_joint_venture_and_associate_Other_organisation_role_assignment'
         verbose_name_plural = 'Subsidiary_joint_venture_and_associate_Other_organisation_role_assignments'
-
+		
 class BIRD_SCRTY_ENTTY_RL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_SCRTY_ENTTY_RL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_SCRTY_ENTTY_RL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -13159,12 +13159,12 @@ class BIRD_SCRTY_ENTTY_RL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     SCRTY_ENTTY_RL_ASSGNMNT_TYP_domain = {"1":"Debt_security_Debtor_assignment",
 "2":"Security_Issuer_assignment",
 } 
-    SCRTY_ENTTY_RL_ASSGNMNT_TYP = models.CharField("Security_Entity_role_assignment_type",max_length=255, choices=SCRTY_ENTTY_RL_ASSGNMNT_TYP_domain)   
+    SCRTY_ENTTY_RL_ASSGNMNT_TYP = models.CharField("Security_Entity_role_assignment_type",max_length=255, choices=SCRTY_ENTTY_RL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -13173,22 +13173,22 @@ class BIRD_SCRTY_ENTTY_RL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Security_Entity_role_assignment'
         verbose_name_plural = 'Security_Entity_role_assignments'
-
+		
 class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 
 
     BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_uniqueID = models.CharField("BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_RFRNC_DT = models.DateTimeField("Security_Reference_date")   
+    SCRTY_RFRNC_DT = models.DateTimeField("Security_Reference_date",default=None, blank=True, null=True)   
 
-    SCRTY_RPRTNG_AGNT_ID = models.CharField("Security_Reporting_agent_identifier",max_length=255)   
+    SCRTY_RPRTNG_AGNT_ID = models.CharField("Security_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ACCRD_INTRST_MRKT_VL_INDCTR_domain = {"1":"Interest_accrued_for_market_value",
 "2":"Interest_not_accrued_for_market_value",
 } 
-    ACCRD_INTRST_MRKT_VL_INDCTR = models.CharField("Accrued_interests_for_market_values_indicator",max_length=255, choices=ACCRD_INTRST_MRKT_VL_INDCTR_domain)   
+    ACCRD_INTRST_MRKT_VL_INDCTR = models.CharField("Accrued_interests_for_market_values_indicator",max_length=255, choices=ACCRD_INTRST_MRKT_VL_INDCTR_domain,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -13374,7 +13374,7 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -13560,7 +13560,7 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY_TRNSCTN_RPRTD = models.CharField("Currency_of_transaction_reported",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY_TRNSCTN_RPRTD = models.CharField("Currency_of_transaction_reported",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
     SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain = {"22":"Issued_debt_security_in_the_banking_book",
 "23":"Issued_debt_security_in_the_trading_book_International_Financial_Reporting_Standard_IFRS_",
@@ -13583,7 +13583,7 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "5":"Fund_security",
 "6":"Equity_security",
 } 
-    DBT_SCRTY_ACCNTNG_STNDRD = models.CharField("Debt_security_by_accounting_standard",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain)   
+    DBT_SCRTY_ACCNTNG_STNDRD = models.CharField("Debt_security_by_accounting_standard",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain,default=None, blank=True, null=True)   
 
     SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain = {"22":"Issued_debt_security_in_the_banking_book",
 "23":"Issued_debt_security_in_the_trading_book_International_Financial_Reporting_Standard_IFRS_",
@@ -13606,18 +13606,18 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "5":"Fund_security",
 "6":"Equity_security",
 } 
-    DBT_SCRTY_PRFRMNG_STTS_TYP = models.CharField("Debt_security_by_Performing_status_type",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain)   
+    DBT_SCRTY_PRFRMNG_STTS_TYP = models.CharField("Debt_security_by_Performing_status_type",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain,default=None, blank=True, null=True)   
 
     ELGBL_CNTRL_BNK_FNDNG_domain = {"0":"Not_applicable",
 "1":"Eligible_for_central_bank_funding",
 "2":"Not_elibible_for_central_bank_funding",
 } 
-    ELGBL_CNTRL_BNK_FNDNG = models.CharField("Eligible_for_central_bank_funding",max_length=255, choices=ELGBL_CNTRL_BNK_FNDNG_domain)   
+    ELGBL_CNTRL_BNK_FNDNG = models.CharField("Eligible_for_central_bank_funding",max_length=255, choices=ELGBL_CNTRL_BNK_FNDNG_domain,default=None, blank=True, null=True)   
 
     ERLY_RDMPTN_INCLSN_INDCTR_domain = {"1":"Early_redemption_included",
 "2":"Early_redemption_not_included",
 } 
-    ERLY_RDMPTN_INCLSN_INDCTR = models.CharField("Early_redempions_inclusion_indicator",max_length=255, choices=ERLY_RDMPTN_INCLSN_INDCTR_domain)   
+    ERLY_RDMPTN_INCLSN_INDCTR = models.CharField("Early_redempions_inclusion_indicator",max_length=255, choices=ERLY_RDMPTN_INCLSN_INDCTR_domain,default=None, blank=True, null=True)   
 
     EXPSR_CLSS_domain = {"10":"SA_Exposures_to_international_organisations",
 "11":"SA_Exposures_to_multilateral_development_banks",
@@ -13635,50 +13635,50 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "9":"SA_Exposures_to_institutions_without_a_short_term_credit_assessment",
 "0":"Not_applicable",
 } 
-    EXPSR_CLSS = models.CharField("Exposure_class",max_length=255, choices=EXPSR_CLSS_domain)   
+    EXPSR_CLSS = models.CharField("Exposure_class",max_length=255, choices=EXPSR_CLSS_domain,default=None, blank=True, null=True)   
 
     HQLA_INDCTR_domain = {"0":"Not_applicable",
 "1":"High_liquidity_and_credit_quality_HQLA_",
 "2":"Not_high_liquidity_and_credit_quality_HQLA_",
 } 
-    HQLA_INDCTR = models.CharField("High_liquidity_and_credit_quality_HQLA_indicator",max_length=255, choices=HQLA_INDCTR_domain)   
+    HQLA_INDCTR = models.CharField("High_liquidity_and_credit_quality_HQLA_indicator",max_length=255, choices=HQLA_INDCTR_domain,default=None, blank=True, null=True)   
 
     TYP_INSTRMNT_ID_domain = {"0":"Not_applicable",
 "CUSIP":"CUSIP",
 "INTERNAL_CODE":"Internal_Code",
 "SEDOL":"SEDOL",
 } 
-    IDNTFR_TYP = models.CharField("Identifier_type",max_length=255, choices=TYP_INSTRMNT_ID_domain)   
+    IDNTFR_TYP = models.CharField("Identifier_type",max_length=255, choices=TYP_INSTRMNT_ID_domain,default=None, blank=True, null=True)   
 
     BLN_domain = {"0":"Not_applicable",
 "F":"FALSE",
 "T":"TRUE",
 } 
-    IS_LSTD = models.CharField("Listed",max_length=255, choices=BLN_domain)   
+    IS_LSTD = models.CharField("Listed",max_length=255, choices=BLN_domain,default=None, blank=True, null=True)   
 
     LW_CRDT_RSK_INDCTR_domain = {"0":"Not_applicable",
 "1":"Low_credit_risk_instrument",
 "2":"Not_low_credit_risk_instrument",
 } 
-    LW_CRDT_RSK_INDCTR = models.CharField("Low_credit_risk_indicator_for_Finrep",max_length=255, choices=LW_CRDT_RSK_INDCTR_domain)   
+    LW_CRDT_RSK_INDCTR = models.CharField("Low_credit_risk_indicator_for_Finrep",max_length=255, choices=LW_CRDT_RSK_INDCTR_domain,default=None, blank=True, null=True)   
 
     MLTPL_FRBRNC_MSR_INDCTR_domain = {"0":"Not_applicable",
 "1":"Multiple_forbearance_measures_in_place",
 "2":"Not_multiple_forbearance_measures_in_place",
 } 
-    MLTPL_FRBRNC_MSRS_INDCTR = models.CharField("Multiple_forbearance_measures_in_place_indicator",max_length=255, choices=MLTPL_FRBRNC_MSR_INDCTR_domain)   
+    MLTPL_FRBRNC_MSRS_INDCTR = models.CharField("Multiple_forbearance_measures_in_place_indicator",max_length=255, choices=MLTPL_FRBRNC_MSR_INDCTR_domain,default=None, blank=True, null=True)   
 
     NGTBL_SCRTY_domain = {"0":"Not_applicable",
 "1":"Negotiable_security",
 "2":"Non_negotiable_security",
 } 
-    NGTBL_SCRTY_INDCTR = models.CharField("Negotiable_security_indicator",max_length=255, choices=NGTBL_SCRTY_domain)   
+    NGTBL_SCRTY_INDCTR = models.CharField("Negotiable_security_indicator",max_length=255, choices=NGTBL_SCRTY_domain,default=None, blank=True, null=True)   
 
     FLD_NN_PRFRMNG_EXT_CRTR_INDCTR_domain = {"0":"Not_applicable",
 "1":"Failed_to_meet_the_non_performing_exit_criteria",
 "2":"Still_able_to_meet_the_non_performing_exit_criteria",
 } 
-    NN_PRFRMNG_EXT_CRTR_MT_INDCTR = models.CharField("Non_performing_exit_criteria_met_indicator",max_length=255, choices=FLD_NN_PRFRMNG_EXT_CRTR_INDCTR_domain)   
+    NN_PRFRMNG_EXT_CRTR_MT_INDCTR = models.CharField("Non_performing_exit_criteria_met_indicator",max_length=255, choices=FLD_NN_PRFRMNG_EXT_CRTR_INDCTR_domain,default=None, blank=True, null=True)   
 
     TM_INTRVL_domain = {"0":"Not_applicable",
 "27":"Up_to_2_years",
@@ -13704,13 +13704,13 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "64":"_0d_1d_",
 "9":"_1m_3m_",
 } 
-    ORGNL_MTRTY_INTRVL = models.CharField("Original_maturity",max_length=255, choices=TM_INTRVL_domain)   
+    ORGNL_MTRTY_INTRVL = models.CharField("Original_maturity",max_length=255, choices=TM_INTRVL_domain,default=None, blank=True, null=True)   
 
     PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain = {"0":"Not_applicable",
 "1":"Performing_forborne_exposure_under_probation",
 "2":"Performing_forborne_exposure_not_under_probation",
 } 
-    PRFRMNG_FRBRN_EXPSR_UNDR_PRBTN_RCLSSFD_NN_PRFRMNG_INDCTR = models.CharField("Performing_forborne_exposure_under_probation_reclassified_from_non_performing_indicator",max_length=255, choices=PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain)   
+    PRFRMNG_FRBRN_EXPSR_UNDR_PRBTN_RCLSSFD_NN_PRFRMNG_INDCTR = models.CharField("Performing_forborne_exposure_under_probation_reclassified_from_non_performing_indicator",max_length=255, choices=PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain,default=None, blank=True, null=True)   
 
     PRMRY_ASST_CLSSFCTN_domain = {"0":"Not_applicable",
 "D_11":"Straight_bond",
@@ -13802,7 +13802,7 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "F_2":"Alternative_investment_fund_AIF_",
 "F_9":"Other_fund",
 } 
-    PRMRY_ASST_CLSSFCTN = models.CharField("Primary_asset_classification",max_length=255, choices=PRMRY_ASST_CLSSFCTN_domain)   
+    PRMRY_ASST_CLSSFCTN = models.CharField("Primary_asset_classification",max_length=255, choices=PRMRY_ASST_CLSSFCTN_domain,default=None, blank=True, null=True)   
 
     SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain = {"22":"Issued_debt_security_in_the_banking_book",
 "23":"Issued_debt_security_in_the_trading_book_International_Financial_Reporting_Standard_IFRS_",
@@ -13825,15 +13825,15 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "5":"Fund_security",
 "6":"Equity_security",
 } 
-    PRPTL_DBT_SCRTY_INDCTR = models.CharField("Perpetual_debt_security_indicator",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain)   
+    PRPTL_DBT_SCRTY_INDCTR = models.CharField("Perpetual_debt_security_indicator",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain,default=None, blank=True, null=True)   
 
-    RL_ESTT_CLLTRL_LCTN = models.CharField("Real_estate_collateral_location",max_length=255)   
+    RL_ESTT_CLLTRL_LCTN = models.CharField("Real_estate_collateral_location",max_length=255,default=None, blank=True, null=True)   
 
     SBRDNTD_DBT_domain = {"0":"Not_applicable",
 "1":"Subordinated_debt",
 "2":"Non_subordinated_debt",
 } 
-    SBRDNTD_DBT = models.CharField("Subordinated_debt",max_length=255, choices=SBRDNTD_DBT_domain)   
+    SBRDNTD_DBT = models.CharField("Subordinated_debt",max_length=255, choices=SBRDNTD_DBT_domain,default=None, blank=True, null=True)   
 
     SCRTY_GRNT_LVL_domain = {"0":"Not_applicable",
 "1":"Unguaranteed",
@@ -13841,14 +13841,14 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "8":"Other_guarantee",
 "9":"Guarantee_level_No_detailed_information_available",
 } 
-    SCRTY_GRNT_LVL = models.CharField("Security_guarantee_level",max_length=255, choices=SCRTY_GRNT_LVL_domain)   
+    SCRTY_GRNT_LVL = models.CharField("Security_guarantee_level",max_length=255, choices=SCRTY_GRNT_LVL_domain,default=None, blank=True, null=True)   
 
     SCRTY_LVL_domain = {"0":"Not_applicable",
 "1":"Unsecured",
 "2":"Secured",
 "9":"Security_level_No_detailed_information_available",
 } 
-    SCRTY_LVL = models.CharField("Security_level",max_length=255, choices=SCRTY_LVL_domain)   
+    SCRTY_LVL = models.CharField("Security_level",max_length=255, choices=SCRTY_LVL_domain,default=None, blank=True, null=True)   
 
     SCRTY_RNK_LVL_domain = {"0":"Not_applicable",
 "1":"Subordinated_Junior_level",
@@ -13860,7 +13860,7 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "7":"ABS_Class_Senior",
 "9":"Rank_level_No_detailed_information_available",
 } 
-    SCRTY_RNK_LVL = models.CharField("Security_rank_level",max_length=255, choices=SCRTY_RNK_LVL_domain)   
+    SCRTY_RNK_LVL = models.CharField("Security_rank_level",max_length=255, choices=SCRTY_RNK_LVL_domain,default=None, blank=True, null=True)   
 
     STTS_domain = {"0":"Not_applicable",
 "100":"Alive",
@@ -13885,7 +13885,7 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "218":"not_alive_not_covered_by_IF_list",
 "101":"Alive_under_judicial_administration_receivership_or_similar_measures",
 } 
-    SCRTY_STTS = models.CharField("Security_status",max_length=255, choices=STTS_domain)   
+    SCRTY_STTS = models.CharField("Security_status",max_length=255, choices=STTS_domain,default=None, blank=True, null=True)   
 
     SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain = {"22":"Issued_debt_security_in_the_banking_book",
 "23":"Issued_debt_security_in_the_trading_book_International_Financial_Reporting_Standard_IFRS_",
@@ -13908,7 +13908,7 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "5":"Fund_security",
 "6":"Equity_security",
 } 
-    SCRTY_TYP_BY_IDNTFR = models.CharField("Security_type_by_identifier",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain)   
+    SCRTY_TYP_BY_IDNTFR = models.CharField("Security_type_by_identifier",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain,default=None, blank=True, null=True)   
 
     SGNFCNT_ASST_CLSS_domain = {"0":"Not_applicable",
 "1":"Interest_rate",
@@ -13917,13 +13917,13 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "4":"Commodity",
 "5":"Other",
 } 
-    SGNFCNT_ASST_CLSS = models.CharField("Significant_asset_class",max_length=255, choices=SGNFCNT_ASST_CLSS_domain)   
+    SGNFCNT_ASST_CLSS = models.CharField("Significant_asset_class",max_length=255, choices=SGNFCNT_ASST_CLSS_domain,default=None, blank=True, null=True)   
 
     STRCTRD_NT_INDCTR_domain = {"0":"Not_applicable",
 "1":"Structured_note",
 "2":"Not_structured_note",
 } 
-    STRCTRD_NT_INDCTR = models.CharField("Structured_note_indicator",max_length=255, choices=STRCTRD_NT_INDCTR_domain)   
+    STRCTRD_NT_INDCTR = models.CharField("Structured_note_indicator",max_length=255, choices=STRCTRD_NT_INDCTR_domain,default=None, blank=True, null=True)   
 
     TM_INTRVL_domain = {"0":"Not_applicable",
 "27":"Up_to_2_years",
@@ -13949,7 +13949,7 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "64":"_0d_1d_",
 "9":"_1m_3m_",
 } 
-    TM_PST_DU_BND = models.CharField("Time_past_due_band",max_length=255, choices=TM_INTRVL_domain)   
+    TM_PST_DU_BND = models.CharField("Time_past_due_band",max_length=255, choices=TM_INTRVL_domain,default=None, blank=True, null=True)   
 
     TYP_ASST_SCRTSTN_domain = {"0":"Not_applicable",
 "1000":"Securitisation",
@@ -13990,7 +13990,7 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "12012":"Residential_mortgage_backed_security_Mid_prime_RMBS_Mid_prime_",
 "12013":"Residential_mortgage_backed_security_Sub_prime_RMBS_Sub_prime_",
 } 
-    TYP_ASST_PRVDD_SCRTY = models.CharField("Type_of_asset_provided_as_security",max_length=255, choices=TYP_ASST_SCRTSTN_domain)   
+    TYP_ASST_PRVDD_SCRTY = models.CharField("Type_of_asset_provided_as_security",max_length=255, choices=TYP_ASST_SCRTSTN_domain,default=None, blank=True, null=True)   
 
     SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain = {"22":"Issued_debt_security_in_the_banking_book",
 "23":"Issued_debt_security_in_the_trading_book_International_Financial_Reporting_Standard_IFRS_",
@@ -14013,42 +14013,42 @@ class BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "5":"Fund_security",
 "6":"Equity_security",
 } 
-    TYP_SCRTY_EXCHNG_TRDBL_DRVTV = models.CharField("Type_of_security_exchange_tradedable_derivative",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain)   
+    TYP_SCRTY_EXCHNG_TRDBL_DRVTV = models.CharField("Type_of_security_exchange_tradedable_derivative",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain,default=None, blank=True, null=True)   
 
-    DT_ISS = models.DateTimeField("Issue_date")   
+    DT_ISS = models.DateTimeField("Issue_date",default=None, blank=True, null=True)   
 
-    DT_LGL_FNL_MTRTY = models.DateTimeField("Legal_final_maturity_date")   
+    DT_LGL_FNL_MTRTY = models.DateTimeField("Legal_final_maturity_date",default=None, blank=True, null=True)   
 
-    DT_PRFRMNG_STTS = models.DateTimeField("Date_of_the_performing_status_of_the_instrument")   
+    DT_PRFRMNG_STTS = models.DateTimeField("Date_of_the_performing_status_of_the_instrument",default=None, blank=True, null=True)   
 
-    DT_PST_D = models.DateTimeField("Date_of_past_due")   
+    DT_PST_D = models.DateTimeField("Date_of_past_due",default=None, blank=True, null=True)   
 
-    DT_SCRTY_STTS = models.DateTimeField("Security_status_date")   
+    DT_SCRTY_STTS = models.DateTimeField("Security_status_date",default=None, blank=True, null=True)   
 
-    FRBRNC_MSR_CNT = models.BigIntegerField("Forbearance_measure_count")   
+    FRBRNC_MSR_CNT = models.BigIntegerField("Forbearance_measure_count",default=None, blank=True, null=True)   
 
-    ISIN = models.CharField("ISIN_code",max_length=255)   
+    ISIN = models.CharField("ISIN_code",max_length=255,default=None, blank=True, null=True)   
 
-    OFFCL_SCRTY_ID = models.CharField("Official_security_identifier",max_length=255)   
+    OFFCL_SCRTY_ID = models.CharField("Official_security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ORGNL_NMNL_AMNT = models.BigIntegerField("Original_nominal_amount")   
+    ORGNL_NMNL_AMNT = models.BigIntegerField("Original_nominal_amount",default=None, blank=True, null=True)   
 
-    SHRT_NM_INSTRMNT = models.CharField("Short_name_of_the_instrument",max_length=255)   
+    SHRT_NM_INSTRMNT = models.CharField("Short_name_of_the_instrument",max_length=255,default=None, blank=True, null=True)   
 
-    TTL_AMNT_CPTL_ISSD = models.BigIntegerField("Total_amount_of_capital_issued")   
+    TTL_AMNT_CPTL_ISSD = models.BigIntegerField("Total_amount_of_capital_issued",default=None, blank=True, null=True)   
 
-    TTL_NMBR_SHRS_ISSD = models.BigIntegerField("Total_number_of_shares_issued")   
+    TTL_NMBR_SHRS_ISSD = models.BigIntegerField("Total_number_of_shares_issued",default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Security_and_exchange_tradable_derivative'
         verbose_name_plural = 'Security_and_exchange_tradable_derivatives'
-
+		
 class BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 
 
     BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL_uniqueID = models.CharField("BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255)   
+    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -14094,9 +14094,9 @@ class BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255)   
+    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -14142,13 +14142,13 @@ class BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain = {"3":"Long_security_position_trading_book_assignment_International_Financial_Reporting_Standard_IFRS_",
 "4":"Long_security_position_trading_book_assignment_national_general_accepted_accounting_principles_nGAAP_",
@@ -14156,7 +14156,7 @@ class BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "1":"Long_debt_security_position_Prudential_portfolio_assignment",
 "2":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment",
 } 
-    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain)   
+    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain = {"4":"Exchange_tradable_derivative_position_as_a_hedge",
 "6":"Non_balance_sheet_recognised_exchange_tradable_derivative_liability_position",
@@ -14165,7 +14165,7 @@ class BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "10":"Non_fair_valued_balance_sheet_recognised_exchange_tradable_derivative_asset_position",
 "9":"Fair_valued_balance_sheet_recognised_exchange_tradable_derivative_asset_position",
 } 
-    EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP = models.CharField("Exchange_tradable_derivative_position_role_type",max_length=255, choices=EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain)   
+    EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP = models.CharField("Exchange_tradable_derivative_position_role_type",max_length=255, choices=EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 = models.ForeignKey("BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -14174,15 +14174,15 @@ class BIRD_SCRTY_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
     class Meta:
         verbose_name = 'Security_position_hedged_by_Exchange_tradable_derivative_position'
         verbose_name_plural = 'Security_position_hedged_by_Exchange_tradable_derivative_positions'
-
+		
 class BIRD_SCRTY_PSTN_EIL(models.Model):
 
 
     BIRD_SCRTY_PSTN_EIL_uniqueID = models.CharField("BIRD_SCRTY_PSTN_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -14228,16 +14228,16 @@ class BIRD_SCRTY_PSTN_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
     DT_OPNNG_BLNC_domain = {"2":"Current_reference_period_date",
 "-1":"Any_date_Total_",
 } 
-    APPLCTN_FRBRNC_STTS_DT = models.CharField("Date_period_of_application_of_forbearance_measure",max_length=255, choices=DT_OPNNG_BLNC_domain)   
+    APPLCTN_FRBRNC_STTS_DT = models.CharField("Date_period_of_application_of_forbearance_measure",max_length=255, choices=DT_OPNNG_BLNC_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -14260,7 +14260,7 @@ class BIRD_SCRTY_PSTN_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    DFLT_STTS = models.CharField("Default_status",max_length=255, choices=CRDT_QLTY_domain)   
+    DFLT_STTS = models.CharField("Default_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -14283,12 +14283,12 @@ class BIRD_SCRTY_PSTN_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    DFLT_STTS_DRVD = models.CharField("Derived_default_status",max_length=255, choices=CRDT_QLTY_domain)   
+    DFLT_STTS_DRVD = models.CharField("Derived_default_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     FRBRNC_MSR_GRNTD_DRNG_RFRNC_PRD_domain = {"1":"Forbearance_measure_granted_during_the_reference_period",
 "2":"No_Forbearance_measure_granted_during_the_reference_period",
 } 
-    FRBRNC_MSR_GRNTD_RFRNC_PRD_INDCTR = models.CharField("Forbearance_measure_granted_during_reference_period_indicator",max_length=255, choices=FRBRNC_MSR_GRNTD_DRNG_RFRNC_PRD_domain)   
+    FRBRNC_MSR_GRNTD_RFRNC_PRD_INDCTR = models.CharField("Forbearance_measure_granted_during_reference_period_indicator",max_length=255, choices=FRBRNC_MSR_GRNTD_DRNG_RFRNC_PRD_domain,default=None, blank=True, null=True)   
 
     FRBRNC_MSR_TYP_domain = {"11":"Forborne_instruments_with_modified_interest_rate_below_market_conditions",
 "1":"Grace_period_payment_moratorium",
@@ -14302,25 +14302,25 @@ class BIRD_SCRTY_PSTN_EIL(models.Model):
 "8":"Forborne_Refinanced_debt",
 "9":"Forborne_instruments_with_other_modified_terms_and_conditions",
 } 
-    FRBRNC_MSR_TYP = models.CharField("Forbearance_measure",max_length=255, choices=FRBRNC_MSR_TYP_domain)   
+    FRBRNC_MSR_TYP = models.CharField("Forbearance_measure",max_length=255, choices=FRBRNC_MSR_TYP_domain,default=None, blank=True, null=True)   
 
-    FV = models.BigIntegerField("Fair_value")   
+    FV = models.BigIntegerField("Fair_value",default=None, blank=True, null=True)   
 
-    FV_CHNG = models.BigIntegerField("Fair_value_change")   
+    FV_CHNG = models.BigIntegerField("Fair_value_change",default=None, blank=True, null=True)   
 
     FV_HRRCHY_domain = {"0":"Not_applicable",
 "1":"Level_1",
 "2":"Level_2",
 "3":"Level_3",
 } 
-    FV_HRRCHY = models.CharField("Fair_value_hierarchy",max_length=255, choices=FV_HRRCHY_domain)   
+    FV_HRRCHY = models.CharField("Fair_value_hierarchy",max_length=255, choices=FV_HRRCHY_domain,default=None, blank=True, null=True)   
 
     LTGTN_STTS_domain = {"0":"Not_applicable",
 "1":"Pre_litigation",
 "2":"In_litigation",
 "3":"Not_in_litigation_pre_litigation",
 } 
-    LTGTN_STTS = models.CharField("Litigation_status",max_length=255, choices=LTGTN_STTS_domain)   
+    LTGTN_STTS = models.CharField("Litigation_status",max_length=255, choices=LTGTN_STTS_domain,default=None, blank=True, null=True)   
 
     SCRTY_EXCHNG_TRDBL_DRVTV_PSTN_TYP_domain = {"0":"Not_applicable",
 "17":"Forborne_long_non_negotiable_security_position",
@@ -14330,13 +14330,13 @@ class BIRD_SCRTY_PSTN_EIL(models.Model):
 "2":"Long_equity_or_fund_security_position",
 "6":"Short_security_position",
 } 
-    NGTBL_SCRTY_PSTN_INDCTR = models.CharField("Negotiable_security_position_indicator",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_PSTN_TYP_domain)   
+    NGTBL_SCRTY_PSTN_INDCTR = models.CharField("Negotiable_security_position_indicator",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_PSTN_TYP_domain,default=None, blank=True, null=True)   
 
     OWN_CMPNY_INVSTMNT_INDCTR_domain = {"0":"Not_applicable",
 "1":"Own_company_investment",
 "2":"Non_own_company_investment",
 } 
-    OWN_CMPNY_INVSTMNT_INDCTR = models.CharField("Own_company_investment_indicator",max_length=255, choices=OWN_CMPNY_INVSTMNT_INDCTR_domain)   
+    OWN_CMPNY_INVSTMNT_INDCTR = models.CharField("Own_company_investment_indicator",max_length=255, choices=OWN_CMPNY_INVSTMNT_INDCTR_domain,default=None, blank=True, null=True)   
 
     SCRTY_EXCHNG_TRDBL_DRVTV_PSTN_TYP_domain = {"0":"Not_applicable",
 "17":"Forborne_long_non_negotiable_security_position",
@@ -14346,19 +14346,19 @@ class BIRD_SCRTY_PSTN_EIL(models.Model):
 "2":"Long_equity_or_fund_security_position",
 "6":"Short_security_position",
 } 
-    TYP_SCRTY_PSTN = models.CharField("Type_of_security_position",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_PSTN_TYP_domain)   
+    TYP_SCRTY_PSTN = models.CharField("Type_of_security_position",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_PSTN_TYP_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value")   
+    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value",default=None, blank=True, null=True)   
 
-    CRRNT_LTV_RT = models.FloatField("Current_loan_to_value_ratio")   
+    CRRNT_LTV_RT = models.FloatField("Current_loan_to_value_ratio",default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
-    DT_FRBRNC_STTS = models.DateTimeField("Date_of_forbearance_and_renegotiation_status")   
+    DT_FRBRNC_STTS = models.DateTimeField("Date_of_forbearance_and_renegotiation_status",default=None, blank=True, null=True)   
 
-    NMBR_SHRS = models.BigIntegerField("Number_of_shares")   
+    NMBR_SHRS = models.BigIntegerField("Number_of_shares",default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -14367,19 +14367,19 @@ class BIRD_SCRTY_PSTN_EIL(models.Model):
     class Meta:
         verbose_name = 'Security_position'
         verbose_name_plural = 'Security_positions'
-
+		
 class BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL(models.Model):
 
 
     BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL_uniqueID = models.CharField("BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    OTC_DRVTV_INSTRMNT_ID = models.CharField("Over_the_counter_OTC_Derivative_Instrument_identifier",max_length=255)   
+    OTC_DRVTV_INSTRMNT_ID = models.CharField("Over_the_counter_OTC_Derivative_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -14425,7 +14425,7 @@ class BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain = {"3":"Long_security_position_trading_book_assignment_International_Financial_Reporting_Standard_IFRS_",
 "4":"Long_security_position_trading_book_assignment_national_general_accepted_accounting_principles_nGAAP_",
@@ -14433,7 +14433,7 @@ class BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL(models.Model):
 "1":"Long_debt_security_position_Prudential_portfolio_assignment",
 "2":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment",
 } 
-    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain)   
+    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -14489,9 +14489,9 @@ class BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -14547,11 +14547,11 @@ class BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    SCRTY_PSTN_HDGD_OTC_DRVTV_TYP = models.CharField("Security_position_hedged_by_Over_the_counter_OTC_derivative_type",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    SCRTY_PSTN_HDGD_OTC_DRVTV_TYP = models.CharField("Security_position_hedged_by_Over_the_counter_OTC_derivative_type",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    NMBR_SHRS = models.BigIntegerField("Number_of_shares")   
+    NMBR_SHRS = models.BigIntegerField("Number_of_shares",default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
     the_BIRD_ABSTRCT_INSTRMNT_RL_EIL_1 = models.ForeignKey("BIRD_ABSTRCT_INSTRMNT_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -14560,35 +14560,35 @@ class BIRD_SCRTY_PSTN_HDGD_OTC_DRVTV_EIL(models.Model):
     class Meta:
         verbose_name = 'Security_position_hedged_by_Over_the_counter_OTC_derivative'
         verbose_name_plural = 'Security_position_hedged_by_Over_the_counter_OTC_derivatives'
-
+		
 class BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RPRCHS_AGRMNT_INSTRMNT_ID = models.CharField("Repurchase_agreement_Instrument_identifier",max_length=255)   
+    RPRCHS_AGRMNT_INSTRMNT_ID = models.CharField("Repurchase_agreement_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
     RPRCHS_AGRMNT_TYP_domain = {"1":"Cash_leg",
 "3":"Security_leg",
 "4":"Loans_and_advances_leg",
 "5":"Equity_instrument_leg",
 } 
-    RPRCHS_AGRMNT_CMPNNT_TYP = models.CharField("Repurchase_component_type",max_length=255, choices=RPRCHS_AGRMNT_TYP_domain)   
+    RPRCHS_AGRMNT_CMPNNT_TYP = models.CharField("Repurchase_component_type",max_length=255, choices=RPRCHS_AGRMNT_TYP_domain,default=None, blank=True, null=True)   
 
     SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_TYP_domain = {"11":"Debt_security_Security_repurchase_agreement_component_assignment",
 "12":"Equity_or_fund_security_Security_repurchase_agreement_component_assignment",
 } 
-    SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_TYP = models.CharField("Security_Security_repurchase_agreement_component_assignment_type",max_length=255, choices=SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_TYP_domain)   
+    SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_TYP = models.CharField("Security_Security_repurchase_agreement_component_assignment_type",max_length=255, choices=SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    NMBR_SHRS = models.BigIntegerField("Number_of_shares")   
+    NMBR_SHRS = models.BigIntegerField("Number_of_shares",default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
     the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 = models.ForeignKey("BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -14597,28 +14597,19 @@ class BIRD_SCRTY_SCRTY_RPRCHS_AGRMNT_CMPNNT_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Security_Security_leg_assignment'
         verbose_name_plural = 'Security_Security_leg_assignments'
-
+		
 class BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_EIL(models.Model):
 
 
     BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_EIL_uniqueID = models.CharField("BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_BRRWNG_LNDNG_TRNSCTN_INSTRMNT_ID = models.CharField("Security_borrowing_and_lending_transaction_Instrument_identifier",max_length=255)   
+    SCRTY_BRRWNG_LNDNG_TRNSCTN_INSTRMNT_ID = models.CharField("Security_borrowing_and_lending_transaction_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
-
-    SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_TYP_domain = {"0":"Not_applicable",
-"10":"Security_lending_component",
-"5":"Security_borrowing_component",
-"1":"Security_borrowing_and_lending_transaction_cash_as_collateral_component",
-"3":"Debt_security_borrowing_and_lending_transaction_component",
-"4":"Equity_or_fund_security_borrowing_and_lending_transaction_component",
-} 
-    SCRTY_BRRWNG_LNDNG_TRNSCTN_CMPNNT_TYP_BY_DRCTN = models.CharField("Security_borrowing_and_lending_transaction_component_type_by_direction",max_length=255, choices=SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_TYP_domain)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_TYP_domain = {"0":"Not_applicable",
 "10":"Security_lending_component",
@@ -14627,11 +14618,20 @@ class BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_EIL(models.Model):
 "3":"Debt_security_borrowing_and_lending_transaction_component",
 "4":"Equity_or_fund_security_borrowing_and_lending_transaction_component",
 } 
-    TYP_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL = models.CharField("Type_of_security_borrowing_lending_transcription",max_length=255, choices=SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_TYP_domain)   
+    SCRTY_BRRWNG_LNDNG_TRNSCTN_CMPNNT_TYP_BY_DRCTN = models.CharField("Security_borrowing_and_lending_transaction_component_type_by_direction",max_length=255, choices=SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_TYP_domain,default=None, blank=True, null=True)   
 
-    NMBR_SHRS = models.BigIntegerField("Number_of_shares")   
+    SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_TYP_domain = {"0":"Not_applicable",
+"10":"Security_lending_component",
+"5":"Security_borrowing_component",
+"1":"Security_borrowing_and_lending_transaction_cash_as_collateral_component",
+"3":"Debt_security_borrowing_and_lending_transaction_component",
+"4":"Equity_or_fund_security_borrowing_and_lending_transaction_component",
+} 
+    TYP_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL = models.CharField("Type_of_security_borrowing_lending_transcription",max_length=255, choices=SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_TYP_domain,default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMBR_SHRS = models.BigIntegerField("Number_of_shares",default=None, blank=True, null=True)   
+
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -14640,15 +14640,15 @@ class BIRD_SCTRY_BRRWNG_LNDNG_TRNSCTN_INCLDNG_CSH_CLLTRL_EIL(models.Model):
     class Meta:
         verbose_name = 'Security_borrowing_and_lending_transaction_including_cash_as_collateral_component'
         verbose_name_plural = 'Security_borrowing_and_lending_transaction_including_cash_as_collateral_components'
-
+		
 class BIRD_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -14694,17 +14694,17 @@ class BIRD_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     PRDNTL_PRTFL_domain = {"1":"Trading_book",
 "2":"Non_trading_book",
 "0":"Not_applicable",
 } 
-    PRDNTL_PRTFL_TYP = models.CharField("Prudential_portfolio_type",max_length=255, choices=PRDNTL_PRTFL_domain)   
+    PRDNTL_PRTFL_TYP = models.CharField("Prudential_portfolio_type",max_length=255, choices=PRDNTL_PRTFL_domain,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ACCNTNG_CLSSFCTN_domain = {"21":"IFRS_Financial_liabilities_measured_at_amortised_cost",
 "23":"IFRS_Financial_liabilities_held_for_trading",
@@ -14746,48 +14746,48 @@ class BIRD_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL(models.Model):
 "93":"Under_nGAAP",
 "0":"Not_applicable",
 } 
-    SHRT_PSTN_ACCNTNG_CLSSFCTN = models.CharField("Short_position_accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain)   
+    SHRT_PSTN_ACCNTNG_CLSSFCTN = models.CharField("Short_position_accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain,default=None, blank=True, null=True)   
 
     SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain = {"2":"Short_banking_book_security_position",
 "3":"Short_trading_book_security_position_International_Financial_Reporting_Standard_IFRS_",
 "4":"Short_trading_book_security_position_national_general_accepted_accounting_principles_nGAAP_",
 } 
-    TYP_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT = models.CharField("Type_of_short_position_prudential_portfolio_assignment",max_length=255, choices=SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain)   
+    TYP_SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT = models.CharField("Type_of_short_position_prudential_portfolio_assignment",max_length=255, choices=SHRT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    HRCTS_TRDNG_PSTNS_FV = models.BigIntegerField("Haircuts_for_trading_positions_valued_at_fair_value")   
+    HRCTS_TRDNG_PSTNS_FV = models.BigIntegerField("Haircuts_for_trading_positions_valued_at_fair_value",default=None, blank=True, null=True)   
 
     the_BIRD_SCRTY_PSTN_EIL_1 = models.ForeignKey("BIRD_SCRTY_PSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Short_security_position_prudential_portfolio_assignment'
         verbose_name_plural = 'Short_security_position_prudential_portfolio_assignments'
-
+		
 class BIRD_SNTHTC_SCRTSTN_EIL(models.Model):
 
 
     BIRD_SNTHTC_SCRTSTN_EIL_uniqueID = models.CharField("BIRD_SNTHTC_SCRTSTN_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255)   
+    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTSTN_RFRNC_DT = models.DateTimeField("Securitisation_Reference_date")   
+    SCRTSTN_RFRNC_DT = models.DateTimeField("Securitisation_Reference_date",default=None, blank=True, null=True)   
 
-    SCRTSTN_RPRTNG_AGNT_ID = models.CharField("Securitisation_Reporting_agent_identifier",max_length=255)   
+    SCRTSTN_RPRTNG_AGNT_ID = models.CharField("Securitisation_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255)   
+    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    AMNT_DRCGNSD_CPTL_PRPS = models.BigIntegerField("AMNT_DRCGNSD_CPTL_PRPS")   
+    AMNT_DRCGNSD_CPTL_PRPS = models.BigIntegerField("AMNT_DRCGNSD_CPTL_PRPS",default=None, blank=True, null=True)   
 
-    PRCNTG_RTND = models.FloatField("Percentage_retained")   
+    PRCNTG_RTND = models.FloatField("Percentage_retained",default=None, blank=True, null=True)   
 
     RSCRTSTN_INDCTR_domain = {"1":"Re_securitisation",
 "2":"Not_re_securitisation",
 } 
-    RSCRTSTN_INDCTR = models.CharField("Re_securitisation_indicator",max_length=255, choices=RSCRTSTN_INDCTR_domain)   
+    RSCRTSTN_INDCTR = models.CharField("Re_securitisation_indicator",max_length=255, choices=RSCRTSTN_INDCTR_domain,default=None, blank=True, null=True)   
 
     STS_SCRTSTN_INDCTR_domain = {"1":"Simple_transparent_and_standardised_STS_securitisation",
 "2":"Not_simple_transparent_and_standardised_STS_securitisation",
 } 
-    STS_SCRTSTN_INDCTR = models.CharField("Simple_transparent_and_standardised_STS_securitisation_indicator",max_length=255, choices=STS_SCRTSTN_INDCTR_domain)   
+    STS_SCRTSTN_INDCTR = models.CharField("Simple_transparent_and_standardised_STS_securitisation_indicator",max_length=255, choices=STS_SCRTSTN_INDCTR_domain,default=None, blank=True, null=True)   
 
     SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain = {"5":"Covered_bond_program",
 "6":"Credit_transfer_other_than_securitisation_and_covered_bond_program",
@@ -14795,65 +14795,65 @@ class BIRD_SNTHTC_SCRTSTN_EIL(models.Model):
 "3":"Synthetic_securitisation_without_involvement_of_an_SSPE",
 "4":"Synthetic_securitisation_involving_an_SSPE",
 } 
-    TYP_SNTHTC_SCRTSTN = models.CharField("Type_of_synthetic_securitisation",max_length=255, choices=SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain)   
+    TYP_SNTHTC_SCRTSTN = models.CharField("Type_of_synthetic_securitisation",max_length=255, choices=SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain,default=None, blank=True, null=True)   
 
     SGNFCNT_RSK_TRNSFR_INDCTR_domain = {"1":"Significant_risk_transfer",
 "2":"Not_significant_risk_transfer",
 } 
-    SGNFCNT_RSK_TRNSFR_INDCTR = models.CharField("Significant_risk_transfer_indicator",max_length=255, choices=SGNFCNT_RSK_TRNSFR_INDCTR_domain)   
+    SGNFCNT_RSK_TRNSFR_INDCTR = models.CharField("Significant_risk_transfer_indicator",max_length=255, choices=SGNFCNT_RSK_TRNSFR_INDCTR_domain,default=None, blank=True, null=True)   
 
     the_BIRD_ASST_PL_EIL_1 = models.ForeignKey("BIRD_ASST_PL_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Synthetic_securitisation'
         verbose_name_plural = 'Synthetic_securitisations'
-
+		
 class BIRD_SYNDCTD_CNTRCT_EIL(models.Model):
 
 
     BIRD_SYNDCTD_CNTRCT_EIL_uniqueID = models.CharField("BIRD_SYNDCTD_CNTRCT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SYNDCTD_CNTRCT_ID = models.CharField("Syndicated_contract_identifier",max_length=255)   
+    SYNDCTD_CNTRCT_ID = models.CharField("Syndicated_contract_identifier",max_length=255,default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Syndicated_contract'
         verbose_name_plural = 'Syndicated_contracts'
-
+		
 class BIRD_TRDTNL_SCRTSTN_EIL(models.Model):
 
 
     BIRD_TRDTNL_SCRTSTN_EIL_uniqueID = models.CharField("BIRD_TRDTNL_SCRTSTN_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255)   
+    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255)   
+    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255)   
+    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRCNTG_RTND = models.FloatField("Percentage_retained")   
+    PRCNTG_RTND = models.FloatField("Percentage_retained",default=None, blank=True, null=True)   
 
     RSCRTSTN_INDCTR_domain = {"1":"Re_securitisation",
 "2":"Not_re_securitisation",
 } 
-    RSCRTSTN_INDCTR = models.CharField("Re_securitisation_indicator",max_length=255, choices=RSCRTSTN_INDCTR_domain)   
+    RSCRTSTN_INDCTR = models.CharField("Re_securitisation_indicator",max_length=255, choices=RSCRTSTN_INDCTR_domain,default=None, blank=True, null=True)   
 
     STS_SCRTSTN_INDCTR_domain = {"1":"Simple_transparent_and_standardised_STS_securitisation",
 "2":"Not_simple_transparent_and_standardised_STS_securitisation",
 } 
-    STS_SCRTSTN_INDCTR = models.CharField("Simple_transparent_and_standardised_STS_securitisation_indicator",max_length=255, choices=STS_SCRTSTN_INDCTR_domain)   
+    STS_SCRTSTN_INDCTR = models.CharField("Simple_transparent_and_standardised_STS_securitisation_indicator",max_length=255, choices=STS_SCRTSTN_INDCTR_domain,default=None, blank=True, null=True)   
 
-    DSCNT_EXCSS_SPRD_AMNT = models.FloatField("Discount_or_excess_spread_amount")   
+    DSCNT_EXCSS_SPRD_AMNT = models.FloatField("Discount_or_excess_spread_amount",default=None, blank=True, null=True)   
 
     SGNFCNT_RSK_TRNSFR_INDCTR_domain = {"1":"Significant_risk_transfer",
 "2":"Not_significant_risk_transfer",
 } 
-    SGNFCNT_RSK_TRNSFR_INDCTR = models.CharField("Significant_risk_transfer_indicator",max_length=255, choices=SGNFCNT_RSK_TRNSFR_INDCTR_domain)   
+    SGNFCNT_RSK_TRNSFR_INDCTR = models.CharField("Significant_risk_transfer_indicator",max_length=255, choices=SGNFCNT_RSK_TRNSFR_INDCTR_domain,default=None, blank=True, null=True)   
 
-    AMNT_DRCGNSD_CPTL_PRPS = models.BigIntegerField("AMNT_DRCGNSD_CPTL_PRPS")   
+    AMNT_DRCGNSD_CPTL_PRPS = models.BigIntegerField("AMNT_DRCGNSD_CPTL_PRPS",default=None, blank=True, null=True)   
 
     the_BIRD_ASST_PL_EIL_1 = models.ForeignKey("BIRD_ASST_PL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -14862,28 +14862,28 @@ class BIRD_TRDTNL_SCRTSTN_EIL(models.Model):
     class Meta:
         verbose_name = 'Traditional_securitisation'
         verbose_name_plural = 'Traditional_securitisations'
-
+		
 class BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST_EIL(models.Model):
 
 
     BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST_EIL_uniqueID = models.CharField("BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255)   
+    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
     TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP_domain = {"1":"Tranche_in_a_synthetic_securitisation_without_SSPE_being_a_deposit",
 "2":"Tranche_in_a_synthetic_securitisation_without_SSPE_being_a_financial_guarantee",
 } 
-    TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP = models.CharField("Tranch_in_a_synthetic_securitisation_without_SSPE_type",max_length=255, choices=TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP_domain)   
+    TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP = models.CharField("Tranch_in_a_synthetic_securitisation_without_SSPE_type",max_length=255, choices=TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP_domain,default=None, blank=True, null=True)   
 
-    TRNCH_ID = models.CharField("Tranche_identifier",max_length=255)   
+    TRNCH_ID = models.CharField("Tranche_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    TRNCH_NM = models.CharField("Tranche_name",max_length=255)   
+    TRNCH_NM = models.CharField("Tranche_name",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -14892,28 +14892,28 @@ class BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_DPST_EIL(models.Model):
     class Meta:
         verbose_name = 'Tranche_in_a_synthetic_securitisation_without_securitisation_special_purpose_entity_SSPE_being_a_deposit'
         verbose_name_plural = 'Tranche_in_a_synthetic_securitisation_without_securitisation_special_purpose_entity_SSPE_being_a_deposits'
-
+		
 class BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT_EIL(models.Model):
 
 
     BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT_EIL_uniqueID = models.CharField("BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255)   
+    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255,default=None, blank=True, null=True)   
 
     TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP_domain = {"1":"Tranche_in_a_synthetic_securitisation_without_SSPE_being_a_deposit",
 "2":"Tranche_in_a_synthetic_securitisation_without_SSPE_being_a_financial_guarantee",
 } 
-    TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP = models.CharField("Tranch_in_a_synthetic_securitisation_without_SSPE_type",max_length=255, choices=TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP_domain)   
+    TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP = models.CharField("Tranch_in_a_synthetic_securitisation_without_SSPE_type",max_length=255, choices=TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_TYP_domain,default=None, blank=True, null=True)   
 
-    TRNCH_ID = models.CharField("Tranche_identifier",max_length=255)   
+    TRNCH_ID = models.CharField("Tranche_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    TRNCH_NM = models.CharField("Tranche_name",max_length=255)   
+    TRNCH_NM = models.CharField("Tranche_name",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_SNTHTC_SCRTSTN_EIL_1 = models.ForeignKey("BIRD_SNTHTC_SCRTSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -14922,28 +14922,28 @@ class BIRD_TRNCH_SYNTHTC_SCRTSTN_WTHT_SSPE_FNNCL_GRNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Tranche_in_a_synthetic_securitisation_without_securitisation_special_purpose_entity_SSPE_being_a_financial_guarantee'
         verbose_name_plural = 'Tranche_in_a_synthetic_securitisation_without_securitisation_special_purpose_entity_SSPE_being_a_financial_guarantees'
-
+		
 class BIRD_TRNCH_TRDTNL_SCRTSTN_EIL(models.Model):
 
 
     BIRD_TRNCH_TRDTNL_SCRTSTN_EIL_uniqueID = models.CharField("BIRD_TRNCH_TRDTNL_SCRTSTN_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255)   
+    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    TRNCH_ID = models.CharField("Tranche_identifier",max_length=255)   
+    TRNCH_ID = models.CharField("Tranche_identifier",max_length=255,default=None, blank=True, null=True)   
 
     SCRTSTN_TRNCH_TYP_domain = {"3":"Tranche_in_a_Traditional_securitisation",
 "4":"Tranche_in_a_synthetic_securitisation",
 } 
-    SCRTSTN_TRNCH_TYP = models.CharField("Securitisation_tranche_type",max_length=255, choices=SCRTSTN_TRNCH_TYP_domain)   
+    SCRTSTN_TRNCH_TYP = models.CharField("Securitisation_tranche_type",max_length=255, choices=SCRTSTN_TRNCH_TYP_domain,default=None, blank=True, null=True)   
 
-    TRNCH_NM = models.CharField("Tranche_name",max_length=255)   
+    TRNCH_NM = models.CharField("Tranche_name",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_TRDTNL_SCRTSTN_EIL_1 = models.ForeignKey("BIRD_TRDTNL_SCRTSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -14952,17 +14952,17 @@ class BIRD_TRNCH_TRDTNL_SCRTSTN_EIL(models.Model):
     class Meta:
         verbose_name = 'Tranche_in_a_Traditional_securitisation'
         verbose_name_plural = 'Tranche_in_a_Traditional_securitisations'
-
+		
 class BIRD_INTRNL_GRP_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_INTRNL_GRP_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_INTRNL_GRP_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    GRP_ID = models.CharField("Group_ID",max_length=255)   
+    GRP_ID = models.CharField("Group_ID",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -15008,9 +15008,9 @@ class BIRD_INTRNL_GRP_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    NTRL_PRSN_GRP_RL_TYP = models.CharField("Natural_person_group_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    NTRL_PRSN_GRP_RL_TYP = models.CharField("Natural_person_group_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -15019,7 +15019,7 @@ class BIRD_INTRNL_GRP_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Internal_group_Key_management_personnel_assignment'
         verbose_name_plural = 'Internal_group_Key_management_personnel_assignments'
-
+		
 class BIRD_INTRNL_GRP_RL_EIL(models.Model):
 
 
@@ -15027,95 +15027,95 @@ class BIRD_INTRNL_GRP_RL_EIL(models.Model):
 
     GRP_RL_TYP_domain = {"1":"Reporting_agent_group_",
 } 
-    GRP_RL_TYP = models.CharField("Group_role_type",max_length=255, choices=GRP_RL_TYP_domain)   
+    GRP_RL_TYP = models.CharField("Group_role_type",max_length=255, choices=GRP_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    GRP_ID = models.CharField("Group_ID",max_length=255)   
-
-    ACCNTNG_FRMWRK_domain = {"1":"National_GAAP_not_consistent_with_IFRS",
-"2":"IFRS",
-"3":"National_GAAP_consistent_with_IFRS",
-} 
-    ACCNTNG_STNDRD_CNLDTD_RPRTNG = models.CharField("Accounting_standard_for_consolidated_reporting",max_length=255, choices=ACCNTNG_FRMWRK_domain)   
+    GRP_ID = models.CharField("Group_ID",max_length=255,default=None, blank=True, null=True)   
 
     ACCNTNG_FRMWRK_domain = {"1":"National_GAAP_not_consistent_with_IFRS",
 "2":"IFRS",
 "3":"National_GAAP_consistent_with_IFRS",
 } 
-    ACCNTNG_STNDRD_SOLO_RPRTNG = models.CharField("Accounting_standard_for_solo_reporting",max_length=255, choices=ACCNTNG_FRMWRK_domain)   
+    ACCNTNG_STNDRD_CNLDTD_RPRTNG = models.CharField("Accounting_standard_for_consolidated_reporting",max_length=255, choices=ACCNTNG_FRMWRK_domain,default=None, blank=True, null=True)   
 
     ACCNTNG_FRMWRK_domain = {"1":"National_GAAP_not_consistent_with_IFRS",
 "2":"IFRS",
 "3":"National_GAAP_consistent_with_IFRS",
 } 
-    ACCNTNG_STNDRD_STTSTCL_RPRTNG = models.CharField("Accounting_standard_for_statistical_reporting",max_length=255, choices=ACCNTNG_FRMWRK_domain)   
+    ACCNTNG_STNDRD_SOLO_RPRTNG = models.CharField("Accounting_standard_for_solo_reporting",max_length=255, choices=ACCNTNG_FRMWRK_domain,default=None, blank=True, null=True)   
+
+    ACCNTNG_FRMWRK_domain = {"1":"National_GAAP_not_consistent_with_IFRS",
+"2":"IFRS",
+"3":"National_GAAP_consistent_with_IFRS",
+} 
+    ACCNTNG_STNDRD_STTSTCL_RPRTNG = models.CharField("Accounting_standard_for_statistical_reporting",max_length=255, choices=ACCNTNG_FRMWRK_domain,default=None, blank=True, null=True)   
 
     the_BIRD_GRP_EIL_1 = models.ForeignKey("BIRD_GRP_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Internal_group_role'
         verbose_name_plural = 'Internal_group_roles'
-
+		
 class BIRD_INTRST_RT_RSK_HDG_PRTFL_EIL(models.Model):
 
 
     BIRD_INTRST_RT_RSK_HDG_PRTFL_EIL_uniqueID = models.CharField("BIRD_INTRST_RT_RSK_HDG_PRTFL_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
     HDGD_PRTFL_ASST_LBLTY_INDCTR_domain = {"1":"Hedged_portfolio_assets",
 "2":"Hedged_portfolio_liabilities",
 } 
-    HDGD_PRTFL_ASST_LBLTY_INDCTR = models.CharField("Hedged_portfolio_asset_or_liability_indicator",max_length=255, choices=HDGD_PRTFL_ASST_LBLTY_INDCTR_domain)   
+    HDGD_PRTFL_ASST_LBLTY_INDCTR = models.CharField("Hedged_portfolio_asset_or_liability_indicator",max_length=255, choices=HDGD_PRTFL_ASST_LBLTY_INDCTR_domain,default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     DMSTC_ACTVT_INDCTR_domain = {"1":"Domestic_activities",
 "2":"Non_Domestic_activities",
 } 
-    DMSTC_ACTVT_INDCTR = models.CharField("Domestic_activities_indicator",max_length=255, choices=DMSTC_ACTVT_INDCTR_domain)   
+    DMSTC_ACTVT_INDCTR = models.CharField("Domestic_activities_indicator",max_length=255, choices=DMSTC_ACTVT_INDCTR_domain,default=None, blank=True, null=True)   
 
-    HDGD_ITMS_FV_CHNGS = models.BigIntegerField("Hedged_items_fair_value_changes")   
+    HDGD_ITMS_FV_CHNGS = models.BigIntegerField("Hedged_items_fair_value_changes",default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Interest_rate_risk_hedge_portfolio'
         verbose_name_plural = 'Interest_rate_risk_hedge_portfolios'
-
+		
 class BIRD_KB_PR_BCKT_EIL(models.Model):
 
 
     BIRD_KB_PR_BCKT_EIL_uniqueID = models.CharField("BIRD_KB_PR_BCKT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    BCKT_ID = models.CharField("Bucket_identifier",max_length=255)   
+    BCKT_ID = models.CharField("Bucket_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    GIRR_DLTA_RSK_PSTN = models.BigIntegerField("General_interest_rate_risk_GIRR_delta_Risk_position_Kb_")   
+    GIRR_DLTA_RSK_PSTN = models.BigIntegerField("General_interest_rate_risk_GIRR_delta_Risk_position_Kb_",default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Risk_position_Kb_per_bucket_derived_data'
         verbose_name_plural = 'Risk_position_Kb_per_bucket_derived_datas'
-
+		
 class BIRD_LN_AND_ADVNC_LG_LN_AND_ADVNC_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_LN_AND_ADVNC_LG_LN_AND_ADVNC_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_LN_AND_ADVNC_LG_LN_AND_ADVNC_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
     RPRCHS_AGRMNT_TYP_domain = {"1":"Cash_leg",
 "3":"Security_leg",
 "4":"Loans_and_advances_leg",
 "5":"Equity_instrument_leg",
 } 
-    RPRCHS_AGRMNT_CMPNNT_TYP = models.CharField("Repurchase_component_type",max_length=255, choices=RPRCHS_AGRMNT_TYP_domain)   
+    RPRCHS_AGRMNT_CMPNNT_TYP = models.CharField("Repurchase_component_type",max_length=255, choices=RPRCHS_AGRMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    RPRCHS_AGRMNT_INSTRMNT_ID = models.CharField("Repurchase_agreement_Instrument_identifier",max_length=255)   
+    RPRCHS_AGRMNT_INSTRMNT_ID = models.CharField("Repurchase_agreement_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -15124,27 +15124,27 @@ class BIRD_LN_AND_ADVNC_LG_LN_AND_ADVNC_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Loan_and_advance_leg_Loan_and_advance_assignment'
         verbose_name_plural = 'Loan_and_advance_leg_Loan_and_advance_assignments'
-
+		
 class BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    LN_INSTRMNT_ID = models.CharField("Loan_Instrument_identifier",max_length=255)   
+    LN_INSTRMNT_ID = models.CharField("Loan_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255)   
+    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ALLCTD_UNSD_CLLTRL_VL = models.FloatField("Allocated_unused_collateral_value")   
+    ALLCTD_UNSD_CLLTRL_VL = models.FloatField("Allocated_unused_collateral_value",default=None, blank=True, null=True)   
 
-    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value")   
+    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value",default=None, blank=True, null=True)   
 
-    THRD_PRTY_PRRTY_CLMS = models.BigIntegerField("Third_party_priority_claims_against_the_protection_")   
+    THRD_PRTY_PRRTY_CLMS = models.BigIntegerField("Third_party_priority_claims_against_the_protection_",default=None, blank=True, null=True)   
 
-    CLLTRL_VL_UNCPPD = models.FloatField("Allocated_collateral_value_uncapped_pre_haircuts")   
+    CLLTRL_VL_UNCPPD = models.FloatField("Allocated_collateral_value_uncapped_pre_haircuts",default=None, blank=True, null=True)   
 
     the_BIRD_CLLTRL_EIL_1 = models.ForeignKey("BIRD_CLLTRL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -15153,17 +15153,17 @@ class BIRD_LN_EXCLDNG_RPRCHS_AGRMNT_CLLTRL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Loan_excluding_repurchase_agreement_and_advance_Collateral_assignment'
         verbose_name_plural = 'Loan_excluding_repurchase_agreement_and_advance_Collateral_assignments'
-
+		
 class BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL(models.Model):
 
 
     BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL_uniqueID = models.CharField("BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -15209,7 +15209,7 @@ class BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL(models.Model
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain = {"3":"Long_security_position_trading_book_assignment_International_Financial_Reporting_Standard_IFRS_",
 "4":"Long_security_position_trading_book_assignment_national_general_accepted_accounting_principles_nGAAP_",
@@ -15217,7 +15217,7 @@ class BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL(models.Model
 "1":"Long_debt_security_position_Prudential_portfolio_assignment",
 "2":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment",
 } 
-    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain)   
+    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     SRC_ENCMBRNC_domain = {"14":"Repurchase_agreements",
 "9":"Deposits_other_than_repurchase_agreements",
@@ -15232,28 +15232,28 @@ class BIRD_LNG_DBT_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL(models.Model
 "6":"Exchange_traded_derivatives",
 "7":"Over_the_counter_derivatives",
 } 
-    SRC_ENCMBRNC = models.CharField("Source_of_encumbrance",max_length=255, choices=SRC_ENCMBRNC_domain)   
+    SRC_ENCMBRNC = models.CharField("Source_of_encumbrance",max_length=255, choices=SRC_ENCMBRNC_domain,default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ENCMBRD_NMNL_AMNT = models.BigIntegerField("Encumbered_nominal_amount")   
+    ENCMBRD_NMNL_AMNT = models.BigIntegerField("Encumbered_nominal_amount",default=None, blank=True, null=True)   
 
     the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 = models.ForeignKey("BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Long_debt_security_position_Prudential_portfolio_assignment_encumbrance_data'
         verbose_name_plural = 'Long_debt_security_position_Prudential_portfolio_assignment_encumbrance_datas'
-
+		
 class BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL(models.Model):
 
 
     BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL_uniqueID = models.CharField("BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -15299,7 +15299,7 @@ class BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL(models.
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain = {"3":"Long_security_position_trading_book_assignment_International_Financial_Reporting_Standard_IFRS_",
 "4":"Long_security_position_trading_book_assignment_national_general_accepted_accounting_principles_nGAAP_",
@@ -15307,7 +15307,7 @@ class BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL(models.
 "1":"Long_debt_security_position_Prudential_portfolio_assignment",
 "2":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment",
 } 
-    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain)   
+    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     SRC_ENCMBRNC_domain = {"14":"Repurchase_agreements",
 "9":"Deposits_other_than_repurchase_agreements",
@@ -15322,30 +15322,30 @@ class BIRD_LNG_EQTY_FND_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ENCMBRNC_DT_EIL(models.
 "6":"Exchange_traded_derivatives",
 "7":"Over_the_counter_derivatives",
 } 
-    SRC_ENCMBRNC = models.CharField("Source_of_encumbrance",max_length=255, choices=SRC_ENCMBRNC_domain)   
+    SRC_ENCMBRNC = models.CharField("Source_of_encumbrance",max_length=255, choices=SRC_ENCMBRNC_domain,default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ENCMBRD_NMBR_SHRS = models.BigIntegerField("Encumbered_number_of_shares")   
+    ENCMBRD_NMBR_SHRS = models.BigIntegerField("Encumbered_number_of_shares",default=None, blank=True, null=True)   
 
     the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 = models.ForeignKey("BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Long_equity_or_fund_security_position_Prudential_portfolio_assignment_encumbrance_data'
         verbose_name_plural = 'Long_equity_or_fund_security_position_Prudential_portfolio_assignment_encumbrance_datas'
-
+		
 class BIRD_LNG_NN_NGTBL_SCRTY_PSTN_CLLTRL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_LNG_NN_NGTBL_SCRTY_PSTN_CLLTRL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_LNG_NN_NGTBL_SCRTY_PSTN_CLLTRL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255)   
+    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -15391,15 +15391,15 @@ class BIRD_LNG_NN_NGTBL_SCRTY_PSTN_CLLTRL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ALLCTD_UNSD_CLLTRL_VL = models.FloatField("Allocated_unused_collateral_value")   
+    ALLCTD_UNSD_CLLTRL_VL = models.FloatField("Allocated_unused_collateral_value",default=None, blank=True, null=True)   
 
-    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value")   
+    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value",default=None, blank=True, null=True)   
 
-    CLLTRL_VL_UNCPPD = models.FloatField("Allocated_collateral_value_uncapped_pre_haircuts")   
+    CLLTRL_VL_UNCPPD = models.FloatField("Allocated_collateral_value_uncapped_pre_haircuts",default=None, blank=True, null=True)   
 
     the_BIRD_CLLTRL_EIL_1 = models.ForeignKey("BIRD_CLLTRL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -15408,17 +15408,17 @@ class BIRD_LNG_NN_NGTBL_SCRTY_PSTN_CLLTRL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Long_non_negotiable_security_position_Collateral_assignment'
         verbose_name_plural = 'Long_non_negotiable_security_position_Collateral_assignments'
-
+		
 class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -15464,7 +15464,7 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASS
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain = {"3":"Long_security_position_trading_book_assignment_International_Financial_Reporting_Standard_IFRS_",
 "4":"Long_security_position_trading_book_assignment_national_general_accepted_accounting_principles_nGAAP_",
@@ -15472,7 +15472,7 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASS
 "1":"Long_debt_security_position_Prudential_portfolio_assignment",
 "2":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment",
 } 
-    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain)   
+    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     ACCNTNG_CLSSFCTN_domain = {"21":"IFRS_Financial_liabilities_measured_at_amortised_cost",
 "23":"IFRS_Financial_liabilities_held_for_trading",
@@ -15514,48 +15514,48 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASS
 "93":"Under_nGAAP",
 "0":"Not_applicable",
 } 
-    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain)   
+    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain,default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ACCMLTD_IMPRMNT = models.BigIntegerField("Accumulated_impairment")   
+    ACCMLTD_IMPRMNT = models.BigIntegerField("Accumulated_impairment",default=None, blank=True, null=True)   
 
-    ACCMLTD_NGTV_VL_ADJSTMNT_MR = models.BigIntegerField("Accumulated_negative_value_adjustments_Market_risk_induced")   
+    ACCMLTD_NGTV_VL_ADJSTMNT_MR = models.BigIntegerField("Accumulated_negative_value_adjustments_Market_risk_induced",default=None, blank=True, null=True)   
 
-    ACCMLTD_PRTL_WRTFFS = models.BigIntegerField("Accumulated_partial_write_offs")   
+    ACCMLTD_PRTL_WRTFFS = models.BigIntegerField("Accumulated_partial_write_offs",default=None, blank=True, null=True)   
 
-    ACCMLTD_TTL_WRTFFS = models.BigIntegerField("Accumulated_total_write_offs")   
+    ACCMLTD_TTL_WRTFFS = models.BigIntegerField("Accumulated_total_write_offs",default=None, blank=True, null=True)   
 
-    ACCMLTD_WRTFFS = models.BigIntegerField("Accumulated_write_offs")   
+    ACCMLTD_WRTFFS = models.BigIntegerField("Accumulated_write_offs",default=None, blank=True, null=True)   
 
-    ARRRS = models.BigIntegerField("Arrears_for_the_instrument")   
+    ARRRS = models.BigIntegerField("Arrears_for_the_instrument",default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
-    FV_CHNGS_HDG_ACCNTNG = models.BigIntegerField("Fair_value_changes_due_to_hedge_accounting")   
+    FV_CHNGS_HDG_ACCNTNG = models.BigIntegerField("Fair_value_changes_due_to_hedge_accounting",default=None, blank=True, null=True)   
 
     FVO_DSGNTN_domain = {"0":"Not_applicable",
 "2":"Management_on_a_fair_value_basis",
 "5":"Management_of_credit_risk_Upon_designation",
 "6":"Management_of_credit_risk_After_the_designation",
 } 
-    FVO_DSGNTN = models.CharField("Fair_value_option_designation",max_length=255, choices=FVO_DSGNTN_domain)   
+    FVO_DSGNTN = models.CharField("Fair_value_option_designation",max_length=255, choices=FVO_DSGNTN_domain,default=None, blank=True, null=True)   
 
-    GRSS_CRRYNG_AMNT = models.BigIntegerField("Gross_carrying_amount")   
+    GRSS_CRRYNG_AMNT = models.BigIntegerField("Gross_carrying_amount",default=None, blank=True, null=True)   
 
-    GRSS_CRRYNG_AMNT_E_INTRST = models.BigIntegerField("Gross_carrying_amount_excluding_accrued_interest")   
+    GRSS_CRRYNG_AMNT_E_INTRST = models.BigIntegerField("Gross_carrying_amount_excluding_accrued_interest",default=None, blank=True, null=True)   
 
     HLD_SL_INDCTR_domain = {"1":"Held_for_sale",
 "2":"Not_held_for_sale",
 "0":"Not_applicable",
 } 
-    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain)   
+    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain,default=None, blank=True, null=True)   
 
     IMPRMNT_ASSSSMNT_MTHD_domain = {"0":"Not_applicable",
 "1":"Collectively_assessed",
 "2":"Individually_assessed",
 } 
-    IMPRMNT_ASSSSMNT_MTHD = models.CharField("Impairment_assessment_method",max_length=255, choices=IMPRMNT_ASSSSMNT_MTHD_domain)   
+    IMPRMNT_ASSSSMNT_MTHD = models.CharField("Impairment_assessment_method",max_length=255, choices=IMPRMNT_ASSSSMNT_MTHD_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -15578,7 +15578,7 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASS
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    IMPRMNT_STTS = models.CharField("Impairment_status",max_length=255, choices=CRDT_QLTY_domain)   
+    IMPRMNT_STTS = models.CharField("Impairment_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -15601,19 +15601,19 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASS
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    INTL_IMPRMNT_STTS = models.CharField("Initial_impairment_status",max_length=255, choices=CRDT_QLTY_domain)   
+    INTL_IMPRMNT_STTS = models.CharField("Initial_impairment_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     LOCOM_INDCTR_domain = {"0":"Not_applicable",
 "1":"Is_LOCOM",
 "2":"Is_not_LOCOM",
 } 
-    LOCOM_INDCTR = models.CharField("Lower_of_cost_or_market_LOCOM_indicator",max_length=255, choices=LOCOM_INDCTR_domain)   
+    LOCOM_INDCTR = models.CharField("Lower_of_cost_or_market_LOCOM_indicator",max_length=255, choices=LOCOM_INDCTR_domain,default=None, blank=True, null=True)   
 
     SBJCT_IMPRMNT_INDCTR_domain = {"1":"Subject_to_impairment",
 "2":"Not_subject_to_impairment",
 "0":"Not_applicable",
 } 
-    SBJCT_IMPRMNT_INDCTR = models.CharField("Subject_to_impairment_indicator",max_length=255, choices=SBJCT_IMPRMNT_INDCTR_domain)   
+    SBJCT_IMPRMNT_INDCTR = models.CharField("Subject_to_impairment_indicator",max_length=255, choices=SBJCT_IMPRMNT_INDCTR_domain,default=None, blank=True, null=True)   
 
     TRNSFR_IMPRMNT_STGS_domain = {"3":"To_stage_2_from_stage_1",
 "4":"To_stage_2_from_stage_3",
@@ -15622,49 +15622,49 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASS
 "2":"To_stage_1_from_stage_3",
 "5":"To_stage_3_from_stage_1",
 } 
-    TRNSFR_IMPRMNT_STGS = models.CharField("Transfer_between_impairment_stages",max_length=255, choices=TRNSFR_IMPRMNT_STGS_domain)   
+    TRNSFR_IMPRMNT_STGS = models.CharField("Transfer_between_impairment_stages",max_length=255, choices=TRNSFR_IMPRMNT_STGS_domain,default=None, blank=True, null=True)   
 
     LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_TYP_domain = {"3":"Long_debt_security_position_Prudential_portfolio_assignment_Accounting_classification_for_financial_assets_assignment_according_to_International_Financial_Reporting_Standard_IFRS_",
 "4":"Long_debt_security_position_Prudential_portfolio_assignment_Accounting_classification_for_financial_assets_assignment_according_to_national_general_accepted_accounting_principles_nGAAP_",
 "5":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment_Accounting_classification_for_assets_assignment_according_to_International_Financial_Reporting_Standard_IFRS_",
 "6":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment_Accounting_classification_for_assets_assignment_according_to_national_general_accepted_accounting_principles_nGAAP_",
 } 
-    TYP_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT = models.CharField("Type_of_long_security_position",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_TYP_domain)   
+    TYP_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT = models.CharField("Type_of_long_security_position",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value")   
+    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value",default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk")   
+    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk",default=None, blank=True, null=True)   
 
-    ACCMLTD_CVRG_RT = models.FloatField("Accumulated_coverage_ratio")   
+    ACCMLTD_CVRG_RT = models.FloatField("Accumulated_coverage_ratio",default=None, blank=True, null=True)   
 
-    ACCRD_INTRST = models.BigIntegerField("Accrued_interest_accounting_")   
+    ACCRD_INTRST = models.BigIntegerField("Accrued_interest_accounting_",default=None, blank=True, null=True)   
 
-    FV_CHNG = models.BigIntegerField("Fair_value_change")   
+    FV_CHNG = models.BigIntegerField("Fair_value_change",default=None, blank=True, null=True)   
 
-    GNRL_ALLWNCS_BNK_RSK = models.BigIntegerField("General_allowances_for_bank_risk_affecting_carrying_amount_nGAAP_")   
+    GNRL_ALLWNCS_BNK_RSK = models.BigIntegerField("General_allowances_for_bank_risk_affecting_carrying_amount_nGAAP_",default=None, blank=True, null=True)   
 
-    GNRL_ALLWNCS_CRDT_RSK = models.BigIntegerField("General_allowances_for_credit_risk_affecting_carrying_amount_nGAAP_")   
+    GNRL_ALLWNCS_CRDT_RSK = models.BigIntegerField("General_allowances_for_credit_risk_affecting_carrying_amount_nGAAP_",default=None, blank=True, null=True)   
 
-    NMBR_SHRS = models.BigIntegerField("Number_of_shares")   
+    NMBR_SHRS = models.BigIntegerField("Number_of_shares",default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
     the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 = models.ForeignKey("BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Long_security_position_Prudential_Portfolio_assignment_Accounting_classification_for_financial_assets_assignment'
         verbose_name_plural = 'Long_security_position_Prudential_Portfolio_assignment_Accounting_classification_for_financial_assets_assignments'
-
+		
 class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -15710,7 +15710,7 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain = {"3":"Long_security_position_trading_book_assignment_International_Financial_Reporting_Standard_IFRS_",
 "4":"Long_security_position_trading_book_assignment_national_general_accepted_accounting_principles_nGAAP_",
@@ -15718,15 +15718,15 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL(models.Model):
 "1":"Long_debt_security_position_Prudential_portfolio_assignment",
 "2":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment",
 } 
-    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain)   
+    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     IMPRMNT_ASSSSMNT_MTHD_domain = {"0":"Not_applicable",
 "1":"Collectively_assessed",
 "2":"Individually_assessed",
 } 
-    IMPRMNT_ASSSSMNT_MTHD = models.CharField("Impairment_assessment_method",max_length=255, choices=IMPRMNT_ASSSSMNT_MTHD_domain)   
+    IMPRMNT_ASSSSMNT_MTHD = models.CharField("Impairment_assessment_method",max_length=255, choices=IMPRMNT_ASSSSMNT_MTHD_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -15749,7 +15749,7 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    IMPRMNT_STTS = models.CharField("Impairment_status",max_length=255, choices=CRDT_QLTY_domain)   
+    IMPRMNT_STTS = models.CharField("Impairment_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain = {"1":"Non_performing_prior_to_forbearance",
 "2":"Not_non_performing_prior_to_forbearance",
@@ -15757,7 +15757,7 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL(models.Model):
 "2_x2":"Not_non_performing_prior_to_forbearance_x2",
 "0":"Not_applicable",
 } 
-    NN_PRFRMNG_PRR_FRBRNC_INDCTR = models.CharField("Non_performing_prior_to_forbearance_indicator",max_length=255, choices=NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain)   
+    NN_PRFRMNG_PRR_FRBRNC_INDCTR = models.CharField("Non_performing_prior_to_forbearance_indicator",max_length=255, choices=NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain,default=None, blank=True, null=True)   
 
     LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain = {"3":"Long_security_position_trading_book_assignment_International_Financial_Reporting_Standard_IFRS_",
 "4":"Long_security_position_trading_book_assignment_national_general_accepted_accounting_principles_nGAAP_",
@@ -15765,22 +15765,22 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL(models.Model):
 "1":"Long_debt_security_position_Prudential_portfolio_assignment",
 "2":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment",
 } 
-    LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP = models.CharField("Long_security_position_Prudential_portfolio_assignment_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain)   
+    LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP = models.CharField("Long_security_position_Prudential_portfolio_assignment_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    ARRRS = models.BigIntegerField("Arrears_for_the_instrument")   
+    ARRRS = models.BigIntegerField("Arrears_for_the_instrument",default=None, blank=True, null=True)   
 
-    HRCTS_TRDNG_PSTNS_FV = models.BigIntegerField("Haircuts_for_trading_positions_valued_at_fair_value")   
+    HRCTS_TRDNG_PSTNS_FV = models.BigIntegerField("Haircuts_for_trading_positions_valued_at_fair_value",default=None, blank=True, null=True)   
 
-    NMBR_SHRS = models.BigIntegerField("Number_of_shares")   
+    NMBR_SHRS = models.BigIntegerField("Number_of_shares",default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
     the_BIRD_SCRTY_PSTN_EIL_1 = models.ForeignKey("BIRD_SCRTY_PSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Long_security_position_Prudential_portfolio_assignment'
         verbose_name_plural = 'Long_security_position_Prudential_portfolio_assignments'
-
+		
 class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT_EIL(models.Model):
 
 
@@ -15802,13 +15802,13 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT_EIL(models.Model):
 "9":"SA_Exposures_to_institutions_without_a_short_term_credit_assessment",
 "0":"Not_applicable",
 } 
-    EXPSR_CLSS = models.CharField("Exposure_class",max_length=255, choices=EXPSR_CLSS_domain)   
+    EXPSR_CLSS = models.CharField("Exposure_class",max_length=255, choices=EXPSR_CLSS_domain,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -15854,7 +15854,7 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain = {"3":"Long_security_position_trading_book_assignment_International_Financial_Reporting_Standard_IFRS_",
 "4":"Long_security_position_trading_book_assignment_national_general_accepted_accounting_principles_nGAAP_",
@@ -15862,9 +15862,9 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT_EIL(models.Model):
 "1":"Long_debt_security_position_Prudential_portfolio_assignment",
 "2":"Long_equity_or_fund_security_position_Prudential_portfolio_assignment",
 } 
-    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain)   
+    LNG_SCRTY_PSTN_PRDNTL_PRTFL_TYP = models.CharField("Long_security_position_Prudential_portfolio_type",max_length=255, choices=LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     APPRCH_PRDNTL_PRPSS_domain = {"1":"_1250_for_positions_not_subject_to_any_method",
 "25":"Internal_assessment_approach",
@@ -15879,34 +15879,34 @@ class BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_RSK_DT_EIL(models.Model):
 "19":"Supervisory_formula_method",
 "30":"Look_through_approach",
 } 
-    APPRCH_PRDNTL_PRPSS = models.CharField("Approach_for_prudential_purposes",max_length=255, choices=APPRCH_PRDNTL_PRPSS_domain)   
+    APPRCH_PRDNTL_PRPSS = models.CharField("Approach_for_prudential_purposes",max_length=255, choices=APPRCH_PRDNTL_PRPSS_domain,default=None, blank=True, null=True)   
 
-    EXPSR_VL = models.BigIntegerField("Exposure_Value")   
+    EXPSR_VL = models.BigIntegerField("Exposure_Value",default=None, blank=True, null=True)   
 
-    LGD_DWNTRNS = models.FloatField("Loss_given_default_LGD_in_downturns")   
+    LGD_DWNTRNS = models.FloatField("Loss_given_default_LGD_in_downturns",default=None, blank=True, null=True)   
 
-    LGD_NRML = models.FloatField("Loss_given_default_LGD_in_normal_economic_times")   
+    LGD_NRML = models.FloatField("Loss_given_default_LGD_in_normal_economic_times",default=None, blank=True, null=True)   
 
-    RSK_WGHT = models.FloatField("Risk_weight")   
+    RSK_WGHT = models.FloatField("Risk_weight",default=None, blank=True, null=True)   
 
-    SPCFC_RSK_WGHT = models.FloatField("Specific_risk_weight")   
+    SPCFC_RSK_WGHT = models.FloatField("Specific_risk_weight",default=None, blank=True, null=True)   
 
     the_BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL_1 = models.ForeignKey("BIRD_LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Long_security_position_Prudential_portfolio_assignment_risk_data'
         verbose_name_plural = 'Long_security_position_Prudential_portfolio_assignment_risk_datas'
-
+		
 class BIRD_LNKD_ENTRPRS_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_LNKD_ENTRPRS_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_LNKD_ENTRPRS_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CNTR_BNK_PRVT_SCTR_CMPNY_PRTY_ID = models.CharField("Central_bank_and_private_sector_company_Party_identifier",max_length=255)   
+    CNTR_BNK_PRVT_SCTR_CMPNY_PRTY_ID = models.CharField("Central_bank_and_private_sector_company_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -15952,9 +15952,9 @@ class BIRD_LNKD_ENTRPRS_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    LNKD_ENTRPRS_PRTY_RL_TYP = models.CharField("Linked_enterprise_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    LNKD_ENTRPRS_PRTY_RL_TYP = models.CharField("Linked_enterprise_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    LNKD_ENTRPRS_PRTY_ID = models.CharField("Linked_enterprise_Party_identifier",max_length=255)   
+    LNKD_ENTRPRS_PRTY_ID = models.CharField("Linked_enterprise_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -15963,34 +15963,34 @@ class BIRD_LNKD_ENTRPRS_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Linked_enterprise_assignment'
         verbose_name_plural = 'Linked_enterprise_assignments'
-
+		
 class BIRD_MSTR_AGRMNT_EIL(models.Model):
 
 
     BIRD_MSTR_AGRMNT_EIL_uniqueID = models.CharField("BIRD_MSTR_AGRMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    MSTR_AGRMNT_ID = models.CharField("Master_agreement_identifier",max_length=255)   
+    MSTR_AGRMNT_ID = models.CharField("Master_agreement_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    MSTR_AGRMNT_RFRNC_DT = models.DateTimeField("Master_agreement_Reference_date")   
+    MSTR_AGRMNT_RFRNC_DT = models.DateTimeField("Master_agreement_Reference_date",default=None, blank=True, null=True)   
 
-    MSTR_AGRMNT_RPRTNG_AGNT_ID = models.CharField("Master_agreement_Reporting_agent_identifier",max_length=255)   
+    MSTR_AGRMNT_RPRTNG_AGNT_ID = models.CharField("Master_agreement_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     MSTR_AGRMNT_TYP_domain = {"2":"Master_agreement_with_a_clearing_member",
 "3":"Master_agreement_with_a_qualifying_central_counterparty",
 "4":"Master_agreement_with_a_non_qualified_central_counterparty",
 } 
-    TYP_MSTR_AGRMNT = models.CharField("Type_of_master_agreement",max_length=255, choices=MSTR_AGRMNT_TYP_domain)   
+    TYP_MSTR_AGRMNT = models.CharField("Type_of_master_agreement",max_length=255, choices=MSTR_AGRMNT_TYP_domain,default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Master_agreement'
         verbose_name_plural = 'Master_agreements'
-
+		
 class BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -16036,19 +16036,19 @@ class BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    ORGNSTN_RL_TYP = models.CharField("Organisation_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    ORGNSTN_RL_TYP = models.CharField("Organisation_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    MSTR_AGRMNT_ID = models.CharField("Master_agreement_identifier",max_length=255)   
+    MSTR_AGRMNT_ID = models.CharField("Master_agreement_identifier",max_length=255,default=None, blank=True, null=True)   
 
     MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_TYP_domain = {"1":"Master_agreement_Non_qualifying_central_counterparty_assignment",
 "2":"Master_agreement_Qualifying_central_counterparty_assignment",
 "4":"Master_agreement_Clearing_member_assignment",
 } 
-    TYP_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT = models.CharField("Type_of_master_agreement_entity_role_assigned",max_length=255, choices=MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_TYP_domain)   
+    TYP_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT = models.CharField("Type_of_master_agreement_entity_role_assigned",max_length=255, choices=MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -16057,19 +16057,19 @@ class BIRD_MSTR_AGRMNT_ENTTY_RL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Master_agreement_Entity_role_assignment'
         verbose_name_plural = 'Master_agreement_Entity_role_assignments'
-
+		
 class BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    MSTR_AGRMNT_ID = models.CharField("Master_agreement_identifier",max_length=255)   
+    MSTR_AGRMNT_ID = models.CharField("Master_agreement_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    FNNCL_CNTRCT_ID = models.CharField("Financial_contract_identifier",max_length=255)   
+    FNNCL_CNTRCT_ID = models.CharField("Financial_contract_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_MSTR_AGRMNT_EIL_1 = models.ForeignKey("BIRD_MSTR_AGRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -16078,31 +16078,31 @@ class BIRD_MSTR_AGRMNT_FNNCL_CNTRCT_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Master_agreement_Financial_contract_assignment'
         verbose_name_plural = 'Master_agreement_Financial_contract_assignments'
-
+		
 class BIRD_NN_FNNCL_ASST_EIL(models.Model):
 
 
     BIRD_NN_FNNCL_ASST_EIL_uniqueID = models.CharField("BIRD_NN_FNNCL_ASST_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    NN_FNNCL_ASST_ID = models.CharField("Non_financial_asset_ID",max_length=255)   
+    NN_FNNCL_ASST_ID = models.CharField("Non_financial_asset_ID",max_length=255,default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
     HLD_SL_INDCTR_domain = {"1":"Held_for_sale",
 "2":"Not_held_for_sale",
 "0":"Not_applicable",
 } 
-    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain)   
+    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain,default=None, blank=True, null=True)   
 
     MSRMNT_MTHD_domain = {"1":"Cost_model",
 "3":"Revaluation_model",
 "0":"Not_applicable",
 } 
-    MSRMNT_MTHD = models.CharField("Measurement_method",max_length=255, choices=MSRMNT_MTHD_domain)   
+    MSRMNT_MTHD = models.CharField("Measurement_method",max_length=255, choices=MSRMNT_MTHD_domain,default=None, blank=True, null=True)   
 
     TYP_ACCNTNG_ITM_domain = {"0":"Not_applicable",
 "6301":"Software_property_plant_and_equipment_not_taken_into_possession",
@@ -16131,7 +16131,7 @@ class BIRD_NN_FNNCL_ASST_EIL(models.Model):
 "46":"Other_non_financial_asset_not_taken_into_possession",
 "413":"Tangible_assets_Investment_property",
 } 
-    OTHR_INTNGBL_ASST_TKN_INT_PSSSSN_TYP = models.CharField("Other_intangible_asset_taken_into_possession_type",max_length=255, choices=TYP_ACCNTNG_ITM_domain)   
+    OTHR_INTNGBL_ASST_TKN_INT_PSSSSN_TYP = models.CharField("Other_intangible_asset_taken_into_possession_type",max_length=255, choices=TYP_ACCNTNG_ITM_domain,default=None, blank=True, null=True)   
 
     TYP_ACCNTNG_ITM_domain = {"0":"Not_applicable",
 "6301":"Software_property_plant_and_equipment_not_taken_into_possession",
@@ -16160,13 +16160,13 @@ class BIRD_NN_FNNCL_ASST_EIL(models.Model):
 "46":"Other_non_financial_asset_not_taken_into_possession",
 "413":"Tangible_assets_Investment_property",
 } 
-    PRPRTY_PLNT_EQPMNT_TKN_INT_PSSSSN_TYP = models.CharField("Property_plant_and_equipment_taken_into_possession_type",max_length=255, choices=TYP_ACCNTNG_ITM_domain)   
+    PRPRTY_PLNT_EQPMNT_TKN_INT_PSSSSN_TYP = models.CharField("Property_plant_and_equipment_taken_into_possession_type",max_length=255, choices=TYP_ACCNTNG_ITM_domain,default=None, blank=True, null=True)   
 
     SBJCT_OPRTNG_LS_INDCTR_domain = {"1":"Subject_to_operating_lease",
 "2":"Not_Subject_to_operating_lease",
 "0":"Not_applicable",
 } 
-    SBJCT_OPRTNG_LS_INDCTR = models.CharField("Subject_to_operating_lease_indicator",max_length=255, choices=SBJCT_OPRTNG_LS_INDCTR_domain)   
+    SBJCT_OPRTNG_LS_INDCTR = models.CharField("Subject_to_operating_lease_indicator",max_length=255, choices=SBJCT_OPRTNG_LS_INDCTR_domain,default=None, blank=True, null=True)   
 
     TM_INTRVL_domain = {"0":"Not_applicable",
 "27":"Up_to_2_years",
@@ -16192,7 +16192,7 @@ class BIRD_NN_FNNCL_ASST_EIL(models.Model):
 "64":"_0d_1d_",
 "9":"_1m_3m_",
 } 
-    TM_SNC_INTL_RCGNTN = models.CharField("TM_SNC_INTL_RCGNTN",max_length=255, choices=TM_INTRVL_domain)   
+    TM_SNC_INTL_RCGNTN = models.CharField("TM_SNC_INTL_RCGNTN",max_length=255, choices=TM_INTRVL_domain,default=None, blank=True, null=True)   
 
     TYP_ACCNTNG_ITM_domain = {"0":"Not_applicable",
 "6301":"Software_property_plant_and_equipment_not_taken_into_possession",
@@ -16221,40 +16221,40 @@ class BIRD_NN_FNNCL_ASST_EIL(models.Model):
 "46":"Other_non_financial_asset_not_taken_into_possession",
 "413":"Tangible_assets_Investment_property",
 } 
-    TYP_NN_FNNCL_ASST = models.CharField("Type_of_non_financial_asset",max_length=255, choices=TYP_ACCNTNG_ITM_domain)   
+    TYP_NN_FNNCL_ASST = models.CharField("Type_of_non_financial_asset",max_length=255, choices=TYP_ACCNTNG_ITM_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNG_NGTV = models.BigIntegerField("Accumulated_negative_changes")   
+    ACCMLTD_CHNG_NGTV = models.BigIntegerField("Accumulated_negative_changes",default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk")   
+    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk",default=None, blank=True, null=True)   
 
-    ACCMLTD_IMPRMNT = models.BigIntegerField("Accumulated_impairment")   
+    ACCMLTD_IMPRMNT = models.BigIntegerField("Accumulated_impairment",default=None, blank=True, null=True)   
 
-    GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL = models.BigIntegerField("GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL")   
+    GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL = models.BigIntegerField("GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL",default=None, blank=True, null=True)   
 
-    GRSS_CRRYNG_AMNT = models.BigIntegerField("Gross_carrying_amount")   
+    GRSS_CRRYNG_AMNT = models.BigIntegerField("Gross_carrying_amount",default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Non_financial_asset'
         verbose_name_plural = 'Non_financial_assets'
-
+		
 class BIRD_NN_FNNCL_LBLTY_EIL(models.Model):
 
 
     BIRD_NN_FNNCL_LBLTY_EIL_uniqueID = models.CharField("BIRD_NN_FNNCL_LBLTY_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    NN_FNNCL_LBLTY_ID = models.CharField("Non_financial_liability_ID",max_length=255)   
+    NN_FNNCL_LBLTY_ID = models.CharField("Non_financial_liability_ID",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
     HLD_SL_INDCTR_domain = {"1":"Held_for_sale",
 "2":"Not_held_for_sale",
 "0":"Not_applicable",
 } 
-    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain)   
+    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain,default=None, blank=True, null=True)   
 
     TYP_ACCNTNG_ITM_domain = {"0":"Not_applicable",
 "6301":"Software_property_plant_and_equipment_not_taken_into_possession",
@@ -16283,22 +16283,22 @@ class BIRD_NN_FNNCL_LBLTY_EIL(models.Model):
 "46":"Other_non_financial_asset_not_taken_into_possession",
 "413":"Tangible_assets_Investment_property",
 } 
-    TYP_NN_FNNCL_LBLTY = models.CharField("Type_of_non_financial_liabilty",max_length=255, choices=TYP_ACCNTNG_ITM_domain)   
+    TYP_NN_FNNCL_LBLTY = models.CharField("Type_of_non_financial_liabilty",max_length=255, choices=TYP_ACCNTNG_ITM_domain,default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Non_financial_liability'
         verbose_name_plural = 'Non_financial_liabilitys'
-
+		
 class BIRD_NTRL_PRSN_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_NTRL_PRSN_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_NTRL_PRSN_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -16344,7 +16344,7 @@ class BIRD_NTRL_PRSN_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    NTRL_PRSN_GRP_RL_TYP = models.CharField("Natural_person_group_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    NTRL_PRSN_GRP_RL_TYP = models.CharField("Natural_person_group_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -16353,21 +16353,21 @@ class BIRD_NTRL_PRSN_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Natural_person_Key_management_personnel_assignment'
         verbose_name_plural = 'Natural_person_Key_management_personnel_assignments'
-
+		
 class BIRD_OFF_BLNC_INSTRMNT_CLLTRL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_OFF_BLNC_INSTRMNT_CLLTRL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_OFF_BLNC_INSTRMNT_CLLTRL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255)   
+    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value")   
+    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value",default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -16376,19 +16376,19 @@ class BIRD_OFF_BLNC_INSTRMNT_CLLTRL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Off_balance_instrument_Collateral_assignment'
         verbose_name_plural = 'Off_balance_instrument_Collateral_assignments'
-
+		
 class BIRD_OTC_DRVTV_INSTRMNT_SNTHTC_SCRTSTN_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_OTC_DRVTV_INSTRMNT_SNTHTC_SCRTSTN_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_OTC_DRVTV_INSTRMNT_SNTHTC_SCRTSTN_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255)   
+    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    OTC_DRVTV_INSTRMNT_ID = models.CharField("Over_the_counter_OTC_Derivative_Instrument_identifier",max_length=255)   
+    OTC_DRVTV_INSTRMNT_ID = models.CharField("Over_the_counter_OTC_Derivative_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_SNTHTC_SCRTSTN_EIL_1 = models.ForeignKey("BIRD_SNTHTC_SCRTSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -16397,73 +16397,17 @@ class BIRD_OTC_DRVTV_INSTRMNT_SNTHTC_SCRTSTN_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Over_the_counter_OTC_Derivative_instrument_Synthetic_securitisation_assignment'
         verbose_name_plural = 'Over_the_counter_OTC_Derivative_instrument_Synthetic_securitisation_assignments'
-
+		
 class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 
 
     BIRD_ABSTRCT_INSTRMNT_RL_EIL_uniqueID = models.CharField("BIRD_ABSTRCT_INSTRMNT_RL_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
-
-    ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
-"12":"Non_balance_sheet_recognised_financial_liability_instrument",
-"34":"Balance_sheet_recognised_financial_asset_instrument_according_to_national_general_accepted_accounting_principles_nGAAP_",
-"35":"Balance_sheet_recognised_financial_asset_instrument_according_to_International_Financial_Reporting_Standard_IFRS_",
-"37":"Non_fair_valued_balance_sheet_recognised_financial_liability_instrument",
-"6":"Off_balance_sheet_item_received_instrument",
-"8":"Collateral_given_instrument",
-"9":"Over_the_counter_OTC_Derivative_as_a_hedge",
-"38":"Over_the_counter_OTC_Credit_default_swap_received_as_collateral_instrument",
-"39":"Other_collateral_received_instrument",
-"0":"Not_applicable",
-"46":"Fair_valued_Balance_sheet_recognised_financial_liability_instrument_according_to_International_Financial_Reporting_Standard_IFRS_",
-"47":"Fair_valued_balance_sheet_recognised_financial_liability_instrument_according_to_national_general_accepted_accounting_principles_nGAAP_",
-"501":"Forborne_off_balance_sheet_item_given_instrument",
-"71":"Collateral_received_instrument_obtained_by_taking_possession",
-"72":"Not_obtained_collateral_received_instrument",
-"1":"Instrument_role",
-"3":"Financial_asset_instrument",
-"4":"Financial_liability_instrument",
-"7":"Collateral_received_instrument",
-"5":"Off_balance_sheet_item_given_instrument",
-"44":"Serviced_asset_instrument",
-"18":"Fixed_interest_financial_asset_instrument",
-"11":"Balance_sheet_recognised_financial_asset_instrument",
-"16":"Renegotiated_financial_asset_instrument",
-"23":"Non_retail_exposure_financial_asset_instrument",
-"20":"Interest_only_financial_asset_instrument",
-"19":"Non_fixed_interest_financial_asset_instrument",
-"22":"Potential_retail_exposure_class_financial_asset_instrument",
-"17":"Non_renegotiated_financial_asset_instrument",
-"21":"Non_interest_only_financial_asset_instrument",
-"42":"Fair_valued_balance_sheet_recognised_financial_asset_instrument",
-"43":"Non_fair_valued_balance_sheet_recognised_financial_asset_instrument",
-"15":"Renegotiated_financial_asset_instrument_with_forbearance_measure",
-"14":"Renegotiated_financial_asset_instrument_without_forbearance_measure",
-"25":"Non_performing_non_retail_exposure_class_financial_asset_instrument",
-"24":"Performing_non_retail_exposure_class_financial_asset_instrument",
-"27":"Financial_asset_instrument_debtor_assessed",
-"26":"Financial_asset_instrument_individually_assessed",
-"30":"Performing_financial_asset_instrument_debtor_assessed",
-"31":"Non_performing_financial_asset_instrument_debtor_assessed",
-"28":"Default_financial_asset_instrument_individually_assessed",
-"29":"Non_default_financial_asset_instrument_individually_assessed",
-"33":"Non_performing_non_default_financial_asset_instrument_individually_assessed",
-"32":"Performing_non_default_financial_asset_instrument_individually_assessed",
-"13":"Balance_sheet_recognised_financial_liability_instrument",
-"36":"Fair_valued_balance_sheet_recognised_financial_liability_instrument",
-"502":"Non_Forborne_off_balance_sheet_item_given_instrument",
-"2":"Over_the_counter_OTC_Derivative_role",
-"40":"Debt_security_position_hedged_by_Over_the_counter_OTC_derivative",
-"41":"Equity_or_fund_security_position_hedged_by_Over_the_counter_OTC_derivative",
-"48":"Past_due_financial_asset_instrument",
-"49":"Not_past_due_financial_asset_instrument",
-} 
-    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -16519,13 +16463,69 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    ABSTRCT_INSTRMNT_RL_TYP = models.CharField("Abstract_instrument_role_type",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNG_NGTV = models.BigIntegerField("Accumulated_negative_changes")   
+    ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
+"12":"Non_balance_sheet_recognised_financial_liability_instrument",
+"34":"Balance_sheet_recognised_financial_asset_instrument_according_to_national_general_accepted_accounting_principles_nGAAP_",
+"35":"Balance_sheet_recognised_financial_asset_instrument_according_to_International_Financial_Reporting_Standard_IFRS_",
+"37":"Non_fair_valued_balance_sheet_recognised_financial_liability_instrument",
+"6":"Off_balance_sheet_item_received_instrument",
+"8":"Collateral_given_instrument",
+"9":"Over_the_counter_OTC_Derivative_as_a_hedge",
+"38":"Over_the_counter_OTC_Credit_default_swap_received_as_collateral_instrument",
+"39":"Other_collateral_received_instrument",
+"0":"Not_applicable",
+"46":"Fair_valued_Balance_sheet_recognised_financial_liability_instrument_according_to_International_Financial_Reporting_Standard_IFRS_",
+"47":"Fair_valued_balance_sheet_recognised_financial_liability_instrument_according_to_national_general_accepted_accounting_principles_nGAAP_",
+"501":"Forborne_off_balance_sheet_item_given_instrument",
+"71":"Collateral_received_instrument_obtained_by_taking_possession",
+"72":"Not_obtained_collateral_received_instrument",
+"1":"Instrument_role",
+"3":"Financial_asset_instrument",
+"4":"Financial_liability_instrument",
+"7":"Collateral_received_instrument",
+"5":"Off_balance_sheet_item_given_instrument",
+"44":"Serviced_asset_instrument",
+"18":"Fixed_interest_financial_asset_instrument",
+"11":"Balance_sheet_recognised_financial_asset_instrument",
+"16":"Renegotiated_financial_asset_instrument",
+"23":"Non_retail_exposure_financial_asset_instrument",
+"20":"Interest_only_financial_asset_instrument",
+"19":"Non_fixed_interest_financial_asset_instrument",
+"22":"Potential_retail_exposure_class_financial_asset_instrument",
+"17":"Non_renegotiated_financial_asset_instrument",
+"21":"Non_interest_only_financial_asset_instrument",
+"42":"Fair_valued_balance_sheet_recognised_financial_asset_instrument",
+"43":"Non_fair_valued_balance_sheet_recognised_financial_asset_instrument",
+"15":"Renegotiated_financial_asset_instrument_with_forbearance_measure",
+"14":"Renegotiated_financial_asset_instrument_without_forbearance_measure",
+"25":"Non_performing_non_retail_exposure_class_financial_asset_instrument",
+"24":"Performing_non_retail_exposure_class_financial_asset_instrument",
+"27":"Financial_asset_instrument_debtor_assessed",
+"26":"Financial_asset_instrument_individually_assessed",
+"30":"Performing_financial_asset_instrument_debtor_assessed",
+"31":"Non_performing_financial_asset_instrument_debtor_assessed",
+"28":"Default_financial_asset_instrument_individually_assessed",
+"29":"Non_default_financial_asset_instrument_individually_assessed",
+"33":"Non_performing_non_default_financial_asset_instrument_individually_assessed",
+"32":"Performing_non_default_financial_asset_instrument_individually_assessed",
+"13":"Balance_sheet_recognised_financial_liability_instrument",
+"36":"Fair_valued_balance_sheet_recognised_financial_liability_instrument",
+"502":"Non_Forborne_off_balance_sheet_item_given_instrument",
+"2":"Over_the_counter_OTC_Derivative_role",
+"40":"Debt_security_position_hedged_by_Over_the_counter_OTC_derivative",
+"41":"Equity_or_fund_security_position_hedged_by_Over_the_counter_OTC_derivative",
+"48":"Past_due_financial_asset_instrument",
+"49":"Not_past_due_financial_asset_instrument",
+} 
+    ABSTRCT_INSTRMNT_RL_TYP = models.CharField("Abstract_instrument_role_type",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_PRTL_WRTFFS = models.BigIntegerField("Accumulated_partial_write_offs")   
+    ACCMLTD_CHNG_NGTV = models.BigIntegerField("Accumulated_negative_changes",default=None, blank=True, null=True)   
 
-    ACCMLTD_TTL_WRTFFS = models.BigIntegerField("Accumulated_total_write_offs")   
+    ACCMLTD_PRTL_WRTFFS = models.BigIntegerField("Accumulated_partial_write_offs",default=None, blank=True, null=True)   
+
+    ACCMLTD_TTL_WRTFFS = models.BigIntegerField("Accumulated_total_write_offs",default=None, blank=True, null=True)   
 
     ACCNTNG_CLSSFCTN_domain = {"21":"IFRS_Financial_liabilities_measured_at_amortised_cost",
 "23":"IFRS_Financial_liabilities_held_for_trading",
@@ -16567,18 +16567,18 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "93":"Under_nGAAP",
 "0":"Not_applicable",
 } 
-    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain)   
+    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain,default=None, blank=True, null=True)   
 
     ACCNTNG_HDG_INDCTR_domain = {"1":"Accounting_hedge",
 "2":"Not_accounting_hedge",
 "0":"Not_applicable",
 } 
-    ACCNTNG_HDG_INDCTR = models.CharField("Accounting_hedge_indicator",max_length=255, choices=ACCNTNG_HDG_INDCTR_domain)   
+    ACCNTNG_HDG_INDCTR = models.CharField("Accounting_hedge_indicator",max_length=255, choices=ACCNTNG_HDG_INDCTR_domain,default=None, blank=True, null=True)   
 
     DT_OPNNG_BLNC_domain = {"2":"Current_reference_period_date",
 "-1":"Any_date_Total_",
 } 
-    APPLCTN_FRBRNC_STTS_DT = models.CharField("Date_period_of_application_of_forbearance_measure",max_length=255, choices=DT_OPNNG_BLNC_domain)   
+    APPLCTN_FRBRNC_STTS_DT = models.CharField("Date_period_of_application_of_forbearance_measure",max_length=255, choices=DT_OPNNG_BLNC_domain,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -16634,15 +16634,15 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    BLNC_SHT_RCGNSD_FFNCL_ASST_INSTRMNT_FR_VL_TYP = models.CharField("Balance_sheet_recognised_financial_asset_instrument_by_fair_value_type",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    BLNC_SHT_RCGNSD_FFNCL_ASST_INSTRMNT_FR_VL_TYP = models.CharField("Balance_sheet_recognised_financial_asset_instrument_by_fair_value_type",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    CRRNT_LTV_RT = models.FloatField("Current_loan_to_value_ratio")   
+    CRRNT_LTV_RT = models.FloatField("Current_loan_to_value_ratio",default=None, blank=True, null=True)   
 
     DBT_FNNCNG_ANCRDT_INDCTR_domain = {"0":"Not_applicable",
 "1":"Debt_financing_according_to_AnaCredit",
 "2":"Not_debt_financing_according_to_AnaCredit",
 } 
-    DBT_FNNCNG_RGLTN867_2016_INDCTR = models.CharField("Debt_financing_according_to_AnaCredit_indicator",max_length=255, choices=DBT_FNNCNG_ANCRDT_INDCTR_domain)   
+    DBT_FNNCNG_RGLTN867_2016_INDCTR = models.CharField("Debt_financing_according_to_AnaCredit_indicator",max_length=255, choices=DBT_FNNCNG_ANCRDT_INDCTR_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -16665,7 +16665,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    DFLT_STTS = models.CharField("Default_status",max_length=255, choices=CRDT_QLTY_domain)   
+    DFLT_STTS = models.CharField("Default_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -16688,19 +16688,19 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    DFLT_STTS_DRVD = models.CharField("Derived_default_status",max_length=255, choices=CRDT_QLTY_domain)   
+    DFLT_STTS_DRVD = models.CharField("Derived_default_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     ELGBL_GRNT_INDCTR_domain = {"0":"Not_applicable",
 "1":"Not_eligible_as_guarantee",
 "2":"Eligible_as_guarantee",
 } 
-    ELGBL_GRNT_INDCTR = models.CharField("Eligible_as_guarantee_indicator",max_length=255, choices=ELGBL_GRNT_INDCTR_domain)   
+    ELGBL_GRNT_INDCTR = models.CharField("Eligible_as_guarantee_indicator",max_length=255, choices=ELGBL_GRNT_INDCTR_domain,default=None, blank=True, null=True)   
 
     RCRS_domain = {"0":"Not_applicable",
 "1":"Recourse",
 "2":"No_recourse",
 } 
-    EXPSR_RCRS_INDCTR = models.CharField("EXPSR_RCRS_INDCTR",max_length=255, choices=RCRS_domain)   
+    EXPSR_RCRS_INDCTR = models.CharField("EXPSR_RCRS_INDCTR",max_length=255, choices=RCRS_domain,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -16756,7 +16756,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    FNNCL_ASST_INSTRMNT_TYP_CRR_123 = models.CharField("Financial_asset_instrument_type_by_CRR_Article_123_Retail_exposure_",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    FNNCL_ASST_INSTRMNT_TYP_CRR_123 = models.CharField("Financial_asset_instrument_type_by_CRR_Article_123_Retail_exposure_",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -16812,7 +16812,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    FNNCL_ASST_INSTRMNT_TYP_FXD_INTRST_RT = models.CharField("Financial_asset_instrument_type_by_fixed_interest_rate",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    FNNCL_ASST_INSTRMNT_TYP_FXD_INTRST_RT = models.CharField("Financial_asset_instrument_type_by_fixed_interest_rate",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -16868,7 +16868,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    FNNCL_ASST_INSTRMNT_TYP_INTRST_RT_ONL = models.CharField("Financial_asset_instrument_type_by_interest_rate_only",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    FNNCL_ASST_INSTRMNT_TYP_INTRST_RT_ONL = models.CharField("Financial_asset_instrument_type_by_interest_rate_only",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -16924,7 +16924,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    FNNCL_ASST_INSTRMNT_TYP_RNGTTN_STTS = models.CharField("Financial_asset_instrument_type_by_renegotiation_status",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    FNNCL_ASST_INSTRMNT_TYP_RNGTTN_STTS = models.CharField("Financial_asset_instrument_type_by_renegotiation_status",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
     FRBRNC_MSR_TYP_domain = {"11":"Forborne_instruments_with_modified_interest_rate_below_market_conditions",
 "1":"Grace_period_payment_moratorium",
@@ -16938,29 +16938,29 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "8":"Forborne_Refinanced_debt",
 "9":"Forborne_instruments_with_other_modified_terms_and_conditions",
 } 
-    FRBRNC_MSR_TYP = models.CharField("Forbearance_measure",max_length=255, choices=FRBRNC_MSR_TYP_domain)   
+    FRBRNC_MSR_TYP = models.CharField("Forbearance_measure",max_length=255, choices=FRBRNC_MSR_TYP_domain,default=None, blank=True, null=True)   
 
     FV_HRRCHY_domain = {"0":"Not_applicable",
 "1":"Level_1",
 "2":"Level_2",
 "3":"Level_3",
 } 
-    FV_HRRCHY = models.CharField("Fair_value_hierarchy",max_length=255, choices=FV_HRRCHY_domain)   
+    FV_HRRCHY = models.CharField("Fair_value_hierarchy",max_length=255, choices=FV_HRRCHY_domain,default=None, blank=True, null=True)   
 
     FVO_DSGNTN_domain = {"0":"Not_applicable",
 "2":"Management_on_a_fair_value_basis",
 "5":"Management_of_credit_risk_Upon_designation",
 "6":"Management_of_credit_risk_After_the_designation",
 } 
-    FVO_DSGNTN = models.CharField("Fair_value_option_designation",max_length=255, choices=FVO_DSGNTN_domain)   
+    FVO_DSGNTN = models.CharField("Fair_value_option_designation",max_length=255, choices=FVO_DSGNTN_domain,default=None, blank=True, null=True)   
 
-    GRSS_CRRYNG_AMNT = models.BigIntegerField("Gross_carrying_amount")   
+    GRSS_CRRYNG_AMNT = models.BigIntegerField("Gross_carrying_amount",default=None, blank=True, null=True)   
 
     HLD_SL_INDCTR_domain = {"1":"Held_for_sale",
 "2":"Not_held_for_sale",
 "0":"Not_applicable",
 } 
-    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain)   
+    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -16983,7 +16983,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    IMPRMNT_STTS = models.CharField("Impairment_status",max_length=255, choices=CRDT_QLTY_domain)   
+    IMPRMNT_STTS = models.CharField("Impairment_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -17006,7 +17006,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    INTL_IMPRMNT_STTS = models.CharField("Initial_impairment_status",max_length=255, choices=CRDT_QLTY_domain)   
+    INTL_IMPRMNT_STTS = models.CharField("Initial_impairment_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     FRQNCY_domain = {"0":"Not_applicable",
 "12":"Other_than_overnight_monthly_quarterly_half_yearly_annually_or_at_creditor_discretion",
@@ -17020,31 +17020,31 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "22":"Zero_coupon",
 "4":"Bullet",
 } 
-    INTRST_RT_RST_FRQNCY = models.CharField("Interest_rate_reset_frequency",max_length=255, choices=FRQNCY_domain)   
+    INTRST_RT_RST_FRQNCY = models.CharField("Interest_rate_reset_frequency",max_length=255, choices=FRQNCY_domain,default=None, blank=True, null=True)   
 
     LOCOM_INDCTR_domain = {"0":"Not_applicable",
 "1":"Is_LOCOM",
 "2":"Is_not_LOCOM",
 } 
-    LOCOM_INDCTR = models.CharField("Lower_of_cost_or_market_LOCOM_indicator",max_length=255, choices=LOCOM_INDCTR_domain)   
+    LOCOM_INDCTR = models.CharField("Lower_of_cost_or_market_LOCOM_indicator",max_length=255, choices=LOCOM_INDCTR_domain,default=None, blank=True, null=True)   
 
     LW_CRDT_RSK_INDCTR_domain = {"0":"Not_applicable",
 "1":"Low_credit_risk_instrument",
 "2":"Not_low_credit_risk_instrument",
 } 
-    LW_CRDT_RSK_INDCTR = models.CharField("Low_credit_risk_indicator_for_Finrep",max_length=255, choices=LW_CRDT_RSK_INDCTR_domain)   
+    LW_CRDT_RSK_INDCTR = models.CharField("Low_credit_risk_indicator_for_Finrep",max_length=255, choices=LW_CRDT_RSK_INDCTR_domain,default=None, blank=True, null=True)   
 
     MLTPL_FRBRNC_MSR_INDCTR_domain = {"0":"Not_applicable",
 "1":"Multiple_forbearance_measures_in_place",
 "2":"Not_multiple_forbearance_measures_in_place",
 } 
-    MLTPL_FRBRNC_MSRS_INDCTR = models.CharField("Multiple_forbearance_measures_in_place_indicator",max_length=255, choices=MLTPL_FRBRNC_MSR_INDCTR_domain)   
+    MLTPL_FRBRNC_MSRS_INDCTR = models.CharField("Multiple_forbearance_measures_in_place_indicator",max_length=255, choices=MLTPL_FRBRNC_MSR_INDCTR_domain,default=None, blank=True, null=True)   
 
     FLD_NN_PRFRMNG_EXT_CRTR_INDCTR_domain = {"0":"Not_applicable",
 "1":"Failed_to_meet_the_non_performing_exit_criteria",
 "2":"Still_able_to_meet_the_non_performing_exit_criteria",
 } 
-    NN_PRFRMNG_EXT_CRTR_MT_INDCTR = models.CharField("Non_performing_exit_criteria_met_indicator",max_length=255, choices=FLD_NN_PRFRMNG_EXT_CRTR_INDCTR_domain)   
+    NN_PRFRMNG_EXT_CRTR_MT_INDCTR = models.CharField("Non_performing_exit_criteria_met_indicator",max_length=255, choices=FLD_NN_PRFRMNG_EXT_CRTR_INDCTR_domain,default=None, blank=True, null=True)   
 
     NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain = {"1":"Non_performing_prior_to_forbearance",
 "2":"Not_non_performing_prior_to_forbearance",
@@ -17052,19 +17052,19 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "2_x2":"Not_non_performing_prior_to_forbearance_x2",
 "0":"Not_applicable",
 } 
-    NN_PRFRMNG_PRR_FRBRNC_INDCTR = models.CharField("Non_performing_prior_to_forbearance_indicator",max_length=255, choices=NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain)   
+    NN_PRFRMNG_PRR_FRBRNC_INDCTR = models.CharField("Non_performing_prior_to_forbearance_indicator",max_length=255, choices=NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain,default=None, blank=True, null=True)   
 
     PRDNTL_PRTFL_domain = {"1":"Trading_book",
 "2":"Non_trading_book",
 "0":"Not_applicable",
 } 
-    PRDNTL_PRTFL_TYP = models.CharField("Prudential_portfolio_type",max_length=255, choices=PRDNTL_PRTFL_domain)   
+    PRDNTL_PRTFL_TYP = models.CharField("Prudential_portfolio_type",max_length=255, choices=PRDNTL_PRTFL_domain,default=None, blank=True, null=True)   
 
     PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain = {"0":"Not_applicable",
 "1":"Performing_forborne_exposure_under_probation",
 "2":"Performing_forborne_exposure_not_under_probation",
 } 
-    PRFRMNG_FRBRN_EXPSR_UNDR_PRBTN_RCLSSFD_NN_PRFRMNG_INDCTR = models.CharField("Performing_forborne_exposure_under_probation_reclassified_from_non_performing_indicator",max_length=255, choices=PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain)   
+    PRFRMNG_FRBRN_EXPSR_UNDR_PRBTN_RCLSSFD_NN_PRFRMNG_INDCTR = models.CharField("Performing_forborne_exposure_under_probation_reclassified_from_non_performing_indicator",max_length=255, choices=PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -17087,19 +17087,19 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    PRFRMNG_STTS = models.CharField("Performing_status",max_length=255, choices=CRDT_QLTY_domain)   
+    PRFRMNG_STTS = models.CharField("Performing_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     PRFRMNG_STTS_RSN_domain = {"1":"Failed_reclassification_to_performing_at_end_of_probation_period",
 "2":"Exited_from_NPE_in_the_last_12_months",
 "0":"Not_applicable",
 } 
-    PRFRMNG_STTS_RSN = models.CharField("The_reason_for_the_choice_of_Performing_status",max_length=255, choices=PRFRMNG_STTS_RSN_domain)   
+    PRFRMNG_STTS_RSN = models.CharField("The_reason_for_the_choice_of_Performing_status",max_length=255, choices=PRFRMNG_STTS_RSN_domain,default=None, blank=True, null=True)   
 
     PRJCT_FNNC_LN_domain = {"0":"Not_applicable",
 "1":"Project_finance_loan",
 "2":"Non_project_finance_loan",
 } 
-    PRJCT_FNNC_LN = models.CharField("Project_finance_loan",max_length=255, choices=PRJCT_FNNC_LN_domain)   
+    PRJCT_FNNC_LN = models.CharField("Project_finance_loan",max_length=255, choices=PRJCT_FNNC_LN_domain,default=None, blank=True, null=True)   
 
     PRPS_domain = {"12":"Residential_real_estate_purchase",
 "13":"Commercial_real_estate_purchase",
@@ -17112,7 +17112,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "9":"Working_capital_facility",
 "0":"Not_applicable",
 } 
-    PRPS = models.CharField("Purpose",max_length=255, choices=PRPS_domain)   
+    PRPS = models.CharField("Purpose",max_length=255, choices=PRPS_domain,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -17168,7 +17168,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    PST_DU_FNNCL_ASST_INSTRMNT_INDCTR = models.CharField("Past_due_financial_asset_instrument_indicator",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    PST_DU_FNNCL_ASST_INSTRMNT_INDCTR = models.CharField("Past_due_financial_asset_instrument_indicator",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
     FRQNCY_domain = {"0":"Not_applicable",
 "12":"Other_than_overnight_monthly_quarterly_half_yearly_annually_or_at_creditor_discretion",
@@ -17182,7 +17182,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "22":"Zero_coupon",
 "4":"Bullet",
 } 
-    PYMNT_FRQNCY = models.CharField("Payment_frequency",max_length=255, choices=FRQNCY_domain)   
+    PYMNT_FRQNCY = models.CharField("Payment_frequency",max_length=255, choices=FRQNCY_domain,default=None, blank=True, null=True)   
 
     RCGNTN_STTS_domain = {"1":"Entirely_recognised",
 "2":"Recognised_to_the_extent_of_the_institution_s_continuing_involvement",
@@ -17190,7 +17190,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "0":"Not_applicable",
 "4":"Partially_derecognised",
 } 
-    RCGNTN_STTS = models.CharField("Recognition",max_length=255, choices=RCGNTN_STTS_domain)   
+    RCGNTN_STTS = models.CharField("Recognition",max_length=255, choices=RCGNTN_STTS_domain,default=None, blank=True, null=True)   
 
     RFRNC_RT_domain = {"0":"Not_applicable",
 "100":"EURIBOR_8M",
@@ -17338,19 +17338,19 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "99":"multiple_reference_rates_7M",
 "9":"multiple_reference_rates_ON",
 } 
-    RFRNC_RT = models.CharField("Reference_rate",max_length=255, choices=RFRNC_RT_domain)   
+    RFRNC_RT = models.CharField("Reference_rate",max_length=255, choices=RFRNC_RT_domain,default=None, blank=True, null=True)   
 
     SBJCT_IMPRMNT_INDCTR_domain = {"1":"Subject_to_impairment",
 "2":"Not_subject_to_impairment",
 "0":"Not_applicable",
 } 
-    SBJCT_IMPRMNT_INDCTR = models.CharField("Subject_to_impairment_indicator",max_length=255, choices=SBJCT_IMPRMNT_INDCTR_domain)   
+    SBJCT_IMPRMNT_INDCTR = models.CharField("Subject_to_impairment_indicator",max_length=255, choices=SBJCT_IMPRMNT_INDCTR_domain,default=None, blank=True, null=True)   
 
     SBRDNTD_DBT_domain = {"0":"Not_applicable",
 "1":"Subordinated_debt",
 "2":"Non_subordinated_debt",
 } 
-    SBRDNTD_DBT = models.CharField("Subordinated_debt",max_length=255, choices=SBRDNTD_DBT_domain)   
+    SBRDNTD_DBT = models.CharField("Subordinated_debt",max_length=255, choices=SBRDNTD_DBT_domain,default=None, blank=True, null=True)   
 
     TM_INTRVL_domain = {"0":"Not_applicable",
 "27":"Up_to_2_years",
@@ -17376,7 +17376,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "64":"_0d_1d_",
 "9":"_1m_3m_",
 } 
-    TM_PST_DU_BND = models.CharField("Time_past_due_band",max_length=255, choices=TM_INTRVL_domain)   
+    TM_PST_DU_BND = models.CharField("Time_past_due_band",max_length=255, choices=TM_INTRVL_domain,default=None, blank=True, null=True)   
 
     TM_INTRVL_domain = {"0":"Not_applicable",
 "27":"Up_to_2_years",
@@ -17402,7 +17402,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "64":"_0d_1d_",
 "9":"_1m_3m_",
 } 
-    TM_SNC_INTL_RCGNTN = models.CharField("TM_SNC_INTL_RCGNTN",max_length=255, choices=TM_INTRVL_domain)   
+    TM_SNC_INTL_RCGNTN = models.CharField("TM_SNC_INTL_RCGNTN",max_length=255, choices=TM_INTRVL_domain,default=None, blank=True, null=True)   
 
     TRNSFR_IMPRMNT_STGS_domain = {"3":"To_stage_2_from_stage_1",
 "4":"To_stage_2_from_stage_3",
@@ -17411,7 +17411,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "2":"To_stage_1_from_stage_3",
 "5":"To_stage_3_from_stage_1",
 } 
-    TRNSFR_IMPRMNT_STGS = models.CharField("Transfer_between_impairment_stages",max_length=255, choices=TRNSFR_IMPRMNT_STGS_domain)   
+    TRNSFR_IMPRMNT_STGS = models.CharField("Transfer_between_impairment_stages",max_length=255, choices=TRNSFR_IMPRMNT_STGS_domain,default=None, blank=True, null=True)   
 
     TYP_AMRTSTN_domain = {"0":"Not_applicable",
 "1":"French",
@@ -17420,7 +17420,7 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "4":"Bullet",
 "5":"Amortisation_types_other_than_French_German_Fixed_amortisation_schedule_or_bullet",
 } 
-    TYP_AMRTSTN = models.CharField("Type_of_amortisation",max_length=255, choices=TYP_AMRTSTN_domain)   
+    TYP_AMRTSTN = models.CharField("Type_of_amortisation",max_length=255, choices=TYP_AMRTSTN_domain,default=None, blank=True, null=True)   
 
     TYP_HDG_domain = {"0":"Not_applicable",
 "11":"Hedges_other_than_cash_flow_hedge_and_hedge_of_net_investment_in_a_foreign_operation",
@@ -17434,107 +17434,107 @@ class BIRD_ABSTRCT_INSTRMNT_RL_EIL(models.Model):
 "7":"Other_than_Fair_value_hedge_Cash_flow_hedge_Hedge_of_a_net_investment_in_a_foreign_operation_Portfolio_fair_value_hedges_of_interest_rate_risk_Portfolio_cash_flow_hedges_of_interest_rate_risk_Cost_price_hedge",
 "8":"Not_a_hedge",
 } 
-    TYP_HDG = models.CharField("Type_of_hedge",max_length=255, choices=TYP_HDG_domain)   
+    TYP_HDG = models.CharField("Type_of_hedge",max_length=255, choices=TYP_HDG_domain,default=None, blank=True, null=True)   
 
     TYP_INTRST_RT_domain = {"0":"Not_applicable",
 "1":"Fixed",
 "2":"Variable",
 "3":"Mixed",
 } 
-    TYP_INTRST_RT = models.CharField("Type_of_interest_rate",max_length=255, choices=TYP_INTRST_RT_domain)   
+    TYP_INTRST_RT = models.CharField("Type_of_interest_rate",max_length=255, choices=TYP_INTRST_RT_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value")   
+    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value",default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk")   
+    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk",default=None, blank=True, null=True)   
 
-    ACCMLTD_IMPRMNT = models.BigIntegerField("Accumulated_impairment")   
+    ACCMLTD_IMPRMNT = models.BigIntegerField("Accumulated_impairment",default=None, blank=True, null=True)   
 
-    ACCMLTD_NGTV_VL_ADJSTMNT_MR = models.BigIntegerField("Accumulated_negative_value_adjustments_Market_risk_induced")   
+    ACCMLTD_NGTV_VL_ADJSTMNT_MR = models.BigIntegerField("Accumulated_negative_value_adjustments_Market_risk_induced",default=None, blank=True, null=True)   
 
-    ACCMLTD_WRTFFS = models.BigIntegerField("Accumulated_write_offs")   
+    ACCMLTD_WRTFFS = models.BigIntegerField("Accumulated_write_offs",default=None, blank=True, null=True)   
 
-    ACCRD_INTRST = models.BigIntegerField("Accrued_interest_accounting_")   
+    ACCRD_INTRST = models.BigIntegerField("Accrued_interest_accounting_",default=None, blank=True, null=True)   
 
-    ANNLSD_AGRD_RT = models.FloatField("Interest_rate")   
+    ANNLSD_AGRD_RT = models.FloatField("Interest_rate",default=None, blank=True, null=True)   
 
-    ARRRS = models.BigIntegerField("Arrears_for_the_instrument")   
+    ARRRS = models.BigIntegerField("Arrears_for_the_instrument",default=None, blank=True, null=True)   
 
-    CMLTV_RCVRS_SNC_DFLT = models.BigIntegerField("Cumulative_recoveries_since_default")   
+    CMLTV_RCVRS_SNC_DFLT = models.BigIntegerField("Cumulative_recoveries_since_default",default=None, blank=True, null=True)   
 
-    CMMTMNT_INCPTN = models.BigIntegerField("Commitment_amount_at_inception")   
+    CMMTMNT_INCPTN = models.BigIntegerField("Commitment_amount_at_inception",default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
-    DT_DFLT_STTS = models.DateTimeField("Date_of_default_status")   
+    DT_DFLT_STTS = models.DateTimeField("Date_of_default_status",default=None, blank=True, null=True)   
 
-    DT_END_INTRST_ONLY = models.DateTimeField("End_date_of_the_interest_only_period")   
+    DT_END_INTRST_ONLY = models.DateTimeField("End_date_of_the_interest_only_period",default=None, blank=True, null=True)   
 
-    DT_FRBRNC_MSRS = models.DateTimeField("Date_of_forbearance_measure")   
+    DT_FRBRNC_MSRS = models.DateTimeField("Date_of_forbearance_measure",default=None, blank=True, null=True)   
 
-    DT_FRBRNC_STTS = models.DateTimeField("Date_of_forbearance_and_renegotiation_status")   
+    DT_FRBRNC_STTS = models.DateTimeField("Date_of_forbearance_and_renegotiation_status",default=None, blank=True, null=True)   
 
-    DT_INCPTN = models.DateTimeField("Inception_date")   
+    DT_INCPTN = models.DateTimeField("Inception_date",default=None, blank=True, null=True)   
 
-    DT_NN_PRFRMNG_STTS_INSTRMNT = models.DateTimeField("Date_of_non_performing_status")   
+    DT_NN_PRFRMNG_STTS_INSTRMNT = models.DateTimeField("Date_of_non_performing_status",default=None, blank=True, null=True)   
 
-    DT_NXT_INTRST_RT_RST = models.DateTimeField("Next_interest_rate_reset_date")   
+    DT_NXT_INTRST_RT_RST = models.DateTimeField("Next_interest_rate_reset_date",default=None, blank=True, null=True)   
 
-    DT_PST_D = models.DateTimeField("Date_of_past_due")   
+    DT_PST_D = models.DateTimeField("Date_of_past_due",default=None, blank=True, null=True)   
 
-    DT_STTLMNT = models.DateTimeField("Settlement_date")   
+    DT_STTLMNT = models.DateTimeField("Settlement_date",default=None, blank=True, null=True)   
 
-    FRBRNC_MSR_CNT = models.BigIntegerField("Forbearance_measure_count")   
+    FRBRNC_MSR_CNT = models.BigIntegerField("Forbearance_measure_count",default=None, blank=True, null=True)   
 
-    FRZNG_PRD_DYS = models.BigIntegerField("Freezing_period_in_days")   
+    FRZNG_PRD_DYS = models.BigIntegerField("Freezing_period_in_days",default=None, blank=True, null=True)   
 
-    FV = models.BigIntegerField("Fair_value")   
+    FV = models.BigIntegerField("Fair_value",default=None, blank=True, null=True)   
 
-    FV_CHNG = models.BigIntegerField("Fair_value_change")   
+    FV_CHNG = models.BigIntegerField("Fair_value_change",default=None, blank=True, null=True)   
 
-    FV_CHNG_CR_BFR_PRCHS = models.BigIntegerField("Fair_value_changes_due_to_changes_in_credit_risk_before_purchase")   
+    FV_CHNG_CR_BFR_PRCHS = models.BigIntegerField("Fair_value_changes_due_to_changes_in_credit_risk_before_purchase",default=None, blank=True, null=True)   
 
-    FV_CHNGS_HDG_ACCNTNG = models.BigIntegerField("Fair_value_changes_due_to_hedge_accounting")   
+    FV_CHNGS_HDG_ACCNTNG = models.BigIntegerField("Fair_value_changes_due_to_hedge_accounting",default=None, blank=True, null=True)   
 
-    GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL = models.BigIntegerField("GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL")   
+    GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL = models.BigIntegerField("GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL",default=None, blank=True, null=True)   
 
-    GNRL_ALLWNCS_BNK_RSK = models.BigIntegerField("General_allowances_for_bank_risk_affecting_carrying_amount_nGAAP_")   
+    GNRL_ALLWNCS_BNK_RSK = models.BigIntegerField("General_allowances_for_bank_risk_affecting_carrying_amount_nGAAP_",default=None, blank=True, null=True)   
 
-    GNRL_ALLWNCS_CRDT_RSK = models.BigIntegerField("General_allowances_for_credit_risk_affecting_carrying_amount_nGAAP_")   
+    GNRL_ALLWNCS_CRDT_RSK = models.BigIntegerField("General_allowances_for_credit_risk_affecting_carrying_amount_nGAAP_",default=None, blank=True, null=True)   
 
-    GRSS_CRRYNG_AMNT_E_INTRST = models.BigIntegerField("Gross_carrying_amount_excluding_accrued_interest")   
+    GRSS_CRRYNG_AMNT_E_INTRST = models.BigIntegerField("Gross_carrying_amount_excluding_accrued_interest",default=None, blank=True, null=True)   
 
-    HRCTS_TRDNG_PSTNS_FV = models.BigIntegerField("Haircuts_for_trading_positions_valued_at_fair_value")   
+    HRCTS_TRDNG_PSTNS_FV = models.BigIntegerField("Haircuts_for_trading_positions_valued_at_fair_value",default=None, blank=True, null=True)   
 
-    INTRST_RT_CP = models.FloatField("Interest_rate_cap")   
+    INTRST_RT_CP = models.FloatField("Interest_rate_cap",default=None, blank=True, null=True)   
 
-    INTRST_RT_FLR = models.FloatField("Interest_rate_floor")   
+    INTRST_RT_FLR = models.FloatField("Interest_rate_floor",default=None, blank=True, null=True)   
 
-    INTRST_RT_SPRD = models.FloatField("Interest_rate_spread_margin")   
+    INTRST_RT_SPRD = models.FloatField("Interest_rate_spread_margin",default=None, blank=True, null=True)   
 
-    PRVSNS_OFF_BLNC_SHT = models.BigIntegerField("Provisions_associated_with_off_balance_sheet_exposures")   
+    PRVSNS_OFF_BLNC_SHT = models.BigIntegerField("Provisions_associated_with_off_balance_sheet_exposures",default=None, blank=True, null=True)   
 
-    STRT_DT_PRD = models.DateTimeField("Start_date_of_the_period")   
+    STRT_DT_PRD = models.DateTimeField("Start_date_of_the_period",default=None, blank=True, null=True)   
 
-    TKN_PSSSSN_DT = models.DateTimeField("Taken_into_possession_date")   
+    TKN_PSSSSN_DT = models.DateTimeField("Taken_into_possession_date",default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Abstract_instrument_role'
         verbose_name_plural = 'Abstract_instrument_roles'
-
+		
 class BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255)   
+    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -17580,11 +17580,11 @@ class BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    TRNSFRRD_AMNT = models.BigIntegerField("Transferred_amount")   
+    TRNSFRRD_AMNT = models.BigIntegerField("Transferred_amount",default=None, blank=True, null=True)   
 
     the_BIRD_SCRTY_PSTN_EIL_1 = models.ForeignKey("BIRD_SCRTY_PSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -17593,23 +17593,23 @@ class BIRD_ASST_PL_DBT_SCRTY_PSTN_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Asset_pool_Security_position_assignment'
         verbose_name_plural = 'Asset_pool_Security_position_assignments'
-
+		
 class BIRD_ASST_PL_EIL(models.Model):
 
 
     BIRD_ASST_PL_EIL_uniqueID = models.CharField("BIRD_ASST_PL_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255)   
+    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ASST_PL_RFRNC_DT = models.DateTimeField("Asset_pool_Reference_date")   
+    ASST_PL_RFRNC_DT = models.DateTimeField("Asset_pool_Reference_date",default=None, blank=True, null=True)   
 
-    ASST_PL_RPRTNG_AGNT_ID = models.CharField("Asset_pool_Reporting_agent_identifier",max_length=255)   
+    ASST_PL_RPRTNG_AGNT_ID = models.CharField("Asset_pool_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ASST_PL_TYP_domain = {"1":"Asset_pool_subject_to_a_Covered_bond_program_",
 "2":"Asset_pool_subject_to_a_credit_transfer_other_than_securitisation_and_covered_bond_program_",
 "3":"Asset_pool_subject_to_a_Securitisation_",
 } 
-    ASST_PL_TYP = models.CharField("Asset_pool_subject_to_securitisation_and_other_credit_transfer_type",max_length=255, choices=ASST_PL_TYP_domain)   
+    ASST_PL_TYP = models.CharField("Asset_pool_subject_to_securitisation_and_other_credit_transfer_type",max_length=255, choices=ASST_PL_TYP_domain,default=None, blank=True, null=True)   
 
     PRMRY_ASST_CLSS_CVR_PL_domain = {"0":"Not_applicable",
 "a":"Exposures_to_or_guaranteed_by_central_governments_ESCB_central_banks_public_sector_entities_regional_governments_or_local_authorities_in_the_Union",
@@ -17621,7 +17621,7 @@ class BIRD_ASST_PL_EIL(models.Model):
 "g":"Loans_secured_y_maritime_liens_on_ships_up_to_the_difference_between_60_of_the_value_of_the_pledged_ship_and_the_value_of_any_prior_maritime_liens",
 "h":"Other_exposures",
 } 
-    PRMRY_ASST_CLSS_CVR_PL = models.CharField("Primary_asset_class_of_cover_pool",max_length=255, choices=PRMRY_ASST_CLSS_CVR_PL_domain)   
+    PRMRY_ASST_CLSS_CVR_PL = models.CharField("Primary_asset_class_of_cover_pool",max_length=255, choices=PRMRY_ASST_CLSS_CVR_PL_domain,default=None, blank=True, null=True)   
 
     RCGNTN_STTS_domain = {"1":"Entirely_recognised",
 "2":"Recognised_to_the_extent_of_the_institution_s_continuing_involvement",
@@ -17629,26 +17629,26 @@ class BIRD_ASST_PL_EIL(models.Model):
 "0":"Not_applicable",
 "4":"Partially_derecognised",
 } 
-    TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT = models.CharField("TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT",max_length=255, choices=RCGNTN_STTS_domain)   
+    TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT = models.CharField("TRTMNT_TRNSFRRD_ASSTS_BLNC_SHT",max_length=255, choices=RCGNTN_STTS_domain,default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Asset_pool_subject_to_a_Securitisation_and_other_credit_transfer_'
         verbose_name_plural = 'Asset_pool_subject_to_a_Securitisation_and_other_credit_transfer_s'
-
+		
 class BIRD_ASST_PL_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_ASST_PL_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_ASST_PL_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255)   
+    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    EQTY_INSTRMNT_ID = models.CharField("Equity_instrument_identifier",max_length=255)   
+    EQTY_INSTRMNT_ID = models.CharField("Equity_instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -17657,23 +17657,23 @@ class BIRD_ASST_PL_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Asset_pool_Equity_instrument_that_is_not_a_security_assignment'
         verbose_name_plural = 'Asset_pool_Equity_instrument_that_is_not_a_security_assignments'
-
+		
 class BIRD_ASST_PL_LN_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_ASST_PL_LN_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_ASST_PL_LN_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255)   
+    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    LN_INSTRMNT_ID = models.CharField("Loan_Instrument_identifier",max_length=255)   
+    LN_INSTRMNT_ID = models.CharField("Loan_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRCNTG_RTND = models.FloatField("Percentage_retained")   
+    PRCNTG_RTND = models.FloatField("Percentage_retained",default=None, blank=True, null=True)   
 
-    PRCNTG_TRNSFRD = models.FloatField("Percentage_transfered")   
+    PRCNTG_TRNSFRD = models.FloatField("Percentage_transfered",default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -17682,36 +17682,36 @@ class BIRD_ASST_PL_LN_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Asset_pool_Loan_excluding_repurchase_agreement_assignment'
         verbose_name_plural = 'Asset_pool_Loan_excluding_repurchase_agreement_assignments'
-
+		
 class BIRD_BLNC_SHT_NTTNG_EIL(models.Model):
 
 
     BIRD_BLNC_SHT_NTTNG_EIL_uniqueID = models.CharField("BIRD_BLNC_SHT_NTTNG_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    BLNC_SHT_NTTNG_ID = models.CharField("Balance_sheet_netting_identifier",max_length=255)   
+    BLNC_SHT_NTTNG_ID = models.CharField("Balance_sheet_netting_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    BLNC_SHT_NTTNG_RFRNC_DT = models.DateTimeField("Balance_sheet_netting_Reference_date")   
+    BLNC_SHT_NTTNG_RFRNC_DT = models.DateTimeField("Balance_sheet_netting_Reference_date",default=None, blank=True, null=True)   
 
-    BLNC_SHT_NTTNG_RPRTNG_AGNT_ID = models.CharField("Balance_sheet_netting_Reporting_agent_identifier",max_length=255)   
+    BLNC_SHT_NTTNG_RPRTNG_AGNT_ID = models.CharField("Balance_sheet_netting_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Balance_sheet_netting'
         verbose_name_plural = 'Balance_sheet_nettings'
-
+		
 class BIRD_CLLTRL_EIL(models.Model):
 
 
     BIRD_CLLTRL_EIL_uniqueID = models.CharField("BIRD_CLLTRL_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255)   
+    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CLLTRL_ANNX_PRTCTN_ID = models.CharField("Collateral_annex_Protection_arrangement_identifier",max_length=255)   
+    CLLTRL_ANNX_PRTCTN_ID = models.CharField("Collateral_annex_Protection_arrangement_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     TYP_PRTCTN_domain = {"61":"Collateral_obtained_by_taking_possession",
 "62":"Not_obtained_collateral",
@@ -17741,9 +17741,9 @@ class BIRD_CLLTRL_EIL(models.Model):
 "8":"Residential_real_estate_collateral",
 "66":"Exchange_tradable_derivative_collateral",
 } 
-    CLLTRL_OBTND_TYP = models.CharField("Obtained_collateral_type",max_length=255, choices=TYP_PRTCTN_domain)   
+    CLLTRL_OBTND_TYP = models.CharField("Obtained_collateral_type",max_length=255, choices=TYP_PRTCTN_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNG_NGTV = models.BigIntegerField("Accumulated_negative_changes")   
+    ACCMLTD_CHNG_NGTV = models.BigIntegerField("Accumulated_negative_changes",default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -17929,11 +17929,11 @@ class BIRD_CLLTRL_EIL(models.Model):
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
-    DT_ORGNL_PRTCTN_VL = models.DateTimeField("Date_of_original_protection_value")   
+    DT_ORGNL_PRTCTN_VL = models.DateTimeField("Date_of_original_protection_value",default=None, blank=True, null=True)   
 
-    DT_PRTCTN_VL = models.DateTimeField("Date_of_protection_value")   
+    DT_PRTCTN_VL = models.DateTimeField("Date_of_protection_value",default=None, blank=True, null=True)   
 
     GGRPHCL_ARS_domain = {"BJ":"Benin",
 "MY":"Malaysia",
@@ -19435,15 +19435,15 @@ class BIRD_CLLTRL_EIL(models.Model):
 "UKG21":"Telford_and_Wrekin",
 "UKG31":"Birmingham",
 } 
-    NN_MMBR_STT_CNTRY_CD = models.CharField("Non_reporting_member_state_Country_code",max_length=255, choices=GGRPHCL_ARS_domain)   
+    NN_MMBR_STT_CNTRY_CD = models.CharField("Non_reporting_member_state_Country_code",max_length=255, choices=GGRPHCL_ARS_domain,default=None, blank=True, null=True)   
 
-    ORGNL_PRTCTN_VL = models.BigIntegerField("Original_protection_value")   
+    ORGNL_PRTCTN_VL = models.BigIntegerField("Original_protection_value",default=None, blank=True, null=True)   
 
     PLNNNG_PRMSSN_DVLPMNT_INDCTR_domain = {"0":"Not_applicable",
 "1":"Land_with_planning_permission_for_developnment",
 "2":"Land_without_planning_permission_for_development",
 } 
-    PLNNNG_PRMSSN_INDCTR = models.CharField("Planning_permission_for_development_indicator",max_length=255, choices=PLNNNG_PRMSSN_DVLPMNT_INDCTR_domain)   
+    PLNNNG_PRMSSN_INDCTR = models.CharField("Planning_permission_for_development_indicator",max_length=255, choices=PLNNNG_PRMSSN_DVLPMNT_INDCTR_domain,default=None, blank=True, null=True)   
 
     TYP_PRTCTN_domain = {"61":"Collateral_obtained_by_taking_possession",
 "62":"Not_obtained_collateral",
@@ -19473,7 +19473,7 @@ class BIRD_CLLTRL_EIL(models.Model):
 "8":"Residential_real_estate_collateral",
 "66":"Exchange_tradable_derivative_collateral",
 } 
-    RL_ESTT_CLLTRL_LCTN_TYP = models.CharField("Real_estate_collateral_location_type",max_length=255, choices=TYP_PRTCTN_domain)   
+    RL_ESTT_CLLTRL_LCTN_TYP = models.CharField("Real_estate_collateral_location_type",max_length=255, choices=TYP_PRTCTN_domain,default=None, blank=True, null=True)   
 
     TM_INTRVL_domain = {"0":"Not_applicable",
 "27":"Up_to_2_years",
@@ -19499,7 +19499,7 @@ class BIRD_CLLTRL_EIL(models.Model):
 "64":"_0d_1d_",
 "9":"_1m_3m_",
 } 
-    TM_SNC_INTL_RCGNTN = models.CharField("TM_SNC_INTL_RCGNTN",max_length=255, choices=TM_INTRVL_domain)   
+    TM_SNC_INTL_RCGNTN = models.CharField("TM_SNC_INTL_RCGNTN",max_length=255, choices=TM_INTRVL_domain,default=None, blank=True, null=True)   
 
     GGRPHCL_ARS_domain = {"BJ":"Benin",
 "MY":"Malaysia",
@@ -21001,7 +21001,7 @@ class BIRD_CLLTRL_EIL(models.Model):
 "UKG21":"Telford_and_Wrekin",
 "UKG31":"Birmingham",
 } 
-    TRRTRL_UNT = models.CharField("Territorial_unit",max_length=255, choices=GGRPHCL_ARS_domain)   
+    TRRTRL_UNT = models.CharField("Territorial_unit",max_length=255, choices=GGRPHCL_ARS_domain,default=None, blank=True, null=True)   
 
     TYP_PRTCTN_domain = {"61":"Collateral_obtained_by_taking_possession",
 "62":"Not_obtained_collateral",
@@ -21031,7 +21031,7 @@ class BIRD_CLLTRL_EIL(models.Model):
 "8":"Residential_real_estate_collateral",
 "66":"Exchange_tradable_derivative_collateral",
 } 
-    TYP_CLLTRL = models.CharField("Type_of_collateral",max_length=255, choices=TYP_PRTCTN_domain)   
+    TYP_CLLTRL = models.CharField("Type_of_collateral",max_length=255, choices=TYP_PRTCTN_domain,default=None, blank=True, null=True)   
 
     PRTCTN_VLTN_APPRCH_domain = {"0":"Not_applicable",
 "1":"Counterparty_estimation",
@@ -21040,35 +21040,35 @@ class BIRD_CLLTRL_EIL(models.Model):
 "4":"Other_type_of_valuation",
 "5":"Third_party_valuation",
 } 
-    TYP_PRTCTN_VL_APPRCH = models.CharField("Type_of_protection_valuation_approach_for_notional_amount",max_length=255, choices=PRTCTN_VLTN_APPRCH_domain)   
+    TYP_PRTCTN_VL_APPRCH = models.CharField("Type_of_protection_valuation_approach_for_notional_amount",max_length=255, choices=PRTCTN_VLTN_APPRCH_domain,default=None, blank=True, null=True)   
 
     UNDR_CNSTRCTN_INDCTR_domain = {"0":"Not_applicable",
 "1":"Under_construction_or_development",
 "2":"Not_under_construction_or_development",
 } 
-    UNDR_CNSTRCTN_INDCTR = models.CharField("Under_construction_or_development_indicator",max_length=255, choices=UNDR_CNSTRCTN_INDCTR_domain)   
+    UNDR_CNSTRCTN_INDCTR = models.CharField("Under_construction_or_development_indicator",max_length=255, choices=UNDR_CNSTRCTN_INDCTR_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk")   
+    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk",default=None, blank=True, null=True)   
 
-    ACCMLTD_IMPRMNT = models.BigIntegerField("Accumulated_impairment")   
+    ACCMLTD_IMPRMNT = models.BigIntegerField("Accumulated_impairment",default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
-    FV = models.BigIntegerField("Fair_value")   
+    FV = models.BigIntegerField("Fair_value",default=None, blank=True, null=True)   
 
-    GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL = models.BigIntegerField("GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL")   
+    GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL = models.BigIntegerField("GCA_EXPSR_DRCGNSD_EXCHNG_CLLTRL",default=None, blank=True, null=True)   
 
-    INTL_RCGNTN_VL = models.BigIntegerField("Initial_recognition_value")   
+    INTL_RCGNTN_VL = models.BigIntegerField("Initial_recognition_value",default=None, blank=True, null=True)   
 
-    LT_SSTNBL_VL = models.BigIntegerField("Long_term_sustainable_value_amount_of_the_collateral")   
+    LT_SSTNBL_VL = models.BigIntegerField("Long_term_sustainable_value_amount_of_the_collateral",default=None, blank=True, null=True)   
 
-    MRKT_VL = models.BigIntegerField("Market_value_amount_of_the_collateral")   
+    MRKT_VL = models.BigIntegerField("Market_value_amount_of_the_collateral",default=None, blank=True, null=True)   
 
-    NTNL_AMNT = models.BigIntegerField("Notional_amount")   
+    NTNL_AMNT = models.BigIntegerField("Notional_amount",default=None, blank=True, null=True)   
 
-    PSTL_CD = models.CharField("Postal_code",max_length=255)   
+    PSTL_CD = models.CharField("Postal_code",max_length=255,default=None, blank=True, null=True)   
 
-    TKN_PSSSSN_DT = models.DateTimeField("Taken_into_possession_date")   
+    TKN_PSSSSN_DT = models.DateTimeField("Taken_into_possession_date",default=None, blank=True, null=True)   
 
     the_BIRD_PRTCTN_ARRNGMNT_EIL_1 = models.ForeignKey("BIRD_PRTCTN_ARRNGMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -21077,7 +21077,7 @@ class BIRD_CLLTRL_EIL(models.Model):
     class Meta:
         verbose_name = 'Collateral'
         verbose_name_plural = 'Collaterals'
-
+		
 class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL(models.Model):
 
 
@@ -21087,23 +21087,23 @@ class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL(models.Model):
 "3":"Revaluation_model",
 "0":"Not_applicable",
 } 
-    MSRMNT_MTHD = models.CharField("Measurement_method",max_length=255, choices=MSRMNT_MTHD_domain)   
+    MSRMNT_MTHD = models.CharField("Measurement_method",max_length=255, choices=MSRMNT_MTHD_domain,default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     SFTWR_ASST_INDCTR_domain = {"0":"Not_applicable",
 "1":"Software_assets",
 "2":"Not_software_assets",
 } 
-    SFTWR_ASSTS_INDCTR = models.CharField("Software_assets_indicator",max_length=255, choices=SFTWR_ASST_INDCTR_domain)   
+    SFTWR_ASSTS_INDCTR = models.CharField("Software_assets_indicator",max_length=255, choices=SFTWR_ASST_INDCTR_domain,default=None, blank=True, null=True)   
 
     HLD_SL_INDCTR_domain = {"1":"Held_for_sale",
 "2":"Not_held_for_sale",
 "0":"Not_applicable",
 } 
-    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain)   
+    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain,default=None, blank=True, null=True)   
 
-    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255)   
+    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255,default=None, blank=True, null=True)   
 
     TYP_ACCNTNG_ITM_domain = {"0":"Not_applicable",
 "6301":"Software_property_plant_and_equipment_not_taken_into_possession",
@@ -21132,13 +21132,13 @@ class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL(models.Model):
 "46":"Other_non_financial_asset_not_taken_into_possession",
 "413":"Tangible_assets_Investment_property",
 } 
-    PPRTY_PLNT_EQPMNT_NT_TKN_INT_PSSSSN_SFTWR_ASSTS_INDCTR = models.CharField("Property_plant_and_equipment_not_taken_into_possession_software_assets_indicator",max_length=255, choices=TYP_ACCNTNG_ITM_domain)   
+    PPRTY_PLNT_EQPMNT_NT_TKN_INT_PSSSSN_SFTWR_ASSTS_INDCTR = models.CharField("Property_plant_and_equipment_not_taken_into_possession_software_assets_indicator",max_length=255, choices=TYP_ACCNTNG_ITM_domain,default=None, blank=True, null=True)   
 
     SBJCT_OPRTNG_LS_INDCTR_domain = {"1":"Subject_to_operating_lease",
 "2":"Not_Subject_to_operating_lease",
 "0":"Not_applicable",
 } 
-    SBJCT_OPRTNG_LS_INDCTR = models.CharField("Subject_to_operating_lease_indicator",max_length=255, choices=SBJCT_OPRTNG_LS_INDCTR_domain)   
+    SBJCT_OPRTNG_LS_INDCTR = models.CharField("Subject_to_operating_lease_indicator",max_length=255, choices=SBJCT_OPRTNG_LS_INDCTR_domain,default=None, blank=True, null=True)   
 
     TYP_ACCNTNG_ITM_domain = {"0":"Not_applicable",
 "6301":"Software_property_plant_and_equipment_not_taken_into_possession",
@@ -21167,7 +21167,7 @@ class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL(models.Model):
 "46":"Other_non_financial_asset_not_taken_into_possession",
 "413":"Tangible_assets_Investment_property",
 } 
-    PRPRTY_PLNT_EQPMNT_TKN_INT_PSSSSN_TYP = models.CharField("Property_plant_and_equipment_taken_into_possession_type",max_length=255, choices=TYP_ACCNTNG_ITM_domain)   
+    PRPRTY_PLNT_EQPMNT_TKN_INT_PSSSSN_TYP = models.CharField("Property_plant_and_equipment_taken_into_possession_type",max_length=255, choices=TYP_ACCNTNG_ITM_domain,default=None, blank=True, null=True)   
 
     TYP_ACCNTNG_ITM_domain = {"0":"Not_applicable",
 "6301":"Software_property_plant_and_equipment_not_taken_into_possession",
@@ -21196,9 +21196,9 @@ class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL(models.Model):
 "46":"Other_non_financial_asset_not_taken_into_possession",
 "413":"Tangible_assets_Investment_property",
 } 
-    PPRTY_PLNT_EQPMNT_TKN_INT_PSSSSN_SFTWR_ASSTS_INDCTR = models.CharField("Property_plant_and_equipment_taken_into_possession_software_assets_indicator",max_length=255, choices=TYP_ACCNTNG_ITM_domain)   
+    PPRTY_PLNT_EQPMNT_TKN_INT_PSSSSN_SFTWR_ASSTS_INDCTR = models.CharField("Property_plant_and_equipment_taken_into_possession_software_assets_indicator",max_length=255, choices=TYP_ACCNTNG_ITM_domain,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
     TYP_ACCNTNG_ITM_domain = {"0":"Not_applicable",
 "6301":"Software_property_plant_and_equipment_not_taken_into_possession",
@@ -21227,7 +21227,7 @@ class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL(models.Model):
 "46":"Other_non_financial_asset_not_taken_into_possession",
 "413":"Tangible_assets_Investment_property",
 } 
-    OTHR_INTNGBL_ASST_TKN_INT_PSSSSN_TYP = models.CharField("Other_intangible_asset_taken_into_possession_type",max_length=255, choices=TYP_ACCNTNG_ITM_domain)   
+    OTHR_INTNGBL_ASST_TKN_INT_PSSSSN_TYP = models.CharField("Other_intangible_asset_taken_into_possession_type",max_length=255, choices=TYP_ACCNTNG_ITM_domain,default=None, blank=True, null=True)   
 
     TM_INTRVL_domain = {"0":"Not_applicable",
 "27":"Up_to_2_years",
@@ -21253,9 +21253,9 @@ class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL(models.Model):
 "64":"_0d_1d_",
 "9":"_1m_3m_",
 } 
-    TM_SNC_INTL_RCGNTN = models.CharField("TM_SNC_INTL_RCGNTN",max_length=255, choices=TM_INTRVL_domain)   
+    TM_SNC_INTL_RCGNTN = models.CharField("TM_SNC_INTL_RCGNTN",max_length=255, choices=TM_INTRVL_domain,default=None, blank=True, null=True)   
 
-    NN_FNNCL_ASST_ID = models.CharField("Non_financial_asset_ID",max_length=255)   
+    NN_FNNCL_ASST_ID = models.CharField("Non_financial_asset_ID",max_length=255,default=None, blank=True, null=True)   
 
     CLLTRL_NN_FNNCL_ASST_ASSGNMNT_TYP_domain = {"1":"Physical_collateral_Investment_property_assignment",
 "2":"Immaterial_rights_as_collateral_Other_intangible_asset_not_taken_into_possession_assignment",
@@ -21265,7 +21265,7 @@ class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL(models.Model):
 "6":"Software_collateral_Software_property_plant_and_equipment_taken_into_possession_assignment",
 "7":"Physical_collateral_Non_software_property_plant_and_equipment_taken_into_possession_assignment",
 } 
-    CLLTRL_NN_FNNCL_ASST_ASSGNMNT_TYP = models.CharField("Collateral_non_financial_asset_assignment_type",max_length=255, choices=CLLTRL_NN_FNNCL_ASST_ASSGNMNT_TYP_domain)   
+    CLLTRL_NN_FNNCL_ASST_ASSGNMNT_TYP = models.CharField("Collateral_non_financial_asset_assignment_type",max_length=255, choices=CLLTRL_NN_FNNCL_ASST_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_NN_FNNCL_ASST_EIL_1 = models.ForeignKey("BIRD_NN_FNNCL_ASST_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -21274,19 +21274,19 @@ class BIRD_CLLTRL_NN_FNNCL_ASST_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Collateral_Non_financial_asset_assignment'
         verbose_name_plural = 'Collateral_Non_financial_asset_assignments'
-
+		
 class BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255)   
+    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255)   
+    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_CRDT_FCLTY_EIL_1 = models.ForeignKey("BIRD_CRDT_FCLTY_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -21295,19 +21295,19 @@ class BIRD_CRDT_FCLTY_CLLTRL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Credit_facility_Collateral_assignment'
         verbose_name_plural = 'Credit_facility_Collateral_assignments'
-
+		
 class BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255)   
+    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CLLTRL_RCVD_INSTRMNT_ID = models.CharField("Collateral_received_Instrument_identifier",max_length=255)   
+    CLLTRL_RCVD_INSTRMNT_ID = models.CharField("Collateral_received_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -21363,9 +21363,9 @@ class BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value")   
+    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value",default=None, blank=True, null=True)   
 
     the_BIRD_CRDT_FCLTY_EIL_1 = models.ForeignKey("BIRD_CRDT_FCLTY_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -21374,25 +21374,25 @@ class BIRD_CRDT_FCLTY_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Credit_facility_Collateral_received_instrument_assignment'
         verbose_name_plural = 'Credit_facility_Collateral_received_instrument_assignments'
-
+		
 class BIRD_CRDT_FCLTY_EIL(models.Model):
 
 
     BIRD_CRDT_FCLTY_EIL_uniqueID = models.CharField("BIRD_CRDT_FCLTY_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255)   
+    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    FNNCL_CNTRCT_ID = models.CharField("Financial_contract_identifier",max_length=255)   
+    FNNCL_CNTRCT_ID = models.CharField("Financial_contract_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value")   
+    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value",default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk")   
+    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk",default=None, blank=True, null=True)   
 
-    ACCMLTD_NGTV_VL_ADJSTMNT_MR = models.BigIntegerField("Accumulated_negative_value_adjustments_Market_risk_induced")   
+    ACCMLTD_NGTV_VL_ADJSTMNT_MR = models.BigIntegerField("Accumulated_negative_value_adjustments_Market_risk_induced",default=None, blank=True, null=True)   
 
     ACCNTNG_CLSSFCTN_domain = {"21":"IFRS_Financial_liabilities_measured_at_amortised_cost",
 "23":"IFRS_Financial_liabilities_held_for_trading",
@@ -21434,12 +21434,12 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "93":"Under_nGAAP",
 "0":"Not_applicable",
 } 
-    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain)   
+    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain,default=None, blank=True, null=True)   
 
     APPRCH_CRDT_QLTY_STTS_domain = {"1":"Debtor_based",
 "2":"Transaction_based",
 } 
-    APPRCH_CRDT_QLTY_STTS = models.CharField("Assessment_approach_for_credit_quality_status",max_length=255, choices=APPRCH_CRDT_QLTY_STTS_domain)   
+    APPRCH_CRDT_QLTY_STTS = models.CharField("Assessment_approach_for_credit_quality_status",max_length=255, choices=APPRCH_CRDT_QLTY_STTS_domain,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -21625,7 +21625,7 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -21648,7 +21648,7 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    DFLT_STTS = models.CharField("Default_status",max_length=255, choices=CRDT_QLTY_domain)   
+    DFLT_STTS = models.CharField("Default_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -21671,17 +21671,17 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    DFLT_STTS_DRVD = models.CharField("Derived_default_status",max_length=255, choices=CRDT_QLTY_domain)   
+    DFLT_STTS_DRVD = models.CharField("Derived_default_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
-    DT_INCPTN = models.DateTimeField("Inception_date")   
+    DT_INCPTN = models.DateTimeField("Inception_date",default=None, blank=True, null=True)   
 
-    DT_LGL_FNL_MTRTY = models.DateTimeField("Legal_final_maturity_date")   
+    DT_LGL_FNL_MTRTY = models.DateTimeField("Legal_final_maturity_date",default=None, blank=True, null=True)   
 
-    DT_PRFRMNG_STTS = models.DateTimeField("Date_of_the_performing_status_of_the_instrument")   
+    DT_PRFRMNG_STTS = models.DateTimeField("Date_of_the_performing_status_of_the_instrument",default=None, blank=True, null=True)   
 
-    DT_PST_D = models.DateTimeField("Date_of_past_due")   
+    DT_PST_D = models.DateTimeField("Date_of_past_due",default=None, blank=True, null=True)   
 
-    DT_STTLMNT = models.DateTimeField("Settlement_date")   
+    DT_STTLMNT = models.DateTimeField("Settlement_date",default=None, blank=True, null=True)   
 
     FRBRNC_MSR_TYP_domain = {"11":"Forborne_instruments_with_modified_interest_rate_below_market_conditions",
 "1":"Grace_period_payment_moratorium",
@@ -21695,15 +21695,15 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "8":"Forborne_Refinanced_debt",
 "9":"Forborne_instruments_with_other_modified_terms_and_conditions",
 } 
-    FRBRNC_MSR_TYP = models.CharField("Forbearance_measure",max_length=255, choices=FRBRNC_MSR_TYP_domain)   
+    FRBRNC_MSR_TYP = models.CharField("Forbearance_measure",max_length=255, choices=FRBRNC_MSR_TYP_domain,default=None, blank=True, null=True)   
 
-    FRZNG_PRD_DYS = models.BigIntegerField("Freezing_period_in_days")   
+    FRZNG_PRD_DYS = models.BigIntegerField("Freezing_period_in_days",default=None, blank=True, null=True)   
 
-    FV = models.BigIntegerField("Fair_value")   
+    FV = models.BigIntegerField("Fair_value",default=None, blank=True, null=True)   
 
-    GNRL_ALLWNCS_BNK_RSK = models.BigIntegerField("General_allowances_for_bank_risk_affecting_carrying_amount_nGAAP_")   
+    GNRL_ALLWNCS_BNK_RSK = models.BigIntegerField("General_allowances_for_bank_risk_affecting_carrying_amount_nGAAP_",default=None, blank=True, null=True)   
 
-    GNRL_ALLWNCS_CRDT_RSK = models.BigIntegerField("General_allowances_for_credit_risk_affecting_carrying_amount_nGAAP_")   
+    GNRL_ALLWNCS_CRDT_RSK = models.BigIntegerField("General_allowances_for_credit_risk_affecting_carrying_amount_nGAAP_",default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -21726,9 +21726,9 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    IMPRMNT_STTS = models.CharField("Impairment_status",max_length=255, choices=CRDT_QLTY_domain)   
+    IMPRMNT_STTS = models.CharField("Impairment_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
     NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain = {"1":"Non_performing_prior_to_forbearance",
 "2":"Not_non_performing_prior_to_forbearance",
@@ -21736,13 +21736,13 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "2_x2":"Not_non_performing_prior_to_forbearance_x2",
 "0":"Not_applicable",
 } 
-    NN_PRFRMNG_PRR_FRBRNC_INDCTR = models.CharField("Non_performing_prior_to_forbearance_indicator",max_length=255, choices=NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain)   
+    NN_PRFRMNG_PRR_FRBRNC_INDCTR = models.CharField("Non_performing_prior_to_forbearance_indicator",max_length=255, choices=NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain,default=None, blank=True, null=True)   
 
     PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain = {"0":"Not_applicable",
 "1":"Performing_forborne_exposure_under_probation",
 "2":"Performing_forborne_exposure_not_under_probation",
 } 
-    PRFRMNG_FRBRN_EXPSR_UNDR_PRBTN_RCLSSFD_NN_PRFRMNG_INDCTR = models.CharField("Performing_forborne_exposure_under_probation_reclassified_from_non_performing_indicator",max_length=255, choices=PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain)   
+    PRFRMNG_FRBRN_EXPSR_UNDR_PRBTN_RCLSSFD_NN_PRFRMNG_INDCTR = models.CharField("Performing_forborne_exposure_under_probation_reclassified_from_non_performing_indicator",max_length=255, choices=PRFRMNG_FRBRN_EXPSR_PRBTN_RCLD_NN_PRFRMNG_INDCTR_domain,default=None, blank=True, null=True)   
 
     CRDT_QLTY_domain = {"0":"Not_applicable",
 "18":"Default_because_both_unlikely_to_pay_and_more_than_90_180_days_past_due",
@@ -21765,15 +21765,15 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "12":"Non_performing_exposures_Defaulted",
 "13":"Non_performing_exposures_Impaired",
 } 
-    PRFRMNG_STTS = models.CharField("Performing_status",max_length=255, choices=CRDT_QLTY_domain)   
+    PRFRMNG_STTS = models.CharField("Performing_status",max_length=255, choices=CRDT_QLTY_domain,default=None, blank=True, null=True)   
 
     PRFRMNG_STTS_RSN_domain = {"1":"Failed_reclassification_to_performing_at_end_of_probation_period",
 "2":"Exited_from_NPE_in_the_last_12_months",
 "0":"Not_applicable",
 } 
-    PRFRMNG_STTS_RSN = models.CharField("The_reason_for_the_choice_of_Performing_status",max_length=255, choices=PRFRMNG_STTS_RSN_domain)   
+    PRFRMNG_STTS_RSN = models.CharField("The_reason_for_the_choice_of_Performing_status",max_length=255, choices=PRFRMNG_STTS_RSN_domain,default=None, blank=True, null=True)   
 
-    PRVSNS_OFF_BLNC_SHT = models.BigIntegerField("Provisions_associated_with_off_balance_sheet_exposures")   
+    PRVSNS_OFF_BLNC_SHT = models.BigIntegerField("Provisions_associated_with_off_balance_sheet_exposures",default=None, blank=True, null=True)   
 
     FRBRNC_STTS_domain = {"9":"Renegotiated_instrument_without_forbearance_measures",
 "1":"Exposure_with_forbearance_measures",
@@ -21796,18 +21796,18 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "12_x3":"Exposure_with_forbearance_measures_Forbearance_measures_granted_in_addition_to_already_existing_forbearance_measures_x3",
 "10_x3":"Exposure_with_forbearance_measures_Forborne_twice_x3",
 } 
-    RNGTTN_STTS = models.CharField("Renegotiation_status",max_length=255, choices=FRBRNC_STTS_domain)   
+    RNGTTN_STTS = models.CharField("Renegotiation_status",max_length=255, choices=FRBRNC_STTS_domain,default=None, blank=True, null=True)   
 
     RTL_EXPSR_ACCRDNG_CRR_INDCTR_domain = {"1":"Retail_exposure_accordign_to_CRR_Article_123_b_",
 "2":"Not_retail_exposure_accordign_to_CRR_Article_123_b_",
 } 
-    RTL_EXPSR_ACCRDNG_CRR_INDCTR = models.CharField("Retail_exposure_according_to_CRR_Article_123_b_indicator",max_length=255, choices=RTL_EXPSR_ACCRDNG_CRR_INDCTR_domain)   
+    RTL_EXPSR_ACCRDNG_CRR_INDCTR = models.CharField("Retail_exposure_according_to_CRR_Article_123_b_indicator",max_length=255, choices=RTL_EXPSR_ACCRDNG_CRR_INDCTR_domain,default=None, blank=True, null=True)   
 
     RVCBL_INDCTR_domain = {"0":"Not_applicable",
 "1":"Revocable",
 "2":"Not_revocable",
 } 
-    RVCBL_INDCTR = models.CharField("Revocable_indicator",max_length=255, choices=RVCBL_INDCTR_domain)   
+    RVCBL_INDCTR = models.CharField("Revocable_indicator",max_length=255, choices=RVCBL_INDCTR_domain,default=None, blank=True, null=True)   
 
     TM_INTRVL_domain = {"0":"Not_applicable",
 "27":"Up_to_2_years",
@@ -21833,7 +21833,7 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "64":"_0d_1d_",
 "9":"_1m_3m_",
 } 
-    TM_PST_DU_BND = models.CharField("Time_past_due_band",max_length=255, choices=TM_INTRVL_domain)   
+    TM_PST_DU_BND = models.CharField("Time_past_due_band",max_length=255, choices=TM_INTRVL_domain,default=None, blank=True, null=True)   
 
     TYP_CMMTMNT_domain = {"0":"Not_applicable",
 "10":"Loans_commitments_received",
@@ -21855,34 +21855,34 @@ class BIRD_CRDT_FCLTY_EIL(models.Model):
 "8":"Note_issuance_facilities__NIFs_and__Revolving_underwritings_facilities__RUFs_",
 "9":"Other_off_balance_sheet_items",
 } 
-    TYP_CRDT_FCLTY = models.CharField("Type_of_credit_facility",max_length=255, choices=TYP_CMMTMNT_domain)   
+    TYP_CRDT_FCLTY = models.CharField("Type_of_credit_facility",max_length=255, choices=TYP_CMMTMNT_domain,default=None, blank=True, null=True)   
 
-    ANNLSD_AGRD_RT = models.FloatField("Interest_rate")   
+    ANNLSD_AGRD_RT = models.FloatField("Interest_rate",default=None, blank=True, null=True)   
 
-    DT_DFLT_STTS = models.DateTimeField("Date_of_default_status")   
+    DT_DFLT_STTS = models.DateTimeField("Date_of_default_status",default=None, blank=True, null=True)   
 
-    DT_FRBRNC_MSRS = models.DateTimeField("Date_of_forbearance_measure")   
+    DT_FRBRNC_MSRS = models.DateTimeField("Date_of_forbearance_measure",default=None, blank=True, null=True)   
 
-    DT_FRBRNC_STTS = models.DateTimeField("Date_of_forbearance_and_renegotiation_status")   
+    DT_FRBRNC_STTS = models.DateTimeField("Date_of_forbearance_and_renegotiation_status",default=None, blank=True, null=True)   
 
     the_BIRD_FNNCL_CNTRCT_EIL_1 = models.ForeignKey("BIRD_FNNCL_CNTRCT_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Credit_facility'
         verbose_name_plural = 'Credit_facilitys'
-
+		
 class BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255)   
+    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -21928,13 +21928,13 @@ class BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     CRDT_FCLTY_ENTTY_RL_ASSGNMNT_TYP_domain = {"1":"Credit_facility_Creditor_assignment",
 "2":"Credit_facility_Debtor_assignment",
 "3":"Credit_facility_Servicer_assignment",
 } 
-    CRDT_FCLTY_ENTTY_RL_ASSGNMNT_TYP = models.CharField("Credit_facility_Entity_role_assignment_type",max_length=255, choices=CRDT_FCLTY_ENTTY_RL_ASSGNMNT_TYP_domain)   
+    CRDT_FCLTY_ENTTY_RL_ASSGNMNT_TYP = models.CharField("Credit_facility_Entity_role_assignment_type",max_length=255, choices=CRDT_FCLTY_ENTTY_RL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -21943,19 +21943,19 @@ class BIRD_CRDT_FCLTY_ENTTY_RL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Credit_facility_Entity_role_assignment'
         verbose_name_plural = 'Credit_facility_Entity_role_assignments'
-
+		
 class BIRD_CRDT_RSK_MTGTN_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_CRDT_RSK_MTGTN_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_CRDT_RSK_MTGTN_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255)   
+    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255)   
+    CLLTRL_ID = models.CharField("Collateral_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_PRTCTN_ARRNGMNT_EIL_1 = models.ForeignKey("BIRD_PRTCTN_ARRNGMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -21964,19 +21964,19 @@ class BIRD_CRDT_RSK_MTGTN_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Credit_risk_mitigation_assignment'
         verbose_name_plural = 'Credit_risk_mitigation_assignments'
-
+		
 class BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_EIL(models.Model):
 
 
     BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_EIL_uniqueID = models.CharField("BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_ID = models.CharField("Credit_transfer_other_than_securitisation_and_covered_bond_program_identifier",max_length=255)   
+    CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_ID = models.CharField("Credit_transfer_other_than_securitisation_and_covered_bond_program_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255)   
+    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255,default=None, blank=True, null=True)   
 
     SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain = {"5":"Covered_bond_program",
 "6":"Credit_transfer_other_than_securitisation_and_covered_bond_program",
@@ -21984,22 +21984,22 @@ class BIRD_CRDT_TRNSFR_OTHR_SCRTSTN_CVRD_BND_PRGRM_EIL(models.Model):
 "3":"Synthetic_securitisation_without_involvement_of_an_SSPE",
 "4":"Synthetic_securitisation_involving_an_SSPE",
 } 
-    SCRTSN_OTHR_CRDT_TRNSFR_TYP = models.CharField("Securitisation_and_other_credit_transfer_type",max_length=255, choices=SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain)   
+    SCRTSN_OTHR_CRDT_TRNSFR_TYP = models.CharField("Securitisation_and_other_credit_transfer_type",max_length=255, choices=SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_ASST_PL_EIL_1 = models.ForeignKey("BIRD_ASST_PL_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Credit_transfer_other_than_securitisation_and_covered_bond_program'
         verbose_name_plural = 'Credit_transfer_other_than_securitisation_and_covered_bond_programs'
-
+		
 class BIRD_CSH_HND_EIL(models.Model):
 
 
     BIRD_CSH_HND_EIL_uniqueID = models.CharField("BIRD_CSH_HND_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    CSH_HND_RFRNC_DT = models.DateTimeField("Cash_on_hand_Reference_date")   
+    CSH_HND_RFRNC_DT = models.DateTimeField("Cash_on_hand_Reference_date",default=None, blank=True, null=True)   
 
-    CSH_HND_RPRTNG_AGNT_ID = models.CharField("Cash_on_hand_Reporting_agent_identifier",max_length=255)   
+    CSH_HND_RPRTNG_AGNT_ID = models.CharField("Cash_on_hand_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -22185,32 +22185,32 @@ class BIRD_CSH_HND_EIL(models.Model):
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
     HLD_SL_INDCTR_domain = {"1":"Held_for_sale",
 "2":"Not_held_for_sale",
 "0":"Not_applicable",
 } 
-    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain)   
+    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain,default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Cash_on_hand'
         verbose_name_plural = 'Cash_on_hands'
-
+		
 class BIRD_CVRD_BND_ISSNC_EIL(models.Model):
 
 
     BIRD_CVRD_BND_ISSNC_EIL_uniqueID = models.CharField("BIRD_CVRD_BND_ISSNC_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    CVRD_BND_PRGRM_ID = models.CharField("Covered_bond_program_identifier",max_length=255)   
+    CVRD_BND_PRGRM_ID = models.CharField("Covered_bond_program_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 = models.ForeignKey("BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -22219,19 +22219,19 @@ class BIRD_CVRD_BND_ISSNC_EIL(models.Model):
     class Meta:
         verbose_name = 'Covered_bond_issuance'
         verbose_name_plural = 'Covered_bond_issuances'
-
+		
 class BIRD_CVRD_BND_PRGRM_EIL(models.Model):
 
 
     BIRD_CVRD_BND_PRGRM_EIL_uniqueID = models.CharField("BIRD_CVRD_BND_PRGRM_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CVRD_BND_PRGRM_ID = models.CharField("Covered_bond_program_identifier",max_length=255)   
+    CVRD_BND_PRGRM_ID = models.CharField("Covered_bond_program_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255)   
+    ASST_PL_ID = models.CharField("Asset_pool_identifier",max_length=255,default=None, blank=True, null=True)   
 
     SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain = {"5":"Covered_bond_program",
 "6":"Credit_transfer_other_than_securitisation_and_covered_bond_program",
@@ -22239,24 +22239,24 @@ class BIRD_CVRD_BND_PRGRM_EIL(models.Model):
 "3":"Synthetic_securitisation_without_involvement_of_an_SSPE",
 "4":"Synthetic_securitisation_involving_an_SSPE",
 } 
-    SCRTSN_OTHR_CRDT_TRNSFR_TYP = models.CharField("Securitisation_and_other_credit_transfer_type",max_length=255, choices=SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain)   
+    SCRTSN_OTHR_CRDT_TRNSFR_TYP = models.CharField("Securitisation_and_other_credit_transfer_type",max_length=255, choices=SCRTSN_OTHR_CRDT_TRNSFR_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_ASST_PL_EIL_1 = models.ForeignKey("BIRD_ASST_PL_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Covered_bond_programme'
         verbose_name_plural = 'Covered_bond_programmes'
-
+		
 class BIRD_DBT_SCRTY_ISSD_EIL(models.Model):
 
 
     BIRD_DBT_SCRTY_ISSD_EIL_uniqueID = models.CharField("BIRD_DBT_SCRTY_ISSD_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DBT_SCRTY_RFRNC_DT = models.DateTimeField("Debt_Security_Reference_date")   
+    DBT_SCRTY_RFRNC_DT = models.DateTimeField("Debt_Security_Reference_date",default=None, blank=True, null=True)   
 
-    DBT_SCRTY_RPRTNG_AGNT_ID = models.CharField("Debt_Security_Reporting_agent_identifier",max_length=255)   
+    DBT_SCRTY_RPRTNG_AGNT_ID = models.CharField("Debt_Security_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DBT_SCRTY_ID = models.CharField("Debt_Security_identifier",max_length=255)   
+    DBT_SCRTY_ID = models.CharField("Debt_Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ACCNTNG_CLSSFCTN_domain = {"21":"IFRS_Financial_liabilities_measured_at_amortised_cost",
 "23":"IFRS_Financial_liabilities_held_for_trading",
@@ -22298,15 +22298,15 @@ class BIRD_DBT_SCRTY_ISSD_EIL(models.Model):
 "93":"Under_nGAAP",
 "0":"Not_applicable",
 } 
-    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain)   
+    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain,default=None, blank=True, null=True)   
 
     ACCNTNG_HDG_INDCTR_domain = {"1":"Accounting_hedge",
 "2":"Not_accounting_hedge",
 "0":"Not_applicable",
 } 
-    ACCNTNG_HDG_INDCTR = models.CharField("Accounting_hedge_indicator",max_length=255, choices=ACCNTNG_HDG_INDCTR_domain)   
+    ACCNTNG_HDG_INDCTR = models.CharField("Accounting_hedge_indicator",max_length=255, choices=ACCNTNG_HDG_INDCTR_domain,default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
     SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain = {"22":"Issued_debt_security_in_the_banking_book",
 "23":"Issued_debt_security_in_the_trading_book_International_Financial_Reporting_Standard_IFRS_",
@@ -22329,29 +22329,29 @@ class BIRD_DBT_SCRTY_ISSD_EIL(models.Model):
 "5":"Fund_security",
 "6":"Equity_security",
 } 
-    DBT_SCRTY_ISSD_PRDNTL_PRTFL_TYP = models.CharField("Debt_security_issued_prudential_portfolio_type",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain)   
+    DBT_SCRTY_ISSD_PRDNTL_PRTFL_TYP = models.CharField("Debt_security_issued_prudential_portfolio_type",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain,default=None, blank=True, null=True)   
 
     FV_HRRCHY_domain = {"0":"Not_applicable",
 "1":"Level_1",
 "2":"Level_2",
 "3":"Level_3",
 } 
-    FV_HRRCHY = models.CharField("Fair_value_hierarchy",max_length=255, choices=FV_HRRCHY_domain)   
+    FV_HRRCHY = models.CharField("Fair_value_hierarchy",max_length=255, choices=FV_HRRCHY_domain,default=None, blank=True, null=True)   
 
     FVO_DSGNTN_domain = {"0":"Not_applicable",
 "2":"Management_on_a_fair_value_basis",
 "5":"Management_of_credit_risk_Upon_designation",
 "6":"Management_of_credit_risk_After_the_designation",
 } 
-    FVO_DSGNTN = models.CharField("Fair_value_option_designation",max_length=255, choices=FVO_DSGNTN_domain)   
+    FVO_DSGNTN = models.CharField("Fair_value_option_designation",max_length=255, choices=FVO_DSGNTN_domain,default=None, blank=True, null=True)   
 
     HLD_SL_INDCTR_domain = {"1":"Held_for_sale",
 "2":"Not_held_for_sale",
 "0":"Not_applicable",
 } 
-    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain)   
+    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain,default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
     NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain = {"1":"Non_performing_prior_to_forbearance",
 "2":"Not_non_performing_prior_to_forbearance",
@@ -22359,7 +22359,7 @@ class BIRD_DBT_SCRTY_ISSD_EIL(models.Model):
 "2_x2":"Not_non_performing_prior_to_forbearance_x2",
 "0":"Not_applicable",
 } 
-    NN_PRFRMNG_PRR_FRBRNC_INDCTR = models.CharField("Non_performing_prior_to_forbearance_indicator",max_length=255, choices=NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain)   
+    NN_PRFRMNG_PRR_FRBRNC_INDCTR = models.CharField("Non_performing_prior_to_forbearance_indicator",max_length=255, choices=NN_PRFRMNG_PRR_FRBRNC_INDCTR_domain,default=None, blank=True, null=True)   
 
     SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain = {"22":"Issued_debt_security_in_the_banking_book",
 "23":"Issued_debt_security_in_the_trading_book_International_Financial_Reporting_Standard_IFRS_",
@@ -22382,42 +22382,42 @@ class BIRD_DBT_SCRTY_ISSD_EIL(models.Model):
 "5":"Fund_security",
 "6":"Equity_security",
 } 
-    DBT_SCRTY_ISSD_TYP = models.CharField("Debt_security_issued_type",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain)   
+    DBT_SCRTY_ISSD_TYP = models.CharField("Debt_security_issued_type",max_length=255, choices=SCRTY_EXCHNG_TRDBL_DRVTV_TYP_domain,default=None, blank=True, null=True)   
 
     TYP_PRDCT_domain = {"640":"Hybrid_contracts",
 } 
-    TYP_PRDCT = models.CharField("Type_of_product",max_length=255, choices=TYP_PRDCT_domain)   
+    TYP_PRDCT = models.CharField("Type_of_product",max_length=255, choices=TYP_PRDCT_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value")   
+    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value",default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk")   
+    ACCMLTD_CHNGS_FV_CR = models.BigIntegerField("Accumulated_changes_in_fair_value_due_to_credit_risk",default=None, blank=True, null=True)   
 
-    FV = models.BigIntegerField("Fair_value")   
+    FV = models.BigIntegerField("Fair_value",default=None, blank=True, null=True)   
 
-    FV_CHNG = models.BigIntegerField("Fair_value_change")   
+    FV_CHNG = models.BigIntegerField("Fair_value_change",default=None, blank=True, null=True)   
 
-    HRCTS_TRDNG_PSTNS_FV = models.BigIntegerField("Haircuts_for_trading_positions_valued_at_fair_value")   
+    HRCTS_TRDNG_PSTNS_FV = models.BigIntegerField("Haircuts_for_trading_positions_valued_at_fair_value",default=None, blank=True, null=True)   
 
-    STRT_DT_PRD = models.DateTimeField("Start_date_of_the_period")   
+    STRT_DT_PRD = models.DateTimeField("Start_date_of_the_period",default=None, blank=True, null=True)   
 
     the_BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL_1 = models.ForeignKey("BIRD_SCRTY_EXCHNG_TRDBL_DRVTV_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Debt_security_issued_by_the_reporting_agent_'
         verbose_name_plural = 'Debt_security_issued_by_the_reporting_agent_s'
-
+		
 class BIRD_DBT_SCRTY_ISSD_TRDTNL_SCRTSTN_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_DBT_SCRTY_ISSD_TRDTNL_SCRTSTN_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_DBT_SCRTY_ISSD_TRDTNL_SCRTSTN_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255)   
+    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ACCNTNG_CLSSFCTN_domain = {"21":"IFRS_Financial_liabilities_measured_at_amortised_cost",
 "23":"IFRS_Financial_liabilities_held_for_trading",
@@ -22459,7 +22459,7 @@ class BIRD_DBT_SCRTY_ISSD_TRDTNL_SCRTSTN_ASSGNMNT_EIL(models.Model):
 "93":"Under_nGAAP",
 "0":"Not_applicable",
 } 
-    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain)   
+    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain,default=None, blank=True, null=True)   
 
     the_BIRD_TRDTNL_SCRTSTN_EIL_1 = models.ForeignKey("BIRD_TRDTNL_SCRTSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -22468,19 +22468,19 @@ class BIRD_DBT_SCRTY_ISSD_TRDTNL_SCRTSTN_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Debt_security_issued_by_the_reporting_agent_Traditional_securitisation_assignment'
         verbose_name_plural = 'Debt_security_issued_by_the_reporting_agent_Traditional_securitisation_assignments'
-
+		
 class BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255)   
+    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -22526,13 +22526,13 @@ class BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    ALLCTD_UNSD_CLLTRL_VL = models.FloatField("Allocated_unused_collateral_value")   
+    ALLCTD_UNSD_CLLTRL_VL = models.FloatField("Allocated_unused_collateral_value",default=None, blank=True, null=True)   
 
-    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value")   
+    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value",default=None, blank=True, null=True)   
 
     the_BIRD_SCRTY_PSTN_EIL_1 = models.ForeignKey("BIRD_SCRTY_PSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -22541,63 +22541,15 @@ class BIRD_DBT_SCRTY_PRTCTN_ARRNGMNT_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Long_security_position_Protection_arrangement_assignment'
         verbose_name_plural = 'Long_security_position_Protection_arrangement_assignments'
-
+		
 class BIRD_ENTTY_RL_EIL(models.Model):
 
 
     BIRD_ENTTY_RL_EIL_uniqueID = models.CharField("BIRD_ENTTY_RL_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
-
-    ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
-"11":"Master_netting_counterparty",
-"12":"Security_debtor",
-"13":"Investor",
-"15":"Lessor",
-"14":"Buyer",
-"16":"Factor",
-"17":"Creditor",
-"18":"Depositor",
-"19":"Lessee",
-"20":"Seller",
-"21":"Original_lender",
-"22":"Servicer",
-"23":"Swap_provider",
-"24":"Protection_provider",
-"25":"Originator",
-"26":"Central_counterparty_client",
-"27":"Deposit_taking_corporation",
-"28":"Loan_debtor",
-"30":"Subsidiary",
-"31":"Joint_venture",
-"32":"Associate",
-"33":"Lender",
-"35":"Borrower",
-"36":"Beneficiary",
-"4":"Assigned_debtor",
-"5":"Non_qualifying_central_counterparty",
-"6":"Qualifying_central_counterparty_QCCP_",
-"7":"Clearing_member",
-"8":"Issuer",
-"9":"Sponsor",
-"0":"Not_applicable",
-"41":"Partner_enterprise",
-"42":"Linked_enterprise",
-"43":"Immediate_parent_enterprise",
-"44":"Key_management_personnel",
-"29":"Other_organisation_role",
-"40":"Natural_person_group_role",
-"37":"Entity_group_role",
-"38":"Entity_transaction_role",
-"1":"Legal_person_role",
-"2":"Organisation_role",
-"3":"Party_role",
-} 
-    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
-
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -22643,7 +22595,9 @@ class BIRD_ENTTY_RL_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    ENTTY_GRP_RL_TYP = models.CharField("Entity_group_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
+
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -22689,7 +22643,7 @@ class BIRD_ENTTY_RL_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    ENTTY_RL_TYP = models.CharField("Entity_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    ENTTY_GRP_RL_TYP = models.CharField("Entity_group_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -22735,41 +22689,87 @@ class BIRD_ENTTY_RL_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    ENTTY_TRNSCTN_RL_TYP = models.CharField("Entity_transaction_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    ENTTY_RL_TYP = models.CharField("Entity_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    EQTY = models.BigIntegerField("Equity")   
+    ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
+"11":"Master_netting_counterparty",
+"12":"Security_debtor",
+"13":"Investor",
+"15":"Lessor",
+"14":"Buyer",
+"16":"Factor",
+"17":"Creditor",
+"18":"Depositor",
+"19":"Lessee",
+"20":"Seller",
+"21":"Original_lender",
+"22":"Servicer",
+"23":"Swap_provider",
+"24":"Protection_provider",
+"25":"Originator",
+"26":"Central_counterparty_client",
+"27":"Deposit_taking_corporation",
+"28":"Loan_debtor",
+"30":"Subsidiary",
+"31":"Joint_venture",
+"32":"Associate",
+"33":"Lender",
+"35":"Borrower",
+"36":"Beneficiary",
+"4":"Assigned_debtor",
+"5":"Non_qualifying_central_counterparty",
+"6":"Qualifying_central_counterparty_QCCP_",
+"7":"Clearing_member",
+"8":"Issuer",
+"9":"Sponsor",
+"0":"Not_applicable",
+"41":"Partner_enterprise",
+"42":"Linked_enterprise",
+"43":"Immediate_parent_enterprise",
+"44":"Key_management_personnel",
+"29":"Other_organisation_role",
+"40":"Natural_person_group_role",
+"37":"Entity_group_role",
+"38":"Entity_transaction_role",
+"1":"Legal_person_role",
+"2":"Organisation_role",
+"3":"Party_role",
+} 
+    ENTTY_TRNSCTN_RL_TYP = models.CharField("Entity_transaction_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    PRFT_LSS = models.BigIntegerField("Profit_loss_")   
+    EQTY = models.BigIntegerField("Equity",default=None, blank=True, null=True)   
 
-    SHR_CPTL = models.BigIntegerField("Share_capital")   
+    PRFT_LSS = models.BigIntegerField("Profit_loss_",default=None, blank=True, null=True)   
 
-    TTL_ASSTS = models.BigIntegerField("Total_assets")   
+    SHR_CPTL = models.BigIntegerField("Share_capital",default=None, blank=True, null=True)   
+
+    TTL_ASSTS = models.BigIntegerField("Total_assets",default=None, blank=True, null=True)   
 
     the_BIRD_PRTY_EIL_1 = models.ForeignKey("BIRD_PRTY_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Entity_role'
         verbose_name_plural = 'Entity_roles'
-
+		
 class BIRD_EQT_INSTRMNT_LG_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_EQT_INSTRMNT_LG_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_EQT_INSTRMNT_LG_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RPRCHS_AGRMNT_INSTRMNT_ID = models.CharField("Repurchase_agreement_Instrument_identifier",max_length=255)   
+    RPRCHS_AGRMNT_INSTRMNT_ID = models.CharField("Repurchase_agreement_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
     RPRCHS_AGRMNT_TYP_domain = {"1":"Cash_leg",
 "3":"Security_leg",
 "4":"Loans_and_advances_leg",
 "5":"Equity_instrument_leg",
 } 
-    RPRCHS_AGRMNT_CMPNNT_TYP = models.CharField("Repurchase_component_type",max_length=255, choices=RPRCHS_AGRMNT_TYP_domain)   
+    RPRCHS_AGRMNT_CMPNNT_TYP = models.CharField("Repurchase_component_type",max_length=255, choices=RPRCHS_AGRMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_RPRCHS_AGRMNT_CMPNNT_EIL_1 = models.ForeignKey("BIRD_RPRCHS_AGRMNT_CMPNNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -22778,63 +22778,15 @@ class BIRD_EQT_INSTRMNT_LG_EQT_INSTRMNT_NT_SCRT_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Equity_instrument_leg_Equity_instrument_that_is_not_a_security_assignment'
         verbose_name_plural = 'Equity_instrument_leg_Equity_instrument_that_is_not_a_security_assignments'
-
+		
 class BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255)   
+    SCRTSTN_ID = models.CharField("Securitisation_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255)   
-
-    ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
-"11":"Master_netting_counterparty",
-"12":"Security_debtor",
-"13":"Investor",
-"15":"Lessor",
-"14":"Buyer",
-"16":"Factor",
-"17":"Creditor",
-"18":"Depositor",
-"19":"Lessee",
-"20":"Seller",
-"21":"Original_lender",
-"22":"Servicer",
-"23":"Swap_provider",
-"24":"Protection_provider",
-"25":"Originator",
-"26":"Central_counterparty_client",
-"27":"Deposit_taking_corporation",
-"28":"Loan_debtor",
-"30":"Subsidiary",
-"31":"Joint_venture",
-"32":"Associate",
-"33":"Lender",
-"35":"Borrower",
-"36":"Beneficiary",
-"4":"Assigned_debtor",
-"5":"Non_qualifying_central_counterparty",
-"6":"Qualifying_central_counterparty_QCCP_",
-"7":"Clearing_member",
-"8":"Issuer",
-"9":"Sponsor",
-"0":"Not_applicable",
-"41":"Partner_enterprise",
-"42":"Linked_enterprise",
-"43":"Immediate_parent_enterprise",
-"44":"Key_management_personnel",
-"29":"Other_organisation_role",
-"40":"Natural_person_group_role",
-"37":"Entity_group_role",
-"38":"Entity_transaction_role",
-"1":"Legal_person_role",
-"2":"Organisation_role",
-"3":"Party_role",
-} 
-    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
-
-    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255)   
+    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -22880,13 +22832,61 @@ class BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
+"11":"Master_netting_counterparty",
+"12":"Security_debtor",
+"13":"Investor",
+"15":"Lessor",
+"14":"Buyer",
+"16":"Factor",
+"17":"Creditor",
+"18":"Depositor",
+"19":"Lessee",
+"20":"Seller",
+"21":"Original_lender",
+"22":"Servicer",
+"23":"Swap_provider",
+"24":"Protection_provider",
+"25":"Originator",
+"26":"Central_counterparty_client",
+"27":"Deposit_taking_corporation",
+"28":"Loan_debtor",
+"30":"Subsidiary",
+"31":"Joint_venture",
+"32":"Associate",
+"33":"Lender",
+"35":"Borrower",
+"36":"Beneficiary",
+"4":"Assigned_debtor",
+"5":"Non_qualifying_central_counterparty",
+"6":"Qualifying_central_counterparty_QCCP_",
+"7":"Clearing_member",
+"8":"Issuer",
+"9":"Sponsor",
+"0":"Not_applicable",
+"41":"Partner_enterprise",
+"42":"Linked_enterprise",
+"43":"Immediate_parent_enterprise",
+"44":"Key_management_personnel",
+"29":"Other_organisation_role",
+"40":"Natural_person_group_role",
+"37":"Entity_group_role",
+"38":"Entity_transaction_role",
+"1":"Legal_person_role",
+"2":"Organisation_role",
+"3":"Party_role",
+} 
+    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    EXCHNG_TRDBL_DRVT_SCRTY_ID = models.CharField("Exchange_tradable_derivative_Security_identifier",max_length=255)   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
+
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
+
+    EXCHNG_TRDBL_DRVT_SCRTY_ID = models.CharField("Exchange_tradable_derivative_Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain = {"4":"Exchange_tradable_derivative_position_as_a_hedge",
 "6":"Non_balance_sheet_recognised_exchange_tradable_derivative_liability_position",
@@ -22895,7 +22895,7 @@ class BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL(models.Model):
 "10":"Non_fair_valued_balance_sheet_recognised_exchange_tradable_derivative_asset_position",
 "9":"Fair_valued_balance_sheet_recognised_exchange_tradable_derivative_asset_position",
 } 
-    EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP = models.CharField("Exchange_tradable_derivative_position_role_type",max_length=255, choices=EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain)   
+    EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP = models.CharField("Exchange_tradable_derivative_position_role_type",max_length=255, choices=EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL_1 = models.ForeignKey("BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -22904,19 +22904,19 @@ class BIRD_ETD_LBLTY_PSTN_SNTHTC_SCRTSTN_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Exchange_tradable_derivative_liability_position_Synthetic_securitisation_assignment'
         verbose_name_plural = 'Exchange_tradable_derivative_liability_position_Synthetic_securitisation_assignments'
-
+		
 class BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL(models.Model):
 
 
     BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL_uniqueID = models.CharField("BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255)   
+    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255)   
+    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -22962,9 +22962,9 @@ class BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    EXCHNG_TRDBL_DRVT_SCRTY_ID = models.CharField("Exchange_tradable_derivative_Security_identifier",max_length=255)   
+    EXCHNG_TRDBL_DRVT_SCRTY_ID = models.CharField("Exchange_tradable_derivative_Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain = {"4":"Exchange_tradable_derivative_position_as_a_hedge",
 "6":"Non_balance_sheet_recognised_exchange_tradable_derivative_liability_position",
@@ -22973,7 +22973,7 @@ class BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL(models.Model):
 "10":"Non_fair_valued_balance_sheet_recognised_exchange_tradable_derivative_asset_position",
 "9":"Fair_valued_balance_sheet_recognised_exchange_tradable_derivative_asset_position",
 } 
-    EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP = models.CharField("Exchange_tradable_derivative_position_role_type",max_length=255, choices=EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain)   
+    EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP = models.CharField("Exchange_tradable_derivative_position_role_type",max_length=255, choices=EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -23019,7 +23019,7 @@ class BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     ACCNTNG_CLSSFCTN_domain = {"21":"IFRS_Financial_liabilities_measured_at_amortised_cost",
 "23":"IFRS_Financial_liabilities_held_for_trading",
@@ -23061,20 +23061,20 @@ class BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL(models.Model):
 "93":"Under_nGAAP",
 "0":"Not_applicable",
 } 
-    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain)   
+    ACCNTNG_CLSSFCTN = models.CharField("Accounting_classification",max_length=255, choices=ACCNTNG_CLSSFCTN_domain,default=None, blank=True, null=True)   
 
     FV_HRRCHY_domain = {"0":"Not_applicable",
 "1":"Level_1",
 "2":"Level_2",
 "3":"Level_3",
 } 
-    FV_HRRCHY = models.CharField("Fair_value_hierarchy",max_length=255, choices=FV_HRRCHY_domain)   
+    FV_HRRCHY = models.CharField("Fair_value_hierarchy",max_length=255, choices=FV_HRRCHY_domain,default=None, blank=True, null=True)   
 
     PRDNTL_PRTFL_domain = {"1":"Trading_book",
 "2":"Non_trading_book",
 "0":"Not_applicable",
 } 
-    PRDNTL_PRTFL_TYP = models.CharField("Prudential_portfolio_type",max_length=255, choices=PRDNTL_PRTFL_domain)   
+    PRDNTL_PRTFL_TYP = models.CharField("Prudential_portfolio_type",max_length=255, choices=PRDNTL_PRTFL_domain,default=None, blank=True, null=True)   
 
     TYP_HDG_domain = {"0":"Not_applicable",
 "11":"Hedges_other_than_cash_flow_hedge_and_hedge_of_net_investment_in_a_foreign_operation",
@@ -23088,30 +23088,30 @@ class BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL(models.Model):
 "7":"Other_than_Fair_value_hedge_Cash_flow_hedge_Hedge_of_a_net_investment_in_a_foreign_operation_Portfolio_fair_value_hedges_of_interest_rate_risk_Portfolio_cash_flow_hedges_of_interest_rate_risk_Cost_price_hedge",
 "8":"Not_a_hedge",
 } 
-    TYP_HDG = models.CharField("Type_of_hedge",max_length=255, choices=TYP_HDG_domain)   
+    TYP_HDG = models.CharField("Type_of_hedge",max_length=255, choices=TYP_HDG_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value")   
+    ACCMLTD_CHNGS_FV = models.BigIntegerField("Accumulated_changes_in_fair_value",default=None, blank=True, null=True)   
 
-    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount")   
+    CRRYNG_AMNT = models.BigIntegerField("Carrying_amount",default=None, blank=True, null=True)   
 
-    FV = models.BigIntegerField("Fair_value")   
+    FV = models.BigIntegerField("Fair_value",default=None, blank=True, null=True)   
 
-    FV_CHNG = models.BigIntegerField("Fair_value_change")   
+    FV_CHNG = models.BigIntegerField("Fair_value_change",default=None, blank=True, null=True)   
 
-    GRSS_CRRYNG_AMNT = models.BigIntegerField("Gross_carrying_amount")   
+    GRSS_CRRYNG_AMNT = models.BigIntegerField("Gross_carrying_amount",default=None, blank=True, null=True)   
 
     the_BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL_1 = models.ForeignKey("BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Exchange_tradable_derivative_position_role'
         verbose_name_plural = 'Exchange_tradable_derivative_position_roles'
-
+		
 class BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL(models.Model):
 
 
     BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL_uniqueID = models.CharField("BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255)   
+    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -23157,13 +23157,13 @@ class BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255)   
+    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -23209,17 +23209,17 @@ class BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    EXCHNG_TRDBL_DRVT_SCRTY_ID = models.CharField("Exchange_tradable_derivative_Security_identifier",max_length=255)   
+    EXCHNG_TRDBL_DRVT_SCRTY_ID = models.CharField("Exchange_tradable_derivative_Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     HLD_SL_INDCTR_domain = {"1":"Held_for_sale",
 "2":"Not_held_for_sale",
 "0":"Not_applicable",
 } 
-    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain)   
+    HLD_SL_INDCTR = models.CharField("Held_for_sale_indicator",max_length=255, choices=HLD_SL_INDCTR_domain,default=None, blank=True, null=True)   
 
-    NTNL_AMNT = models.BigIntegerField("Notional_amount")   
+    NTNL_AMNT = models.BigIntegerField("Notional_amount",default=None, blank=True, null=True)   
 
     TYP_RSK_domain = {"0":"Not_Applicable",
 "1":"Interest_rate_risk",
@@ -23229,7 +23229,7 @@ class BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL(models.Model):
 "5":"Commodities_risk",
 "6":"Risk_other_than_Interest_rate_risk_Equity_risk_Foreign_exchange_and_gold_risk_Credit_risk_Commodities_risk",
 } 
-    TYP_RSK = models.CharField("Type_of_risk",max_length=255, choices=TYP_RSK_domain)   
+    TYP_RSK = models.CharField("Type_of_risk",max_length=255, choices=TYP_RSK_domain,default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -23238,13 +23238,13 @@ class BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL(models.Model):
     class Meta:
         verbose_name = 'Exchange_tradable_derivative_position'
         verbose_name_plural = 'Exchange_tradable_derivative_positions'
-
+		
 class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL(models.Model):
 
 
     BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL_uniqueID = models.CharField("BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255)   
+    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -23290,11 +23290,11 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL(models.Model
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -23340,22 +23340,13 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL(models.Model
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255)   
+    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    EXCHNG_TRDBL_DRVTV_SCRTY_ID = models.CharField("Exchange_tradable_derivative_Security_identifier",max_length=255)   
+    EXCHNG_TRDBL_DRVTV_SCRTY_ID = models.CharField("Exchange_tradable_derivative_Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RSK_FCTR_ID = models.CharField("Risk_factor_identifier",max_length=255)   
-
-    FRTB_RSK_MSR_TYP_domain = {"4":"Delta_sensitivity",
-"5":"Vega_sensitivity",
-"6":"Curvature",
-"1":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_OTC_positions",
-"2":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_ETD_positions",
-"3":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_Security_positions",
-} 
-    RSK_MSR_TYP = models.CharField("Risk_measure_type",max_length=255, choices=FRTB_RSK_MSR_TYP_domain)   
+    RSK_FCTR_ID = models.CharField("Risk_factor_identifier",max_length=255,default=None, blank=True, null=True)   
 
     FRTB_RSK_MSR_TYP_domain = {"4":"Delta_sensitivity",
 "5":"Vega_sensitivity",
@@ -23364,7 +23355,16 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL(models.Model
 "2":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_ETD_positions",
 "3":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_Security_positions",
 } 
-    RSK_MSR_TYP_PSTN = models.CharField("Risk_measure_type_by_position",max_length=255, choices=FRTB_RSK_MSR_TYP_domain)   
+    RSK_MSR_TYP = models.CharField("Risk_measure_type",max_length=255, choices=FRTB_RSK_MSR_TYP_domain,default=None, blank=True, null=True)   
+
+    FRTB_RSK_MSR_TYP_domain = {"4":"Delta_sensitivity",
+"5":"Vega_sensitivity",
+"6":"Curvature",
+"1":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_OTC_positions",
+"2":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_ETD_positions",
+"3":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_Security_positions",
+} 
+    RSK_MSR_TYP_PSTN = models.CharField("Risk_measure_type_by_position",max_length=255, choices=FRTB_RSK_MSR_TYP_domain,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -23550,31 +23550,31 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL(models.Model
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY_RCRD = models.CharField("Currency_of_record",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY_RCRD = models.CharField("Currency_of_record",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
     SHCK_DRCTN_domain = {"0":"Not_applicable",
 "1":"Up",
 "2":"Down",
 } 
-    SHCK_DRCTN = models.CharField("Shock_direction",max_length=255, choices=SHCK_DRCTN_domain)   
+    SHCK_DRCTN = models.CharField("Shock_direction",max_length=255, choices=SHCK_DRCTN_domain,default=None, blank=True, null=True)   
 
-    CRVTR_RSK_WGHT = models.FloatField("Curvature_risk_weight")   
+    CRVTR_RSK_WGHT = models.FloatField("Curvature_risk_weight",default=None, blank=True, null=True)   
 
-    CRVTR_VLTN_DFFRNC = models.FloatField("Curvature_valuation_difference")   
+    CRVTR_VLTN_DFFRNC = models.FloatField("Curvature_valuation_difference",default=None, blank=True, null=True)   
 
-    DLT_SNSTVTY = models.FloatField("Delta_sensitivity")   
+    DLT_SNSTVTY = models.FloatField("Delta_sensitivity",default=None, blank=True, null=True)   
 
-    OPTN_MTRTY = models.FloatField("Option_maturity")   
+    OPTN_MTRTY = models.FloatField("Option_maturity",default=None, blank=True, null=True)   
 
-    TNR = models.FloatField("Tenor")   
+    TNR = models.FloatField("Tenor",default=None, blank=True, null=True)   
 
-    UNDRLYNG_RSDL_MTRTY = models.FloatField("Underlying_residual_maturity")   
+    UNDRLYNG_RSDL_MTRTY = models.FloatField("Underlying_residual_maturity",default=None, blank=True, null=True)   
 
-    VG_SNSTVTY = models.FloatField("Vega_sensitivity")   
+    VG_SNSTVTY = models.FloatField("Vega_sensitivity",default=None, blank=True, null=True)   
 
-    RSK_FCTR_STNDRDSD_APPRCH_RFRNC_DT = models.DateTimeField("Risk_factor_for_standardised_approach_Reference_date")   
+    RSK_FCTR_STNDRDSD_APPRCH_RFRNC_DT = models.DateTimeField("Risk_factor_for_standardised_approach_Reference_date",default=None, blank=True, null=True)   
 
-    RSK_FCTR_STNDRDSD_APPRCH_RPRTNG_AGNT_ID = models.CharField("Risk_factor_for_standardised_approach_Reporting_agent_identifier",max_length=255)   
+    RSK_FCTR_STNDRDSD_APPRCH_RPRTNG_AGNT_ID = models.CharField("Risk_factor_for_standardised_approach_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL_1 = models.ForeignKey("BIRD_EXCHNG_TRDBL_DRVTV_PSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -23583,17 +23583,17 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_ETD_PSTNS_EIL(models.Model
     class Meta:
         verbose_name = 'Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_ETD_positions'
         verbose_name_plural = 'Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_ETD_positionss'
-
+		
 class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL(models.Model):
 
 
     BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL_uniqueID = models.CharField("BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -23639,20 +23639,11 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL(models.
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    INVSTR_PRTY_RL_TYP = models.CharField("Investor_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255)   
+    INVSTR_PRTY_ID = models.CharField("Investor_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RSK_FCTR_ID = models.CharField("Risk_factor_identifier",max_length=255)   
-
-    FRTB_RSK_MSR_TYP_domain = {"4":"Delta_sensitivity",
-"5":"Vega_sensitivity",
-"6":"Curvature",
-"1":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_OTC_positions",
-"2":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_ETD_positions",
-"3":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_Security_positions",
-} 
-    RSK_MSR_TYP = models.CharField("Risk_measure_type",max_length=255, choices=FRTB_RSK_MSR_TYP_domain)   
+    RSK_FCTR_ID = models.CharField("Risk_factor_identifier",max_length=255,default=None, blank=True, null=True)   
 
     FRTB_RSK_MSR_TYP_domain = {"4":"Delta_sensitivity",
 "5":"Vega_sensitivity",
@@ -23661,7 +23652,16 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL(models.
 "2":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_ETD_positions",
 "3":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_Security_positions",
 } 
-    RSK_MSR_TYP_PSTN = models.CharField("Risk_measure_type_by_position",max_length=255, choices=FRTB_RSK_MSR_TYP_domain)   
+    RSK_MSR_TYP = models.CharField("Risk_measure_type",max_length=255, choices=FRTB_RSK_MSR_TYP_domain,default=None, blank=True, null=True)   
+
+    FRTB_RSK_MSR_TYP_domain = {"4":"Delta_sensitivity",
+"5":"Vega_sensitivity",
+"6":"Curvature",
+"1":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_OTC_positions",
+"2":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_ETD_positions",
+"3":"Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_Security_positions",
+} 
+    RSK_MSR_TYP_PSTN = models.CharField("Risk_measure_type_by_position",max_length=255, choices=FRTB_RSK_MSR_TYP_domain,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -23847,31 +23847,31 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL(models.
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY_RCRD = models.CharField("Currency_of_record",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY_RCRD = models.CharField("Currency_of_record",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
-    RSK_FCTR_STNDRDSD_APPRCH_RFRNC_DT = models.DateTimeField("Risk_factor_for_standardised_approach_Reference_date")   
+    RSK_FCTR_STNDRDSD_APPRCH_RFRNC_DT = models.DateTimeField("Risk_factor_for_standardised_approach_Reference_date",default=None, blank=True, null=True)   
 
-    RSK_FCTR_STNDRDSD_APPRCH_RPRTNG_AGNT_ID = models.CharField("Risk_factor_for_standardised_approach_Reporting_agent_identifier",max_length=255)   
+    RSK_FCTR_STNDRDSD_APPRCH_RPRTNG_AGNT_ID = models.CharField("Risk_factor_for_standardised_approach_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     SHCK_DRCTN_domain = {"0":"Not_applicable",
 "1":"Up",
 "2":"Down",
 } 
-    SHCK_DRCTN = models.CharField("Shock_direction",max_length=255, choices=SHCK_DRCTN_domain)   
+    SHCK_DRCTN = models.CharField("Shock_direction",max_length=255, choices=SHCK_DRCTN_domain,default=None, blank=True, null=True)   
 
-    CRVTR_RSK_WGHT = models.FloatField("Curvature_risk_weight")   
+    CRVTR_RSK_WGHT = models.FloatField("Curvature_risk_weight",default=None, blank=True, null=True)   
 
-    CRVTR_VLTN_DFFRNC = models.FloatField("Curvature_valuation_difference")   
+    CRVTR_VLTN_DFFRNC = models.FloatField("Curvature_valuation_difference",default=None, blank=True, null=True)   
 
-    DLT_SNSTVTY = models.FloatField("Delta_sensitivity")   
+    DLT_SNSTVTY = models.FloatField("Delta_sensitivity",default=None, blank=True, null=True)   
 
-    OPTN_MTRTY = models.FloatField("Option_maturity")   
+    OPTN_MTRTY = models.FloatField("Option_maturity",default=None, blank=True, null=True)   
 
-    TNR = models.FloatField("Tenor")   
+    TNR = models.FloatField("Tenor",default=None, blank=True, null=True)   
 
-    UNDRLYNG_RSDL_MTRTY = models.FloatField("Underlying_residual_maturity")   
+    UNDRLYNG_RSDL_MTRTY = models.FloatField("Underlying_residual_maturity",default=None, blank=True, null=True)   
 
-    VG_SNSTVTY = models.FloatField("Vega_sensitivity")   
+    VG_SNSTVTY = models.FloatField("Vega_sensitivity",default=None, blank=True, null=True)   
 
     the_BIRD_SCRTY_PSTN_EIL_1 = models.ForeignKey("BIRD_SCRTY_PSTN_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -23880,19 +23880,19 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_FR_SCRTY_PSTNS_EIL(models.
     class Meta:
         verbose_name = 'Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_security_positions'
         verbose_name_plural = 'Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_security_positionss'
-
+		
 class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS_EIL(models.Model):
 
 
     BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS_EIL_uniqueID = models.CharField("BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    RSK_FCTR_ID = models.CharField("Risk_factor_identifier",max_length=255)   
+    RSK_FCTR_ID = models.CharField("Risk_factor_identifier",max_length=255,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -24078,31 +24078,31 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS_EIL(models.Model
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY_RCRD = models.CharField("Currency_of_record",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY_RCRD = models.CharField("Currency_of_record",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
     SHCK_DRCTN_domain = {"0":"Not_applicable",
 "1":"Up",
 "2":"Down",
 } 
-    SHCK_DRCTN = models.CharField("Shock_direction",max_length=255, choices=SHCK_DRCTN_domain)   
+    SHCK_DRCTN = models.CharField("Shock_direction",max_length=255, choices=SHCK_DRCTN_domain,default=None, blank=True, null=True)   
 
-    CRVTR_RSK_WGHT = models.FloatField("Curvature_risk_weight")   
+    CRVTR_RSK_WGHT = models.FloatField("Curvature_risk_weight",default=None, blank=True, null=True)   
 
-    CRVTR_VLTN_DFFRNC = models.FloatField("Curvature_valuation_difference")   
+    CRVTR_VLTN_DFFRNC = models.FloatField("Curvature_valuation_difference",default=None, blank=True, null=True)   
 
-    DLT_SNSTVTY = models.FloatField("Delta_sensitivity")   
+    DLT_SNSTVTY = models.FloatField("Delta_sensitivity",default=None, blank=True, null=True)   
 
-    OPTN_MTRTY = models.FloatField("Option_maturity")   
+    OPTN_MTRTY = models.FloatField("Option_maturity",default=None, blank=True, null=True)   
 
-    TNR = models.FloatField("Tenor")   
+    TNR = models.FloatField("Tenor",default=None, blank=True, null=True)   
 
-    UNDRLYNG_RSDL_MTRTY = models.FloatField("Underlying_residual_maturity")   
+    UNDRLYNG_RSDL_MTRTY = models.FloatField("Underlying_residual_maturity",default=None, blank=True, null=True)   
 
-    VG_SNSTVTY = models.FloatField("Vega_sensitivity")   
+    VG_SNSTVTY = models.FloatField("Vega_sensitivity",default=None, blank=True, null=True)   
 
-    RSK_FCTR_STNDRDSD_APPRCH_RFRNC_DT = models.DateTimeField("Risk_factor_for_standardised_approach_Reference_date")   
+    RSK_FCTR_STNDRDSD_APPRCH_RFRNC_DT = models.DateTimeField("Risk_factor_for_standardised_approach_Reference_date",default=None, blank=True, null=True)   
 
-    RSK_FCTR_STNDRDSD_APPRCH_RPRTNG_AGNT_ID = models.CharField("Risk_factor_for_standardised_approach_Reporting_agent_identifier",max_length=255)   
+    RSK_FCTR_STNDRDSD_APPRCH_RPRTNG_AGNT_ID = models.CharField("Risk_factor_for_standardised_approach_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -24111,49 +24111,49 @@ class BIRD_FNDMNTL_RVW_TRDNG_BK_STNDRD_APPRCH_RSK_MSR_OTC_PSTNS_EIL(models.Model
     class Meta:
         verbose_name = 'Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_OTC_positions'
         verbose_name_plural = 'Fundamental_review_of_the_trading_book_standard_approach_risk_measure_for_OTC_positionss'
-
+		
 class BIRD_FNNCL_CNTRCT_EIL(models.Model):
 
 
     BIRD_FNNCL_CNTRCT_EIL_uniqueID = models.CharField("BIRD_FNNCL_CNTRCT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    FNNCL_CNTRCT_ID = models.CharField("Financial_contract_identifier",max_length=255)   
+    FNNCL_CNTRCT_ID = models.CharField("Financial_contract_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    FNNCL_CNTRCT_RFRNC_DT = models.DateTimeField("Financial_contract_Reference_date")   
+    FNNCL_CNTRCT_RFRNC_DT = models.DateTimeField("Financial_contract_Reference_date",default=None, blank=True, null=True)   
 
-    FNNCL_CNTRCT_RPRTNG_AGNT_ID = models.CharField("Financial_contract_Reporting_agent_identifier",max_length=255)   
+    FNNCL_CNTRCT_RPRTNG_AGNT_ID = models.CharField("Financial_contract_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SYNDCTD_CNTRCT_ID = models.CharField("Syndicated_contract_identifier",max_length=255)   
+    SYNDCTD_CNTRCT_ID = models.CharField("Syndicated_contract_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_INCPTN = models.DateTimeField("Inception_date")   
+    DT_INCPTN = models.DateTimeField("Inception_date",default=None, blank=True, null=True)   
 
     FNNCL_CNTRCT_TYP_domain = {"1":"Single_financial_contract",
 "2":"Syndicated_financial_contract_member",
 } 
-    FNNCL_CNTRCT_TYP = models.CharField("Financial_contract_type",max_length=255, choices=FNNCL_CNTRCT_TYP_domain)   
+    FNNCL_CNTRCT_TYP = models.CharField("Financial_contract_type",max_length=255, choices=FNNCL_CNTRCT_TYP_domain,default=None, blank=True, null=True)   
 
-    DT_LGL_FNL_MTRTY = models.DateTimeField("Legal_final_maturity_date")   
+    DT_LGL_FNL_MTRTY = models.DateTimeField("Legal_final_maturity_date",default=None, blank=True, null=True)   
 
     the_BIRD_SYNDCTD_CNTRCT_EIL_1 = models.ForeignKey("BIRD_SYNDCTD_CNTRCT_EIL", models.SET_NULL,blank=True,null=True,) 
 
     class Meta:
         verbose_name = 'Financial_contract'
         verbose_name_plural = 'Financial_contracts'
-
+		
 class BIRD_FNNCL_GRNT_INSTRMNT_DBT_SCRT_DBT_SCRTY_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_FNNCL_GRNT_INSTRMNT_DBT_SCRT_DBT_SCRTY_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_FNNCL_GRNT_INSTRMNT_DBT_SCRT_DBT_SCRTY_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value")   
+    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value",default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -24162,7 +24162,7 @@ class BIRD_FNNCL_GRNT_INSTRMNT_DBT_SCRT_DBT_SCRTY_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Financial_guarantee_instrument_covering_a_Debt_security_Debt_security_assignment'
         verbose_name_plural = 'Financial_guarantee_instrument_covering_a_Debt_security_Debt_security_assignments'
-
+		
 class BIRD_GRP_CLNTS_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL(models.Model):
 
 
@@ -24212,15 +24212,15 @@ class BIRD_GRP_CLNTS_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    NTRL_PRSN_GRP_RL_TYP = models.CharField("Natural_person_group_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    NTRL_PRSN_GRP_RL_TYP = models.CharField("Natural_person_group_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    GRP_ID = models.CharField("Group_ID",max_length=255)   
+    GRP_ID = models.CharField("Group_ID",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -24229,17 +24229,17 @@ class BIRD_GRP_CLNTS_KY_MNGMNT_PRSNLL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Group_of_clients_Key_management_personnel_assignment'
         verbose_name_plural = 'Group_of_clients_Key_management_personnel_assignments'
-
+		
 class BIRD_GRP_EIL(models.Model):
 
 
     BIRD_GRP_EIL_uniqueID = models.CharField("BIRD_GRP_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    GRP_ID = models.CharField("Group_ID",max_length=255)   
+    GRP_ID = models.CharField("Group_ID",max_length=255,default=None, blank=True, null=True)   
 
-    GRP_RFRNC_DT = models.DateTimeField("Group_Reference_date")   
+    GRP_RFRNC_DT = models.DateTimeField("Group_Reference_date",default=None, blank=True, null=True)   
 
-    GRP_RPRTNG_AGNT_ID = models.CharField("Group_Reporting_agent_identifier",max_length=255)   
+    GRP_RPRTNG_AGNT_ID = models.CharField("Group_Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     GRP_TYP_domain = {"13":"Group_of_consolidated_clients",
 "14":"Accounting_consolidation_group",
@@ -24250,22 +24250,22 @@ class BIRD_GRP_EIL(models.Model):
 "17":"Foreign_institutional_unit",
 "18":"Domestic_institutional_unit",
 } 
-    TYP_GRP = models.CharField("Type_of_group",max_length=255, choices=GRP_TYP_domain)   
+    TYP_GRP = models.CharField("Type_of_group",max_length=255, choices=GRP_TYP_domain,default=None, blank=True, null=True)   
 
     class Meta:
         verbose_name = 'Group'
         verbose_name_plural = 'Groups'
-
+		
 class BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    IMMDT_PRNT_CNTRL_BNK_PRVT_SCTR_CMPNY_PRTY_ID = models.CharField("Immediate_parent_Central_bank_and_private_sector_company_Party_identifier",max_length=255)   
+    IMMDT_PRNT_CNTRL_BNK_PRVT_SCTR_CMPNY_PRTY_ID = models.CharField("Immediate_parent_Central_bank_and_private_sector_company_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -24311,16 +24311,16 @@ class BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    IMMDT_PRNT_ENTRPRS_PRTY_RL_TYP = models.CharField("Immediate_parent_enterprise_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    IMMDT_PRNT_ENTRPRS_PRTY_RL_TYP = models.CharField("Immediate_parent_enterprise_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    IMMDT_PRNT_ENTRPRS_PRTY_ID = models.CharField("Immediate_parent_enterprise_Party_identifier",max_length=255)   
+    IMMDT_PRNT_ENTRPRS_PRTY_ID = models.CharField("Immediate_parent_enterprise_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     IMMDT_PRNT_ANCRDT_INDCTR_domain = {"1":"Immediate_parent_according_to_AnaCredit",
 "2":"Not_immediate_parent_according_to_AnaCredit",
 } 
-    IMMDT_PRNT_RGLTN_867_2016_INDCTR = models.CharField("Immediate_parent_according_to_AnaCredit_indicator",max_length=255, choices=IMMDT_PRNT_ANCRDT_INDCTR_domain)   
+    IMMDT_PRNT_RGLTN_867_2016_INDCTR = models.CharField("Immediate_parent_according_to_AnaCredit_indicator",max_length=255, choices=IMMDT_PRNT_ANCRDT_INDCTR_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_EQT_INTRST = models.FloatField("Accumulated_equity_interest")   
+    ACCMLTD_EQT_INTRST = models.FloatField("Accumulated_equity_interest",default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -24329,17 +24329,17 @@ class BIRD_IMMDT_PRNT_ENTRPRS_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Immediate_parent_enterprise_assignment'
         verbose_name_plural = 'Immediate_parent_enterprise_assignments'
-
+		
 class BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -24395,14 +24395,14 @@ class BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
     INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_TYP_domain = {"1":"Over_the_counter_OTC_Credit_default_swap_Collateral_received_instrument_assignment",
 "2":"Other_Instrument_Collateral_received_instrument_assignment",
 } 
-    INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_TYP = models.CharField("Instrument_Collateral_received_instrument_assignment_type",max_length=255, choices=INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_TYP_domain)   
+    INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_TYP = models.CharField("Instrument_Collateral_received_instrument_assignment_type",max_length=255, choices=INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
-    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value")   
+    PRTCTN_ALLCTD_VL = models.BigIntegerField("Protection_allocated_value",default=None, blank=True, null=True)   
 
     the_BIRD_ABSTRCT_INSTRMNT_RL_EIL_1 = models.ForeignKey("BIRD_ABSTRCT_INSTRMNT_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -24411,34 +24411,34 @@ class BIRD_INSTRMNT_CLLTRL_RCVD_INSTRMNT_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Instrument_Collateral_received_instrument_assignment'
         verbose_name_plural = 'Instrument_Collateral_received_instrument_assignments'
-
+		
 class BIRD_INSTRMNT_EIL(models.Model):
 
 
     BIRD_INSTRMNT_EIL_uniqueID = models.CharField("BIRD_INSTRMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    BLNC_SHT_NTTNG_ID = models.CharField("Balance_sheet_netting_identifier",max_length=255)   
+    BLNC_SHT_NTTNG_ID = models.CharField("Balance_sheet_netting_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255)   
+    CRDT_FCLTY_ID = models.CharField("Credit_facility_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    FNNCL_CNTRCT_ID = models.CharField("Financial_contract_identifier",max_length=255)   
+    FNNCL_CNTRCT_ID = models.CharField("Financial_contract_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ACCNTNG_HDG_INDCTR_domain = {"1":"Accounting_hedge",
 "2":"Not_accounting_hedge",
 "0":"Not_applicable",
 } 
-    ACCNTNG_HDG_INDCTR = models.CharField("Accounting_hedge_indicator",max_length=255, choices=ACCNTNG_HDG_INDCTR_domain)   
+    ACCNTNG_HDG_INDCTR = models.CharField("Accounting_hedge_indicator",max_length=255, choices=ACCNTNG_HDG_INDCTR_domain,default=None, blank=True, null=True)   
 
     CMMRCL_RL_ESTT_LN_INDCTR_domain = {"1":"Commercial_real_estate_loan",
 "2":"Not_a_commercial_real_estate_loan",
 } 
-    CMMRCL_RL_ESTT_LN_INDCTR = models.CharField("Commercial_real_estate_loan_indicator",max_length=255, choices=CMMRCL_RL_ESTT_LN_INDCTR_domain)   
+    CMMRCL_RL_ESTT_LN_INDCTR = models.CharField("Commercial_real_estate_loan_indicator",max_length=255, choices=CMMRCL_RL_ESTT_LN_INDCTR_domain,default=None, blank=True, null=True)   
 
     CRRNCY_domain = {"YER":"Yemeni_Rial",
 "KZT":"Tenge",
@@ -24624,13 +24624,13 @@ class BIRD_INSTRMNT_EIL(models.Model):
 "MOP":"Pataca",
 "0":"Not_applicable",
 } 
-    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain)   
+    CRRNCY = models.CharField("Currency",max_length=255, choices=CRRNCY_domain,default=None, blank=True, null=True)   
 
     FDCRY_domain = {"0":"Not_applicable",
 "1":"Fiduciary_instrument",
 "2":"Non_fiduciary_instrument",
 } 
-    FDCRY = models.CharField("Fiduciary_instrument",max_length=255, choices=FDCRY_domain)   
+    FDCRY = models.CharField("Fiduciary_instrument",max_length=255, choices=FDCRY_domain,default=None, blank=True, null=True)   
 
     TYP_INSTRMNT_domain = {"3":"Instrument_resulting_directly_from_a_Financial_contract",
 "4":"Instrument_resulting_from_a_Credit_facility",
@@ -24664,14 +24664,14 @@ class BIRD_INSTRMNT_EIL(models.Model):
 "140":"Advances_that_are_not_loans_other_than_transit_items_and_suspence_items",
 "512":"Non_transferable_overnight_deposits",
 } 
-    INSTRMNT_TYP_ORGN = models.CharField("Instrument_type_by_origin",max_length=255, choices=TYP_INSTRMNT_domain)   
+    INSTRMNT_TYP_ORGN = models.CharField("Instrument_type_by_origin",max_length=255, choices=TYP_INSTRMNT_domain,default=None, blank=True, null=True)   
 
     LTGTN_STTS_domain = {"0":"Not_applicable",
 "1":"Pre_litigation",
 "2":"In_litigation",
 "3":"Not_in_litigation_pre_litigation",
 } 
-    LTGTN_STTS = models.CharField("Litigation_status",max_length=255, choices=LTGTN_STTS_domain)   
+    LTGTN_STTS = models.CharField("Litigation_status",max_length=255, choices=LTGTN_STTS_domain,default=None, blank=True, null=True)   
 
     RPYMNT_RGHTS_domain = {"0":"Not_applicable",
 "1":"On_demand_or_short_notice",
@@ -24683,19 +24683,19 @@ class BIRD_INSTRMNT_EIL(models.Model):
 "3_x3":"With_agreed_maturity_x3",
 "4_x3":"Redeemable_at_notice_x3",
 } 
-    RPYMNT_RGHTS = models.CharField("Repayment_rights",max_length=255, choices=RPYMNT_RGHTS_domain)   
+    RPYMNT_RGHTS = models.CharField("Repayment_rights",max_length=255, choices=RPYMNT_RGHTS_domain,default=None, blank=True, null=True)   
 
     RVCBL_INDCTR_domain = {"0":"Not_applicable",
 "1":"Revocable",
 "2":"Not_revocable",
 } 
-    RVCBL_INDCTR = models.CharField("Revocable_indicator",max_length=255, choices=RVCBL_INDCTR_domain)   
+    RVCBL_INDCTR = models.CharField("Revocable_indicator",max_length=255, choices=RVCBL_INDCTR_domain,default=None, blank=True, null=True)   
 
     RVLVNG_LN_INDCTR_domain = {"0":"Not_applicable",
 "1":"Revolving_loan",
 "2":"Not_revolving_loan",
 } 
-    RVLVNG_LN_INDCTR = models.CharField("Revolving_loan_indicator",max_length=255, choices=RVLVNG_LN_INDCTR_domain)   
+    RVLVNG_LN_INDCTR = models.CharField("Revolving_loan_indicator",max_length=255, choices=RVLVNG_LN_INDCTR_domain,default=None, blank=True, null=True)   
 
     SGNFCNT_ASST_CLSS_domain = {"0":"Not_applicable",
 "1":"Interest_rate",
@@ -24704,7 +24704,7 @@ class BIRD_INSTRMNT_EIL(models.Model):
 "4":"Commodity",
 "5":"Other",
 } 
-    SGNFCNT_ASST_CLSS = models.CharField("Significant_asset_class",max_length=255, choices=SGNFCNT_ASST_CLSS_domain)   
+    SGNFCNT_ASST_CLSS = models.CharField("Significant_asset_class",max_length=255, choices=SGNFCNT_ASST_CLSS_domain,default=None, blank=True, null=True)   
 
     TYP_CMMTMNT_domain = {"0":"Not_applicable",
 "10":"Loans_commitments_received",
@@ -24726,7 +24726,7 @@ class BIRD_INSTRMNT_EIL(models.Model):
 "8":"Note_issuance_facilities__NIFs_and__Revolving_underwritings_facilities__RUFs_",
 "9":"Other_off_balance_sheet_items",
 } 
-    TYP_CMMTMNT = models.CharField("Type_of_commitment",max_length=255, choices=TYP_CMMTMNT_domain)   
+    TYP_CMMTMNT = models.CharField("Type_of_commitment",max_length=255, choices=TYP_CMMTMNT_domain,default=None, blank=True, null=True)   
 
     TYP_INSTRMNT_domain = {"3":"Instrument_resulting_directly_from_a_Financial_contract",
 "4":"Instrument_resulting_from_a_Credit_facility",
@@ -24760,7 +24760,7 @@ class BIRD_INSTRMNT_EIL(models.Model):
 "140":"Advances_that_are_not_loans_other_than_transit_items_and_suspence_items",
 "512":"Non_transferable_overnight_deposits",
 } 
-    TYP_INSTRMNT = models.CharField("Type_of_instrument",max_length=255, choices=TYP_INSTRMNT_domain)   
+    TYP_INSTRMNT = models.CharField("Type_of_instrument",max_length=255, choices=TYP_INSTRMNT_domain,default=None, blank=True, null=True)   
 
     TYP_RSK_domain = {"0":"Not_Applicable",
 "1":"Interest_rate_risk",
@@ -24770,31 +24770,31 @@ class BIRD_INSTRMNT_EIL(models.Model):
 "5":"Commodities_risk",
 "6":"Risk_other_than_Interest_rate_risk_Equity_risk_Foreign_exchange_and_gold_risk_Credit_risk_Commodities_risk",
 } 
-    TYP_RSK = models.CharField("Type_of_risk",max_length=255, choices=TYP_RSK_domain)   
+    TYP_RSK = models.CharField("Type_of_risk",max_length=255, choices=TYP_RSK_domain,default=None, blank=True, null=True)   
 
-    ACCMLTD_CVRG_RT = models.FloatField("Accumulated_coverage_ratio")   
+    ACCMLTD_CVRG_RT = models.FloatField("Accumulated_coverage_ratio",default=None, blank=True, null=True)   
 
-    CRRNT_LTV_RT = models.FloatField("Current_loan_to_value_ratio")   
+    CRRNT_LTV_RT = models.FloatField("Current_loan_to_value_ratio",default=None, blank=True, null=True)   
 
-    CSH_RSRV_AMNT = models.BigIntegerField("Cash_reserve_amount")   
+    CSH_RSRV_AMNT = models.BigIntegerField("Cash_reserve_amount",default=None, blank=True, null=True)   
 
-    DT_CSH_RSRV_MTRTY = models.DateTimeField("Cash_reserve_maturity_date")   
+    DT_CSH_RSRV_MTRTY = models.DateTimeField("Cash_reserve_maturity_date",default=None, blank=True, null=True)   
 
-    DT_INCPTN = models.DateTimeField("Inception_date")   
+    DT_INCPTN = models.DateTimeField("Inception_date",default=None, blank=True, null=True)   
 
-    DT_LGL_FNL_MTRTY = models.DateTimeField("Legal_final_maturity_date")   
+    DT_LGL_FNL_MTRTY = models.DateTimeField("Legal_final_maturity_date",default=None, blank=True, null=True)   
 
-    DT_ORGNL_CSH_RSRV_AMNT = models.DateTimeField("Date_of_original_cash_reserve_amount")   
+    DT_ORGNL_CSH_RSRV_AMNT = models.DateTimeField("Date_of_original_cash_reserve_amount",default=None, blank=True, null=True)   
 
-    DT_STTLMNT = models.DateTimeField("Settlement_date")   
+    DT_STTLMNT = models.DateTimeField("Settlement_date",default=None, blank=True, null=True)   
 
-    NMNL_AMNT = models.BigIntegerField("Nominal_amount")   
+    NMNL_AMNT = models.BigIntegerField("Nominal_amount",default=None, blank=True, null=True)   
 
-    NTNL_AMNT = models.BigIntegerField("Notional_amount")   
+    NTNL_AMNT = models.BigIntegerField("Notional_amount",default=None, blank=True, null=True)   
 
-    OFF_BLNC_SHT_AMNT = models.BigIntegerField("Off_balance_sheet_amount")   
+    OFF_BLNC_SHT_AMNT = models.BigIntegerField("Off_balance_sheet_amount",default=None, blank=True, null=True)   
 
-    ORGNL_CSH_RSRV_AMNT = models.BigIntegerField("Original_cash_reserve_amount")   
+    ORGNL_CSH_RSRV_AMNT = models.BigIntegerField("Original_cash_reserve_amount",default=None, blank=True, null=True)   
 
     the_BIRD_CRDT_FCLTY_EIL_1 = models.ForeignKey("BIRD_CRDT_FCLTY_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -24805,19 +24805,19 @@ class BIRD_INSTRMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Instrument'
         verbose_name_plural = 'Instruments'
-
+		
 class BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    PRTY_ID = models.CharField("Party_identifier",max_length=255)   
+    PRTY_ID = models.CharField("Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -24863,7 +24863,7 @@ class BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    PRTY_RL_TYP = models.CharField("Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
     INSTRMNT_ENTTY_RL_ASSGNMNT_TYP_domain = {"10":"Other_commitment_Debtor_assignment",
 "11":"Over_the_counter_OTC_Derivative_Buyer_assignment",
@@ -24891,22 +24891,22 @@ class BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL(models.Model):
 "8":"Other_commitment_Creditor_assignment",
 "9":"Repurchase_agreement_Seller_assignment",
 } 
-    INSTRMNT_ENTTY_RL_ASSGNMNT_TYP = models.CharField("Instrument_Entity_role_assignment_type",max_length=255, choices=INSTRMNT_ENTTY_RL_ASSGNMNT_TYP_domain)   
+    INSTRMNT_ENTTY_RL_ASSGNMNT_TYP = models.CharField("Instrument_Entity_role_assignment_type",max_length=255, choices=INSTRMNT_ENTTY_RL_ASSGNMNT_TYP_domain,default=None, blank=True, null=True)   
 
     LTGTN_STTS_domain = {"0":"Not_applicable",
 "1":"Pre_litigation",
 "2":"In_litigation",
 "3":"Not_in_litigation_pre_litigation",
 } 
-    LTGTN_STTS = models.CharField("Litigation_status",max_length=255, choices=LTGTN_STTS_domain)   
+    LTGTN_STTS = models.CharField("Litigation_status",max_length=255, choices=LTGTN_STTS_domain,default=None, blank=True, null=True)   
 
     MN_DBTR_INDCTR_domain = {"0":"Not_applicable",
 "1":"Main_debtor",
 "2":"Not_main_debtor",
 } 
-    MN_DBTR_INDCTR = models.CharField("Main_debtor_indicator",max_length=255, choices=MN_DBTR_INDCTR_domain)   
+    MN_DBTR_INDCTR = models.CharField("Main_debtor_indicator",max_length=255, choices=MN_DBTR_INDCTR_domain,default=None, blank=True, null=True)   
 
-    JNT_LBLTY_AMNT = models.BigIntegerField("Joint_liability_amount")   
+    JNT_LBLTY_AMNT = models.BigIntegerField("Joint_liability_amount",default=None, blank=True, null=True)   
 
     the_BIRD_ENTTY_RL_EIL_1 = models.ForeignKey("BIRD_ENTTY_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -24915,15 +24915,15 @@ class BIRD_INSTRMNT_ENTTY_RL_ASSGNMNT_EIL(models.Model):
     class Meta:
         verbose_name = 'Instrument_Entity_role_assignment'
         verbose_name_plural = 'Instrument_Entity_role_assignments'
-
+		
 class BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 
 
     BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL_uniqueID = models.CharField("BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -24969,11 +24969,11 @@ class BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    BYR_PRTY_RL_TYP = models.CharField("Buyer_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    SCRTY_ID = models.CharField("Security_identifier",max_length=255)   
+    SCRTY_ID = models.CharField("Security_identifier",max_length=255,default=None, blank=True, null=True)   
 
     EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain = {"4":"Exchange_tradable_derivative_position_as_a_hedge",
 "6":"Non_balance_sheet_recognised_exchange_tradable_derivative_liability_position",
@@ -24982,7 +24982,7 @@ class BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "10":"Non_fair_valued_balance_sheet_recognised_exchange_tradable_derivative_asset_position",
 "9":"Fair_valued_balance_sheet_recognised_exchange_tradable_derivative_asset_position",
 } 
-    EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP = models.CharField("Exchange_tradable_derivative_position_role_type",max_length=255, choices=EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain)   
+    EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP = models.CharField("Exchange_tradable_derivative_position_role_type",max_length=255, choices=EXCHNG_TRDBL_DRVTV_PSTN_RL_TYP_domain,default=None, blank=True, null=True)   
 
     ENTTY_RL_TYP_domain = {"10":"Securitisation_special_purpose_entity_SSPE_",
 "11":"Master_netting_counterparty",
@@ -25028,11 +25028,11 @@ class BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
 "2":"Organisation_role",
 "3":"Party_role",
 } 
-    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain)   
+    SLLR_PRTY_RL_TYP = models.CharField("Seller_Party_role_type",max_length=255, choices=ENTTY_RL_TYP_domain,default=None, blank=True, null=True)   
 
-    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255)   
+    SLLR_PRTY_ID = models.CharField("Seller_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255)   
+    BYR_PRTY_ID = models.CharField("Buyer_Party_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL_1 = models.ForeignKey("BIRD_EXCHNG_TRDBL_DRVTV_POSTN_RL_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -25041,19 +25041,19 @@ class BIRD_INSTRMNT_HDGD_EXCHNG_TRDBL_DRVTV_EIL(models.Model):
     class Meta:
         verbose_name = 'Instrument_hedged_by_Exchange_tradable_derivative_position'
         verbose_name_plural = 'Instrument_hedged_by_Exchange_tradable_derivative_positions'
-
+		
 class BIRD_INSTRMNT_HDGD_OTC_DRVTV_EIL(models.Model):
 
 
     BIRD_INSTRMNT_HDGD_OTC_DRVTV_EIL_uniqueID = models.CharField("BIRD_INSTRMNT_HDGD_OTC_DRVTV_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    OTC_DRVTV_INSTRMNT_ID = models.CharField("Over_the_counter_OTC_Derivative_Instrument_identifier",max_length=255)   
+    OTC_DRVTV_INSTRMNT_ID = models.CharField("Over_the_counter_OTC_Derivative_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    HDGD_INSTRMNT_ID = models.CharField("Hedged_Instrument_identifier",max_length=255)   
+    HDGD_INSTRMNT_ID = models.CharField("Hedged_Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     ABSTRCT_INSTRMNT_RL_TYP_domain = {"10":"Non_balance_sheet_recognised_financial_asset_instrument",
 "12":"Non_balance_sheet_recognised_financial_liability_instrument",
@@ -25109,7 +25109,7 @@ class BIRD_INSTRMNT_HDGD_OTC_DRVTV_EIL(models.Model):
 "48":"Past_due_financial_asset_instrument",
 "49":"Not_past_due_financial_asset_instrument",
 } 
-    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain)   
+    TYP_ABSTRCT_INSTRMNT_RL = models.CharField("Type_of_abstract_intrument_role",max_length=255, choices=ABSTRCT_INSTRMNT_RL_TYP_domain,default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
@@ -25118,19 +25118,19 @@ class BIRD_INSTRMNT_HDGD_OTC_DRVTV_EIL(models.Model):
     class Meta:
         verbose_name = 'Instrument_hedged_by_Over_the_counter_OTC_Derivative'
         verbose_name_plural = 'Instrument_hedged_by_Over_the_counter_OTC_Derivatives'
-
+		
 class BIRD_INSTRMNT_PRTCN_ARRNGMNT_ASSGNMNT_EIL(models.Model):
 
 
     BIRD_INSTRMNT_PRTCN_ARRNGMNT_ASSGNMNT_EIL_uniqueID = models.CharField("BIRD_INSTRMNT_PRTCN_ARRNGMNT_ASSGNMNT_EIL_uniqueID",max_length=255, primary_key=True)   
 
-    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255)   
+    PRTCTN_ID = models.CharField("Protection_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255)   
+    INSTRMNT_ID = models.CharField("Instrument_identifier",max_length=255,default=None, blank=True, null=True)   
 
-    DT_RFRNC = models.DateTimeField("Reference_date")   
+    DT_RFRNC = models.DateTimeField("Reference_date",default=None, blank=True, null=True)   
 
-    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255)   
+    RPRTNG_AGNT_ID = models.CharField("Reporting_agent_identifier",max_length=255,default=None, blank=True, null=True)   
 
     the_BIRD_INSTRMNT_EIL_1 = models.ForeignKey("BIRD_INSTRMNT_EIL", models.SET_NULL,blank=True,null=True,) 
 
